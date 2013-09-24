@@ -20,6 +20,9 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   auth.rst
+   buy.rst
+
 
 Indices and tables
 ==================
