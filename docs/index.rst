@@ -1,4 +1,4 @@
-Bagpuss
+Zippy
 ===================================
 
 .. image:: http://farm1.staticflickr.com/9/12630615_02c729cd55.jpg
