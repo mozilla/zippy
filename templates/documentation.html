@@ -1,0 +1,11 @@
+{% extends "templates/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+{{ content }}
+
+<h2>Current result:</h2>
+<pre>{{ result }}</pre>
+
+<p><a href="/">← Back to home</a></p>
+{% endblock %}
