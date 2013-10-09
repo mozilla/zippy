@@ -18,7 +18,7 @@
     },
     "scripts": {
         "start": "node main.js 2>&1 | bunyan",
-        "test": "nodeunit test | bunyan"
+        "test": "nodeunit test"
     },
     "author": "Mozilla",
     "license": "MPL 2.0"
