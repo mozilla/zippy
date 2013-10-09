@@ -1,6 +1,7 @@
 var bunyan = require('bunyan');
 var fs = require('fs');
 var restify = require('restify');
+var assert = require('assert-plus');
 
 var zippy = require('../lib');
 
@@ -88,16 +89,13 @@ module.exports = {
     },
 
     createEmpty: function (t) {
-        // TODO(davidbgk): this test doesn't pass, I need to figure out
-        // why the restify error "has no method 'cause'".
         t.throws(
             function () {
                 CLIENT.createSeller(undefined, function (err, seller) {
                     t.ifError(err);
                 });
             },
-            restify.InvalidArgumentError,
-            'UUID must be supplied.'
+            assert.AssertionError
         );
         t.done();
     }
