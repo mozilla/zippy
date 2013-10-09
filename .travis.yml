@@ -1,5 +1,4 @@
 language: node_js
- - "2.7"
 node_js:
  - 0.10.10
 notifications:
