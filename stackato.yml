@@ -1,0 +1,6 @@
+name: zippy
+
+framework:
+  type: node
+
+mem: 64M
