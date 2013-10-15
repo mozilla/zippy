@@ -20,6 +20,7 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   install.rst
    tests.rst
    auth.rst
    buy.rst

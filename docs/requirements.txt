@@ -1,0 +1,5 @@
+# These Python packages are required to build the documentation from source.
+# See install.txt for details on how to build docs.
+Pygments>=1.6
+Sphinx>=1.1.3
+docutils>=0.9.1
