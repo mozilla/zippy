@@ -1,13 +1,8 @@
-var bunyan = require('bunyan');
-var fs = require('fs');
-var restify = require('restify');
 var assert = require('assert-plus');
+var test = require('../');
 
-var zippy = require('../lib');
-
-var CLIENT;
-var SERVER;
-var SOCK = '.zippy_sock';
+var CLIENT = test.CLIENT;
+var SERVER = test.SERVER;
 
 function randomUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -17,39 +12,6 @@ function randomUUID() {
 }
 
 module.exports = {
-    setUp: function (cb) {
-        var log = bunyan.createLogger({
-            name: 'zippy_unit_test',
-            level: process.env.LOG_LEVEL || 'info',
-            serializers: restify.bunyan.serializers,
-            stream: process.stdout,
-        });
-
-        // TODO(davidbgk): find an easy way to launch tests against
-        // an external provider.
-        SERVER = zippy.createServer({
-            log: log.child({component: 'server'}, true),
-            noAudit: true,
-        });
-
-        SERVER.listen(SOCK, function () {
-            CLIENT = zippy.createClient({
-                log: log.child({component: 'client'}, true),
-                socketPath: SOCK,
-            });
-            cb();
-        });
-    },
-
-    tearDown: function (cb) {
-        SERVER.once('close', function () {
-            fs.unlink(SOCK, function (err) {
-                cb();
-            });
-        });
-        SERVER.close();
-    },
-
     listEmpty: function (t) {
         CLIENT.retrieveSellers(function (err, sellers) {
             t.ifError(err);

@@ -10,6 +10,7 @@
     "marked": "0.2.9",
     "nunjucks": "0.1.10",
     "posix-getopt": "1.0.0",
+    "q": "0.9.7",
     "restify": "2.x",
     "save": "0.0.19"
   },
