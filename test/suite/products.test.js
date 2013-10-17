@@ -1,15 +1,19 @@
 var assert = require('assert-plus');
+var request = require('supertest');
 var test = require('../');
 
-var CLIENT = test.CLIENT;
-var SERVER = test.SERVER;
+var zippy = require('../../lib');
+
 
 exports.postWithoutSeller = function(t) {
-  // Any ideas how to stop this from throwing the exception?
-  // it throws MissingParameterError
-  CLIENT.client.post('/products/', {}, function (err, req, res, obj) {
-    t.ifError(err);
-    t.equal(obj.code, 'MissingParameter');
-    t.done();
-  });
+  request(test.app)
+    .post('/products/')
+    .send({})
+    .set('Accept', 'application/json')
+    .expect(409)
+    .end(function(err, res) {
+      t.ifError(err);
+      t.equal(res.body.code, 'MissingParameter');
+      t.done();
+    });
 }
