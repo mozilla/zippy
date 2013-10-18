@@ -8,8 +8,10 @@
     "assert-plus": "0.1.2",
     "bunyan": "0.21.1",
     "marked": "0.2.9",
+    "node-uuid": "1.4.1",
     "nunjucks": "0.1.10",
     "posix-getopt": "1.0.0",
+    "q": "0.9.7",
     "restify": "2.x",
     "save": "0.0.19"
   },
@@ -20,6 +22,7 @@
     "grunt-contrib-stylus": "~0.8.0",
     "grunt-contrib-watch": "~0.5.3",
     "nodeunit": "0.8.1",
+    "supertest": "0.8.0",
     "stylus": "0.32.x"
   },
   "scripts": {

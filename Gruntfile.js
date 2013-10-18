@@ -5,9 +5,6 @@ module.exports = function(grunt) {
     jshint: {
       files: ['Gruntfile.js', 'main.js', 'statics/**/*.js', 'lib/*.js']
     },
-    nodeunit: {
-      all: ['test/*.test.js']
-    },
     stylus: {
       options: {
         compress: false,
@@ -41,13 +38,17 @@ module.exports = function(grunt) {
     require('./main.js')(options);
   });
 
+  grunt.registerTask('runtests', 'run all test files', function() {
+    require('./test/runtests')({onStop: this.async(), reporter: 'grunt'});
+  });
+
   //grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('test', ['jshint', 'nodeunit']);
+  grunt.registerTask('test', ['jshint', 'runtests']);
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('start', ['stylus', 'server', 'watch']);
 };
