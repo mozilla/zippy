@@ -89,23 +89,23 @@ function parseOptions() {
         }
     }
 
+    LOG.debug(opts, 'command line arguments parsed');
     return (opts);
 }
 
 
 function usage(msg) {
-    if (msg)
+    if (msg) {
         console.error(msg);
-
+    }
     var str = 'usage: ' + NAME + ' [-v] [-d dir] [-p port] [-u user] [-z password]';
     console.error(str);
     process.exit(msg ? 1 : 0);
 }
 
 
-(function main() {
-    var options = parseOptions();
-    LOG.debug(options, 'command line arguments parsed');
+function main(options) {
+    options = options || parseOptions();
     var server = zippy.createServer({
         log: LOG,
         options: options,
@@ -113,4 +113,11 @@ function usage(msg) {
     server.listen((options.port || 8080), function onListening() {
         LOG.info('listening at %s', server.url);
     });
-})();
+}
+
+// A rough node equivalent of python's if __name__ == "__main__".
+if (!module.parent) {
+    main();
+} else {
+    module.exports = main;
+}

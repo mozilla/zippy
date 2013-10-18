@@ -14,11 +14,37 @@ packages like this::
 
     npm install
 
+You'll also want to install grunt-cli globally::
+
+    npm install -g grunt-cli
+
+This will put the grunt command in your system path, allowing it to be run from any directory.
+
+.. note::
+
+    Installing grunt-cli does not install the Grunt task runner! The job of the Grunt CLI is
+    simple: run the version of Grunt which has been installed next to a Gruntfile. This allows
+    multiple versions of Grunt to be installed on the same machine simultaneously.
+
 To start a development server type this::
 
-    npm start
+    grunt server
 
 You can then browse the site at http://0.0.0.0:8080
+
+If you want to change the port run::
+
+    grunt server --port=9999
+
+If you're developing then you'll probably also want grunt to look after re-building css etc.
+To do that run::
+
+    grunt server watch
+
+This will run both the local server and watch for changes. At the moment this auto runs:
+
+ * stylus
+ * jshint
 
 See :ref:`testing` for instructions on how to run tests.
 

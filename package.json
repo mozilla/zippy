@@ -1,25 +1,30 @@
 {
-    "name": "zippy",
-    "version": "0.0.1",
-    "private": true,
-    "description": "A reference implementation for payment providers for the Firefox Marketplace.",
-    "main": "main.js",
-    "dependencies": {
-        "restify": "2.x",
-        "assert-plus": "0.1.2",
-        "bunyan": "0.21.1",
-        "posix-getopt": "1.0.0",
-        "marked": "0.2.9",
-        "save": "0.0.19",
-        "nunjucks": "0.1.10"
-    },
-    "devDependencies": {
-        "nodeunit": "0.8.1"
-    },
-    "scripts": {
-        "start": "node main.js 2>&1 | bunyan",
-        "test": "nodeunit test"
-    },
-    "author": "Mozilla",
-    "license": "MPL 2.0"
+  "name": "zippy",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A reference implementation for payment providers for the Firefox Marketplace.",
+  "main": "main.js",
+  "dependencies": {
+    "assert-plus": "0.1.2",
+    "bunyan": "0.21.1",
+    "marked": "0.2.9",
+    "nunjucks": "0.1.10",
+    "posix-getopt": "1.0.0",
+    "restify": "2.x",
+    "save": "0.0.19"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.1",
+    "grunt-contrib-stylus": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "nodeunit": "0.8.1",
+    "stylus": "0.32.x"
+  },
+  "scripts": {
+    "test": "node -e \"require('grunt').cli()\" null test"
+  },
+  "author": "Mozilla",
+  "license": "MPL 2.0"
 }
