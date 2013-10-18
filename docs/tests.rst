@@ -6,9 +6,11 @@ Testing
 Automated tests
 ---------------
 
-Run::
+To start the tests run::
 
-    npm test
+    grunt test
+
+This will run both jshint and nodeunit.
 
 Other tests
 -----------
