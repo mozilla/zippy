@@ -12,25 +12,25 @@ var NAME = 'zippyapp';
 // In true UNIX fashion, debug messages go to stderr, and audit records go
 // to stdout, so you can split them as you like in the shell
 var LOG = bunyan.createLogger({
-    name: NAME,
-    streams: [ {
-        level: (process.env.LOG_LEVEL || 'info'),
-        stream: process.stderr,
-    }, {
-        // This ensures that if we get a WARN or above all debug records
-        // related to that request are spewed to stderr - makes it nice
-        // filter out debug messages in prod, but still dump on user
-        // errors so you can debug problems
-        level: 'debug',
-        type: 'raw',
-        stream: new restify.bunyan.RequestCaptureStream({
-            level: bunyan.WARN,
-            maxRecords: 100,
-            maxRequestIds: 1000,
-            stream: process.stderr,
-        })
-    } ],
-    serializers: restify.bunyan.serializers,
+  name: NAME,
+  streams: [ {
+    level: (process.env.LOG_LEVEL || 'info'),
+    stream: process.stderr,
+  }, {
+    // This ensures that if we get a WARN or above all debug records
+    // related to that request are spewed to stderr - makes it nice
+    // filter out debug messages in prod, but still dump on user
+    // errors so you can debug problems
+    level: 'debug',
+    type: 'raw',
+    stream: new restify.bunyan.RequestCaptureStream({
+      level: bunyan.WARN,
+      maxRecords: 100,
+      maxRequestIds: 1000,
+      stream: process.stderr,
+    })
+  } ],
+  serializers: restify.bunyan.serializers,
 });
 
 
@@ -49,75 +49,75 @@ var LOG = bunyan.createLogger({
  * And the log level will be set to TRACE.
  */
 function parseOptions() {
-    var option;
-    var opts = {};
-    var parser = new getopt.BasicParser('hvd:p:u:z:', process.argv);
+  var option;
+  var opts = {};
+  var parser = new getopt.BasicParser('hvd:p:u:z:', process.argv);
 
-    while ((option = parser.getopt()) !== undefined) {
-        switch (option.option) {
-            case 'd':
-                opts.directory = path.normalize(option.optarg);
-                break;
+  while ((option = parser.getopt()) !== undefined) {
+    switch (option.option) {
+      case 'd':
+        opts.directory = path.normalize(option.optarg);
+        break;
 
-            case 'h':
-                usage();
-                break;
+      case 'h':
+        usage();
+        break;
 
-            case 'p':
-                opts.port = parseInt(option.optarg, 10);
-                break;
+      case 'p':
+        opts.port = parseInt(option.optarg, 10);
+        break;
 
-            case 'u':
-                opts.user = option.optarg;
-                break;
+      case 'u':
+        opts.user = option.optarg;
+        break;
 
-            case 'v':
-                // Allows us to set -vvv -> this little hackery
-                // just ensures that we're never < TRACE
-                LOG.level(Math.max(bunyan.TRACE, (LOG.level() - 10)));
-                if (LOG.level() <= bunyan.DEBUG)
-                    LOG = LOG.child({src: true});
-                break;
+      case 'v':
+        // Allows us to set -vvv -> this little hackery
+        // just ensures that we're never < TRACE
+        LOG.level(Math.max(bunyan.TRACE, (LOG.level() - 10)));
+        if (LOG.level() <= bunyan.DEBUG)
+          LOG = LOG.child({src: true});
+        break;
 
-            case 'z':
-                opts.password = option.optarg;
-                break;
+      case 'z':
+        opts.password = option.optarg;
+        break;
 
-            default:
-                usage('invalid option: ' + option.option);
-                break;
-        }
+      default:
+        usage('invalid option: ' + option.option);
+        break;
     }
+  }
 
-    LOG.debug(opts, 'command line arguments parsed');
-    return (opts);
+  LOG.debug(opts, 'command line arguments parsed');
+  return (opts);
 }
 
 
 function usage(msg) {
-    if (msg) {
-        console.error(msg);
-    }
-    var str = 'usage: ' + NAME + ' [-v] [-d dir] [-p port] [-u user] [-z password]';
-    console.error(str);
-    process.exit(msg ? 1 : 0);
+  if (msg) {
+    console.error(msg);
+  }
+  var str = 'usage: ' + NAME + ' [-v] [-d dir] [-p port] [-u user] [-z password]';
+  console.error(str);
+  process.exit(msg ? 1 : 0);
 }
 
 
 function main(options) {
-    options = options || parseOptions();
-    var server = zippy.createServer({
-        log: LOG,
-        options: options,
-    });
-    server.listen((options.port || 8080), function onListening() {
-        LOG.info('listening at %s', server.url);
-    });
+  options = options || parseOptions();
+  var server = zippy.createServer({
+    log: LOG,
+    options: options,
+  });
+  server.listen((options.port || 8080), function onListening() {
+    LOG.info('listening at %s', server.url);
+  });
 }
 
 // A rough node equivalent of python's if __name__ == "__main__".
 if (!module.parent) {
-    main();
+  main();
 } else {
-    module.exports = main;
+  module.exports = main;
 }
