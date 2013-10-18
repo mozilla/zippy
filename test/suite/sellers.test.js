@@ -1,4 +1,5 @@
 var assert = require('assert-plus');
+var sellers = require('../../lib/sellers');
 var test = require('../');
 
 var CLIENT = test.CLIENT;
@@ -12,6 +13,14 @@ function randomUUID() {
 }
 
 module.exports = {
+    setUp: function(done) {
+        sellers.sellers.deleteMany({}, done);
+    },
+
+    tearDown: function(done) {
+        done();
+    },
+
     listEmpty: function (t) {
         CLIENT.retrieveSellers(function (err, sellers) {
             t.ifError(err);
@@ -37,15 +46,18 @@ module.exports = {
     },
 
     listAndGet: function (t) {
-        CLIENT.retrieveSellers(function (err, sellers) {
-            t.ifError(err);
-            t.ok(sellers);
-            t.ok(Array.isArray(sellers));
-            t.equal(sellers.length, 1);
-            CLIENT.retrieveSeller(sellers[0].uuid, function (err2, seller) {
-                t.ifError(err2);
-                t.ok(seller);
-                t.done();
+        sellers.sellers.create({uuid: randomUUID()}, function(createErr, seller) {
+            t.ifError(createErr);
+            CLIENT.retrieveSellers(function (err, sellers) {
+                t.ifError(err);
+                t.ok(sellers);
+                t.ok(Array.isArray(sellers));
+                t.equal(sellers.length, 1);
+                CLIENT.retrieveSeller(sellers[0].uuid, function (err2, seller) {
+                    t.ifError(err2);
+                    t.ok(seller);
+                    t.done();
+                });
             });
         });
     },
