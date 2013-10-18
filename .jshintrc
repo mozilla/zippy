@@ -1,0 +1,28 @@
+{
+  "boss": true,
+  "browser": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "es5": false,
+  "esnext": true,
+  "expr": true,
+  "forin": false,
+  "indent": 2,
+  "laxbreak": true,
+  "laxcomma": true,
+  "maxerr": 100,
+  "node": true,
+  "noarg": true,
+  "passfail": false,
+  "predef": [
+    "exports",
+    "require",
+    "process"
+  ],
+  "shadow": false,
+  "strict": false,
+  "supernew": false,
+  "undef": true,
+  "unused": true,
+  "white": false
+}

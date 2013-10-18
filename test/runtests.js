@@ -13,7 +13,7 @@ module.exports = function(opt) {
       }
     });
   });
-}
+};
 
 if (!module.parent) {
   // Running as the main script.

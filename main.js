@@ -1,4 +1,3 @@
-var fs = require('fs');
 var path = require('path');
 
 var bunyan = require('bunyan');
@@ -55,37 +54,37 @@ function parseOptions() {
 
   while ((option = parser.getopt()) !== undefined) {
     switch (option.option) {
-      case 'd':
-        opts.directory = path.normalize(option.optarg);
-        break;
+    case 'd':
+      opts.directory = path.normalize(option.optarg);
+      break;
 
-      case 'h':
-        usage();
-        break;
+    case 'h':
+      usage();
+      break;
 
-      case 'p':
-        opts.port = parseInt(option.optarg, 10);
-        break;
+    case 'p':
+      opts.port = parseInt(option.optarg, 10);
+      break;
 
-      case 'u':
-        opts.user = option.optarg;
-        break;
+    case 'u':
+      opts.user = option.optarg;
+      break;
 
-      case 'v':
-        // Allows us to set -vvv -> this little hackery
-        // just ensures that we're never < TRACE
-        LOG.level(Math.max(bunyan.TRACE, (LOG.level() - 10)));
-        if (LOG.level() <= bunyan.DEBUG)
-          LOG = LOG.child({src: true});
-        break;
+    case 'v':
+      // Allows us to set -vvv -> this little hackery
+      // just ensures that we're never < TRACE
+      LOG.level(Math.max(bunyan.TRACE, (LOG.level() - 10)));
+      if (LOG.level() <= bunyan.DEBUG)
+        LOG = LOG.child({src: true});
+      break;
 
-      case 'z':
-        opts.password = option.optarg;
-        break;
+    case 'z':
+      opts.password = option.optarg;
+      break;
 
-      default:
-        usage('invalid option: ' + option.option);
-        break;
+    default:
+      usage('invalid option: ' + option.option);
+      break;
     }
   }
 

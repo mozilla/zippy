@@ -3,7 +3,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      files: ['Gruntfile.js', 'main.js', 'statics/**/*.js', 'lib/*.js']
+      options: { jshintrc: __dirname + '/.jshintrc' },
+      files: ['Gruntfile.js', 'main.js', 'statics/**/*.js', 'lib/*.js', 'test/*.js']
     },
     stylus: {
       options: {
@@ -34,7 +35,7 @@ module.exports = function(grunt) {
   grunt.registerTask('server', 'Start zippy server', function() {
     var tasks = grunt.cli.tasks;
     // Go async if run standalone without a watch task.
-    if (tasks.indexOf('watch') == -1 && tasks.indexOf('start') == -1) {
+    if (tasks.indexOf('watch') === -1 && tasks.indexOf('start') === -1) {
       this.async();
     }
     var options = {

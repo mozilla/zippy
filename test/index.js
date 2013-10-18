@@ -33,7 +33,7 @@ function createApp() {
 exports.start = function(cb) {
   exports.app = createApp();  // not listening to a socket.
 
-  fs.unlink(SOCK, function (err) {
+  fs.unlink(SOCK, function () {
     exports.SERVER = createApp();
 
     exports.SERVER.listen(SOCK, function () {
@@ -49,7 +49,7 @@ exports.start = function(cb) {
 exports.stop = function(cb) {
   exports.app.close();
   exports.SERVER.once('close', function () {
-    fs.unlink(SOCK, function (err) {
+    fs.unlink(SOCK, function () {
       if (cb) {
         cb();
       }
