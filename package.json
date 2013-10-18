@@ -22,7 +22,7 @@
     "grunt-contrib-stylus": "~0.8.0",
     "grunt-contrib-watch": "~0.5.3",
     "nodeunit": "0.8.1",
-    "supertest": "0.8.0"
+    "supertest": "0.8.0",
     "stylus": "0.32.x"
   },
   "scripts": {
