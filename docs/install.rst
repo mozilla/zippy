@@ -36,10 +36,16 @@ If you want to change the port run::
 
     grunt server --port=9999
 
-If you're developing then you'll probably also want grunt to look after re-building css etc.
+If you're developing then you'll probably also want grunt to look after re-building css
+and linting js as you go.
 To do that run::
 
-    grunt server watch
+    grunt start
+
+.. note::
+
+    This just wraps up `grunt server watch` in a single convenient command and runs stylus so
+    that if you don't have the css already generated it gets built for you.
 
 This will run both the local server and watch for changes. At the moment this auto runs:
 
