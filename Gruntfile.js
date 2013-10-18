@@ -49,4 +49,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['jshint', 'nodeunit']);
   grunt.registerTask('default', ['jshint', 'stylus']);
+  grunt.registerTask('start', ['stylus', 'server', 'watch']);
 };
