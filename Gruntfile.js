@@ -31,7 +31,12 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('server', 'Start a custom web server', function() {
+  grunt.registerTask('server', 'Start zippy server', function() {
+    var tasks = grunt.cli.tasks;
+    // Go async if run standalone without a watch task.
+    if (tasks.indexOf('watch') == -1 && tasks.indexOf('start') == -1) {
+      this.async();
+    }
     var options = {
       port: grunt.option('port')
     };
