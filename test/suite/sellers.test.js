@@ -13,6 +13,7 @@ function randomUUID() {
 }
 
 module.exports = {
+
   setUp: function(done) {
     sellers.sellers.deleteMany({}, done);
   },
@@ -21,7 +22,7 @@ module.exports = {
     done();
   },
 
-  listEmpty: function (t) {
+  testListEmpty: function (t) {
     CLIENT.retrieveSellers(function (err, sellers) {
       t.ifError(err);
       t.ok(sellers);
@@ -32,7 +33,7 @@ module.exports = {
     });
   },
 
-  create: function (t) {
+  testCreate: function (t) {
     var uuid = randomUUID();
     CLIENT.createSeller(uuid, function (err, seller) {
       t.ifError(err);
@@ -45,7 +46,7 @@ module.exports = {
     });
   },
 
-  listAndGet: function (t) {
+  testListAndGet: function (t) {
     sellers.sellers.create({uuid: randomUUID()}, function(createErr, seller) {
       t.ifError(createErr);
       CLIENT.retrieveSellers(function (err, sellers) {
@@ -62,7 +63,7 @@ module.exports = {
     });
   },
 
-  createEmpty: function (t) {
+  testCreateEmpty: function (t) {
     t.throws(
       function () {
         CLIENT.createSeller(undefined, function (err, seller) {
