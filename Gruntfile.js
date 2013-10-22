@@ -53,8 +53,12 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('runtests', 'run all test files', function() {
-    require('./test/runtests')({onStop: this.async(), reporter: 'grunt'});
+  grunt.registerTask('runtests', 'Run all test files or just one if you specify its filename.', function(testName) {
+    require('./test/runtests')({
+      onStop: this.async(),
+      reporter: 'grunt',
+      testName: testName
+    });
   });
 
   grunt.loadNpmTasks('grunt-nodemon');
