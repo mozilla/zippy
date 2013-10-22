@@ -1,6 +1,6 @@
 # Welcome to **Zippy**: a reference implementation for payment providers for the Firefox Marketplace.
 
-This is an example of what you have to implement from a payment provider side in order to integrate easily with the [Firefox Marketplace](http://marketplace.mozilla.org/). This reference implementation uses JavaScript/Nodejs but you're free to use whatever language/framework you want to achieve this.
+This is an example of what you have to implement from a payment provider side in order to integrate easily with the [Firefox Marketplace](https://marketplace.firefox.com). This reference implementation uses JavaScript/Nodejs but you're free to use whatever language/framework you want to achieve this.
 
 ## Concepts & URLs
 
