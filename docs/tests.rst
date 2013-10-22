@@ -12,13 +12,17 @@ To start the tests run::
 
 This will run both jshint and nodeunit.
 
-To test just one file from the suite::
+To test just one suite::
 
-    grunt runtests:products
+    grunt test --testsuite products
 
 This will only launch tests from the file `suite/products.test.js`.
 
-Other tests
------------
+To test just one test from the suite::
 
-todo
+    grunt test --testsuite products --test postOk
+
+This will also run all tests that match::
+
+    grunt test --test postOk
+
