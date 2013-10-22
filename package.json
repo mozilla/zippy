@@ -24,7 +24,9 @@
     "grunt-contrib-watch": "~0.5.3",
     "nodeunit": "0.8.1",
     "supertest": "0.8.0",
-    "stylus": "0.32.x"
+    "stylus": "0.32.x",
+    "grunt-nodemon": "~0.1.1",
+    "grunt-concurrent": "~0.4.1"
   },
   "scripts": {
     "test": "node -e \"require('grunt').cli()\" null test"
