@@ -53,11 +53,13 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('runtests', 'Run all test files or just one if you specify its filename.', function(testName) {
+  grunt.registerTask('runtests', 'Run all test files or just one if you specify its filename.', function(testSuite) {
+    testSuite = testSuite || grunt.option('testsuite');
     require('./test/runtests')({
       onStop: this.async(),
-      reporter: 'grunt',
-      testName: testName
+      reporter: 'default',
+      testSuite: testSuite,
+      testName: grunt.option('test'),
     });
   });
 
