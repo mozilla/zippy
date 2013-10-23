@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="/css/main.css">
+  {% block style %}<link rel="stylesheet" href="/css/docs.css">{% endblock %}
 </head>
 
 <body>
-<main>
-    {% block content %}{% endblock %}
-</main>
+  {% block header %}{% endblock %}
+  {% block nav %}{% endblock %}
+  <main>
+    {% block main %}{% endblock %}
+  </main>
+  {% block footer %}{% endblock %}
 </body>
 </html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}
+<header>
+  <h1>Zippy: API Docs</h1>
+</header>
+{% endblock %}
+
+{% block nav %}
+<nav>
+  <ul>
+    <li><a href="/">API Docs</a></li>
+    <li><a href="/styleguide/">Styleguide</a></li>
+  </ul>
+</nav>
+{% endblock %}
+
+{% block main %}
+  {{ content }}
+  <h2>Current result:</h2>
+  <pre>{{ result }}</pre>
+{% endblock %}
+
+{% block footer %}<p><a href="/">← Back to home</a></p>{% endblock %}

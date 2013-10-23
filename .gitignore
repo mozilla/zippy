@@ -1,5 +1,4 @@
 docs/_build
 lib/config/local.js
-node_modules/
-statics/css/*.css
 media/css/*.css
+node_modules/
