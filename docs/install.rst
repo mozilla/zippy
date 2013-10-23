@@ -26,6 +26,10 @@ This will put the grunt command in your system path, allowing it to be run from 
     simple: run the version of Grunt which has been installed next to a Gruntfile. This allows
     multiple versions of Grunt to be installed on the same machine simultaneously.
 
+Create a local config file and fill in some values like ``signatureKeys``::
+
+    cp lib/config/local-dist.js lib/config/local.js
+
 To start a development server type this::
 
     grunt server
