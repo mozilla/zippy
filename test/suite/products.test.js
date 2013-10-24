@@ -1,10 +1,8 @@
-var assert = require('assert-plus');
 var supertest = require('supertest');
 var under = require('underscore');
 var uuid = require('node-uuid');
 var test = require('../');
 
-var zippy = require('../../lib');
 var products = require('../../lib/products');
 var sellers = require('../../lib/sellers');
 
@@ -12,7 +10,7 @@ var sellers = require('../../lib/sellers');
 function request() {
   return supertest(test.app)
     .post('/products/')
-    .set('Accept', 'application/json')
+    .set('Accept', 'application/json');
 }
 
 
@@ -54,7 +52,7 @@ exports.postWithoutExternalId = function(t) {
         t.done();
       });
   });
-}
+};
 
 
 exports.postOk = function(t) {
@@ -70,7 +68,7 @@ exports.postOk = function(t) {
         t.done();
       });
   });
-}
+};
 
 
 exports.postWrongSeller = function(t) {
@@ -82,7 +80,7 @@ exports.postWrongSeller = function(t) {
       t.ifError(err);
       t.done();
     });
-}
+};
 
 
 exports.postInactiveSeller = function(t) {
@@ -96,4 +94,4 @@ exports.postInactiveSeller = function(t) {
         t.done();
       });
   }, opt);
-}
+};

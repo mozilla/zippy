@@ -8,7 +8,7 @@ module.exports = function(grunt) {
           file: 'main.js',
           args: ['-p', grunt.option('port')],
           ignoredFiles: ['README.md', 'node_modules/**'],
-          watchedExtensions: ['js'],
+          watchedExtensions: ['js', 'html'],
           delayTime: 1,
           legacyWatch: true,
           cwd: __dirname,
@@ -25,25 +25,26 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: { jshintrc: __dirname + '/.jshintrc' },
-      files: ['Gruntfile.js', 'main.js', 'statics/**/*.js', 'lib/*.js', 'test/*.js'],
+      files: ['Gruntfile.js', 'main.js', 'media/**/*.js', 'lib/*.js', 'test/*.js'],
     },
     stylus: {
       options: {
         compress: false,
         banner: '/* Generated content - do not edit - <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
-        paths: ['statics/stylus/lib'],
+        paths: ['media/stylus/lib', 'media/stylus/inc', 'media/images'],
+        urlfunc: 'embedurl',
       },
       compile: {
         expand: true,
-        cwd: 'statics/stylus',
+        cwd: 'media/stylus',
         src: '*.styl',
-        dest: 'statics/css/',
+        dest: 'media/css/',
         ext: '.css',
       }
     },
     watch: {
       stylus: {
-        files: ['statics/**/*.styl'],
+        files: ['media/**/*.styl', 'media/images/'],
         tasks: 'stylus',
       },
       jshint: {

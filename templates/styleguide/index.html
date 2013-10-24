@@ -1,0 +1,23 @@
+{% extends "base-docs.html" %}
+
+{% block header %}
+<header>
+  <h1>Zippy: Style Guide</h1>
+</header>
+{% endblock %}
+
+
+{% block main %}
+  <p>This features components of the pages used in isolation.</p>
+  <p>This is a living style guide so changes to the style guide will
+     change the reference implementation pages too and vice versa.</p>
+
+  <h2>Styleguide Navigation</h2>
+  <ul>
+  {% for doc in docList %}
+    {% if doc != 'index' %}
+      <li><a href="/styleguide/{{ doc }}" />{{ doc|title }}</a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+{% endblock %}
