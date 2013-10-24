@@ -35,7 +35,7 @@ exports.postWithoutSeller = function(t) {
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
-      t.equal(res.body.code, 'MissingParameter');
+      t.equal(res.body.code, 'InvalidArgument');
       t.done();
     });
 };
@@ -48,7 +48,7 @@ exports.postWithoutExternalId = function(t) {
       .expect(409)
       .end(function(err, res) {
         t.ifError(err);
-        t.equal(res.body.code, 'MissingParameter');
+        t.equal(res.body.code, 'InvalidArgument');
         t.done();
       });
   });
@@ -75,7 +75,7 @@ exports.postWrongSeller = function(t) {
   var nonExistant = uuid.v4();
   request()
     .send({seller_id: nonExistant, external_id: uuid.v4()})
-    .expect(404)
+    .expect(409)
     .end(function(err, res) {
       t.ifError(err);
       t.done();
@@ -88,7 +88,7 @@ exports.postInactiveSeller = function(t) {
   withSeller(t, function(seller) {
     request()
       .send({seller_id: seller._id, external_id: uuid.v4()})
-      .expect(404)
+      .expect(409)
       .end(function(err, res) {
         t.ifError(err);
         t.done();

@@ -60,7 +60,7 @@ exports.postWithoutProduct = function(t) {
       .expect(409)
       .end(function(err, res) {
         t.ifError(err);
-        t.equal(res.body.code, 'MissingParameter');
+        t.equal(res.body.code, 'InvalidArgument');
         t.done();
       });
   });
@@ -72,10 +72,10 @@ exports.postWithInactiveSeller = function(t) {
     withProduct(t, {seller_id: seller._id}, function(product) {
       request()
         .send(under.extend(goodTrans, {seller_id: seller._id, product_id: product._id}))
-        .expect(404)
+        .expect(409)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.code, 'ResourceNotFound');
+          t.equal(res.body.code, 'InvalidArgument');
           t.done();
         });
     });
@@ -88,10 +88,10 @@ exports.postWithInactiveProduct = function(t) {
     withProduct(t, {seller_id: seller._id, active: false}, function(product) {
       request()
         .send(under.extend(goodTrans, {seller_id: seller._id, product_id: product._id}))
-        .expect(404)
+        .expect(409)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.code, 'ResourceNotFound');
+          t.equal(res.body.code, 'InvalidArgument');
           t.done();
         });
     });
@@ -103,7 +103,9 @@ exports.postOk = function(t) {
   withSeller(t, {}, function(seller) {
     withProduct(t, {seller_id: seller._id}, function(product) {
       request()
-        .send(under.extend(goodTrans, {seller_id: seller._id, product_id: product._id}))
+        .send(under.extend(goodTrans, {
+          seller_id: seller._id, product_id: product._id
+        }))
         .expect(201)
         .end(function(err, res) {
           t.ifError(err);
@@ -116,6 +118,44 @@ exports.postOk = function(t) {
           t.equal(res.body.price, goodTrans.price);
           t.equal(res.body.currency, goodTrans.currency);
           t.equal(res.body.pay_method, goodTrans.pay_method);
+          t.done();
+        });
+    });
+  });
+};
+
+
+exports.postInvalidPayMethod = function(t) {
+  withSeller(t, {}, function(seller) {
+    withProduct(t, {seller_id: seller._id}, function(product) {
+      var data = {};
+      under.extend(data, goodTrans,
+                   {seller_id: seller._id, product_id: product._id});
+      data.pay_method = 'NOT_SUPPORTED';
+      request()
+        .send(data)
+        .expect(409)
+        .end(function(err, res) {
+          t.ifError(err);
+          t.done();
+        });
+    });
+  });
+};
+
+
+exports.postInvalidCurrency = function(t) {
+  withSeller(t, {}, function(seller) {
+    withProduct(t, {seller_id: seller._id}, function(product) {
+      var data = {};
+      under.extend(data, goodTrans,
+                   {seller_id: seller._id, product_id: product._id});
+      data.currency = 'ZZZ';
+      request()
+        .send(data)
+        .expect(409)
+        .end(function(err, res) {
+          t.ifError(err);
           t.done();
         });
     });
