@@ -1,17 +1,11 @@
-var supertest = require('supertest');
 var under = require('underscore');
 var uuid = require('node-uuid');
-var test = require('../');
 
+var Client = require('../client').Client;
 var products = require('../../lib/products');
 var sellers = require('../../lib/sellers');
 
-
-function request() {
-  return supertest(test.app)
-    .post('/products/')
-    .set('Accept', 'application/json');
-}
+var client = new Client('/products/');
 
 
 function withSeller(t, cb, opt) {
@@ -30,8 +24,8 @@ exports.setUp = function(done) {
 
 
 exports.postWithoutSeller = function(t) {
-  request()
-    .send({external_id: uuid.v4()})
+  client
+    .post({external_id: uuid.v4()})
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
@@ -43,8 +37,8 @@ exports.postWithoutSeller = function(t) {
 
 exports.postWithoutExternalId = function(t) {
   withSeller(t, function(seller) {
-    request()
-      .send({seller_id: seller._id})
+    client
+      .post({seller_id: seller._id})
       .expect(409)
       .end(function(err, res) {
         t.ifError(err);
@@ -55,11 +49,11 @@ exports.postWithoutExternalId = function(t) {
 };
 
 
-exports.postOk = function(t) {
+exports.postOkSeller = function(t) {
   withSeller(t, function(seller) {
     var external_id = uuid.v4();
-    request()
-      .send({seller_id: seller._id, external_id: external_id})
+    client
+      .post({seller_id: seller._id, external_id: external_id})
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
@@ -73,10 +67,10 @@ exports.postOk = function(t) {
 
 exports.postWrongSeller = function(t) {
   var nonExistant = uuid.v4();
-  request()
-    .send({seller_id: nonExistant, external_id: uuid.v4()})
+  client
+    .post({seller_id: nonExistant, external_id: uuid.v4()})
     .expect(409)
-    .end(function(err, res) {
+    .end(function(err) {
       t.ifError(err);
       t.done();
     });
@@ -86,10 +80,10 @@ exports.postWrongSeller = function(t) {
 exports.postInactiveSeller = function(t) {
   var opt = {active: false};
   withSeller(t, function(seller) {
-    request()
-      .send({seller_id: seller._id, external_id: uuid.v4()})
+    client
+      .post({seller_id: seller._id, external_id: uuid.v4()})
       .expect(409)
-      .end(function(err, res) {
+      .end(function(err) {
         t.ifError(err);
         t.done();
       });
