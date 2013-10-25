@@ -1,0 +1,60 @@
+a.button,
+.button {
+    border: 1px solid #9a9a9a;
+    border-radius: 3px;
+    color: #333;
+    display: inline-block;
+    font: 600 14px/40px "Feura Sans", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    background-color: #0ac;
+    gradient-two-color(#fff, #ccc);
+    height: 40px;
+    overflow: hidden;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 0 #fff;
+    white-space: nowrap;
+
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0 10px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #00caf2;
+        gradient-two-color(#ccc, #fff);
+    }
+
+    &:focus {
+        border: 1px solid #0096dc;
+        box-shadow: 0 0 5px 0 #0096dc;
+        outline: none;
+    }
+
+    &[disabled],
+    &.disabled {
+        background: #e7e7e7;
+        border-color: #c7c7c7;
+        color: #c7c7c7;
+        padding: 0 10px;
+        pointer-events: none;
+        text-shadow: none;
+    }
+
+    &.cta {
+        border: 1px solid #0ac;
+        background-color: #ccc;
+        gradient-two-color(#00caf2, #0ac);
+
+        &:hover,
+        &:active,
+        &focus {
+            background-color: #fff;
+            gradient-two-color(#0ac, #00caf2);
+        }
+    }
+}

@@ -33,11 +33,17 @@ module.exports = function(grunt) {
         banner: '/* Generated content - do not edit - <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
         paths: ['media/stylus/lib', 'media/stylus/inc', 'media/images'],
         urlfunc: 'embedurl',
+        import: [
+          'lib/normalize',
+          'inc/vars',
+          'inc/mixins',
+          'inc/global',
+        ]
       },
       compile: {
         expand: true,
         cwd: 'media/stylus',
-        src: '*.styl',
+        src: ['*.styl', '!_*.styl'],
         dest: 'media/css/',
         ext: '.css',
       }
