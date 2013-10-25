@@ -50,24 +50,20 @@ var LOG = bunyan.createLogger({
 function parseOptions() {
   var option;
   var opts = {};
-  var parser = new getopt.BasicParser('hvd:p:u:z:', process.argv);
+  var parser = new getopt.BasicParser('hvnp:', process.argv);
 
   while ((option = parser.getopt()) !== undefined) {
     switch (option.option) {
-    case 'd':
-      opts.directory = path.normalize(option.optarg);
-      break;
-
     case 'h':
       usage();
       break;
 
-    case 'p':
-      opts.port = parseInt(option.optarg, 10);
+    case 'n':
+      opts.noAuth = true;
       break;
 
-    case 'u':
-      opts.user = option.optarg;
+    case 'p':
+      opts.port = parseInt(option.optarg, 10);
       break;
 
     case 'v':
@@ -76,10 +72,6 @@ function parseOptions() {
       LOG.level(Math.max(bunyan.TRACE, (LOG.level() - 10)));
       if (LOG.level() <= bunyan.DEBUG)
         LOG = LOG.child({src: true});
-      break;
-
-    case 'z':
-      opts.password = option.optarg;
       break;
 
     default:
@@ -97,7 +89,9 @@ function usage(msg) {
   if (msg) {
     console.error(msg);
   }
-  var str = 'usage: ' + NAME + ' [-v] [-d dir] [-p port] [-u user] [-z password]';
+  var str = 'usage: ' + NAME + ' [-v] [-n] [-p port]\n' +
+            '       -v stands for verbosity\n' +
+            '       -n stands for noAuth (removing OAuth middleware)';
   console.error(str);
   process.exit(msg ? 1 : 0);
 }

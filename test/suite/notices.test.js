@@ -1,21 +1,14 @@
-var supertest = require('supertest');
-
-var test = require('../');
+var Client = require('../client').Client;
 var notices = require('../../lib/notices');
 
-
-function post(qs) {
-  return supertest(test.app)
-    .post('/notices/')
-    .send(qs)
-    .set('Accept', 'application/json');
-}
+var client = new Client('/notices');
 
 
 exports.testCheckValidQuery = function(t) {
   notices.signedQs({foo: 'bar', baz: 'ozo'})
     .then(function(qs) {
-      post({qs: qs})
+      client
+        .post({qs: qs})
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
@@ -32,7 +25,8 @@ exports.testCheckValidQuery = function(t) {
 
 
 exports.testMissingQs = function(t) {
-  post({})
+  client
+    .post({})
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
@@ -43,7 +37,8 @@ exports.testMissingQs = function(t) {
 
 
 exports.testMissingSignature = function(t) {
-  post({qs: 'foo=1&bar=2'})  // no signature
+  client
+    .post({qs: 'foo=1&bar=2'})  // no signature
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
@@ -54,7 +49,8 @@ exports.testMissingSignature = function(t) {
 
 
 exports.testWrongSignature = function(t) {
-  post({qs: 'foo=1&bar=2&sig=0:nope'})
+  client
+    .post({qs: 'foo=1&bar=2&sig=0:nope'})
     .expect(200)
     .end(function(err, res) {
       t.ifError(err);
@@ -68,7 +64,8 @@ exports.testWrongSignature = function(t) {
 exports.testTamperedQuery = function(t) {
   notices.signedQs({foo: 'bar', baz: 'ozo'})
     .then(function(qs) {
-      post({qs: qs + 'garbage'})
+      client
+        .post({qs: qs + 'garbage'})
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);

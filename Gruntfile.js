@@ -2,11 +2,17 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    bunyan: {
+      strict: true, // prevent non-bunyan logs from being outputted
+      level: 'trace', // show all the things!
+      output: 'short', // least verbose
+    },
     nodemon: {
       server: {
         options: {
           file: 'main.js',
-          args: ['-p', grunt.option('port')],
+          args: ['-p', grunt.option('port'),
+                 grunt.option('noauth') ? '-n': ''],
           ignoredFiles: ['README.md', 'node_modules/**'],
           watchedExtensions: ['js', 'html'],
           delayTime: 1,
@@ -63,7 +69,16 @@ module.exports = function(grunt) {
         files: ['<%= jshint.files %>'],
         tasks: 'jshint',
       }
-    }
+    },
+    shell: {
+      docs: {
+        options: {
+          stdout: true,
+          execOptions: { cwd: 'docs' },
+        },
+        command: 'make html'
+      }
+    },
   });
 
   grunt.registerTask('runtests', 'Run all test files or just one if you specify its filename.', function(testSuite) {
@@ -77,7 +92,9 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.loadNpmTasks('grunt-bunyan');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
@@ -88,4 +105,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('start', ['stylus', 'concurrent:dev']);
   grunt.registerTask('server', ['nodemon:server']);
+  grunt.registerTask('docs', ['shell:docs']);
 };
