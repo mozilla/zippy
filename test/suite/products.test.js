@@ -24,6 +24,16 @@ function withSeller(t, cb, opt) {
 }
 
 
+function withProduct(t, opt, cb) {
+  opt = opt || {};
+  var props = under.extend({external_id: uuid.v4(), active: true}, opt);
+  products.products.create(props, function(err, product) {
+    t.ifError(err);
+    cb(product);
+  });
+}
+
+
 exports.setUp = function(done) {
   products.products.deleteMany({}, done);
 };
@@ -60,7 +70,7 @@ exports.postOk = function(t) {
     var external_id = uuid.v4();
     request()
       .send({seller_id: seller._id, external_id: external_id})
-      .expect(200)
+      .expect(201)
       .end(function(err, res) {
         t.ifError(err);
         t.equal(res.body.seller_id, seller._id);
@@ -94,4 +104,20 @@ exports.postInactiveSeller = function(t) {
         t.done();
       });
   }, opt);
+};
+
+
+exports.postDupeExternalId = function(t) {
+  withSeller(t, function(seller) {
+    withProduct(t, {seller_id: seller._id, external_id: uuid.v4()}, function(product) {
+      request()
+        .send({seller_id: seller._id, external_id: product.external_id})
+        .expect(409)
+        .end(function(err, res) {
+          t.ifError(err);
+          t.equal(res.body.code, 'InvalidArgument');
+          t.done();
+        });
+    });
+  });
 };
