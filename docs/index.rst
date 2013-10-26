@@ -86,9 +86,11 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   install.rst
    using.rst
    developer.rst
    payment.rst
+   api.rst
    reporting.rst
    refunds.rst
    security.rst
