@@ -19,3 +19,19 @@ gradient-two-color($color1, $color2) {
     background-image:      -o-linear-gradient($color1, $color2);
     background-image:         linear-gradient($color1, $color2);
 }
+
+display-flex() {
+	display: -moz-box;
+    display: flex;
+}
+
+flex-direction($dir) {
+    if ($dir == 'column') {
+        $legacy-dir = vertical;
+    }
+    if ($dir == 'row') {
+        $legacy-dir = horizontal;
+    }
+    -moz-box-orient: $legacy-dir;
+    flex-direction: column;
+}

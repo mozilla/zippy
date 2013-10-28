@@ -21,21 +21,23 @@ html, body {
 
 .page {
 	background: $bg-color;
-	min-height: 100%;
-	max-width: 700px;
+	display-flex();
+	flex-direction(column);
 	margin: 0 auto;
+	max-width: 700px;
+	min-height: 100%;
 	padding: 10px;
 	position: relative;
-	display : flex;
-	flex-direction: column;
 }
 
 main  {
-	flex: 1 1 auto;
+	-moz-box-flex: 1; // Old style.
+	flex: 1 1 auto; // New style.
 	width: 100%;
 }
 
 .buttons {
+	-moz-flex: 0 0 auto;
 	flex: 0 0 auto;
 	padding: 10px;
 	background: rgba(0,0,0,0.03);
