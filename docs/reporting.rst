@@ -1,0 +1,4 @@
+.. _reporting-label:
+
+Reporting
+=========

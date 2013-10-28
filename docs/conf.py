@@ -25,7 +25,9 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = []
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest',
+              'sphinx.ext.intersphinx', 'sphinx.ext.todo',
+              'sphinx.ext.coverage', 'sphinxcontrib.httpdomain']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -81,7 +83,7 @@ exclude_patterns = ['_build']
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+#pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -246,3 +248,8 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+import mdn_theme
+
+html_theme_path = [mdn_theme.get_theme_dir()]
+html_theme = 'mdn'
