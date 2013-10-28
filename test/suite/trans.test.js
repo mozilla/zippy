@@ -1,20 +1,12 @@
-var assert = require('assert-plus');
-var supertest = require('supertest');
 var under = require('underscore');
 var uuid = require('node-uuid');
 
-var test = require('../');
-var zippy = require('../../lib');
+var Client = require('../client').Client;
 var products = require('../../lib/products');
 var sellers = require('../../lib/sellers');
 var trans = require('../../lib/trans');
 
-
-function request() {
-  return supertest(test.app)
-    .post('/transactions/')
-    .set('Accept', 'application/json')
-}
+var client = new Client('/transactions/');
 
 
 var goodTrans = {
@@ -53,8 +45,8 @@ exports.setUp = function(done) {
 
 
 exports.postWithoutProduct = function(t) {
-  request()
-    .send(goodTrans)
+  client
+    .post(goodTrans)
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
@@ -67,8 +59,8 @@ exports.postWithoutProduct = function(t) {
 exports.postWithInactiveProduct = function(t) {
   withSeller(t, {}, function(seller) {
     withProduct(t, {seller_id: seller._id, active: false}, function(product) {
-      request()
-        .send(under.extend(goodTrans, {product_id: product._id}))
+      client
+        .post(under.extend(goodTrans, {product_id: product._id}))
         .expect(409)
         .end(function(err, res) {
           t.ifError(err);
@@ -80,11 +72,11 @@ exports.postWithInactiveProduct = function(t) {
 };
 
 
-exports.postOk = function(t) {
+exports.postOkTrans = function(t) {
   withSeller(t, {}, function(seller) {
     withProduct(t, {seller_id: seller._id}, function(product) {
-      request()
-        .send(under.extend(goodTrans, {product_id: product._id}))
+      client
+        .post(under.extend(goodTrans, {product_id: product._id}))
         .expect(201)
         .end(function(err, res) {
           t.ifError(err);
@@ -109,8 +101,8 @@ exports.postInvalidPayMethod = function(t) {
       var data = {};
       under.extend(data, goodTrans, {product_id: product._id});
       data.pay_method = 'NOT_SUPPORTED';
-      request()
-        .send(data)
+      client
+        .post(data)
         .expect(409)
         .end(function(err, res) {
           t.ifError(err);
@@ -127,8 +119,8 @@ exports.postInvalidCurrency = function(t) {
       var data = {};
       under.extend(data, goodTrans, {product_id: product._id});
       data.currency = 'ZZZ';
-      request()
-        .send(data)
+      client
+        .post(data)
         .expect(409)
         .end(function(err, res) {
           t.ifError(err);
