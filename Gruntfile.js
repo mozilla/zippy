@@ -25,7 +25,14 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: { jshintrc: __dirname + '/.jshintrc' },
-      files: ['Gruntfile.js', 'main.js', 'media/**/*.js', 'lib/*.js', 'test/*.js'],
+      files: [
+        '!media/js/lib/*.js',
+        'Gruntfile.js',
+        'lib/*.js',
+        'main.js',
+        'media/js/*.js',
+        'test/*.js',
+      ],
     },
     stylus: {
       options: {

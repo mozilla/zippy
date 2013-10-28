@@ -7,6 +7,9 @@
   "esnext": true,
   "expr": true,
   "forin": false,
+  "globals": {
+    "define": false
+  },
   "indent": 2,
   "laxbreak": true,
   "laxcomma": true,
