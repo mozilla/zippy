@@ -1,5 +1,16 @@
 define('styleguide', ['jquery'], function($) {
 
+  /*
+  Simple function to toggle demo content in the stylguide
+  for checking that the styles handle more content.
+
+  Create a link with the following attrs to control nearby content.
+
+  data-toggle-text: The text to show when toggling.
+  data-toggle-selector: The selectors to show/hide when clicked.
+  class: Set this to 'toggle'.
+  */
+
   function toggle(e) {
     e.preventDefault();
     var $target = $(e.target);
@@ -11,4 +22,5 @@ define('styleguide', ['jquery'], function($) {
   }
 
   $(document).on('click', '.toggle', toggle);
+
 });
