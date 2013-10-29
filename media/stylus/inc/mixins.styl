@@ -1,0 +1,37 @@
+box-sizing($val) {
+    -moz-box-sizing: $val;
+    box-sizing: $val;
+}
+
+animation($animation) {
+    -webkit-animation: $animation;
+    -moz-animation: $animation;
+    -ms-animation: $animation;
+    animation: $animation;
+}
+
+gradient-two-color($color1, $color2) {
+    background-color: $color2;
+    background-image: -webkit-gradient(linear, left bottom, left top, from($color1), to($color2));
+    background-image: -webkit-linear-gradient($color1, $color2);
+    background-image:    -moz-linear-gradient($color1, $color2);
+    background-image:     -ms-linear-gradient($color1, $color2);
+    background-image:      -o-linear-gradient($color1, $color2);
+    background-image:         linear-gradient($color1, $color2);
+}
+
+display-flex() {
+	display: -moz-box;
+    display: flex;
+}
+
+flex-direction($dir) {
+    if ($dir == 'column') {
+        $legacy-dir = vertical;
+    }
+    if ($dir == 'row') {
+        $legacy-dir = horizontal;
+    }
+    -moz-box-orient: $legacy-dir;
+    flex-direction: column;
+}

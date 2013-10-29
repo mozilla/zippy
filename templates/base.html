@@ -5,13 +5,15 @@
   <title>{% block title %}{% endblock %}</title>
   {% block style %}<link rel="stylesheet" href="/css/docs.css">{% endblock %}
 </head>
-
 <body>
-  {% block header %}{% endblock %}
-  {% block nav %}{% endblock %}
-  <main>
-    {% block main %}{% endblock %}
-  </main>
-  {% block footer %}{% endblock %}
+  <div class="page">
+    {%- block header %}{% endblock %}
+    {%- block nav %}{% endblock %}
+    <main role="main">
+      {% block main -%}{% endblock %}
+    </main>
+    {%- block footer %}{% endblock -%}
+  </div>
+  {%- block script %}{% endblock -%}
 </body>
 </html>

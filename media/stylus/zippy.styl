@@ -1,19 +1,56 @@
 /* Zippy: Payments reference stylesheet */
 
-@import 'normalize';
-@import 'fonts';
-@import 'lib';
+// Note: See the Grunt.js file for what's automatically included.
 
-@import 'throbber';
+@import '_throbber';
+@import '_buttons';
+@import '_fonts';
 
 html, body {
-	background: $bg-color;
 	height: 100%;
 	margin: 0;
+	background: #fff;
 }
 
-main {
-	max-width: 700px;
+.hidden {
+	display: none;
+}
+.hidden.show {
+	display: block;
+}
+
+.page {
+	background: $bg-color;
+	display-flex();
+	flex-direction(column);
 	margin: 0 auto;
+	max-width: 700px;
+	min-height: 100%;
 	padding: 10px;
+	position: relative;
+}
+
+main  {
+	-moz-box-flex: 1; // Old style.
+	flex: 1 1 auto; // New style.
+	width: 100%;
+}
+
+.buttons {
+	-moz-flex: 0 0 auto;
+	flex: 0 0 auto;
+	padding: 10px;
+	background: rgba(0,0,0,0.03);
+	border-top: 1px solid #ccc;
+	line-height: 0;
+	margin: 10px -10px -10px;
+
+	.button {
+		width: calc(unquote('50% - 5px'));
+		margin: 0;
+
+		&:first-child {
+			margin-right: 5px
+		}
+	}
 }

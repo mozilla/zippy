@@ -25,7 +25,14 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: { jshintrc: __dirname + '/.jshintrc' },
-      files: ['Gruntfile.js', 'main.js', 'media/**/*.js', 'lib/*.js', 'test/*.js'],
+      files: [
+        '!media/js/lib/*.js',
+        'Gruntfile.js',
+        'lib/*.js',
+        'main.js',
+        'media/js/*.js',
+        'test/*.js',
+      ],
     },
     stylus: {
       options: {
@@ -33,11 +40,17 @@ module.exports = function(grunt) {
         banner: '/* Generated content - do not edit - <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
         paths: ['media/stylus/lib', 'media/stylus/inc', 'media/images'],
         urlfunc: 'embedurl',
+        import: [
+          'lib/normalize',
+          'inc/vars',
+          'inc/mixins',
+          'inc/global',
+        ]
       },
       compile: {
         expand: true,
         cwd: 'media/stylus',
-        src: '*.styl',
+        src: ['*.styl', '!_*.styl'],
         dest: 'media/css/',
         ext: '.css',
       }
