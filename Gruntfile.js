@@ -41,7 +41,6 @@ module.exports = function(grunt) {
         paths: ['media/stylus/lib', 'media/stylus/inc', 'media/images'],
         urlfunc: 'embedurl',
         import: [
-          'lib/normalize',
           'inc/vars',
           'inc/mixins',
           'inc/global',
