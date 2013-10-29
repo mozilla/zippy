@@ -73,6 +73,13 @@ Build the docs like this::
 
 Browse the docs from ``docs/_build/html/index.html``.
 
+Sample server
+=============
+
+A sample zippy server is running at https://zippy.paas.allizom.org, that you
+are free to use. There are no guarantees on uptime, this is not a production
+server.
+
 .. _NodeJS: http://nodejs.org/
 .. _Sphinx: http://sphinx-doc.org/
 .. _virtualenv: https://pypi.python.org/pypi/virtualenv
