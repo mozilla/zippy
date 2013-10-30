@@ -37,7 +37,7 @@ This API allows you to get/create products that can be purchased.
           "seller_id": ...,
           "active": true,
           "resource_pk": "1",
-          "resource_uri": "/products/1"
+          "resource_uri": "/products/1/"
         }
 
     In case of an error:
@@ -76,7 +76,7 @@ This API allows you to get/create sellers who can offer products for sale.
             "uuid": "...",
             "active": true,
             "resource_pk": "1",
-            "resource_uri": "/seller/1"
+            "resource_uri": "/seller/1/"
           },
           ...
         ]
@@ -95,7 +95,7 @@ This API allows you to get/create sellers who can offer products for sale.
           "uuid": "...",
           "active": true,
           "resource_pk": "1",
-          "resource_uri": "/seller/1"
+          "resource_uri": "/seller/1/"
        }
 
     :status 200: success.
@@ -117,7 +117,7 @@ This API allows you to get/create sellers who can offer products for sale.
           "uuid": "...",
           "active": true,
           "resource_pk": "1",
-          "resource_uri": "/seller/1"
+          "resource_uri": "/seller/1/"
         }
 
     In case of an error:
