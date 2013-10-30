@@ -1,22 +1,15 @@
-var supertest = require('supertest');
-var test = require('../');
+var Client = require('../client').Client;
 
-var z = require('../../lib/zutil');
-
-var assert = z.assert;
-
-function get(url) {
-  return supertest(test.app)
-    .get(url)
-    .set('Accept', 'text/html');
-}
+var client = new Client('/styleguide/index');
 
 module.exports = {
 
   testRedirectFromIndex: function(t) {
-    get('/styleguide/index')
+    client
+      .get()
       .expect(301)
       .end(function(err, res) {
+        t.equal(res.headers.location, '/styleguide');
         t.done();
       });
   }

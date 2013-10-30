@@ -34,7 +34,8 @@ To start a development server type this::
 
     grunt server
 
-You can then browse the site at http://0.0.0.0:8080
+You can then browse the site at http://0.0.0.0:8080 (use the ``--noauth`` option
+in case you don't want to pass OAuth headers at each request).
 
 If you want to change the port run::
 
@@ -70,6 +71,10 @@ the requirements with `pip`_::
 Build the docs like this::
 
     make -C docs html
+
+Or use the grunt command::
+
+    grunt docs
 
 Browse the docs from ``docs/_build/html/index.html``.
 

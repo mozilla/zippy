@@ -1,20 +1,14 @@
-var supertest = require('supertest');
-var test = require('../');
-
+var Client = require('../client').Client;
 var z = require('../../lib/zutil');
 
 var assert = z.assert;
-
-function get(url) {
-  return supertest(test.app)
-    .get(url)
-    .set('Accept', 'text/html');
-}
+var client = new Client('/sellers/%3Cscript%3Ealert%28%27hai%27%29%3C%2Fscript%3E');
 
 module.exports = {
 
   testAutoEscape: function(t) {
-    get('/sellers/%3Cscript%3Ealert%28%27hai%27%29%3C%2Fscript%3E/')
+    client
+      .get()
       .expect(404)
       .end(function(err, res) {
         t.ifError(err);

@@ -1,78 +1,106 @@
-var assert = require('assert-plus');
+var under = require('underscore');
+var uuid = require('node-uuid');
+
+var Client = require('../client').Client;
 var sellers = require('../../lib/sellers');
-var test = require('../');
 
-var CLIENT = test.CLIENT;
-var SERVER = test.SERVER;
+var client = new Client('/sellers');
 
-function randomUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-    return v.toString(16);
+
+function withSeller(t, cb, opt) {
+  opt = opt || {};
+  var props = under.extend({
+    uuid: uuid.v4(),
+    status: 'ACTIVE',
+    name: 'John',
+    email: 'jdoe@example.org',
+  }, opt);
+  sellers.sellers.create(props, function(err, seller) {
+    t.ifError(err);
+    cb(seller);
   });
 }
 
-module.exports = {
 
-  setUp: function(done) {
-    sellers.sellers.deleteMany({}, done);
-  },
-
-  tearDown: function(done) {
-    done();
-  },
-
-  testListEmpty: function (t) {
-    CLIENT.retrieveSellers(function (err, sellers) {
-      t.ifError(err);
-      t.ok(sellers);
-      t.ok(Array.isArray(sellers));
-      if (sellers)
-        t.equal(sellers.length, 0);
-      t.done();
-    });
-  },
-
-  testCreate: function (t) {
-    var uuid = randomUUID();
-    CLIENT.createSeller(uuid, function (err, seller) {
-      t.ifError(err);
-      t.ok(seller);
-      if (seller) {
-        t.ok(seller.resource_pk);
-        t.equal(seller.uuid, uuid);
-      }
-      t.done();
-    });
-  },
-
-  testListAndGet: function (t) {
-    sellers.sellers.create({uuid: randomUUID()}, function(createErr, seller) {
-      t.ifError(createErr);
-      CLIENT.retrieveSellers(function (err, sellers) {
-        t.ifError(err);
-        t.ok(sellers);
-        t.ok(Array.isArray(sellers));
-        t.equal(sellers.length, 1);
-        CLIENT.retrieveSeller(sellers[0].uuid, function (err2, seller) {
-          t.ifError(err2);
-          t.ok(seller);
-          t.done();
-        });
-      });
-    });
-  },
-
-  testCreateEmpty: function (t) {
-    t.throws(
-      function () {
-        CLIENT.createSeller(undefined, function (err, seller) {
-          t.ifError(err);
-        });
-      },
-      assert.AssertionError
-    );
-    t.done();
-  }
-
+exports.setUp = function(done) {
+  sellers.sellers.deleteMany({}, done);
 };
+
+
+exports.createSeller = function(t) {
+  var seller = {
+    uuid: uuid.v4(),
+  };
+  client
+    .post({
+      uuid: seller.uuid,
+      status: 'ACTIVE',
+      name: 'John',
+      email: 'jdoe@example.org',
+    })
+    .expect(201)
+    .end(function(err, res) {
+      t.ifError(err);
+      t.equal(res.body.uuid, seller.uuid);
+      t.done();
+    });
+};
+
+
+exports.createSellerWithoutStatus = function(t) {
+  client
+    .post({
+      uuid: uuid.v4(),
+      name: 'John',
+      email: 'jdoe@example.org',
+    })
+    .expect(409)
+    .end(function(err, res) {
+      t.ifError(err);
+      t.equal(res.body.code, 'InvalidArgument');
+      t.done();
+    });
+};
+
+
+exports.retrieveSellers = function(t) {
+  withSeller(t, function(seller) {
+    client
+      .get()
+      .expect(200)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.equal(res.body[0].uuid, seller.uuid);
+        t.done();
+      });
+  });
+};
+
+
+exports.retrieveSellersEmpty = function(t) {
+  client
+    .get()
+    .expect(200)
+    .end(function(err, res) {
+      t.ifError(err);
+      t.equal(res.body.length, 0);
+      t.done();
+    });
+};
+
+
+exports.retrieveSeller = function(t) {
+  withSeller(t, function(seller) {
+    var client = new Client('/sellers/' + seller.uuid);
+    client
+      .get()
+      .expect(200)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.equal(res.body.uuid, seller.uuid);
+        t.done();
+      });
+  });
+};
+
+
