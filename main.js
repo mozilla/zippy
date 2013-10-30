@@ -1,5 +1,3 @@
-var path = require('path');
-
 var bunyan = require('bunyan');
 var getopt = require('posix-getopt');
 var restify = require('restify');
