@@ -12,11 +12,11 @@ Products
 
 This API allows you to get/create products that can be purchased.
 
-.. http:get:: /products/
+.. http:get:: /products
 
     TODO
 
-.. http:post:: /products/
+.. http:post:: /products
 
     **Request**
 
@@ -63,7 +63,7 @@ Sellers
 
 This API allows you to get/create sellers who can offer products for sale.
 
-.. http:get:: /sellers/
+.. http:get:: /sellers
 
     **Response**
 
@@ -74,7 +74,9 @@ This API allows you to get/create sellers who can offer products for sale.
         [
           {
             "uuid": "...",
-            "active": true,
+            "status": "ACTIVE",
+            "name": "John",
+            "email": "jdoe@example.org",
             "resource_pk": "1",
             "resource_uri": "/seller/1/"
           },
@@ -83,7 +85,7 @@ This API allows you to get/create sellers who can offer products for sale.
 
     :status 200: success.
 
-.. http:get:: /sellers/:uuid/
+.. http:get:: /sellers/:uuid
 
     **Response**
 
@@ -93,19 +95,39 @@ This API allows you to get/create sellers who can offer products for sale.
 
         {
           "uuid": "...",
-          "active": true,
+          "status": "ACTIVE",
+          "name": "John",
+          "email": "jdoe@example.org",
           "resource_pk": "1",
           "resource_uri": "/seller/1/"
        }
 
     :status 200: success.
 
-.. http:post:: /sellers/
+.. http:post:: /sellers
 
     **Request**
 
     :param uuid:
         A unique ID for the seller.
+
+    :param status:
+        A status for the seller. Possible values:
+
+        ``ACTIVE``
+            Activated seller.
+
+        ``INACTIVE``
+            Inactived seller.
+
+        ``DISABLED``
+            Deactivated seller.
+
+    :param name:
+        A name for the seller.
+
+    :param email:
+        An email for the seller.
 
     **Response**
 
@@ -115,7 +137,9 @@ This API allows you to get/create sellers who can offer products for sale.
 
         {
           "uuid": "...",
-          "active": true,
+          "status": "ACTIVE",
+          "name": "John",
+          "email": "jdoe@example.org",
           "resource_pk": "1",
           "resource_uri": "/seller/1/"
         }

@@ -3,7 +3,7 @@
 Using
 =====
 
-Zippy has a JSON-based REST API to programmatically interact with the payment
+Zippy has a JSON-based HTTP API to programmatically interact with the payment
 system.
 
 To ensure you retrieve results in JSON format, make sure to add an

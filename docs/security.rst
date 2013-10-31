@@ -4,7 +4,6 @@ Security
 ========
 
 
-
 Token checking
 --------------
 
@@ -12,7 +11,7 @@ If a Zippy server send you a notice, this API allows you to cryptographically
 verify that Zippy really sent you that notice.
 
 
-.. http:post:: /notices/
+.. http:post:: /notices
 
     **Request**
 

@@ -7,6 +7,7 @@
   "dependencies": {
     "assert-plus": "0.1.2",
     "bunyan": "0.21.3",
+    "escape-html": "1.0.0",
     "forms": "0.3.0",
     "marked": "0.2.9",
     "node-uuid": "1.4.1",

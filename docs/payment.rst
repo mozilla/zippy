@@ -10,11 +10,11 @@ Transactions
 
 This API enables you to begin a transaction so that a product can be purchased.
 
-.. http:get:: /transactions/
+.. http:get:: /transactions
 
     TODO
 
-.. http:post:: /transactions/
+.. http:post:: /transactions
 
     **Request**
 
