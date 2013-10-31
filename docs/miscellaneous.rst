@@ -11,7 +11,7 @@ Status
 This API allows you to report server status back to the client. The Marketplace
 will hit this regularly to ensure that the service is up and responding.
 
-.. http:get:: /status/
+.. http:get:: /status
 
     **Response**
 
