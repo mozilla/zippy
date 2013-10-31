@@ -1,7 +1,7 @@
 var Client = require('../client').Client;
 var state = require('../../lib/state');
 
-var client = new Client('/status/');
+var client = new Client('/status');
 
 exports.testOK = function(t) {
   client
