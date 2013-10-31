@@ -22,7 +22,7 @@ var goodTrans = {
 function withSeller(t, opt, cb) {
   opt = opt || {};
   var props = under.extend({uuid: uuid.v4(), active: true}, opt);
-  sellers.sellers.create(props, function(err, seller) {
+  sellers.models.create(props, function(err, seller) {
     t.ifError(err);
     cb(seller);
   });
@@ -32,7 +32,7 @@ function withSeller(t, opt, cb) {
 function withProduct(t, opt, cb) {
   opt = opt || {};
   var props = under.extend({external_id: uuid.v4(), active: true}, opt);
-  products.products.create(props, function(err, product) {
+  products.models.create(props, function(err, product) {
     t.ifError(err);
     cb(product);
   });
@@ -40,7 +40,7 @@ function withProduct(t, opt, cb) {
 
 
 exports.setUp = function(done) {
-  trans.trans.deleteMany({}, done);
+  trans.models.deleteMany({}, done);
 };
 
 

@@ -13,7 +13,7 @@ var anonymousClient = new AnonymousClient('/products');
 function withSeller(t, cb, opt) {
   opt = opt || {};
   var props = under.extend({uuid: uuid.v4(), active: true}, opt);
-  sellers.sellers.create(props, function(err, seller) {
+  sellers.models.create(props, function(err, seller) {
     t.ifError(err);
     cb(seller);
   });
@@ -23,7 +23,7 @@ function withSeller(t, cb, opt) {
 function withProduct(t, opt, cb) {
   opt = opt || {};
   var props = under.extend({external_id: uuid.v4(), active: true}, opt);
-  products.products.create(props, function(err, product) {
+  products.models.create(props, function(err, product) {
     t.ifError(err);
     cb(product);
   });
@@ -31,7 +31,7 @@ function withProduct(t, opt, cb) {
 
 
 exports.setUp = function(done) {
-  products.products.deleteMany({}, done);
+  products.models.deleteMany({}, done);
 };
 
 

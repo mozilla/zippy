@@ -15,7 +15,7 @@ function withSeller(t, cb, opt) {
     name: 'John',
     email: 'jdoe@example.org',
   }, opt);
-  sellers.sellers.create(props, function(err, seller) {
+  sellers.models.create(props, function(err, seller) {
     t.ifError(err);
     cb(seller);
   });
@@ -23,7 +23,7 @@ function withSeller(t, cb, opt) {
 
 
 exports.setUp = function(done) {
-  sellers.sellers.deleteMany({}, done);
+  sellers.models.deleteMany({}, done);
 };
 
 
@@ -104,3 +104,59 @@ exports.retrieveSeller = function(t) {
 };
 
 
+exports.updateSeller = function(t) {
+  withSeller(t, function(seller) {
+    var client = new Client('/sellers/' + seller.uuid);
+    var updatedName = 'Jack';
+    client
+      .put({
+        uuid: seller.uuid,
+        status: seller.status,
+        name: updatedName,
+        email: seller.email,
+      })
+      .expect(200)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.equal(res.body.uuid, seller.uuid);
+        t.equal(res.body.name, updatedName);
+        t.equal(res.body.email, seller.email);
+        t.done();
+      });
+  });
+};
+
+
+exports.updateSellerWithoutStatus = function(t) {
+  withSeller(t, function(seller) {
+    var client = new Client('/sellers/' + seller.uuid);
+    var updatedName = 'Jack';
+    client
+      .put({
+        uuid: seller.uuid,
+        name: updatedName,
+      })
+      .expect(200)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.equal(res.body.uuid, seller.uuid);
+        t.equal(res.body.name, updatedName);
+        t.equal(res.body.status, seller.status);
+        t.done();
+      });
+  });
+};
+
+
+exports.deleteSeller = function(t) {
+  withSeller(t, function(seller) {
+    var client = new Client('/sellers/' + seller.uuid);
+    client
+      .del()
+      .expect(204)
+      .end(function(err) {
+        t.ifError(err);
+        t.done();
+      });
+  });
+};

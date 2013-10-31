@@ -56,6 +56,26 @@ Client.prototype.post = function(data) {
     .send(data);
 };
 
+Client.prototype.put = function(data) {
+  var method = 'PUT';
+  return supertest(test.app)
+    .put(this.url)
+    .set('Accept', 'application/json')
+    .set('Authorization', buildOAuthorizationHeader(method, this.url))
+    .send(data);
+};
+
+
+Client.prototype.del = function(data) {
+  var method = 'DELETE';
+  return supertest(test.app)
+    .del(this.url)
+    .set('Accept', 'application/json')
+    .set('Authorization', buildOAuthorizationHeader(method, this.url))
+    .send(data);
+};
+
+
 function AnonymousClient(url) {
   this.url = url;
 }
