@@ -36,6 +36,9 @@ function buildOAuthorizationHeader(method, path) {
 
 function Client(url) {
   this.url = url;
+  if (/.*\/$/.test(url)) {
+    console.log('Warning: client URL ends with a slash, OAuth may fail.');
+  }
 }
 
 Client.prototype.get = function(data) {

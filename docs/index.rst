@@ -74,11 +74,9 @@ See the :ref:`reporting documentation <reporting-label>` documentation.
 Miscellaneous
 =============
 
-* Refunds
-* Chargebacks
-* Token checking
-
-For more information on this see :ref:`refunds <refunds-label>` and :ref:`security <security-label>` documentation.
+* Refunds and chargebacks, see :ref:`refunds <refunds-label>`
+* Token checking and other security, see :ref:`security <security-label>`
+* Status, see :ref:`status <status-label>`
 
 Contents
 --------
@@ -95,6 +93,7 @@ Contents
    reporting.rst
    refunds.rst
    security.rst
+   miscellaneous.rst
    tests.rst
 
 
