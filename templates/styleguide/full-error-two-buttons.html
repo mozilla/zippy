@@ -1,0 +1,16 @@
+{% extends "base-styleguide.html" %}
+{% block title %}Full Error Two Buttons{% endblock %}
+{% block bodyattrs %} class="full-error"{% endblock %}
+{% block main %}
+  <h2>Error</h2>
+  <div class="msg">
+    <p>This is an example of a full-screen error page</p>
+    <a href="#" class="toggle" data-toggle-selector=".more" data-toggle-text="Show less content">Show more content</a>
+    <p class="more hidden">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor erat purus, et pellentesque nulla placerat sit amet. Mauris mi lorem, facilisis in facilisis tempor, aliquam a quam. Suspendisse tempus ante non tortor eleifend ultrices. Donec volutpat mi in erat molestie laoreet. Etiam vel tempus felis. Nullam pharetra rhoncus nulla consequat lacinia. Duis consectetur ac ante ut consequat. Aliquam bibendum hendrerit est egestas eleifend.</p>
+    <p class="error-code">ERROR_CODE</p>
+  </div>
+  <div class="buttons">
+    <button class="button">Cancel</button>
+    <button class="button cta">Retry?</button>
+  </div>
+{% endblock %}
