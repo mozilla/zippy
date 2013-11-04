@@ -7,15 +7,15 @@ var config = require('../lib/config');
 
 function buildOAuthorizationHeader(method, path) {
   var signer = oauth.createHmac(
-    oauth.createConsumer('key', config.OAuthCredentials.consumerSecret),
-    oauth.createToken('key', 'tokensecret')
+    oauth.createConsumer(config.OAuthCredentials.consumerKey,
+                         config.OAuthCredentials.consumerSecret)
   );
   var parameters = {
     oauth_consumer_key: config.OAuthCredentials.consumerKey,
     oauth_nonce: 'notimplemented',
     oauth_signature_method: 'HMAC-SHA1',
     oauth_timestamp: 'notimplemented',
-    oauth_token: 'mycustomtokenkey',
+    oauth_token: 'notimplemented',
     oauth_version: '1.0',
   };
   var signature = signer.sign(
