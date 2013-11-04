@@ -33,10 +33,10 @@ able to perform a request. Here is an example of the full header
 (splited across multiple lines for lisibility but must be kept as a
 one-liner header)::
 
-    OAuth realm="Zippy",oauth_signature="FML3mnwmZxOf6O+ErPX8An5ZDq0=",
+    OAuth realm="Zippy",oauth_signature="wpMJyt18lPuVIzymgL4WHHVao7A=",
     oauth_consumer_key="dpf43f3p2l4k3l03",oauth_nonce="notimplemented",
     oauth_signature_method="HMAC-SHA1",oauth_timestamp="notimplemented",
-    oauth_token="mycustomtokenkey",oauth_version="1.0"
+    oauth_token="notimplemented",oauth_version="1.0"
 
 Given the 0-legged scenario, the user is not involved in this workflow,
 that's why you don't have to deal with the classic OAuth authentication
