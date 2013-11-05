@@ -20,9 +20,9 @@ module.exports = function(opt) {
     testspec: testName,
   };
   test.start(function() {
-    reporter.run([suite], options, function() {
+    reporter.run([suite], options, function(wasError) {
       if (opt.onStop) {
-        opt.onStop();
+        opt.onStop(wasError);
       }
     });
   });
