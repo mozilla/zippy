@@ -16,7 +16,7 @@ module.exports = function(grunt) {
           ignoredFiles: ['README.md', 'node_modules/**'],
           watchedExtensions: ['js', 'html'],
           delayTime: 1,
-          legacyWatch: true,
+          legacyWatch: false,
           cwd: __dirname,
         }
       }
