@@ -34,8 +34,9 @@ function buildOAuthorizationHeader(method, path) {
     })(parameters);
 }
 
-function Client(url) {
+function Client(url, accept) {
   this.url = url;
+  this.accept = accept || 'application/json';
   if (/.*\/$/.test(url)) {
     console.log('Warning: client URL ends with a slash, OAuth may fail.');
   }
@@ -45,7 +46,7 @@ Client.prototype.get = function(data) {
   var method = 'GET';
   return supertest(test.app)
     .get(this.url)
-    .set('Accept', 'application/json')
+    .set('Accept', this.accept)
     .set('Authorization', buildOAuthorizationHeader(method, this.url))
     .send(data);
 };
@@ -54,7 +55,7 @@ Client.prototype.post = function(data) {
   var method = 'POST';
   return supertest(test.app)
     .post(this.url)
-    .set('Accept', 'application/json')
+    .set('Accept', this.accept)
     .set('Authorization', buildOAuthorizationHeader(method, this.url))
     .send(data);
 };
@@ -63,7 +64,7 @@ Client.prototype.put = function(data) {
   var method = 'PUT';
   return supertest(test.app)
     .put(this.url)
-    .set('Accept', 'application/json')
+    .set('Accept', this.accept)
     .set('Authorization', buildOAuthorizationHeader(method, this.url))
     .send(data);
 };
@@ -73,7 +74,7 @@ Client.prototype.del = function(data) {
   var method = 'DELETE';
   return supertest(test.app)
     .del(this.url)
-    .set('Accept', 'application/json')
+    .set('Accept', this.accept)
     .set('Authorization', buildOAuthorizationHeader(method, this.url))
     .send(data);
 };
