@@ -84,6 +84,11 @@ function AnonymousClient(url) {
   this.url = url;
 }
 
+AnonymousClient.prototype.get = function() {
+  return supertest(test.app)
+    .get(this.url);
+};
+
 AnonymousClient.prototype.post = function(data) {
   return supertest(test.app)
     .post(this.url)
