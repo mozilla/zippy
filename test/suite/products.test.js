@@ -1,8 +1,9 @@
 var under = require('underscore');
 var uuid = require('node-uuid');
 
-var Client = require('../client').Client;
 var AnonymousClient = require('../client').AnonymousClient;
+var Client = require('../client').Client;
+var constants = require('../../lib/constants');
 var products = require('../../lib/products');
 var sellers = require('../../lib/sellers');
 
@@ -12,7 +13,7 @@ var anonymousClient = new AnonymousClient('/products');
 
 function withSeller(t, cb, opt) {
   opt = opt || {};
-  var props = under.extend({uuid: uuid.v4(), status: 'ACTIVE'}, opt);
+  var props = under.extend({uuid: uuid.v4(), status: constants.ACTIVE}, opt);
   sellers.models.create(props, function(err, seller) {
     t.ifError(err);
     cb(seller);
@@ -22,7 +23,7 @@ function withSeller(t, cb, opt) {
 
 function withProduct(t, opt, cb) {
   opt = opt || {};
-  var props = under.extend({external_id: uuid.v4(), status: 'ACTIVE'}, opt);
+  var props = under.extend({external_id: uuid.v4(), status: constants.ACTIVE}, opt);
   products.models.create(props, function(err, product) {
     t.ifError(err);
     cb(product);
@@ -105,7 +106,7 @@ exports.createWrongSeller = function(t) {
 
 
 exports.createInactiveSeller = function(t) {
-  var opt = {status: 'INACTIVE'};
+  var opt = {status: constants.INACTIVE};
   withSeller(t, function(seller) {
     client
       .post({seller_id: seller._id, external_id: uuid.v4()})

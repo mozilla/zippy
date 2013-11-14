@@ -2,6 +2,7 @@ var under = require('underscore');
 var uuid = require('node-uuid');
 
 var Client = require('../client').Client;
+var constants = require('../../lib/constants');
 var products = require('../../lib/products');
 var sellers = require('../../lib/sellers');
 var trans = require('../../lib/trans');
@@ -14,14 +15,14 @@ var goodTrans = {
   region: 123,
   carrier: 'USA_TMOBILE',
   price: '0.99',
-  currency: 'EUR',
-  pay_method: 'OPERATOR'
+  currency: constants.EUR,
+  pay_method: constants.OPERATOR,
 };
 
 
 function withSeller(t, opt, cb) {
   opt = opt || {};
-  var props = under.extend({uuid: uuid.v4(), active: true}, opt);
+  var props = under.extend({uuid: uuid.v4(), status: constants.ACTIVE}, opt);
   sellers.models.create(props, function(err, seller) {
     t.ifError(err);
     cb(seller);
@@ -31,7 +32,7 @@ function withSeller(t, opt, cb) {
 
 function withProduct(t, opt, cb) {
   opt = opt || {};
-  var props = under.extend({external_id: uuid.v4(), active: true}, opt);
+  var props = under.extend({external_id: uuid.v4(), status: constants.ACTIVE}, opt);
   products.models.create(props, function(err, product) {
     t.ifError(err);
     cb(product);
@@ -58,7 +59,7 @@ exports.postWithoutProduct = function(t) {
 
 exports.postWithInactiveProduct = function(t) {
   withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id, active: false}, function(product) {
+    withProduct(t, {seller_id: seller._id, status: constants.INACTIVE}, function(product) {
       client
         .post(under.extend(goodTrans, {product_id: product._id}))
         .expect(409)
@@ -81,7 +82,7 @@ exports.postOkTrans = function(t) {
         .end(function(err, res) {
           t.ifError(err);
           t.equal(res.body.product_id, product._id);
-          t.equal(res.body.status, 'started');
+          t.equal(res.body.status, constants.STARTED);
           t.equal(res.body.token.length, 128);
           t.equal(res.body.region, goodTrans.region);
           t.equal(res.body.carrier, goodTrans.carrier);
