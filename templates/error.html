@@ -1,1 +1,15 @@
-{{ content }}
+{% extends "base.html" %}
+
+{% block bodyattrs %} class="error"{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/css/zippy.css">
+{% endblock %}
+
+{% block main %}
+  <h1>{% if code %}{{ code }}{% else %}Oops…{% endif %}</h1>
+  <div class="msg">
+    <p>{{ content }}</p>
+  </div>
+{% endblock %}
