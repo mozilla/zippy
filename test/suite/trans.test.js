@@ -81,7 +81,7 @@ exports.postOkTrans = function(t) {
         .end(function(err, res) {
           t.ifError(err);
           t.equal(res.body.product_id, product._id);
-          t.equal(res.body.status, 'started');
+          t.equal(res.body.status, 'STARTED');
           t.equal(res.body.token.length, 128);
           t.equal(res.body.region, goodTrans.region);
           t.equal(res.body.carrier, goodTrans.carrier);

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Purchase{% endblock %}
+
+{% block header %}
+<header>
+  <h1>Purchase</h1>
+  {# You can access things like: #}
+  {# product.name #}
+  {# trans.price #}
+  {# trans.currency #}
+  {# trans.pay_method #}
+  {# trans.region #}
+</header>
+{% endblock %}
+
+{% block main %}
+  {{ content }}
+{% endblock %}

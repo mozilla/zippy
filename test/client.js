@@ -1,3 +1,4 @@
+var qs = require('querystring');
 var supertest = require('supertest');
 var test = require('./');
 var oauth = require('oauth-client');
@@ -84,9 +85,9 @@ function AnonymousClient(url) {
   this.url = url;
 }
 
-AnonymousClient.prototype.get = function() {
+AnonymousClient.prototype.get = function(data) {
   return supertest(test.app)
-    .get(this.url);
+    .get(this.url + (data ? '?' + qs.stringify(data) : ''));
 };
 
 AnonymousClient.prototype.post = function(data) {
