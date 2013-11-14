@@ -23,6 +23,9 @@ This API allows you to get/create products that can be purchased.
     :param external_id:
         A unique ID for the product.
 
+    :param name:
+        A name to describe the product.
+
     :param seller_id:
         Primary key of :ref:`seller <sellers>` who owns this product.
 
@@ -36,6 +39,7 @@ This API allows you to get/create products that can be purchased.
           "external_id": "...",
           "seller_id": ...,
           "active": true,
+          "name": "Magical Unicorn",
           "resource_pk": "1",
           "resource_uri": "/products/1/"
         }

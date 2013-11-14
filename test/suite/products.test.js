@@ -37,7 +37,7 @@ exports.setUp = function(done) {
 
 exports.createWithoutSeller = function(t) {
   client
-    .post({external_id: uuid.v4()})
+    .post({external_id: uuid.v4(), name: 'x'})
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
@@ -50,7 +50,7 @@ exports.createWithoutSeller = function(t) {
 exports.createWithoutExternalId = function(t) {
   withSeller(t, function(seller) {
     client
-      .post({seller_id: seller._id})
+      .post({seller_id: seller._id, name: 'x'})
       .expect(409)
       .end(function(err, res) {
         t.ifError(err);
@@ -61,11 +61,11 @@ exports.createWithoutExternalId = function(t) {
 };
 
 
-exports.createOkSeller = function(t) {
+exports.createProductOk = function(t) {
   withSeller(t, function(seller) {
     var external_id = uuid.v4();
     client
-      .post({seller_id: seller._id, external_id: external_id})
+      .post({seller_id: seller._id, external_id: external_id, name: 'x'})
       .expect(201)
       .end(function(err, res) {
         t.ifError(err);
@@ -77,11 +77,25 @@ exports.createOkSeller = function(t) {
 };
 
 
+exports.createWithoutName = function(t) {
+  withSeller(t, function(seller) {
+    var external_id = uuid.v4();
+    client
+      .post({seller_id: seller._id, external_id: external_id})
+      .expect(409)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.done();
+      });
+  });
+};
+
+
 exports.createAnonymousSeller = function(t) {
   withSeller(t, function(seller) {
     var external_id = uuid.v4();
     anonymousClient
-      .post({seller_id: seller._id, external_id: external_id})
+      .post({seller_id: seller._id, external_id: external_id, name: 'x'})
       .expect(401)
       .end(function(err, res) {
         t.ifError(err);
@@ -95,7 +109,7 @@ exports.createAnonymousSeller = function(t) {
 exports.createWrongSeller = function(t) {
   var nonExistant = uuid.v4();
   client
-    .post({seller_id: nonExistant, external_id: uuid.v4()})
+    .post({seller_id: nonExistant, external_id: uuid.v4(), name: 'x'})
     .expect(409)
     .end(function(err) {
       t.ifError(err);
@@ -108,7 +122,7 @@ exports.createInactiveSeller = function(t) {
   var opt = {status: 'INACTIVE'};
   withSeller(t, function(seller) {
     client
-      .post({seller_id: seller._id, external_id: uuid.v4()})
+      .post({seller_id: seller._id, external_id: uuid.v4(), name: 'x'})
       .expect(409)
       .end(function(err) {
         t.ifError(err);
@@ -120,7 +134,11 @@ exports.createInactiveSeller = function(t) {
 
 exports.createDupeExternalId = function(t) {
   withSeller(t, function(seller) {
-    withProduct(t, {seller_id: seller._id, external_id: uuid.v4()}, function(product) {
+    withProduct(t, {
+      seller_id: seller._id,
+      external_id: uuid.v4(),
+      name: 'x',
+    }, function(product) {
       client
         .post({seller_id: seller._id, external_id: product.external_id})
         .expect(409)
