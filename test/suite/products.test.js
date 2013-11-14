@@ -12,7 +12,7 @@ var anonymousClient = new AnonymousClient('/products');
 
 function withSeller(t, cb, opt) {
   opt = opt || {};
-  var props = under.extend({uuid: uuid.v4(), active: true}, opt);
+  var props = under.extend({uuid: uuid.v4(), status: 'ACTIVE'}, opt);
   sellers.models.create(props, function(err, seller) {
     t.ifError(err);
     cb(seller);
@@ -22,7 +22,7 @@ function withSeller(t, cb, opt) {
 
 function withProduct(t, opt, cb) {
   opt = opt || {};
-  var props = under.extend({external_id: uuid.v4(), active: true}, opt);
+  var props = under.extend({external_id: uuid.v4(), status: 'ACTIVE'}, opt);
   products.models.create(props, function(err, product) {
     t.ifError(err);
     cb(product);
@@ -105,7 +105,7 @@ exports.createWrongSeller = function(t) {
 
 
 exports.createInactiveSeller = function(t) {
-  var opt = {active: false};
+  var opt = {status: 'INACTIVE'};
   withSeller(t, function(seller) {
     client
       .post({seller_id: seller._id, external_id: uuid.v4()})
