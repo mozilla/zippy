@@ -3,6 +3,7 @@
 @import '_buttons';
 @import '_fonts';
 @import '_full-error';
+@import '_forms';
 
 html, body {
     background: $bg-color;
@@ -115,4 +116,17 @@ hr {
     border: 1px dashed $light-gray;
     border-width: 1px 0 0;
     margin: 0 -20px;
+}
+
+.cc-form {
+
+     input {
+         max-width: 10em;
+     }
+
+    .cc-num {
+        margin-top: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
 }

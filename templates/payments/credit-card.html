@@ -1,0 +1,48 @@
+{% extends "base-payments.html" %}
+
+{% block main %}
+  <h1>Confirm Payment</h1>
+
+  {% include "_product.html" %}
+
+  <hr/>
+
+  <form class="cc-form">
+
+    <label for="cc-num" class="visually-hidden">Credit Card Number</label>
+    <input class="cc-num" id="cc-num" type="text" pattern="\\d{4} \\d{4} \\d{4} \\d{4}" value="" placeholder="Card Number" />
+
+    <div class="flex-container">
+
+      <div class="col">
+        <div class="flex">
+          <label for="expiry">Expires</label>
+          <input id="expiry" type="text" maxlength="" pattern="\d{2}/\d{2}" size="5" value="" placeholder="MM/YY" />
+        </div>
+
+        <div class="flex">
+          <label for="postcode">Postcode</label>
+          <input id="postcode" type="text" maxlength="" size="8" value=""  />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="flex">
+          <label for="cvc">CVC</label>
+          <input id="cvc" type="text" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
+        </div>
+        <div class="flex">
+         <label class="cb" for="save-details"><input type="checkbox" value="1" name="save-details" id="save-details" />Save details</label>
+        </div>
+      </div>
+
+    </div>
+  </form>
+
+  {% include "_footer.html" %}
+
+{% endblock %}
+
+{% block footer %}
+  {% include "_buttons.html" %}
+{% endblock %}

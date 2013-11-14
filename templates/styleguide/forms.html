@@ -1,0 +1,74 @@
+{% extends "base-styleguide.html" %}
+
+{% block title %}Forms{% endblock %}
+
+
+{% block main %}
+
+
+{% set cc_pattern = '\\d{4} \\d{4} \\d{4} \\d{4}' %}
+
+  <h1>Forms</h1>
+
+
+  <h2>Basic Inputs</h2>
+  <p>Here follows examples of some basic inputs fields</p>
+
+  <form class="styles">
+    <label class="acchide">Credit Card Number</label>
+    <input type="text" value="" pattern="{{ cc_pattern }}" placeholder="1111 2222 3333 4444" />
+    <p class="help">This is some help text to aid form filling.</p>
+
+    <label for="cvc">CVC</label>
+    <input id="cvc" type="text" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
+    <p class="help">All these fields have pattern attributes. Try entering something invalid.</p>
+
+
+    <label for="expiry">Expires</label>
+    <input id="expiry" type="text" maxlength="" pattern="\d{2}/\d{2}" size="5" value="" placeholder="DD/YY" />
+    <p class="help">Should follow the format DD/YY</p>
+  </form>
+
+
+  <h2>Focused Styles</h2>
+  <form class="styles">
+    <label class="acchide">Credit Card Number</label>
+    <input class="focused" type="text" pattern="{{ cc_pattern }}" value="" placeholder="1111 2222 3333 4444" />
+  </form>
+
+  <h2>Error Styles</h2>
+  <form class="styles">
+    <label class="acchide">Credit Card Number</label>
+    <input class="error" type="text" pattern="{{ cc_pattern }}" value="" placeholder="1111 2222 3333 4444" />
+  </form>
+
+  <h2>Flexy Forms</h2>
+  <form class="styles flex-container">
+
+    <div class="col">
+      <div class="flex">
+        <label for="cvc">CVC</label>
+        <input id="cvc" type="text" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
+      </div>
+
+      <div class="flex">
+        <label for="expiry">Zip</label>
+        <input id="expiry" type="text" maxlength="" size="8" value="" />
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="flex">
+        <label for="expiry">Expires</label>
+        <input id="expiry" type="text" maxlength="" pattern="\d{2}/\d{2}" size="5" value="" placeholder="DD/YY" />
+      </div>
+
+      <div class="flex">
+       <label class="cb" for="save-details"><input type="checkbox" value="1" name="save-details" id="save-details" />Save details</label>
+      </div>
+    </div>
+
+  </form>
+
+
+{% endblock %}
