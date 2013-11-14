@@ -3,6 +3,7 @@ var uuid = require('node-uuid');
 
 var Client = require('../client').Client;
 var sellers = require('../../lib/sellers');
+var constants = require('../../lib/constants');
 
 var client = new Client('/sellers');
 
@@ -11,7 +12,7 @@ function withSeller(t, cb, opt) {
   opt = opt || {};
   var props = under.extend({
     uuid: uuid.v4(),
-    status: 'ACTIVE',
+    status: constants.ACTIVE,
     name: 'John',
     email: 'jdoe@example.org',
   }, opt);
@@ -34,7 +35,7 @@ exports.createSeller = function(t) {
   client
     .post({
       uuid: seller.uuid,
-      status: 'ACTIVE',
+      status: constants.ACTIVE,
       name: 'John',
       email: 'jdoe@example.org',
     })
@@ -145,7 +146,7 @@ exports.createSellerThenUpdate = function(t) {
   client
     .post({
       uuid: seller.uuid,
-      status: 'ACTIVE',
+      status: constants.ACTIVE,
       name: 'John',
       email: 'jdoe@example.org',
     })

@@ -2,6 +2,7 @@ var Client = require('../client').Client;
 var notices = require('../../lib/notices');
 
 var client = new Client('/notices');
+var constants = require('../../lib/constants');
 
 
 exports.testCheckValidQuery = function(t) {
@@ -12,7 +13,7 @@ exports.testCheckValidQuery = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.result, 'OK');
+          t.equal(res.body.result, constants.OK);
           t.equal(res.body.reason, '');
           t.done();
         });
@@ -54,7 +55,7 @@ exports.testWrongSignature = function(t) {
     .expect(200)
     .end(function(err, res) {
       t.ifError(err);
-      t.equal(res.body.result, 'FAIL');
+      t.equal(res.body.result, constants.FAIL);
       t.equal(res.body.reason, 'signature mismatch');
       t.done();
     });
@@ -69,7 +70,7 @@ exports.testTamperedQuery = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.result, 'FAIL');
+          t.equal(res.body.result, constants.FAIL);
           t.equal(res.body.reason, 'signature mismatch');
           t.done();
         });
