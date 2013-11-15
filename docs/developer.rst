@@ -21,7 +21,9 @@ This API allows you to get/create products that can be purchased.
     **Request**
 
     :param external_id:
-        A unique ID for the product.
+        An external identifier for the product.
+        This must be unique per seller but doesn't need to be unique
+        across the entire system.
 
     :param name:
         A name to describe the product.

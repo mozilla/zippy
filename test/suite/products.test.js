@@ -140,7 +140,11 @@ exports.createDupeExternalId = function(t) {
       name: 'x',
     }, function(product) {
       client
-        .post({seller_id: seller._id, external_id: product.external_id})
+        .post({
+          seller_id: seller._id,
+          external_id: product.external_id,
+          name: 'x',
+        })
         .expect(409)
         .end(function(err, res) {
           t.ifError(err);
@@ -148,5 +152,33 @@ exports.createDupeExternalId = function(t) {
           t.done();
         });
     });
+  });
+};
+
+
+exports.externaIdUniquePerSeller = function(t) {
+  // An external ID only has to be unique per seller.
+  var extId = 'shared-product-id';
+
+  withSeller(t, function(seller1) {
+    withProduct(t, {
+      seller_id: seller1._id,
+      external_id: extId,
+      name: 'x',
+    }, function(product1) {
+      withSeller(t, function(seller2) {
+        client
+          .post({
+            seller_id: seller2._id,
+            external_id: extId,
+            name: 'x',
+          })
+          .expect(201)
+          .end(function(err, res) {
+            t.ifError(err);
+            t.done();
+          });
+      });
+    })
   });
 };
