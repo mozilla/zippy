@@ -43,13 +43,21 @@ function Client(url, accept) {
   }
 }
 
-Client.prototype.get = function(data) {
+Client.prototype.get = function(arg) {
+  var url = this.url;
   var method = 'GET';
+  if (arg) {
+    if (typeof arg === 'object') {
+      url = url + '?' + qs.stringify(arg);
+    } else {
+      // Treat get arg like Curling, e.g. api.resource.get(pk)
+      url = url + '/' + arg.toString();
+    }
+  }
   return supertest(test.app)
-    .get(this.url)
+    .get(url)
     .set('Accept', this.accept)
-    .set('Authorization', buildOAuthorizationHeader(method, this.url))
-    .send(data);
+    .set('Authorization', buildOAuthorizationHeader(method, url));
 };
 
 Client.prototype.post = function(data) {
