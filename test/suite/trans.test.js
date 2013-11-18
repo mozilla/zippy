@@ -21,7 +21,7 @@ var goodTrans = {
 
 function withSeller(t, opt, cb) {
   opt = opt || {};
-  var props = under.extend({uuid: uuid.v4(), active: true}, opt);
+  var props = under.extend({uuid: uuid.v4(), status: 'ACTIVE'}, opt);
   sellers.models.create(props, function(err, seller) {
     t.ifError(err);
     cb(seller);
@@ -31,7 +31,7 @@ function withSeller(t, opt, cb) {
 
 function withProduct(t, opt, cb) {
   opt = opt || {};
-  var props = under.extend({external_id: uuid.v4(), active: true}, opt);
+  var props = under.extend({external_id: uuid.v4(), status: 'ACTIVE'}, opt);
   products.models.create(props, function(err, product) {
     t.ifError(err);
     cb(product);
@@ -58,7 +58,7 @@ exports.postWithoutProduct = function(t) {
 
 exports.postWithInactiveProduct = function(t) {
   withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id, active: false}, function(product) {
+    withProduct(t, {seller_id: seller._id, status: 'INACTIVE'}, function(product) {
       client
         .post(under.extend(goodTrans, {product_id: product._id}))
         .expect(409)
