@@ -1,3 +1,4 @@
+var Q = require('q');
 var under = require('underscore');
 var uuid = require('node-uuid');
 
@@ -27,6 +28,56 @@ function withProduct(t, opt, cb) {
     t.ifError(err);
     cb(product);
   });
+}
+
+
+function makeTwoProducts(t, extIds) {
+  var defer = Q.defer();
+
+  withSeller(t, function(seller) {
+    withProduct(t, {
+      seller_id: seller._id,
+      external_id: extIds.pop(),
+      name: 'x',
+    }, function(product1) {
+      withProduct(t, {
+        seller_id: seller._id,
+        external_id: extIds.pop(),
+        name: 'x',
+      }, function(product2) {
+        defer.resolve({
+          products: [product1, product2],
+          seller: seller,
+        });
+      });
+    });
+  });
+
+  return defer.promise;
+}
+
+
+function makeTwoSellers(t, extIds) {
+  var defer = Q.defer();
+  var seller1;
+  var seller2;
+
+  makeTwoProducts(t, extIds)
+    .then(function(result1) {
+      seller1 = result1.seller;
+      return makeTwoProducts(t, extIds);
+    })
+    .then(function(result2) {
+      seller2 = result2.seller;
+    })
+    .then(function() {
+      defer.resolve([seller1, seller2]);
+    })
+    .fail(function(err) {
+      defer.reject(err);
+    });
+
+  return defer.promise;
 }
 
 
@@ -181,4 +232,153 @@ exports.externaIdUniquePerSeller = function(t) {
       });
     })
   });
+};
+
+
+exports.retrieveProductByPk = function(t) {
+  withSeller(t, function(seller) {
+    withProduct(t, {
+      seller_id: seller._id,
+      external_id: uuid.v4(),
+      name: 'x',
+    }, function(product) {
+      client
+        .get(product._id)
+        .expect(200)
+        .end(function(err, res) {
+          t.ifError(err);
+          t.equal(res.body.resource_pk, product._id);
+          t.done();
+        });
+    });
+  });
+};
+
+
+exports.retrieveNoProduct = function(t) {
+  client
+    .get(777)  // non-existant ID
+    .expect(404)
+    .end(function(err, res) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.listAllProducts = function(t) {
+  makeTwoProducts(t, ['one', 'two'])
+    .then(function() {
+      var extIds = [];
+      client
+        .get()
+        .expect(200)
+        .end(function(err, res) {
+          t.ifError(err);
+          res.body.objects.forEach(function(ob) {
+            extIds.push(ob.external_id);
+          });
+          extIds.sort();
+          t.equal(extIds[0], 'one');
+          t.equal(extIds[1], 'two');
+          t.done();
+        });
+    })
+    .fail(function(err) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.filterProductsByExtId = function(t) {
+  makeTwoProducts(t, ['one', 'two'])
+    .then(function() {
+      var extIds = [];
+      client
+        .get({external_id: 'one'})
+        .expect(200)
+        .end(function(err, res) {
+          t.ifError(err);
+          t.equal(res.body.objects[0].external_id, 'one');
+          t.equal(res.body.objects.length, 1);
+          t.done();
+        });
+    })
+    .fail(function(err) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.filterProductsBySeller = function(t) {
+  makeTwoSellers(t, ['one', 'two'])
+    .then(function(sellersResult) {
+      client
+        .get({external_id: 'one', seller_uuid: sellersResult[0].uuid})
+        .expect(200)
+        .end(function(err, res) {
+          t.ifError(err);
+          t.equal(res.body.objects[0].external_id, 'one');
+          t.equal(res.body.objects[0].seller_id, sellersResult[0]._id);
+          t.equal(res.body.objects.length, 1);
+          t.done();
+        });
+    })
+    .fail(function(err) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.filterByWrongSeller = function(t) {
+  makeTwoProducts(t, ['one', 'two'])
+    .then(function() {
+      client
+        .get({seller_uuid: 'invalid', external_id: 'one'})
+        .expect(200)
+        .end(function(err, res) {
+          t.ifError(err);
+          t.equal(res.body.objects.length, 0);
+          t.done();
+        });
+    })
+    .fail(function(err) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.filterProductsBySellerId = function(t) {
+  makeTwoSellers(t, ['one', 'two'])
+    .then(function(sellersResult) {
+      client
+        .get({external_id: 'one', seller_id: sellersResult[0]._id})
+        .expect(200)
+        .end(function(err, res) {
+          t.ifError(err);
+          t.equal(res.body.objects[0].external_id, 'one');
+          t.equal(res.body.objects[0].seller_id, sellersResult[0]._id);
+          t.equal(res.body.objects.length, 1);
+          t.done();
+        });
+    })
+    .fail(function(err) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.wrongParamIsError = function(t) {
+  client
+    .get({bad_param: 'nope'})
+    .expect(409)
+    .end(function(err, res) {
+      t.ifError(err);
+      t.done();
+    });
 };

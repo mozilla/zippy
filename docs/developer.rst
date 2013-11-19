@@ -14,7 +14,52 @@ This API allows you to get/create products that can be purchased.
 
 .. http:get:: /products
 
-    TODO
+    **Request**
+
+    :param external_id:
+        Filter all products by this external identifier.
+        Since this is only unique per seller, filtering by
+        seller is probably a good idea.
+
+    :param seller_id:
+        Filter all products by this seller ID, the
+        primary key for the :ref:`seller <sellers>` who owns each product.
+
+    :param seller_uuid:
+        Filter all products by this seller UUID, the
+        unique identifier for the :ref:`seller <sellers>` who owns each
+        product.
+
+    **Response**
+
+    A list of products matching your query. For example:
+
+    .. code-block:: json
+
+        {
+          "objects": [{
+            "external_id": "...",
+            "seller_id": ...,
+            "active": true,
+            "name": "Magical Unicorn",
+            "resource_pk": "1",
+            "resource_uri": "/products/1/"
+          }, {
+            ...
+          }]
+        }
+
+    In case of an error:
+
+    .. code-block:: json
+
+        {
+          "code": "InvalidArgument",
+          "message": "some error"
+        }
+
+    :status 200: success.
+    :status 409: conflict.
 
 .. http:post:: /products
 
