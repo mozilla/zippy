@@ -275,7 +275,7 @@ exports.listAllProducts = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
-          res.body.objects.forEach(function(ob) {
+          res.body.forEach(function(ob) {
             extIds.push(ob.external_id);
           });
           extIds.sort();
@@ -300,8 +300,8 @@ exports.filterProductsByExtId = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.objects[0].external_id, 'one');
-          t.equal(res.body.objects.length, 1);
+          t.equal(res.body[0].external_id, 'one');
+          t.equal(res.body.length, 1);
           t.done();
         });
     })
@@ -320,9 +320,9 @@ exports.filterProductsBySeller = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.objects[0].external_id, 'one');
-          t.equal(res.body.objects[0].seller_id, sellersResult[0]._id);
-          t.equal(res.body.objects.length, 1);
+          t.equal(res.body[0].external_id, 'one');
+          t.equal(res.body[0].seller_id, sellersResult[0]._id);
+          t.equal(res.body.length, 1);
           t.done();
         });
     })
@@ -341,7 +341,7 @@ exports.filterByWrongSeller = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.objects.length, 0);
+          t.equal(res.body.length, 0);
           t.done();
         });
     })
@@ -360,9 +360,9 @@ exports.filterProductsBySellerId = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.objects[0].external_id, 'one');
-          t.equal(res.body.objects[0].seller_id, sellersResult[0]._id);
-          t.equal(res.body.objects.length, 1);
+          t.equal(res.body[0].external_id, 'one');
+          t.equal(res.body[0].seller_id, sellersResult[0]._id);
+          t.equal(res.body.length, 1);
           t.done();
         });
     })

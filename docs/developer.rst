@@ -36,8 +36,8 @@ This API allows you to get/create products that can be purchased.
 
     .. code-block:: json
 
-        {
-          "objects": [{
+        [
+          {
             "external_id": "...",
             "seller_id": ...,
             "active": true,
@@ -45,9 +45,9 @@ This API allows you to get/create products that can be purchased.
             "resource_pk": "1",
             "resource_uri": "/products/1/"
           }, {
-            ...
-          }]
-        }
+          ...
+          }
+        ]
 
     In case of an error:
 
