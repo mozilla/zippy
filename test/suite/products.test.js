@@ -338,10 +338,9 @@ exports.filterByWrongSeller = function(t) {
     .then(function() {
       client
         .get({seller_uuid: 'invalid', external_id: 'one'})
-        .expect(200)
+        .expect(404)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.length, 0);
           t.done();
         });
     })

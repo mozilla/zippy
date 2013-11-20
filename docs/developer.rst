@@ -59,6 +59,7 @@ This API allows you to get/create products that can be purchased.
         }
 
     :status 200: success.
+    :status 404: resource not found.
     :status 409: conflict.
 
 .. http:post:: /products
