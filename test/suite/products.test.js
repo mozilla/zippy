@@ -320,9 +320,9 @@ exports.filterProductsBySeller = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
+          t.equal(res.body.length, 1);
           t.equal(res.body[0].external_id, 'one');
           t.equal(res.body[0].seller_id, sellersResult[0]._id);
-          t.equal(res.body.length, 1);
           t.done();
         });
     })
@@ -359,9 +359,9 @@ exports.filterProductsBySellerId = function(t) {
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
+          t.equal(res.body.length, 1);
           t.equal(res.body[0].external_id, 'one');
           t.equal(res.body[0].seller_id, sellersResult[0]._id);
-          t.equal(res.body.length, 1);
           t.done();
         });
     })
