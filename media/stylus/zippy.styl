@@ -3,6 +3,7 @@
 @import '_buttons';
 @import '_fonts';
 @import '_full-error';
+@import '_forms';
 
 html, body {
     background: $bg-color;
@@ -16,6 +17,7 @@ html, body {
 .hidden {
     display: none;
 }
+
 .hidden.show {
     display: block;
 }
@@ -28,19 +30,17 @@ html, body {
     min-height: 100%;
     padding: 0 20px 10px;
     position: relative;
+    width: 100%;
 }
 
 main {
-    -moz-box-flex: 1; // Old style.
-    flex: 1 1 auto; // New style.
+    flex(1, 1, 100%);
     width: 100%;
 }
 
 .buttons {
-    -moz-flex: 0 0 auto;
     background: rgba(0,0,0,0.03);
     border-top: 1px solid #ccc;
-    flex: 0 0 auto;
     line-height: 0;
     margin: 10px -20px -10px;
     padding: 10px;
@@ -114,5 +114,20 @@ main {
 hr {
     border: 1px dashed $light-gray;
     border-width: 1px 0 0;
-    margin: 0 -20px;
+    margin: 5px -20px;
+}
+
+.cc-num {
+    flex(1);
+}
+
+.save-card,
+.postcode {
+    flex(1, 1, 100%);
+    min-width: 50%;
+}
+
+input.postcode {
+    padding: inherit 0;
+    max-width: 100%;
 }

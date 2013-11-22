@@ -39,11 +39,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     line-height: 1em;
     margin: 1em 0;
+    clear: left;
 }
 
 p {
     font-size: 14px;
     line-height: 18px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 $heading-font-size = 18px;

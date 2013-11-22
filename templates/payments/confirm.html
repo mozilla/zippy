@@ -3,15 +3,7 @@
 {% block main %}
   <h1>Confirm Payment</h1>
 
-  <div class="grid">
-    <img class="product-image" src="/images/placeholder/ctr.png" alt="" />
-    <section class="product">
-      <h2 class="title">Cut the Rope</h2>
-      <p class="author">Chillingo Ltd</p>
-      <p class="total">Total (R$): <span class="price">$ 2.99</span><a class="ref" href="#ref">*</a></p>
-      <p id="ref" class="ref-desc">Includes taxes</p>
-    </section>
-  </div>
+  {% include "_product.html" %}
 
   <hr/>
 
@@ -19,15 +11,9 @@
     <p>The amount will be charged to your T-mobile account, or, <a href="#">pay using your credit card</a></p>
   </section>
 
-  <footer>
-    <p>Products sold by Bango for Mozilla</p>
-    <p>Msg and Data Rates May Apply  <a href="#">Terms &amp; Conditions</a></p>
-  </footer>
+  {% include "_footer.html" %}
 {% endblock %}
 
 {% block footer %}
-  <div class="buttons">
-    <button class="button">Cancel</button>
-    <button class="button cta">Buy</button>
-  </div>
+  {% include "_buttons.html" %}
 {% endblock %}
