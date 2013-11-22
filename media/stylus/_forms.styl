@@ -11,19 +11,13 @@ label {
     padding: $form-padding;
     padding-left: 0;
     padding-right: 0;
-    line-height: $form-line-height;
 
     &:after {
         content: "";
         padding-right: 5px;
     }
 
-    &.cb {
-        padding-top: 0.1em;
-    }
 }
-
-
 
 input,
 textarea {
@@ -64,34 +58,80 @@ textarea {
 }
 
 
+
 .flex-container {
-    display: flex;
+    display-flex();
+    width: 100%;
+
+    .row {
+        display-flex();
+        flex(1, 1, 100%);
+        flex-direction(row);
+    }
 
     .col {
-        width: 50%;
+        align-items(flex-end);
+        display-flex();
+        flex(1, 1, 50%);
+        flex-direction(column);
+        margin-bottom: 10px;
+
+        &:first-child {
+            margin-right: 10px;
+        }
+
     }
 
     .flex {
-        display: flex;
-        margin: 5px;
+        display-flex();
+        flex(1, 1, 100%);
+        width: 100%;
+        margin: 2.5px 0;
 
         label {
+            min-width: 50%;
+            overflow: hidden;
             text-align: right;
-
-            .cb {
-                //margin-top: 0.25;
-                flex: 1;
-            }
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         input {
-            flex: 1;
+            flex(1, 1, 50%);
+
+            &:not([type="checkbox"]) {
+                min-width: 50%;
+            }
+
+            &[type="checkbox"] {
+                min-width: auto;
+                margin-left: 5px;
+            }
         }
 
-        input[type="checkbox"] {
-            margin-right: 5px;
+        .right {
+            align-items(flex-end);
         }
 
     }
 }
 
+@media $small-min-width {
+
+    .flex-container {
+        .col {
+            align-content(flex-end);
+        }
+
+        .flex {
+            width: 100%;
+            input, label {
+                min-width: 50%;
+            }
+            input[type="checkbox"] {
+                min-width: 0;
+            }
+
+        }
+    }
+}

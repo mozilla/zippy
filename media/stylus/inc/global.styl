@@ -1,15 +1,17 @@
 * {
-	box-sizing(border-box);
+    box-sizing(border-box);
 }
 
-// http://developer.yahoo.com/blogs/ydn/posts/2012/10/clip-your-hidden-content-for-better-accessibility/
 .visually-hidden {
-	position: absolute !important;
-    border:0 !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    height: 1px !important;
-    overflow: hidden;
-    padding:0 !important;
-    width: 1px !important;
+    visually-hidden();
+}
+
+@media $extra-small-max-width {
+    .S-visually-hidden {
+        visually-hidden();
+    }
+}
+
+.no-wrap {
+    white-space: nowrap;
 }

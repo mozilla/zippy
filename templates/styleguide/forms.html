@@ -43,32 +43,45 @@
   </form>
 
   <h2>Flexy Forms</h2>
-  <form class="styles flex-container">
 
-    <div class="col">
-      <div class="flex">
-        <label for="cvc">CVC</label>
-        <input id="cvc" type="text" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
-      </div>
+  <form class="cc-form styles">
 
-      <div class="flex">
-        <label for="expiry">Zip</label>
-        <input id="expiry" type="text" maxlength="" size="8" value="" />
+    <div class="flex-container">
+      <div class="row">
+        <label for="cc-num" class="S-visually-hidden">Credit Card Number</label>
+        <input class="cc-num" size="20" id="cc-num" type="text" pattern="\\d{4} \\d{4} \\d{4} \\d{4}" value="" placeholder="Card Number" />
       </div>
     </div>
 
-    <div class="col">
-      <div class="flex">
-        <label for="expiry">Expires</label>
-        <input id="expiry" type="text" maxlength="" pattern="\d{2}/\d{2}" size="5" value="" placeholder="DD/YY" />
+    <div class="flex-container">
+      <div class="col">
+
+        <div class="flex">
+          <label for="expiry">Expires</label>
+          <input id="expiry" type="text" maxlength="" pattern="\d{2}/\d{2}" size="5" value="" placeholder="MM/YY" />
+        </div>
+
+        <div class="flex">
+          <label for="postcode" class="S-visually-hidden">Post-code</label>
+          <input id="postcode" class="postcode" type="text" maxlength="" value="" placeholder="Post-code" />
+        </div>
+
       </div>
 
-      <div class="flex">
-       <label class="cb" for="save-details"><input type="checkbox" value="1" name="save-details" id="save-details" />Save details</label>
+      <div class="col">
+
+        <div class="flex">
+          <label for="cvc">CVC</label>
+          <input id="cvc" type="text" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
+        </div>
+
+        <div class="flex right">
+          <label class="no-wrap right save-card" for="save-card">Save card<input type="checkbox" value="1" name="save-card" id="save-card" /></label>
+        </div>
+
       </div>
+
     </div>
-
   </form>
-
 
 {% endblock %}

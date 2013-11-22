@@ -39,3 +39,41 @@ $button-cta-text-shadow-color = lighten($button-cta-bg-color, 10%);
 $button-cta-text-color-disabled = darken($button-cta-bg-color2, 2.5%);
 
 $full-error-text-color = $white;
+
+
+// Vars representing minimum px values for media queries;
+// Media queries are S/M/L/XL and up.
+// This is deliberately device agnostic.
+
+$XS-max = 480px;
+
+$S-min = 480px;
+$S-max = 768px;
+
+$M-min = 768px;
+$M-max = 1024px;
+
+$L-min = 1024px;
+$L-max = 1440px;
+
+$XL-min = 1440px;
+
+// Usage:
+// @media $breakpoint {
+//     ....
+// }
+$small-min-width = 'only screen and (min-width: ' + $S-min + ')';
+$medium-min-width = 'only screen and (min-width: ' + $M-min + ')';
+$large-min-width = 'only screen and (min-width: ' + $L-min + ')';
+$extra-large-min-width = 'only screen and (min-width: ' + $XL-min + ')';
+
+$extra-small-max-width = 'only screen and (max-width: ' + $XS-max + ')';
+$small-max-width = 'only screen and (max-width: ' + $S-max + ')';
+$medium-max-width = 'only screen and (max-width: ' + $M-max + ')';
+$elarge-max-width = 'only screen and (max-width: ' + $L-max + ')';
+
+$small-min-and-max-width = 'only screen and  (min-width: ' + $S-min + ') and (max-width: ' + $S-max + ')';
+$medium-min-and-max-width = 'only screen and (min-width: ' + $M-min + ') and (max-width: ' + $M-max + ')';
+$large-min-and-max-width = 'only screen and  (min-width: ' + $L-min + ') and (max-width: ' + $L-max + ')';
+
+$retina = '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)';
