@@ -84,6 +84,11 @@ module.exports = function(grunt) {
   grunt.registerTask('runtests', 'Run all test files or just one if you specify its filename.', function(testSuite) {
     testSuite = testSuite || grunt.option('testsuite');
     process.env.NODE_ENV = 'test';
+
+    // Add full tracebacks for testing. Supposedly this is too slow to
+    // run in prod. See https://github.com/kriskowal/q#long-stack-traces
+    require('Q').longStackSupport = true;
+
     require('./test/runtests')({
       onStop: this.async(),
       reporter: 'default',
