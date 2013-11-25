@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 
     // Add full tracebacks for testing. Supposedly this is too slow to
     // run in prod. See https://github.com/kriskowal/q#long-stack-traces
-    require('Q').longStackSupport = true;
+    require('q').longStackSupport = true;
 
     require('./test/runtests')({
       onStop: this.async(),
