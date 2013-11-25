@@ -98,6 +98,7 @@ exports.retrieveSeller = function(t) {
       .end(function(err, res) {
         t.ifError(err);
         t.equal(res.body.uuid, seller.uuid);
+        t.equal(res.body.resource_name, 'sellers');
         t.done();
       });
   });
