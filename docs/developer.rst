@@ -43,7 +43,8 @@ This API allows you to get/create products that can be purchased.
             "active": true,
             "name": "Magical Unicorn",
             "resource_pk": "1",
-            "resource_uri": "/products/1/"
+            "resource_name": "products",
+            "resource_uri": "/products/1"
           }, {
           ...
           }
@@ -89,7 +90,8 @@ This API allows you to get/create products that can be purchased.
           "active": true,
           "name": "Magical Unicorn",
           "resource_pk": "1",
-          "resource_uri": "/products/1/"
+          "resource_name": "products",
+          "resource_uri": "/products/1"
         }
 
     In case of an error:
@@ -130,7 +132,8 @@ This API allows you to get/create sellers who can offer products for sale.
             "name": "John",
             "email": "jdoe@example.org",
             "resource_pk": "1",
-            "resource_uri": "/seller/1/",
+            "resource_name": "sellers",
+            "resource_uri": "/sellers/1",
             "terms_at": ""
           },
           ...
@@ -152,7 +155,8 @@ This API allows you to get/create sellers who can offer products for sale.
           "name": "John",
           "email": "jdoe@example.org",
           "resource_pk": "1",
-          "resource_uri": "/seller/1/",
+          "resource_name": "sellers",
+          "resource_uri": "/sellers/1",
           "terms_at": ""
         }
 
@@ -199,7 +203,8 @@ This API allows you to get/create sellers who can offer products for sale.
           "name": "John",
           "email": "jdoe@example.org",
           "resource_pk": "1",
-          "resource_uri": "/seller/1/",
+          "resource_name": "sellers",
+          "resource_uri": "/sellers/1",
           "terms_at": ""
         }
 
