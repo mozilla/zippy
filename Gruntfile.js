@@ -1,5 +1,5 @@
-var zippy_config = require('./lib/config');
-var locales = zippy_config.supported_locales;
+var zippyConfig = require('./lib/config');
+var locales = zippyConfig.supportedLocales;
 
 
 module.exports = function(grunt) {
@@ -88,6 +88,7 @@ module.exports = function(grunt) {
         'main.js',
         'media/js/*.js',
         'test/*.js',
+        'test/suite/*.js',
       ],
     },
     stylus: {

@@ -1,15 +1,14 @@
 var under = require('underscore');
-var uuid = require('node-uuid');
 
 var Client = require('../client').Client;
-var products = require('../../lib/products');
-var sellers = require('../../lib/sellers');
+var helpers = require('../helpers');
 var trans = require('../../lib/trans');
 
 var client = new Client('/transactions');
 
 
 var transData = {
+  /*jshint camelcase: false */
   product_id: undefined,
   region: 123,
   carrier: 'USA_TMOBILE',
@@ -22,26 +21,6 @@ var transData = {
   error_url: 'https://m.f.c/webpay/error',
   ext_transaction_id: 'webpay:xyz',
 };
-
-
-function withSeller(t, opt, cb) {
-  opt = opt || {};
-  var props = under.extend({uuid: uuid.v4(), status: 'ACTIVE'}, opt);
-  sellers.models.create(props, function(err, seller) {
-    t.ifError(err);
-    cb(seller);
-  });
-}
-
-
-function withProduct(t, opt, cb) {
-  opt = opt || {};
-  var props = under.extend({external_id: uuid.v4(), status: 'ACTIVE'}, opt);
-  products.models.create(props, function(err, product) {
-    t.ifError(err);
-    cb(product);
-  });
-}
 
 
 exports.setUp = function(done) {
@@ -62,8 +41,8 @@ exports.postWithoutProduct = function(t) {
 
 
 exports.postWithInactiveProduct = function(t) {
-  withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id, status: 'INACTIVE'}, function(product) {
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id, status: 'INACTIVE'}, function(product) {
       client
         .post(under.extend({}, transData, {product_id: product._id}))
         .expect(409)
@@ -78,8 +57,8 @@ exports.postWithInactiveProduct = function(t) {
 
 
 exports.postOkTrans = function(t) {
-  withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id}, function(product) {
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
       client
         .post(under.extend({}, transData, {product_id: product._id}))
         .expect(201)
@@ -106,8 +85,8 @@ exports.postOkTrans = function(t) {
 
 
 exports.postInvalidPayMethod = function(t) {
-  withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id}, function(product) {
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
       var data = {};
       under.extend(data, transData, {product_id: product._id});
       data.pay_method = 'NOT_SUPPORTED';
@@ -124,8 +103,8 @@ exports.postInvalidPayMethod = function(t) {
 
 
 exports.postInvalidCurrency = function(t) {
-  withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id}, function(product) {
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
       var data = {};
       under.extend(data, transData, {product_id: product._id});
       data.currency = 'ZZZ';
@@ -142,8 +121,8 @@ exports.postInvalidCurrency = function(t) {
 
 
 exports.postInvalidUrls = function(t) {
-  withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id}, function(product) {
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
       var data = under.extend({}, transData, {
         product_id: product._id,
         success_url: 'nope',

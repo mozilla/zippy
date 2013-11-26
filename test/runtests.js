@@ -9,6 +9,7 @@ module.exports = function(opt) {
   var reporter = nodeunit.reporters[opt.reporter];
   var suite = (testSuite === undefined) ? 'suite/' : 'suite/'+testSuite+'.test.js';
   var options = {
+    /*jshint camelcase: false */
     assertion_prefix: '\u001B[35m',
     assertion_suffix: '\u001B[39m',
     bold_prefix: '\u001B[1m',

@@ -1,25 +1,10 @@
-var under = require('underscore');
 var uuid = require('node-uuid');
 
 var Client = require('../client').Client;
+var helpers = require('../helpers');
 var sellers = require('../../lib/sellers');
 
 var client = new Client('/sellers');
-
-
-function withSeller(t, cb, opt) {
-  opt = opt || {};
-  var props = under.extend({
-    _id: uuid.v4(),
-    status: 'ACTIVE',
-    name: 'John',
-    email: 'jdoe@example.org',
-  }, opt);
-  sellers.models.create(props, function(err, seller) {
-    t.ifError(err);
-    cb(seller);
-  });
-}
 
 
 exports.setUp = function(done) {
@@ -41,6 +26,7 @@ exports.createSeller = function(t) {
     .expect(201)
     .end(function(err, res) {
       t.ifError(err);
+      /*jshint camelcase: false */
       t.equal(res.body.resource_pk, seller._id);
       t.done();
     });
@@ -67,12 +53,13 @@ exports.createSellerWithoutStatus = function(t) {
 
 
 exports.retrieveSellers = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller(t, {}, function(seller) {
     client
       .get()
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
+        /*jshint camelcase: false */
         t.equal(res.body[0].resource_pk, seller._id);
         t.done();
       });
@@ -93,13 +80,14 @@ exports.retrieveSellersEmpty = function(t) {
 
 
 exports.retrieveSeller = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller(t, {}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     client
       .get()
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
+        /*jshint camelcase: false */
         t.equal(res.body.resource_pk, seller._id);
         t.equal(res.body.resource_name, 'sellers');
         t.done();
@@ -109,7 +97,7 @@ exports.retrieveSeller = function(t) {
 
 
 exports.updateSellerThenGet = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller(t, {}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     var updatedName = 'Jack';
     client
@@ -122,9 +110,11 @@ exports.updateSellerThenGet = function(t) {
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
+        /*jshint camelcase: false */
         t.equal(res.body.resource_pk, seller._id);
         t.equal(res.body.name, updatedName, 'name following PUT incorrect');
         t.equal(res.body.email, seller.email);
+        /*jshint camelcase: false */
         t.equal(res.body.resource_uri, '/sellers/' + res.body.resource_pk);
         client
           .get()
@@ -143,7 +133,7 @@ exports.updateSellerThenGet = function(t) {
 
 
 exports.updateSellerWithoutStatus = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller(t, {}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     var updatedName = 'Jack';
     client
@@ -154,6 +144,7 @@ exports.updateSellerWithoutStatus = function(t) {
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
+        /*jshint camelcase: false */
         t.equal(res.body.resource_pk, seller._id);
         t.equal(res.body.name, updatedName);
         t.equal(res.body.status, seller.status);
@@ -164,7 +155,7 @@ exports.updateSellerWithoutStatus = function(t) {
 
 
 exports.deleteSeller = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller(t, {}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     client
       .del()
@@ -178,7 +169,7 @@ exports.deleteSeller = function(t) {
 
 
 exports.retrieveSellerTerms = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller(t, {}, function(seller) {
     var client = new Client('/terms/' + seller._id);
     client
       .get()
@@ -193,7 +184,7 @@ exports.retrieveSellerTerms = function(t) {
 
 
 exports.updateSellerTerms = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller(t, {}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     var currentDate = new Date();
     client
@@ -203,6 +194,7 @@ exports.updateSellerTerms = function(t) {
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
+        /*jshint camelcase: false */
         t.equal(res.body.resource_pk, seller._id);
         t.equal(Date(res.body.agreement), currentDate);
         client = new Client('/terms/' + seller._id);

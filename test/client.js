@@ -24,6 +24,7 @@ function buildOAuthorizationHeader(method, path) {
                          config.OAuthCredentials.consumerSecret)
   );
   var auth = {
+    /*jshint camelcase: false */
     oauth_consumer_key: config.OAuthCredentials.consumerKey,
     oauth_nonce: 'notimplemented',
     oauth_signature_method: 'HMAC-SHA1',
@@ -51,15 +52,14 @@ function buildOAuthorizationHeader(method, path) {
     parameters
   );
 
-  delete parameters.external_id;
   var headers =  'OAuth realm="' + config.OAuthRealm + '",' +
     'oauth_signature="' + signature + '",' +
     (function (params) {
-      var query_string = [];
+      var queryString = [];
       Object.keys(auth).forEach(function(key) {
-        query_string.push(key + '="' + encodeURIComponent(params[key]) + '"');
+        queryString.push(key + '="' + encodeURIComponent(params[key]) + '"');
       });
-      return query_string.join(',');
+      return queryString.join(',');
     })(parameters);
   return headers;
 }

@@ -8,12 +8,18 @@ Installing Zippy
 ----------------
 
 You need `NodeJS`_ 0.10.5 or greater.
-From the source directory, install all the node
-packages like this::
+The Zippy source includes all dependencies but you need
+to build some compiled code for your local architecture.
+Run this to build everything::
 
-    npm install
+    npm rebuild
 
-You'll also want to install grunt-cli globally::
+For convenience, you may want to give all local node scripts
+priority on your path, like this::
+
+    export PATH="./node_modules/.bin/:${PATH}"
+
+During development, you'll also want to install grunt-cli globally::
 
     npm install -g grunt-cli
 

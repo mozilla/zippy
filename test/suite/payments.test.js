@@ -2,20 +2,19 @@ var nock = require('nock');
 var url = require('url');
 
 var under = require('underscore');
-var uuid = require('node-uuid');
 var supertest = require('super-request');
 
 var test = require('../');
 var AnonymousClient = require('../client').AnonymousClient;
 var Client = require('../client').Client;
-var products = require('../../lib/products');
-var sellers = require('../../lib/sellers');
+var helpers = require('../helpers');
 var trans = require('../../lib/trans');
 
 var client = new AnonymousClient('/');
 var transactionClient = new Client('/transactions');
 
 var transData = {
+  /*jshint camelcase: false */
   product_id: undefined,
   region: 123,
   carrier: 'USA_TMOBILE',
@@ -36,34 +35,10 @@ var newTransData = under.extend({}, transData, {
 });
 
 
-function withSeller(opt, cb) {
-  opt = opt || {};
-  var props = under.extend({uuid: uuid.v4(), status: 'ACTIVE'}, opt);
-  sellers.models.create(props, function(err, seller) {
-    if (err) {
-      throw err;
-    }
-    cb(seller);
-  });
-}
-
-
-function withProduct(opt, cb) {
-  opt = opt || {};
-  var props = under.extend({external_id: uuid.v4(), status: 'ACTIVE'}, opt);
-  products.models.create(props, function(err, product) {
-    if (err) {
-      throw err;
-    }
-    cb(product);
-  });
-}
-
-
 exports.setUp = function(done) {
   trans.models.deleteMany({}, function() {
-    withSeller({}, function(seller) {
-      withProduct({seller_id: seller._id}, function(product) {
+    helpers.withSeller(undefined, {}, function(seller) {
+      helpers.withProduct(undefined, {seller_id: seller._id}, function(product) {
         transData.product_id = product._id;
         trans.models.create(transData, function(err, createdTrans) {
           if (err) {
@@ -82,7 +57,7 @@ exports.testStartTransThenProcess = function(t) {
   supertest(test.app)
     .get('/?tx=' + transData.token)
     .expect(200)
-    .end(function(err, res) {
+    .end(function(err) {
       t.ifError(err);
     })
     .post('/payment/process')
@@ -103,7 +78,7 @@ exports.testStartTransThenFail = function(t) {
   supertest(test.app)
     .get('/?tx=' + transData.token)
     .expect(200)
-    .end(function(err, res) {
+    .end(function(err) {
       t.ifError(err);
     })
     .post('/payment/process')
@@ -130,7 +105,7 @@ exports.testNoActiveTrans = function(t) {
   supertest(test.app)
     .post('/payment/process')
     .expect(409)
-    .end(function(err, res) {
+    .end(function(err) {
       t.ifError(err);
       t.done();
     });
@@ -139,8 +114,8 @@ exports.testNoActiveTrans = function(t) {
 
 function createTrans(done, params) {
   params = params || {};
-  withSeller({}, function(seller) {
-    withProduct({seller_id: seller._id, active: false},
+  helpers.withSeller(undefined, {}, function(seller) {
+    helpers.withProduct(undefined, {seller_id: seller._id, active: false},
       function(product) {
         var data = under.extend(newTransData, {
           product_id: product._id,
@@ -159,7 +134,7 @@ function createTrans(done, params) {
 
 exports.testNoToken = function(t) {
   client.get().expect(409)  // missing tx=
-    .end(function(err, res) {
+    .end(function(err) {
       t.ifError(err);
       t.done();
     });
@@ -168,7 +143,7 @@ exports.testNoToken = function(t) {
 
 exports.testInvalidToken = function(t) {
   client.get({tx: 'nope'}).expect(404)
-    .end(function(err, res) {
+    .end(function(err) {
       t.ifError(err);
       t.done();
     });
@@ -178,7 +153,7 @@ exports.testInvalidToken = function(t) {
 exports.testGoodToken = function(t) {
   createTrans(function(trans) {
     client.get({tx: trans.token}).expect(200)
-      .end(function(err, res) {
+      .end(function(err) {
         t.ifError(err);
         t.done();
       });
@@ -189,7 +164,7 @@ exports.testGoodToken = function(t) {
 exports.testEndedTrans = function(t) {
   createTrans(function(trans) {
     client.get({tx: trans.token}).expect(400)
-      .end(function(err, res) {
+      .end(function(err) {
         t.ifError(err);
         t.done();
       });
@@ -207,8 +182,8 @@ exports.postSuccessCallback = function(t) {
     })
     .post('/webpay/callback/success?signed_notice')
     .reply(200, 'OK');
-  withSeller({}, function(seller) {
-    withProduct({seller_id: seller._id}, function(product) {
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
       var data = under.omit(
         under.extend({}, transData, {product_id: product._id}),
         'status', 'token'
@@ -233,8 +208,8 @@ exports.postErrorCallback = function(t) {
     })
     .post('/webpay/callback/error?signed_notice')
     .reply(200, 'OK');
-  withSeller({}, function(seller) {
-    withProduct({seller_id: seller._id}, function(product) {
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
       var data = under.omit(
         under.extend({}, transData, {
           product_id: product._id,
