@@ -67,7 +67,8 @@ This API enables you to begin a transaction so that a product can be purchased.
           "region": 300,
           "product_id": 1,
           "resource_pk": "1",
-          "resource_uri": "/transactions/1/"
+          "resource_name": "transactions",
+          "resource_uri": "/transactions/1"
         }
 
     In case of an error:

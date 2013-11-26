@@ -61,6 +61,15 @@ The consumer key and secret values will need to be used by the client to
 generate the approriate OAuth tokens and should be stored securely on the
 client.
 
+Resources
+---------
+
+Each resource always returns 3 additional parameters:
+
+* a ``resource_uri``: a relative URI to access the resource,
+* a ``resource_name``: the plural name of the resource,
+* a ``resource_pk``: the unique identifier of the resource.
+
 Errors
 ------
 
