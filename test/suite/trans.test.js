@@ -15,7 +15,8 @@ var goodTrans = {
   carrier: 'USA_TMOBILE',
   price: '0.99',
   currency: 'EUR',
-  pay_method: 'OPERATOR'
+  pay_method: 'OPERATOR',
+  callback_url: 'http://example.org/verify/',
 };
 
 
@@ -88,6 +89,7 @@ exports.postOkTrans = function(t) {
           t.equal(res.body.price, goodTrans.price);
           t.equal(res.body.currency, goodTrans.currency);
           t.equal(res.body.pay_method, goodTrans.pay_method);
+          t.equal(res.body.callback_url, goodTrans.callback_url);
           t.done();
         });
     });

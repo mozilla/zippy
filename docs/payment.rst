@@ -43,6 +43,10 @@ This API enables you to begin a transaction so that a product can be purchased.
     :param product_id:
         Primary key of :ref:`product <products>` about to be purchased.
 
+    :param callback_url:
+        URL to POST against with signed parameters once the payment is
+        accepted.
+
     **Response**
 
     The created transaction is returned to you with a few extra fields.

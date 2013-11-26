@@ -19,7 +19,8 @@
     "q": "0.9.7",
     "restify": "2.x",
     "save": "0.0.19",
-    "underscore": "1.5.2"
+    "underscore": "1.5.2",
+    "request": "~2.27.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
