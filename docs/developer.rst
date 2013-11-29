@@ -134,7 +134,7 @@ This API allows you to get/create sellers who can offer products for sale.
             "resource_pk": "1",
             "resource_name": "sellers",
             "resource_uri": "/sellers/1",
-            "terms_at": ""
+            "agreement": ""
           },
           ...
         ]
@@ -157,7 +157,7 @@ This API allows you to get/create sellers who can offer products for sale.
           "resource_pk": "1",
           "resource_name": "sellers",
           "resource_uri": "/sellers/1",
-          "terms_at": ""
+          "agreement": ""
         }
 
     :status 200: success.
@@ -187,7 +187,7 @@ This API allows you to get/create sellers who can offer products for sale.
     :param email:
         An email for the seller.
 
-    :param terms_at:
+    :param agreement:
         An optional date that can be used for terms validation. The responsibility
         to use that date as a validation/expiration is left to the client.
 
@@ -205,7 +205,7 @@ This API allows you to get/create sellers who can offer products for sale.
           "resource_pk": "1",
           "resource_name": "sellers",
           "resource_uri": "/sellers/1",
-          "terms_at": ""
+          "agreement": ""
         }
 
     In case of an error:
@@ -230,7 +230,7 @@ This API allows you to get/create sellers who can offer products for sale.
 
         {
           "terms": "Terms for seller: John",
-          "terms_at": "2013-11-19T11:48:49.158Z"
+          "agreement": "2013-11-19T11:48:49.158Z"
         }
 
     :status 200: success.
