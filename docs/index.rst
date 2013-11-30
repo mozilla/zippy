@@ -26,7 +26,9 @@ does not:
 * process any money at all
 
 That is all faked out. It's up to the individual payment provider to implement
-that.
+that. Here's how zippy fits into the marketplace infrastructure.
+
+.. image:: diagrams/architecture.png
 
 It is licensed under the Mozilla Public License v2.0 and contributions are more
 than welcome.
@@ -36,7 +38,6 @@ Source: https://github.com/mozilla/zippy/
 Bugs: https://bugzilla.mozilla.org/show_bug.cgi?id=905736
 
 Mailing list: https://lists.mozilla.org/listinfo/dev-marketplace
-
 
 Using Zippy
 -----------
@@ -95,6 +96,7 @@ Contents
    security.rst
    miscellaneous.rst
    tests.rst
+   flow.rst
 
 
 Indices and tables
