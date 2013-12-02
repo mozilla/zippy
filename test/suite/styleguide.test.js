@@ -9,9 +9,12 @@ module.exports = {
     var client = new Client('/styleguide/index', 'text/html');
     client
       .get()
-      .expect(301)
+      .expect(200)  // Expect 200 since we followed redirects.
       .end(function(err, res) {
-        t.equal(res.headers.location, '/styleguide');
+        if (err) {
+          throw err;
+        }
+        assert.contains('StyleGuide | index', res.body)
         t.done();
       });
   },
@@ -21,7 +24,10 @@ module.exports = {
     client
       .get()
       .end(function(err, res) {
-        assert.contains('&lt;b&gt;foo&lt;/b&gt;', res.text);
+        if (err) {
+          throw err;
+        }
+        assert.contains('&lt;b&gt;foo&lt;/b&gt;', res.body);
         t.done();
       });
   }
