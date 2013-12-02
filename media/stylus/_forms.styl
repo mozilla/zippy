@@ -2,8 +2,18 @@ $form-padding = 0.4em 0.2em 0.2em 0.2em;
 $form-line-height = 1.5em;
 $form-margin-top = 0.5em;
 
-form {
-    overflow: hidden;
+// Placeholder Text
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: $medium-gray;
+}
+::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $medium-gray;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $medium-gray;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $medium-gray;
 }
 
 label {

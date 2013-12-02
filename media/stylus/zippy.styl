@@ -121,6 +121,12 @@ hr {
     flex(1);
 }
 
+@media $small-min-width {
+    .cc-num {
+        width: 100%;
+    }
+}
+
 .save-card,
 .postcode {
     flex(1, 1, 100%);
@@ -130,4 +136,8 @@ hr {
 input.postcode {
     padding: inherit 0;
     max-width: 100%;
+}
+
+.flex-container .checkbox {
+    align-items(center);
 }
