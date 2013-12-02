@@ -12,7 +12,7 @@
     <div class="flex-container">
       <div class="row">
         <label for="cc-num" class="S-visually-hidden">Credit Card Number</label>
-        <input class="cc-num" size="20" id="cc-num" type="text" pattern="\\d{4} \\d{4} \\d{4} \\d{4}" value="" placeholder="Card Number" />
+        <input class="cc-num" id="cc-num" type="text" pattern="\\d{4} \\d{4} \\d{4} \\d{4}" value="" placeholder="Card Number" />
       </div>
     </div>
 
@@ -26,7 +26,7 @@
 
         <div class="flex">
           <label for="postcode" class="S-visually-hidden">Post-code</label>
-          <input id="postcode" class="postcode" type="text" maxlength="" value="" placeholder="Post-code" />
+          <input id="postcode" sclass="postcode" type="text" maxlength="" value="" placeholder="Post-code" />
         </div>
 
       </div>
@@ -38,8 +38,9 @@
           <input id="cvc" type="text" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
         </div>
 
-        <div class="flex right">
-          <label class="no-wrap right save-card" for="save-card">Save card<input type="checkbox" value="1" name="save-card" id="save-card" /></label>
+        <div class="flex checkbox">
+          <input type="checkbox" value="1" name="save-card" id="save-card"  />
+          <label class="no-wrap right save-card" for="save-card">Save card</label>
         </div>
 
       </div>
