@@ -7,6 +7,7 @@
   "dependencies": {
     "assert-plus": "0.1.2",
     "bunyan": "0.21.3",
+    "client-sessions": "0.4.1",
     "escape-html": "1.0.0",
     "forms": "0.3.0",
     "marked": "0.2.9",
@@ -30,7 +31,7 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-shell": "~0.5.0",
     "nodeunit": "0.8.1",
-    "supertest": "0.8.0",
+    "super-request": "~0.0.4",
     "stylus": "0.32.x",
     "grunt-nodemon": "~0.1.1",
     "grunt-concurrent": "~0.4.1"

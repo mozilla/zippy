@@ -1,9 +1,19 @@
+var https = require('https');
 var qs = require('querystring');
-var supertest = require('supertest');
+var supertest = require('super-request');
 var test = require('./');
 var oauth = require('oauth-client');
 
 var config = require('../lib/config');
+
+
+function serverAddress(app, path){
+  var addr = app.address();
+  if (!addr) app.listen(0);
+  var port = app.address().port;
+  var protocol = app instanceof https.Server ? 'https' : 'http';
+  return protocol + '://127.0.0.1:' + port + path;
+}
 
 
 function buildOAuthorizationHeader(method, path) {
@@ -21,7 +31,7 @@ function buildOAuthorizationHeader(method, path) {
   };
   var signature = signer.sign(
     method,
-    supertest.Test.prototype.serverAddress(test.app, path),
+    serverAddress(test.app, path),
     parameters
   );
   return 'OAuth realm="' + config.OAuthRealm + '",' +
@@ -38,6 +48,7 @@ function buildOAuthorizationHeader(method, path) {
 function Client(url, accept) {
   this.url = url;
   this.accept = accept || 'application/json';
+  this._isJSON = this.accept.indexOf('json') !== -1;
   if (/.*\/$/.test(url)) {
     console.log('Warning: client URL ends with a slash, OAuth may fail.');
   }
@@ -50,44 +61,75 @@ Client.prototype.get = function(arg) {
     if (typeof arg === 'object') {
       url = url + '?' + qs.stringify(arg);
     } else {
-      // Treat get arg like Curling, e.g. api.resource.get(pk)
-      url = url + '/' + arg.toString();
+      if (arg.toString().indexOf('/') === 0) {
+        // Treat it as an absolute URL and override this.url.
+        url = arg.toString();
+      } else {
+        // Treat get arg like Curling, e.g. api.resource.get(pk)
+        url = url + '/' + arg.toString();
+      }
     }
   }
-  return supertest(test.app)
+  var res = supertest(test.app)
     .get(url)
-    .set('Accept', this.accept)
-    .set('Authorization', buildOAuthorizationHeader(method, url));
+    .headers({
+      'Accept': this.accept,
+      'Authorization': buildOAuthorizationHeader(method, url),
+    });
+  if (this._isJSON) {
+    res = res.json(true);
+  }
+  return res;
 };
 
 Client.prototype.post = function(data) {
   var method = 'POST';
-  return supertest(test.app)
+  var res = supertest(test.app)
     .post(this.url)
-    .set('Accept', this.accept)
-    .set('Authorization', buildOAuthorizationHeader(method, this.url))
-    .send(data);
+    .headers({
+      'Accept': this.accept,
+      'Authorization': buildOAuthorizationHeader(method, this.url),
+    })
+    .form(data);
+  if (this._isJSON) {
+    res = res.json(true);
+  }
+  return res;
 };
 
 Client.prototype.put = function(data) {
   var method = 'PUT';
-  return supertest(test.app)
+  var res = supertest(test.app)
     .put(this.url)
-    .set('Accept', this.accept)
-    .set('Authorization', buildOAuthorizationHeader(method, this.url))
-    .send(data);
+    .headers({
+      'Accept': this.accept,
+      'Authorization': buildOAuthorizationHeader(method, this.url),
+    })
+    .form(data);
+  if (this._isJSON) {
+    res = res.json(true);
+  }
+  return res;
 };
 
 
 Client.prototype.del = function(data) {
   var method = 'DELETE';
-  return supertest(test.app)
+  var res = supertest(test.app)
     .del(this.url)
-    .set('Accept', this.accept)
-    .set('Authorization', buildOAuthorizationHeader(method, this.url))
-    .send(data);
+    .headers({
+      'Accept': this.accept,
+      'Authorization': buildOAuthorizationHeader(method, this.url),
+    })
+    .form(data);
+  if (this._isJSON) {
+    res = res.json(true);
+  }
+  return res;
 };
 
+
+// TODO: merge AnonymousClient with Client! See stdlib util.inherits()
 
 function AnonymousClient(url) {
   this.url = url;
@@ -95,14 +137,16 @@ function AnonymousClient(url) {
 
 AnonymousClient.prototype.get = function(data) {
   return supertest(test.app)
-    .get(this.url + (data ? '?' + qs.stringify(data) : ''));
+    .get(this.url + (data ? '?' + qs.stringify(data) : ''))
+    .json(true);
 };
 
 AnonymousClient.prototype.post = function(data) {
   return supertest(test.app)
     .post(this.url)
-    .set('Accept', 'application/json')
-    .send(data);
+    .headers({'Accept': 'application/json'})
+    .json(true)
+    .form(data);
 };
 
 exports.Client = Client;

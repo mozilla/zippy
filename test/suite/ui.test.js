@@ -12,7 +12,7 @@ module.exports = {
       .expect(404)
       .end(function(err, res) {
         t.ifError(err);
-        assert.contains('&lt;script&gt;alert(&#39;hai&#39;)&lt;/script&gt;', res.text);
+        assert.contains('&lt;script&gt;alert(&#39;hai&#39;)&lt;/script&gt;', res.body);
         t.done();
       });
   }
