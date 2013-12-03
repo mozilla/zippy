@@ -4,16 +4,25 @@
 {% block header %}
 <header>
   <h1>Purchase</h1>
-  {# You can access things like: #}
-  {# product.name #}
-  {# seller.name #}
-  {# trans.price #}
-  {# trans.currency #}
-  {# trans.pay_method #}
-  {# trans.region #}
 </header>
 {% endblock %}
 
 {% block main %}
-  {{ content }}
+  <dl>
+    <dt>Product</dt>
+    <dd>{{ product.name }}</dd>
+    <dt>Seller</dt>
+    <dd>{{ seller.name }}</dd>
+    <dt>Price</dt>
+    <dd>{{ trans.currency }} {{ trans.price }}</dd>
+    <dt>Method</dt>
+    <dd>{{ trans.pay_method }}</dd>
+    <dt>Region</dt>
+    <dd>{{ trans.region }}</dd>
+
+    <form method="post" action="{{ processUrl }}">
+      <input type="submit" value="Complete A Fake Payment">
+    </form>
+
+  </dl>
 {% endblock %}

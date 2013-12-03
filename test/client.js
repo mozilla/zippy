@@ -13,7 +13,7 @@ function serverAddress(app, path){
   var port = app.address().port;
   var protocol = app instanceof https.Server ? 'https' : 'http';
   return protocol + '://127.0.0.1:' + port + path;
-};
+}
 
 
 function buildOAuthorizationHeader(method, path) {
@@ -61,11 +61,16 @@ Client.prototype.get = function(arg) {
     if (typeof arg === 'object') {
       url = url + '?' + qs.stringify(arg);
     } else {
-      // Treat get arg like Curling, e.g. api.resource.get(pk)
-      url = url + '/' + arg.toString();
+      if (arg.toString().indexOf('/') === 0) {
+        // Treat it as an absolute URL and override this.url.
+        url = arg.toString();
+      } else {
+        // Treat get arg like Curling, e.g. api.resource.get(pk)
+        url = url + '/' + arg.toString();
+      }
     }
   }
-  res = supertest(test.app)
+  var res = supertest(test.app)
     .get(url)
     .headers({
       'Accept': this.accept,
@@ -79,7 +84,7 @@ Client.prototype.get = function(arg) {
 
 Client.prototype.post = function(data) {
   var method = 'POST';
-  res = supertest(test.app)
+  var res = supertest(test.app)
     .post(this.url)
     .headers({
       'Accept': this.accept,
@@ -94,7 +99,7 @@ Client.prototype.post = function(data) {
 
 Client.prototype.put = function(data) {
   var method = 'PUT';
-  res = supertest(test.app)
+  var res = supertest(test.app)
     .put(this.url)
     .headers({
       'Accept': this.accept,
@@ -110,7 +115,7 @@ Client.prototype.put = function(data) {
 
 Client.prototype.del = function(data) {
   var method = 'DELETE';
-  res = supertest(test.app)
+  var res = supertest(test.app)
     .del(this.url)
     .headers({
       'Accept': this.accept,
