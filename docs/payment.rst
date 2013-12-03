@@ -32,6 +32,14 @@ This API enables you to begin a transaction so that a product can be purchased.
         Numeric MCC (Mobile Country Code) of the region that the user is in
         when beginning the transaction. Example: ``300``.
 
+    :param success_url:
+        Fully qualified URL to where Zippy should redirect to after a successful
+        payment. Example: ``https://marketplace.firefox.com/mozpay/provider/success``.
+
+    :param error_url:
+        Fully qualified URL to where Zippy should redirect to after a payment
+        error. Example: ``https://marketplace.firefox.com/mozpay/provider/error``.
+
     :param pay_method:
         Method of payment requested. Possible values:
 
@@ -66,6 +74,8 @@ This API enables you to begin a transaction so that a product can be purchased.
           "carrier": "TMOBILE",
           "region": 300,
           "product_id": 1,
+          "success_url": "https://yoursite.org/success",
+          "error_url": "https://yoursite.org/error",
           "resource_pk": "1",
           "resource_name": "transactions",
           "resource_uri": "/transactions/1"
