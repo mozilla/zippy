@@ -15,7 +15,9 @@ var goodTrans = {
   carrier: 'USA_TMOBILE',
   price: '0.99',
   currency: 'EUR',
-  pay_method: 'OPERATOR'
+  pay_method: 'OPERATOR',
+  success_url: 'https://m.f.c/webpay/success',
+  error_url: 'https://m.f.c/webpay/error',
 };
 
 
@@ -88,6 +90,8 @@ exports.postOkTrans = function(t) {
           t.equal(res.body.price, goodTrans.price);
           t.equal(res.body.currency, goodTrans.currency);
           t.equal(res.body.pay_method, goodTrans.pay_method);
+          t.equal(res.body.success_url, goodTrans.success_url);
+          t.equal(res.body.error_url, goodTrans.error_url);
           t.done();
         });
     });
@@ -119,6 +123,26 @@ exports.postInvalidCurrency = function(t) {
       var data = {};
       under.extend(data, goodTrans, {product_id: product._id});
       data.currency = 'ZZZ';
+      client
+        .post(data)
+        .expect(409)
+        .end(function(err) {
+          t.ifError(err);
+          t.done();
+        });
+    });
+  });
+};
+
+
+exports.postInvalidUrls = function(t) {
+  withSeller(t, {}, function(seller) {
+    withProduct(t, {seller_id: seller._id}, function(product) {
+      var data = under.extend({}, goodTrans, {
+        product_id: product._id,
+        success_url: 'nope',
+        error_url: 'not-a-url',
+      });
       client
         .post(data)
         .expect(409)

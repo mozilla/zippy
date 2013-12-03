@@ -7,7 +7,19 @@ var products = require('../../lib/products');
 var sellers = require('../../lib/sellers');
 var trans = require('../../lib/trans');
 
-var token = 'fake-token';
+
+var transData = {
+  product_id: undefined,
+  region: 123,
+  carrier: 'USA_TMOBILE',
+  price: '0.99',
+  currency: 'EUR',
+  pay_method: 'OPERATOR',
+  token: 'fake-token',
+  status: 'STARTED',
+  success_url: 'https://m.f.c/webpay/success',
+  error_url: 'https://m.f.c/webpay/error',
+};
 
 
 function withSeller(opt, cb) {
@@ -35,16 +47,6 @@ function withProduct(opt, cb) {
 
 
 exports.setUp = function(done) {
-  var transData = {
-    product_id: undefined,
-    region: 123,
-    carrier: 'USA_TMOBILE',
-    price: '0.99',
-    currency: 'EUR',
-    pay_method: 'OPERATOR',
-    token: token,
-    status: 'STARTED',
-  };
   trans.models.deleteMany({}, function() {
     withSeller({}, function(seller) {
       withProduct({seller_id: seller._id}, function(product) {
@@ -64,7 +66,7 @@ exports.setUp = function(done) {
 
 exports.testStartTransThenProcess = function(t) {
   supertest(test.app)
-    .get('/?tx=' + token)
+    .get('/?tx=' + transData.token)
     .expect(200)
     .end(function(err, res) {
       t.ifError(err);
@@ -74,6 +76,7 @@ exports.testStartTransThenProcess = function(t) {
     .expect(301)
     .end(function(err, res) {
       t.ifError(err);
+      t.equal(res.headers.location, transData.success_url);
       t.done();
     });
 };
