@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{% if lang %}{{ lang }}{% else %}en-us{% endif %}" dir="{% if lang_dir %}{{ lang_dir }}{% else %}ltr{% endif %}">
 <head>
   <meta charset="utf-8">
   <title>{% block title %}{% endblock %}</title>
@@ -16,4 +16,5 @@
   </div>
   {%- block script %}{% endblock -%}
 </body>
+{% if not lang %}<!-- Not localised -->{% endif %}
 </html>
