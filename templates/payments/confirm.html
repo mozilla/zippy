@@ -8,8 +8,8 @@
   <hr/>
 
   <section class="payment-info">
-    {% set cc-link='#' %}
-    <p>{{ format('The amount will be charged to your T-mobile account, or <a href="%s">pay using your credit card</a>', [cc-link]) }}</p>
+    {% set cc_link='#' %}
+    <p>{{ format(gettext('The amount will be charged to your T-mobile account, or <a %s>pay using your credit card</a>'), ['href="' + cc_link + '"'])|safe }}</p>
   </section>
 
   {% include "_footer.html" %}

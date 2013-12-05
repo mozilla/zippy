@@ -30,6 +30,7 @@
     "grunt-contrib-nodeunit": "~0.2.1",
     "grunt-contrib-stylus": "~0.8.0",
     "grunt-contrib-watch": "~0.5.3",
+    "grint-i18n-abide": "git+ssh://git@github.com/muffinresearch/grunt-i18n-abide.git",
     "grunt-shell": "~0.5.0",
     "nodeunit": "0.8.1",
     "super-request": "~0.0.4",

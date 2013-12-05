@@ -1,7 +1,7 @@
 <footer>
   {% set provider_name='Bango' %}
-  <p>{{ format('Products sold by %s for Mozilla', [provider_name]) }}</p>
+  <p>{{ format(gettext('Products sold by %s for Mozilla'), [provider_name]) }}</p>
 
   {% set terms_link='#' %}
-  <p>{{ gettext('Msg and Data Rates May Apply') }} <a href="{{ terms_link }}">{{ gettext('Terms &amp; Conditions') }}</a></p>
+  <p>{{ format(gettext('Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>'), ['href="' + terms_link + '"'])|safe }}</p>
 </footer>
