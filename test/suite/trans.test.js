@@ -18,6 +18,7 @@ var goodTrans = {
   pay_method: 'OPERATOR',
   success_url: 'https://m.f.c/webpay/success',
   error_url: 'https://m.f.c/webpay/error',
+  ext_transaction_id: 'webpay:xyz',
 };
 
 
@@ -92,6 +93,7 @@ exports.postOkTrans = function(t) {
           t.equal(res.body.pay_method, goodTrans.pay_method);
           t.equal(res.body.success_url, goodTrans.success_url);
           t.equal(res.body.error_url, goodTrans.error_url);
+          t.equal(res.body.ext_transaction_id, goodTrans.ext_transaction_id);
           t.done();
         });
     });
