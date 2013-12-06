@@ -40,6 +40,11 @@ This API enables you to begin a transaction so that a product can be purchased.
         Fully qualified URL to where Zippy should redirect to after a payment
         error. Example: ``https://marketplace.firefox.com/mozpay/provider/error``.
 
+    :param ext_transaction_id:
+        An external transaction ID (string). This would be a merchant's own
+        transaction ID, such as `Webpay`_'s transaction ID. This will be
+        returned to the merchant in a payment notice for reconciliation.
+
     :param pay_method:
         Method of payment requested. Possible values:
 
@@ -131,3 +136,5 @@ It's expected that the implementor of the payment flow would implement a flow
 that looks like this to start the payment flow.
 
 .. image:: diagrams/auth-flow.png
+
+.. _Webpay: https://github.com/mozilla/webpay

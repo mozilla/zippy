@@ -19,6 +19,7 @@ var transData = {
   status: 'STARTED',
   success_url: 'https://m.f.c/webpay/success',
   error_url: 'https://m.f.c/webpay/error',
+  ext_transaction_id: 'webpay-xyz',
 };
 
 
@@ -76,7 +77,9 @@ exports.testStartTransThenProcess = function(t) {
     .expect(301)
     .end(function(err, res) {
       t.ifError(err);
-      t.equal(res.headers.location, transData.success_url);
+      t.equal(res.headers.location,
+              transData.success_url +
+                '?ext_transaction_id=' + transData.ext_transaction_id);
       t.done();
     });
 };
