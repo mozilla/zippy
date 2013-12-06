@@ -24,7 +24,7 @@ var goodTrans = {
 
 function withSeller(t, opt, cb) {
   opt = opt || {};
-  var props = under.extend({uuid: uuid.v4(), active: true}, opt);
+  var props = under.extend({_id: uuid.v4(), active: true}, opt);
   sellers.models.create(props, function(err, seller) {
     t.ifError(err);
     cb(seller);
