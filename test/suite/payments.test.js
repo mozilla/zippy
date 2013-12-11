@@ -3,9 +3,12 @@ var uuid = require('node-uuid');
 var supertest = require('super-request');
 
 var test = require('../');
+var Client = require('../client').AnonymousClient;
 var products = require('../../lib/products');
 var sellers = require('../../lib/sellers');
 var trans = require('../../lib/trans');
+
+var client = new Client('/');
 
 
 var transData = {
@@ -21,6 +24,10 @@ var transData = {
   error_url: 'https://m.f.c/webpay/error',
   ext_transaction_id: 'webpay-xyz',
 };
+
+var newTransData = under.extend({}, transData, {
+  token: 'a-different-token',
+});
 
 
 function withSeller(opt, cb) {
@@ -93,4 +100,73 @@ exports.testNoActiveTrans = function(t) {
       t.ifError(err);
       t.done();
     });
+};
+
+
+function createTrans(done, params) {
+  params = params || {};
+  var t = {
+    ifError: function(err) {
+      if (err) {
+        throw err;
+      }
+    }
+  }
+  withSeller({}, function(seller) {
+    withProduct({seller_id: seller._id, active: false},
+      function(product) {
+        var data = under.extend(newTransData, {
+          product_id: product._id,
+        }, params);
+        trans.models.create(data, function(err, trans) {
+          if (err) {
+            throw err;
+          }
+          console.log('created trans', trans);
+          done(trans);
+        });
+      })
+  });
+}
+
+
+exports.testNoToken = function(t) {
+  client.get().expect(409)  // missing tx=
+    .end(function(err, res) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.testInvalidToken = function(t) {
+  client.get({tx: 'nope'}).expect(404)
+    .end(function(err, res) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.testGoodToken = function(t) {
+  createTrans(function(trans) {
+    client.get({tx: trans.token}).expect(200)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.done();
+      });
+  });
+};
+
+
+exports.testEndedTrans = function(t) {
+  createTrans(function(trans) {
+    client.get({tx: trans.token}).expect(400)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.done();
+      });
+  }, {
+    status: 'COMPLETED',
+  });
 };
