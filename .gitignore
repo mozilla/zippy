@@ -2,3 +2,5 @@ docs/_build
 lib/config/local.js
 media/css/*.css
 node_modules/
+*.mo
+media/locale/*

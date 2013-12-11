@@ -45,9 +45,10 @@ function buildOAuthorizationHeader(method, path) {
     })(parameters);
 }
 
-function Client(url, accept) {
+function Client(url, accept, lang) {
   this.url = url;
   this.accept = accept || 'application/json';
+  this.lang = lang || 'en-US';
   this._isJSON = this.accept.indexOf('json') !== -1;
   if (/.*\/$/.test(url)) {
     console.log('Warning: client URL ends with a slash, OAuth may fail.');
@@ -74,6 +75,7 @@ Client.prototype.get = function(arg) {
     .get(url)
     .headers({
       'Accept': this.accept,
+      'Accept-Language': this.lang,
       'Authorization': buildOAuthorizationHeader(method, url),
     });
   if (this._isJSON) {
