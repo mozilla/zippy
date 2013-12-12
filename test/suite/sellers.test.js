@@ -123,7 +123,7 @@ exports.updateSellerThenGet = function(t) {
       .end(function(err, res) {
         t.ifError(err);
         t.equal(res.body.resource_pk, seller._id);
-        t.equal(res.body.name, updatedName);
+        t.equal(res.body.name, updatedName, 'name following PUT incorrect');
         t.equal(res.body.email, seller.email);
         t.equal(res.body.resource_uri, '/sellers/' + res.body.resource_pk);
         client
@@ -132,7 +132,7 @@ exports.updateSellerThenGet = function(t) {
           .end(function(err, res) {
             t.ifError(err);
             t.equal(res.body.resource_pk, seller._id);
-            t.equal(res.body.name, updatedName);
+            t.equal(res.body.name, updatedName, 'name following PUT then GET incorrect');
             t.equal(res.body.email, seller.email);
             t.equal(res.body.resource_uri, '/sellers/' + res.body.resource_pk);
             t.done();

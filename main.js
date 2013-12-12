@@ -1,6 +1,5 @@
-var bunyan = require('bunyan');
+//var bunyan = require('bunyan');
 var getopt = require('posix-getopt');
-var restify = require('restify');
 
 var zippy = require('./lib');
 
@@ -8,27 +7,27 @@ var NAME = 'zippyapp';
 
 // In true UNIX fashion, debug messages go to stderr, and audit records go
 // to stdout, so you can split them as you like in the shell
-var LOG = bunyan.createLogger({
-  name: NAME,
-  streams: [ {
-    level: (process.env.LOG_LEVEL || 'info'),
-    stream: process.stderr,
-  }, {
-    // This ensures that if we get a WARN or above all debug records
-    // related to that request are spewed to stderr - makes it nice
-    // filter out debug messages in prod, but still dump on user
-    // errors so you can debug problems
-    level: 'debug',
-    type: 'raw',
-    stream: new restify.bunyan.RequestCaptureStream({
-      level: bunyan.WARN,
-      maxRecords: 100,
-      maxRequestIds: 1000,
-      stream: process.stderr,
-    })
-  } ],
-  serializers: restify.bunyan.serializers,
-});
+// var LOG = bunyan.createLogger({
+//   name: NAME,
+//   streams: [ {
+//     level: (process.env.LOG_LEVEL || 'info'),
+//     stream: process.stderr,
+//   }, {
+//     // This ensures that if we get a WARN or above all debug records
+//     // related to that request are spewed to stderr - makes it nice
+//     // filter out debug messages in prod, but still dump on user
+//     // errors so you can debug problems
+//     level: 'debug',
+//     type: 'raw',
+//     stream: new restify.bunyan.RequestCaptureStream({
+//       level: bunyan.WARN,
+//       maxRecords: 100,
+//       maxRequestIds: 1000,
+//       stream: process.stderr,
+//     })
+//   } ],
+//   serializers: restify.bunyan.serializers,
+// });
 
 
 
@@ -64,13 +63,13 @@ function parseOptions() {
       opts.port = parseInt(option.optarg, 10);
       break;
 
-    case 'v':
-      // Allows us to set -vvv -> this little hackery
-      // just ensures that we're never < TRACE
-      LOG.level(Math.max(bunyan.TRACE, (LOG.level() - 10)));
-      if (LOG.level() <= bunyan.DEBUG)
-        LOG = LOG.child({src: true});
-      break;
+ //   case 'v':
+ //     // Allows us to set -vvv -> this little hackery
+ //     // just ensures that we're never < TRACE
+ //     LOG.level(Math.max(bunyan.TRACE, (LOG.level() - 10)));
+ //     if (LOG.level() <= bunyan.DEBUG)
+ //       LOG = LOG.child({src: true});
+ //     break;
 
     default:
       usage('invalid option: ' + option.option);
@@ -78,7 +77,7 @@ function parseOptions() {
     }
   }
 
-  LOG.debug(opts, 'command line arguments parsed');
+ // LOG.debug(opts, 'command line arguments parsed');
   return (opts);
 }
 
@@ -97,12 +96,13 @@ function usage(msg) {
 
 function main(options) {
   options = options || parseOptions();
-  var server = zippy.createServer({
-    log: LOG,
+  var app = zippy.createApp({
     options: options,
   });
-  server.listen((options.port || 8080), function onListening() {
-    LOG.info('listening at %s', server.url);
+  var port = options.port || 8080;
+  app.server = app.listen(port, function onServerStart() {
+    var addr = this.address();
+    console.log('listening at %s:%s', addr.address, addr.port);
   });
 }
 

@@ -1,10 +1,25 @@
 var https = require('https');
+var oauth = require('oauth-client');
 var qs = require('querystring');
 var supertest = require('super-request');
-var test = require('./');
-var oauth = require('oauth-client');
+var url = require('url');
 
 var config = require('../lib/config');
+var test = require('./');
+
+
+function merge(a,b) {
+  if (!b || !(b instanceof Object)) {
+    return a;
+  }
+  var keys = Object.keys(b);
+  for (var key in keys) {
+    if(typeof(keys[key]) !== 'function') {
+      a[keys[key]] = b[keys[key]];
+    }
+  }
+  return a;
+}
 
 
 function serverAddress(app, path){
@@ -21,7 +36,7 @@ function buildOAuthorizationHeader(method, path) {
     oauth.createConsumer(config.OAuthCredentials.consumerKey,
                          config.OAuthCredentials.consumerSecret)
   );
-  var parameters = {
+  var auth = {
     oauth_consumer_key: config.OAuthCredentials.consumerKey,
     oauth_nonce: 'notimplemented',
     oauth_signature_method: 'HMAC-SHA1',
@@ -29,20 +44,37 @@ function buildOAuthorizationHeader(method, path) {
     oauth_token: 'notimplemented',
     oauth_version: '1.0',
   };
+
+  // Parse url (based on https://github.com/unscene/node-oauth/blob/master/lib/oauth.js#L160)
+  // This is so query params are used as part of the sig.
+  var parsed = url.parse(path);
+  var queryParams = null;
+  // if any parameters are passed with the path we need them
+  if (parsed.query) {
+    queryParams = qs.parse(parsed.query);
+  }
+
+  var parameters = {};
+  merge(parameters, auth);
+  merge(parameters, queryParams);
+
   var signature = signer.sign(
     method,
     serverAddress(test.app, path),
     parameters
   );
-  return 'OAuth realm="' + config.OAuthRealm + '",' +
+
+  delete parameters.external_id;
+  var headers =  'OAuth realm="' + config.OAuthRealm + '",' +
     'oauth_signature="' + signature + '",' +
     (function (params) {
       var query_string = [];
-      for (var key in params) {
+      for (var key in auth) {
         query_string.push(key + '="' + encodeURIComponent(params[key]) + '"');
       }
       return query_string.join(',');
     })(parameters);
+  return headers;
 }
 
 function Client(url, accept, lang) {
@@ -71,6 +103,7 @@ Client.prototype.get = function(arg) {
       }
     }
   }
+
   var res = supertest(test.app)
     .get(url)
     .headers({
