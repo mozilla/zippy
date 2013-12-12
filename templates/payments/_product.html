@@ -2,13 +2,9 @@
     {% set product_image_url='/images/placeholder/ctr.png' %}
     <img class="product-image" src="{{ product_image_url }}" alt="" />
     <section class="product">
-      {% set title=gettext('Cut the Rope') %}
-      <h2 class="title">{{ title }}</h2>
-      {% set author=gettext('Chillingo Ltd.') %}
-      <p class="author">{{ author }}</p>
-      {% set currency='R$' %}
-      {% set price='$ 2.99' %}
-      <p class="total">{{ gettext('Total') }} ({{ currency }}): <span class="price">{{ price }}</span><a class="ref" href="#ref">*</a></p>
+      <h2 class="title">{{ product.name }}</h2>
+      <p class="author">{{ seller.name }}</p>
+      <p class="total">{{ gettext('Total') }} ({{ trans.currency }}): <span class="price">{{ trans.price }}</span><a class="ref" href="#ref">*</a></p>
       <p id="ref" class="ref-desc">{{ gettext('Includes taxes') }}</p>
     </section>
   </div>
