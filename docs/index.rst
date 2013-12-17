@@ -5,9 +5,7 @@ This is a reference implementation of a payment provider. It shows the API and
 endpoints a payment provider should implement in order to integrate with the
 Firefox Marketplace.
 
-Zippy was also a character on a children's TV show in the UK.
-
-All the code is on `github <https://github.com/mozilla/zippy/>`_.
+This is also available as a PDF: https://media.readthedocs.org/pdf/zippypayments/latest/zippypayments.pdf
 
 About
 -----
