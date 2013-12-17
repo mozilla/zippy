@@ -44,7 +44,7 @@ Everything you need to know about data formats, protocols, authentication and
 the like. See the :ref:`using zippy documentation <using-label>`.
 
 Developers
-==========
+~~~~~~~~~~
 
 * Setting up a developer account so that a developer can recieve payment.
 * Registering an app with the payment provider.
@@ -54,7 +54,7 @@ Developers
 See the :ref:`developer documentation <developer-label>`.
 
 Payment
-=======
+~~~~~~~
 
 * The actual payment part of the flow.
 * Starting the payment flow.
@@ -64,14 +64,14 @@ Payment
 See the :ref:`payment documentation <payment-label>`.
 
 Reporting
-=========
+~~~~~~~~~
 
 * Reporting of transactions back to developers.
 
 See the :ref:`reporting documentation <reporting-label>` documentation.
 
 Miscellaneous
-=============
+~~~~~~~~~~~~~
 
 * Refunds and chargebacks, see :ref:`refunds <refunds-label>`
 * Token checking and other security, see :ref:`security <security-label>`
