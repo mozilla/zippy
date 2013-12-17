@@ -5,117 +5,17 @@ Developer
 
 This covers registering a developer and their apps with the payment provider.
 
-.. _products:
-
-Products
---------
-
-This API allows you to get/create products that can be purchased.
-
-.. http:get:: /products
-
-    **Request**
-
-    :param external_id:
-        Filter all products by this external identifier.
-        Since this is only unique per seller, filtering by
-        seller is probably a good idea.
-
-    :param seller_id:
-        Filter all products by this seller ID, the
-        primary key for the :ref:`seller <sellers>` who owns each product.
-
-    :param seller_uuid:
-        Filter all products by this seller UUID, the
-        unique identifier for the :ref:`seller <sellers>` who owns each
-        product.
-
-    **Response**
-
-    A list of products matching your query. For example:
-
-    .. code-block:: json
-
-        [
-          {
-            "external_id": "...",
-            "seller_id": ...,
-            "active": true,
-            "name": "Magical Unicorn",
-            "resource_pk": "1",
-            "resource_name": "products",
-            "resource_uri": "/products/1"
-          }, {
-          ...
-          }
-        ]
-
-    In case of an error:
-
-    .. code-block:: json
-
-        {
-          "code": "InvalidArgument",
-          "message": "some error"
-        }
-
-    :status 200: success.
-    :status 404: resource not found.
-    :status 409: conflict.
-
-.. http:post:: /products
-
-    **Request**
-
-    :param external_id:
-        An external identifier for the product.
-        This must be unique per seller but doesn't need to be unique
-        across the entire system.
-
-    :param name:
-        A name to describe the product.
-
-    :param seller_id:
-        Primary key of :ref:`seller <sellers>` who owns this product.
-
-    **Response**
-
-    The created product is returned to you. For example:
-
-    .. code-block:: json
-
-        {
-          "external_id": "...",
-          "seller_id": ...,
-          "active": true,
-          "name": "Magical Unicorn",
-          "resource_pk": "1",
-          "resource_name": "products",
-          "resource_uri": "/products/1"
-        }
-
-    In case of an error:
-
-    .. code-block:: json
-
-        {
-          "code": "InvalidArgument",
-          "message": {
-            "external_id": "external_id must be unique",
-            "seller_id":"zero results for seller_id 2"
-          }
-        }
-
-    :status 201: success.
-    :status 409: conflict.
-
-
 .. _sellers:
 
 Sellers
 -------
 
 This API allows you to get/create sellers who can offer products for sale.
+
+This API demonstrates a very simple get and post API for creating a seller.
+Typically a payment provider will require more information about a seller that
+is shown here, since the payment provider will likely want to  information
+pertinent to developer payouts.
 
 .. http:get:: /sellers
 
@@ -220,6 +120,13 @@ This API allows you to get/create sellers who can offer products for sale.
     :status 201: success.
     :status 409: conflict.
 
+.. _terms:
+
+Terms
+-----
+
+Once the terms have been approved, they can be set on the seller.
+
 .. http:get:: /terms/:uuid
 
     **Response**
@@ -234,3 +141,107 @@ This API allows you to get/create sellers who can offer products for sale.
         }
 
     :status 200: success.
+
+.. _products:
+
+Products
+--------
+
+This API allows you to get/create products that can be purchased.
+
+.. http:get:: /products
+
+    **Request**
+
+    :param external_id:
+        Filter all products by this external identifier.
+        Since this is only unique per seller, filtering by
+        seller is probably a good idea.
+
+    :param seller_id:
+        Filter all products by this seller ID, the
+        primary key for the :ref:`seller <sellers>` who owns each product.
+
+    :param seller_uuid:
+        Filter all products by this seller UUID, the
+        unique identifier for the :ref:`seller <sellers>` who owns each
+        product.
+
+    **Response**
+
+    A list of products matching your query. For example:
+
+    .. code-block:: json
+
+        [
+          {
+            "external_id": "...",
+            "seller_id": ...,
+            "active": true,
+            "name": "Magical Unicorn",
+            "resource_pk": "1",
+            "resource_name": "products",
+            "resource_uri": "/products/1"
+          }, {
+          ...
+          }
+        ]
+
+    In case of an error:
+
+    .. code-block:: json
+
+        {
+          "code": "InvalidArgument",
+          "message": "some error"
+        }
+
+    :status 200: success.
+    :status 404: resource not found.
+    :status 409: conflict.
+
+.. http:post:: /products
+
+    **Request**
+
+    :param external_id:
+        An external identifier for the product.
+        This must be unique per seller but doesn't need to be unique
+        across the entire system.
+
+    :param name:
+        A name to describe the product.
+
+    :param seller_id:
+        Primary key of :ref:`seller <sellers>` who owns this product.
+
+    **Response**
+
+    The created product is returned to you. For example:
+
+    .. code-block:: json
+
+        {
+          "external_id": "...",
+          "seller_id": ...,
+          "active": true,
+          "name": "Magical Unicorn",
+          "resource_pk": "1",
+          "resource_name": "products",
+          "resource_uri": "/products/1"
+        }
+
+    In case of an error:
+
+    .. code-block:: json
+
+        {
+          "code": "InvalidArgument",
+          "message": {
+            "external_id": "external_id must be unique",
+            "seller_id":"zero results for seller_id 2"
+          }
+        }
+
+    :status 201: success.
+    :status 409: conflict.
