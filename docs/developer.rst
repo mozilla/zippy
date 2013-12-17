@@ -14,7 +14,7 @@ This API allows you to get/create sellers who can offer products for sale.
 
 This API demonstrates a very simple get and post API for creating a seller.
 Typically a payment provider will require more information about a seller that
-is shown here, since the payment provider will likely want to  information
+is shown here, since the payment provider will likely want more information
 pertinent to developer payouts.
 
 .. http:get:: /sellers
