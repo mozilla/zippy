@@ -1,9 +1,10 @@
 .. _developer-label:
 
-Developer
-=========
+Developers
+==========
 
-This covers registering a developer and their apps with the payment provider.
+This covers registering setting up a seller (who is normally an app developer)
+and registering their products with the payment provider.
 
 .. _sellers:
 
@@ -147,7 +148,9 @@ Once the terms have been approved, they can be set on the seller.
 Products
 --------
 
-This API allows you to get/create products that can be purchased.
+This API allows you to get/create products that can be purchased. It is
+required that a developer can register multiple products with the payment
+provider.
 
 .. http:get:: /products
 

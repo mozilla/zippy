@@ -43,12 +43,16 @@ Using Zippy
 Everything you need to know about data formats, protocols, authentication and
 the like. See the :ref:`using zippy documentation <using-label>`.
 
-Developers
-~~~~~~~~~~
+Sellers
+~~~~~~~
+
+In Zippy, **sellers** are the **developers** who are wanting to place something
+for sale on the app market. They will need to create an account with the
+payment provider:
 
 * Setting up a developer account so that a developer can recieve payment.
-* Registering an app with the payment provider.
-* Any further configuration that the app needs.
+* Registering one or more products with the payment provider.
+* Any further configuration that the product needs.
 * Confirming that data is all set up correctly.
 
 See the :ref:`developer documentation <developer-label>`.
@@ -95,6 +99,7 @@ Contents
    miscellaneous.rst
    tests.rst
    flow.rst
+   faq.rst
 
 
 Indices and tables
