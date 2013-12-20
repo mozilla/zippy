@@ -13,5 +13,5 @@ fi
 source $VENV/bin/activate
 pip install tardy
 
-# Switch to user that has stackato access to this repository.
-su amckay -c "tardy -f tardy.json -u"
+# In this case the jenkins user has stackato credentials to hit the server.
+tardy -f tardy.json -u
