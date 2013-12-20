@@ -1,3 +1,7 @@
+if [ -f /opt/rh/python27/enable ]; then
+  source /opt/rh/python27/enable
+fi
+
 set -e
 
 cd $WORKSPACE
