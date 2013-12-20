@@ -15,7 +15,7 @@ if [ ! -d "$VENV/bin" ]; then
 fi
 
 source $VENV/bin/activate
-pip install tardy
+pip install --upgrade tardy
 
 # In this case the jenkins user has stackato credentials to hit the server.
 tardy -f tardy.json -u
