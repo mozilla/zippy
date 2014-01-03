@@ -1,7 +1,7 @@
 {% extends "base-payments.html" %}
 
 {% block main %}
-  <h1>Confirm Payment</h1>
+  <h1>{{ gettext('Confirm Payment') }}</h1>
 
   {% include "_product.html" %}
 
@@ -11,8 +11,8 @@
 
     <div class="flex-container">
       <div class="row">
-        <label for="cc-num" class="S-visually-hidden">Credit Card Number</label>
-        <input class="cc-num" size="20" id="cc-num" type="text" pattern="\\d{4} \\d{4} \\d{4} \\d{4}" value="" placeholder="Card Number" />
+        <label for="cc-num" class="S-visually-hidden">{{ gettext('Credit Card Number') }}</label>
+        <input class="cc-num" size="20" id="cc-num" type="text" pattern="\\d{4} \\d{4} \\d{4} \\d{4}" value="" placeholder="{{ gettext('Card Number') }}" />
       </div>
     </div>
 
@@ -20,13 +20,13 @@
       <div class="col">
 
         <div class="flex">
-          <label for="expiry">Expires</label>
+          <label for="expiry">{{ gettext('Expires') }}</label>
           <input id="expiry" type="text" maxlength="" pattern="\d{2}/\d{2}" size="5" value="" placeholder="MM/YY" />
         </div>
 
         <div class="flex">
-          <label for="postcode" class="S-visually-hidden">Post-code</label>
-          <input id="postcode" class="postcode" type="text" maxlength="" value="" placeholder="Post-code" />
+          <label for="postcode" class="S-visually-hidden">{{ gettext('Post-code') }}</label>
+          <input id="postcode" class="postcode" type="text" maxlength="" value="" placeholder="{{ gettext('Post-code') }}" />
         </div>
 
       </div>
@@ -34,12 +34,12 @@
       <div class="col">
 
         <div class="flex">
-          <label for="cvc">CVC</label>
+          <label for="cvc">{{ gettext('CVC') }}</label>
           <input id="cvc" type="text" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
         </div>
 
-        <div class="flex right">
-          <label class="no-wrap right save-card" for="save-card">Save card<input type="checkbox" value="1" name="save-card" id="save-card" /></label>
+        <div class="flex checkbox">
+          <label class="no-wrap right save-card" for="save-card">{{ gettext('Save card') }}<input type="checkbox" value="1" name="save-card" id="save-card" /></label>
         </div>
 
       </div>

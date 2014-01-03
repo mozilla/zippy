@@ -91,7 +91,7 @@ exports.retrieveSellersEmpty = function(t) {
 
 exports.retrieveSeller = function(t) {
   withSeller(t, function(seller) {
-    var client = new Client('/sellers/' + seller.uuid);
+    var client = new Client('/sellers/' + seller._id);
     client
       .get()
       .expect(200)
@@ -107,7 +107,7 @@ exports.retrieveSeller = function(t) {
 
 exports.updateSellerThenGet = function(t) {
   withSeller(t, function(seller) {
-    var client = new Client('/sellers/' + seller.uuid);
+    var client = new Client('/sellers/' + seller._id);
     var updatedName = 'Jack';
     client
       .put({
@@ -139,58 +139,9 @@ exports.updateSellerThenGet = function(t) {
 };
 
 
-exports.createSellerThenUpdate = function(t) {
-  var seller = {
-    uuid: uuid.v4(),
-  };
-  client
-    .post({
-      uuid: seller.uuid,
-      status: 'ACTIVE',
-      name: 'John',
-      email: 'jdoe@example.org',
-    })
-    .expect(201)
-    .end(function(err, res) {
-      t.ifError(err);
-      t.equal(res.body.uuid, seller.uuid);
-      seller.status = res.body.status;
-      seller.email = res.body.email;
-    });
-  client = new Client('/sellers/' + seller.uuid);
-  var updatedName = 'Jack';
-  client
-    .put({
-      uuid: seller.uuid,
-      status: seller.status,
-      name: updatedName,
-      email: seller.email,
-    })
-    .expect(200)
-    .end(function(err, res) {
-      t.ifError(err);
-      t.equal(res.body.uuid, seller.uuid);
-      t.equal(res.body.name, updatedName);
-      t.equal(res.body.email, seller.email);
-      t.equal(res.body.resource_uri, '/sellers/' + res.body.resource_pk);
-      client
-        .get()
-        .expect(200)
-        .end(function(err, res) {
-          t.ifError(err);
-          t.equal(res.body.uuid, seller.uuid);
-          t.equal(res.body.name, updatedName);
-          t.equal(res.body.email, seller.email);
-          t.equal(res.body.resource_uri, '/sellers/' + res.body.resource_pk);
-          t.done();
-        });
-    });
-};
-
-
 exports.updateSellerWithoutStatus = function(t) {
   withSeller(t, function(seller) {
-    var client = new Client('/sellers/' + seller.uuid);
+    var client = new Client('/sellers/' + seller._id);
     var updatedName = 'Jack';
     client
       .put({
@@ -211,7 +162,7 @@ exports.updateSellerWithoutStatus = function(t) {
 
 exports.deleteSeller = function(t) {
   withSeller(t, function(seller) {
-    var client = new Client('/sellers/' + seller.uuid);
+    var client = new Client('/sellers/' + seller._id);
     client
       .del()
       .expect(204)
@@ -225,13 +176,13 @@ exports.deleteSeller = function(t) {
 
 exports.retrieveSellerTerms = function(t) {
   withSeller(t, function(seller) {
-    var client = new Client('/terms/' + seller.uuid);
+    var client = new Client('/terms/' + seller._id);
     client
       .get()
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
-        t.equal(res.body.terms, 'Terms for seller: ' + seller.name);
+        t.equal(res.body.text, 'Terms for seller: ' + seller.name);
         t.done();
       });
   });
@@ -240,25 +191,25 @@ exports.retrieveSellerTerms = function(t) {
 
 exports.updateSellerTerms = function(t) {
   withSeller(t, function(seller) {
-    var client = new Client('/sellers/' + seller.uuid);
+    var client = new Client('/sellers/' + seller._id);
     var currentDate = new Date();
     client
       .put({
-        terms_at: currentDate,
+        agreement: currentDate,
       })
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
         t.equal(res.body.uuid, seller.uuid);
-        t.equal(Date(res.body.terms_at), currentDate);
-        client = new Client('/terms/' + seller.uuid);
+        t.equal(Date(res.body.agreement), currentDate);
+        client = new Client('/terms/' + seller._id);
         client
           .get()
           .expect(200)
           .end(function(err, res) {
             t.ifError(err);
-            t.equal(res.body.terms, 'Terms for seller: ' + seller.name);
-            t.equal(Date(res.body.terms_at), currentDate);
+            t.equal(res.body.text, 'Terms for seller: ' + seller.name);
+            t.equal(Date(res.body.agreement), currentDate);
             t.done();
           });
       });

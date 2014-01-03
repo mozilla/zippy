@@ -1,3 +1,4 @@
+var nock = require('nock');
 var under = require('underscore');
 var uuid = require('node-uuid');
 
@@ -16,7 +17,11 @@ var goodTrans = {
   price: '0.99',
   currency: 'EUR',
   pay_method: 'OPERATOR',
-  callback_url: 'http://example.org/verify/',
+  callback_success_url: 'https://m.f.c/webpay/callback/success',
+  callback_error_url: 'https://m.f.c/webpay/callback/error',
+  success_url: 'https://m.f.c/webpay/success',
+  error_url: 'https://m.f.c/webpay/error',
+  ext_transaction_id: 'webpay:xyz',
 };
 
 
@@ -89,7 +94,11 @@ exports.postOkTrans = function(t) {
           t.equal(res.body.price, goodTrans.price);
           t.equal(res.body.currency, goodTrans.currency);
           t.equal(res.body.pay_method, goodTrans.pay_method);
-          t.equal(res.body.callback_url, goodTrans.callback_url);
+          t.equal(res.body.callback_success_url, goodTrans.callback_success_url);
+          t.equal(res.body.callback_error_url, goodTrans.callback_error_url);
+          t.equal(res.body.success_url, goodTrans.success_url);
+          t.equal(res.body.error_url, goodTrans.error_url);
+          t.equal(res.body.ext_transaction_id, goodTrans.ext_transaction_id);
           t.done();
         });
     });
@@ -121,6 +130,74 @@ exports.postInvalidCurrency = function(t) {
       var data = {};
       under.extend(data, goodTrans, {product_id: product._id});
       data.currency = 'ZZZ';
+      client
+        .post(data)
+        .expect(409)
+        .end(function(err) {
+          t.ifError(err);
+          t.done();
+        });
+    });
+  });
+};
+
+
+exports.postInvalidUrls = function(t) {
+  withSeller(t, {}, function(seller) {
+    withProduct(t, {seller_id: seller._id}, function(product) {
+      var data = under.extend({}, goodTrans, {
+        product_id: product._id,
+        success_url: 'nope',
+        error_url: 'not-a-url',
+      });
+      client
+        .post(data)
+        .expect(409)
+        .end(function(err) {
+          t.ifError(err);
+          t.done();
+        });
+    });
+  });
+};
+
+
+exports.postSuccessCallback = function(t) {
+  nock('https://m.f.c')
+    .filteringPath(function(path) {
+      if(path.indexOf('sig') && path.indexOf('product_id'))
+        return '/webpay/callback/success?signed_notice';
+    })
+    .post('/webpay/callback/success?signed_notice')
+    .reply(200, 'OK');
+  withSeller(t, {}, function(seller) {
+    withProduct(t, {seller_id: seller._id}, function(product) {
+      client
+        .post(under.extend({}, goodTrans, {product_id: product._id}))
+        .expect(201)
+        .end(function(err) {
+          t.ifError(err);
+          t.done();
+        });
+    });
+  });
+};
+
+
+exports.postErrorCallback = function(t) {
+  nock('https://m.f.c')
+    .filteringPath(function(path) {
+      if(path.indexOf('sig') && path.indexOf('product_id'))
+        return '/webpay/callback/error?signed_notice';
+    })
+    .post('/webpay/callback/error?signed_notice')
+    .reply(200, 'OK');
+  withSeller(t, {}, function(seller) {
+    withProduct(t, {seller_id: seller._id}, function(product) {
+      var data = under.extend({}, goodTrans, {
+        product_id: product._id,
+        currency: 'not-a-valid-one',
+      });
       client
         .post(data)
         .expect(409)

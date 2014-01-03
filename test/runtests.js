@@ -19,13 +19,26 @@ module.exports = function(opt) {
     ok_suffix: '\u001B[39m',
     testspec: testName,
   };
-  test.start(function() {
-    reporter.run([suite], options, function(wasError) {
-      if (opt.onStop) {
-        opt.onStop(wasError);
-      }
+  try {
+    test.start(function() {
+      reporter.run([suite], options, function(wasSuccessful) {
+        if (opt.onStop) {
+          opt.onStop(wasSuccessful);
+        }
+      });
     });
-  });
+  } catch (err) {
+    // Bubble the failure back up to grunt.
+    // If you can figure out how to pipe this exception to grunt
+    // then you can remove the logging.
+    console.log('Error caught in', __filename, ':', err);
+    if (opt.onStop) {
+      opt.onStop(false);
+    } else {
+      // This doesn't seem to do anything but it should!
+      throw err;
+    }
+  }
 };
 
 if (!module.parent) {

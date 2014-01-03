@@ -5,9 +5,7 @@ This is a reference implementation of a payment provider. It shows the API and
 endpoints a payment provider should implement in order to integrate with the
 Firefox Marketplace.
 
-Zippy was also a character on a children's TV show in the UK.
-
-All the code is on `github <https://github.com/mozilla/zippy/>`_.
+This is also available as a PDF: https://media.readthedocs.org/pdf/zippypayments/latest/zippypayments.pdf
 
 About
 -----
@@ -26,7 +24,9 @@ does not:
 * process any money at all
 
 That is all faked out. It's up to the individual payment provider to implement
-that.
+that. Here's how zippy fits into the marketplace infrastructure.
+
+.. image:: diagrams/architecture.png
 
 It is licensed under the Mozilla Public License v2.0 and contributions are more
 than welcome.
@@ -37,25 +37,28 @@ Bugs: https://bugzilla.mozilla.org/show_bug.cgi?id=905736
 
 Mailing list: https://lists.mozilla.org/listinfo/dev-marketplace
 
-
 Using Zippy
 -----------
 
 Everything you need to know about data formats, protocols, authentication and
 the like. See the :ref:`using zippy documentation <using-label>`.
 
-Developers
-==========
+Sellers
+~~~~~~~
+
+In Zippy, **sellers** are the **developers** who are wanting to place something
+for sale on the app market. They will need to create an account with the
+payment provider:
 
 * Setting up a developer account so that a developer can recieve payment.
-* Registering an app with the payment provider.
-* Any further configuration that the app needs.
+* Registering one or more products with the payment provider.
+* Any further configuration that the product needs.
 * Confirming that data is all set up correctly.
 
 See the :ref:`developer documentation <developer-label>`.
 
 Payment
-=======
+~~~~~~~
 
 * The actual payment part of the flow.
 * Starting the payment flow.
@@ -65,14 +68,14 @@ Payment
 See the :ref:`payment documentation <payment-label>`.
 
 Reporting
-=========
+~~~~~~~~~
 
 * Reporting of transactions back to developers.
 
 See the :ref:`reporting documentation <reporting-label>` documentation.
 
 Miscellaneous
-=============
+~~~~~~~~~~~~~
 
 * Refunds and chargebacks, see :ref:`refunds <refunds-label>`
 * Token checking and other security, see :ref:`security <security-label>`
@@ -82,7 +85,7 @@ Contents
 --------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    install.rst
    using.rst
@@ -95,6 +98,8 @@ Contents
    security.rst
    miscellaneous.rst
    tests.rst
+   flow.rst
+   faq.rst
 
 
 Indices and tables

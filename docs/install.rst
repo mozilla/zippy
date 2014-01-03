@@ -1,4 +1,3 @@
-============
 Installation
 ============
 
@@ -6,7 +5,7 @@ This section is for developers who wish to make enhancements to Zippy or just to
 try the code out in a development environment.
 
 Installing Zippy
-================
+----------------
 
 You need `NodeJS`_ 0.10.5 or greater.
 From the source directory, install all the node
@@ -60,7 +59,7 @@ This will run both the local server and watch for changes. At the moment this au
 See :ref:`testing` for instructions on how to run tests.
 
 Building docs
-=============
+-------------
 
 Unlike the site itself, the documentation system uses Python and `Sphinx`_.
 To build the documentation from source create a `virtualenv`_ then install
@@ -79,7 +78,7 @@ Or use the grunt command::
 Browse the docs from ``docs/_build/html/index.html``.
 
 Sample server
-=============
+-------------
 
 A sample zippy server is running at https://zippy.paas.allizom.org, that you
 are free to use. There are no guarantees on uptime, this is not a production

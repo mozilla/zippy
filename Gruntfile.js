@@ -1,7 +1,57 @@
-module.exports = function(grunt) {
+var zippy_config = require('./lib/config');
+var locales = zippy_config.supported_locales;
 
+
+module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    abideCreate: {
+      default: { // Target name.
+        options: {
+          template: 'locale/templates/LC_MESSAGES/messages.pot', // (default: 'locale/templates/LC_MESSAGES/messages.pot')
+          locales: locales,
+          localeDir: 'locale',
+        }
+      }
+    },
+    abideExtract: {
+      js: {
+        src: 'lib/**/*.js',
+        dest: 'locale/templates/LC_MESSAGES/messages.pot',
+        options: {
+          language: 'JavaScript',
+        }
+      },
+      html: {
+        src: 'templates/payments/*.html',
+        dest: 'locale/templates/LC_MESSAGES/messages.pot',
+        options: {
+          language: 'Jinja',
+        }
+      },
+    },
+    abideMerge: {
+      default: { // Target name.
+        options: {
+          template: 'locale/templates/LC_MESSAGES/messages.pot', // (default: 'locale/templates/LC_MESSAGES/messages.pot')
+          localeDir: 'locale',
+        }
+      }
+    },
+    abideCompile: {
+      json: {
+        dest: 'media/locale/',
+        options: {
+          type: 'json',
+        }
+      },
+      mo: {
+        options: {
+          type: 'mo',
+        }
+      }
+    },
     bunyan: {
       strict: true, // prevent non-bunyan logs from being outputted
       level: 'trace', // show all the things!
@@ -105,6 +155,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-i18n-abide');
 
   grunt.registerTask('test', ['jshint', 'runtests']);
   grunt.registerTask('default', ['jshint', 'stylus']);

@@ -1,10 +1,11 @@
   <div class="grid">
-    <img class="product-image" src="/images/placeholder/ctr.png" alt="" />
+    {% set product_image_url='/images/placeholder/ctr.png' %}
+    <img class="product-image" src="{{ product_image_url }}" alt="" />
     <section class="product">
-      <h2 class="title">Cut the Rope</h2>
-      <p class="author">Chillingo Ltd</p>
-      <p class="total">Total (R$): <span class="price">$ 2.99</span><a class="ref" href="#ref">*</a></p>
-      <p id="ref" class="ref-desc">Includes taxes</p>
+      <h2 class="title">{{ product.name }}</h2>
+      <p class="author">{{ seller.name }}</p>
+      <p class="total">{{ gettext('Total') }} ({{ trans.currency }}): <span class="price">{{ trans.price }}</span><a class="ref" href="#ref">*</a></p>
+      <p id="ref" class="ref-desc">{{ gettext('Includes taxes') }}</p>
     </section>
   </div>
 

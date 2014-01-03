@@ -1,5 +1,7 @@
   <div class="buttons">
-    <button class="button">Cancel</button>
-    <button class="button cta">Buy</button>
+    <form method="post" action="{{ processUrl }}">
+      <button class="button">{{ gettext('Cancel') }}</button>
+      <button type="submit" class="button cta">{{ gettext('Buy') }}</button>
+    </form>
   </div>
 

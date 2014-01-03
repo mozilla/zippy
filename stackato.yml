@@ -4,3 +4,7 @@ framework:
   type: node
 
 mem: 64M
+
+hooks:
+    post-staging:
+    -   npm install client-sessions

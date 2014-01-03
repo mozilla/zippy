@@ -1,16 +1,156 @@
 .. _developer-label:
 
-Developer
-=========
+Developers
+==========
 
-This covers registering a developer and their apps with the payment provider.
+This covers registering setting up a seller (who is normally an app developer)
+and registering their products with the payment provider.
+
+.. _sellers:
+
+Sellers
+-------
+
+This API allows you to get/create sellers who can offer products for sale.
+
+This API demonstrates a very simple get and post API for creating a seller.
+Typically a payment provider will require more information about a seller that
+is shown here, since the payment provider will likely want more information
+pertinent to developer payouts.
+
+.. http:get:: /sellers
+
+    **Response**
+
+    You get a list of all sellers. For example:
+
+    .. code-block:: json
+
+        [
+          {
+            "uuid": "...",
+            "status": "ACTIVE",
+            "name": "John",
+            "email": "jdoe@example.org",
+            "resource_pk": "1",
+            "resource_name": "sellers",
+            "resource_uri": "/sellers/1",
+            "agreement": ""
+          },
+          ...
+        ]
+
+    :status 200: success.
+
+.. http:get:: /sellers/:uuid
+
+    **Response**
+
+    You get a seller object matching ``:uuid``. For example:
+
+    .. code-block:: json
+
+        {
+          "uuid": "...",
+          "status": "ACTIVE",
+          "name": "John",
+          "email": "jdoe@example.org",
+          "resource_pk": "1",
+          "resource_name": "sellers",
+          "resource_uri": "/sellers/1",
+          "agreement": ""
+        }
+
+    :status 200: success.
+
+.. http:post:: /sellers
+
+    **Request**
+
+    :param uuid:
+        A unique ID for the seller.
+
+    :param status:
+        A status for the seller. Possible values:
+
+        ``ACTIVE``
+            Activated seller.
+
+        ``INACTIVE``
+            Inactived seller.
+
+        ``DISABLED``
+            Deactivated seller.
+
+    :param name:
+        A name for the seller.
+
+    :param email:
+        An email for the seller.
+
+    :param agreement:
+        An optional date that can be used for terms validation. The responsibility
+        to use that date as a validation/expiration is left to the client.
+
+    **Response**
+
+    The created seller is returned to you. For example:
+
+    .. code-block:: json
+
+        {
+          "uuid": "...",
+          "status": "ACTIVE",
+          "name": "John",
+          "email": "jdoe@example.org",
+          "resource_pk": "1",
+          "resource_name": "sellers",
+          "resource_uri": "/sellers/1",
+          "agreement": ""
+        }
+
+    In case of an error:
+
+    .. code-block:: json
+
+        {
+          "code": "InvalidArgument",
+          "message": "UUID must be supplied."
+        }
+
+    :status 201: success.
+    :status 409: conflict.
+
+.. _terms:
+
+Terms
+-----
+
+Once the terms have been approved, they can be set on the seller.
+
+.. http:get:: /terms/:uuid
+
+    **Response**
+
+    You get terms related to a seller object matching ``:uuid``. For example:
+
+    .. code-block:: json
+
+        {
+          "terms": "Terms for seller: John",
+          "agreement": "2013-11-19T11:48:49.158Z"
+        }
+
+    :status 200: success.
 
 .. _products:
 
 Products
 --------
 
-This API allows you to get/create products that can be purchased.
+This API allows you to get/create products that can be purchased. It is
+required that a developer can register multiple products with the payment
+provider.
 
 .. http:get:: /products
 
@@ -43,7 +183,8 @@ This API allows you to get/create products that can be purchased.
             "active": true,
             "name": "Magical Unicorn",
             "resource_pk": "1",
-            "resource_uri": "/products/1/"
+            "resource_name": "products",
+            "resource_uri": "/products/1"
           }, {
           ...
           }
@@ -89,7 +230,8 @@ This API allows you to get/create products that can be purchased.
           "active": true,
           "name": "Magical Unicorn",
           "resource_pk": "1",
-          "resource_uri": "/products/1/"
+          "resource_name": "products",
+          "resource_uri": "/products/1"
         }
 
     In case of an error:
@@ -106,126 +248,3 @@ This API allows you to get/create products that can be purchased.
 
     :status 201: success.
     :status 409: conflict.
-
-
-.. _sellers:
-
-Sellers
--------
-
-This API allows you to get/create sellers who can offer products for sale.
-
-.. http:get:: /sellers
-
-    **Response**
-
-    You get a list of all sellers. For example:
-
-    .. code-block:: json
-
-        [
-          {
-            "uuid": "...",
-            "status": "ACTIVE",
-            "name": "John",
-            "email": "jdoe@example.org",
-            "resource_pk": "1",
-            "resource_uri": "/seller/1/",
-            "terms_at": ""
-          },
-          ...
-        ]
-
-    :status 200: success.
-
-.. http:get:: /sellers/:uuid
-
-    **Response**
-
-    You get a seller object matching ``:uuid``. For example:
-
-    .. code-block:: json
-
-        {
-          "uuid": "...",
-          "status": "ACTIVE",
-          "name": "John",
-          "email": "jdoe@example.org",
-          "resource_pk": "1",
-          "resource_uri": "/seller/1/",
-          "terms_at": ""
-        }
-
-    :status 200: success.
-
-.. http:post:: /sellers
-
-    **Request**
-
-    :param uuid:
-        A unique ID for the seller.
-
-    :param status:
-        A status for the seller. Possible values:
-
-        ``ACTIVE``
-            Activated seller.
-
-        ``INACTIVE``
-            Inactived seller.
-
-        ``DISABLED``
-            Deactivated seller.
-
-    :param name:
-        A name for the seller.
-
-    :param email:
-        An email for the seller.
-
-    :param terms_at:
-        An optional date that can be used for terms validation. The responsibility
-        to use that date as a validation/expiration is left to the client.
-
-    **Response**
-
-    The created seller is returned to you. For example:
-
-    .. code-block:: json
-
-        {
-          "uuid": "...",
-          "status": "ACTIVE",
-          "name": "John",
-          "email": "jdoe@example.org",
-          "resource_pk": "1",
-          "resource_uri": "/seller/1/",
-          "terms_at": ""
-        }
-
-    In case of an error:
-
-    .. code-block:: json
-
-        {
-          "code": "InvalidArgument",
-          "message": "UUID must be supplied."
-        }
-
-    :status 201: success.
-    :status 409: conflict.
-
-.. http:get:: /terms/:uuid
-
-    **Response**
-
-    You get terms related to a seller object matching ``:uuid``. For example:
-
-    .. code-block:: json
-
-        {
-          "terms": "Terms for seller: John",
-          "terms_at": "2013-11-19T11:48:49.158Z"
-        }
-
-    :status 200: success.
