@@ -92,7 +92,7 @@ exports.createWithoutSeller = function(t) {
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
-      t.equal(res.body.code, 'InvalidArgument');
+      t.equal(res.body.error.name, 'InvalidArgumentError');
       t.done();
     });
 };
@@ -105,7 +105,7 @@ exports.createWithoutExternalId = function(t) {
       .expect(409)
       .end(function(err, res) {
         t.ifError(err);
-        t.equal(res.body.code, 'InvalidArgument');
+        t.equal(res.body.error.name, 'InvalidArgumentError');
         t.done();
       });
   });
@@ -150,7 +150,7 @@ exports.createAnonymousSeller = function(t) {
       .expect(401)
       .end(function(err, res) {
         t.ifError(err);
-        t.equal(res.body.code, 'InvalidCredentials');
+        t.equal(res.body.error.name, 'InvalidCredentialsError');
         t.done();
       });
   });
@@ -199,7 +199,7 @@ exports.createDupeExternalId = function(t) {
         .expect(409)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.code, 'InvalidArgument');
+          t.equal(res.body.error.name, 'InvalidArgumentError');
           t.done();
         });
     });

@@ -60,7 +60,7 @@ exports.createSellerWithoutStatus = function(t) {
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
-      t.equal(res.body.code, 'InvalidArgument');
+      t.equal(res.body.error.name, 'InvalidArgumentError');
       t.done();
     });
 };

@@ -5,11 +5,11 @@
   "description": "A reference implementation for payment providers for the Firefox Marketplace.",
   "main": "main.js",
   "dependencies": {
-    "assert-plus": "0.1.2",
     "bunyan": "0.22.1",
     "client-sessions": "0.4.1",
     "escape-html": "1.0.0",
     "express": "3.4.7",
+    "errors": "~0.1.0",
     "forms": "0.3.0",
     "i18n-abide": "0.0.14",
     "marked": "0.2.9",
@@ -22,7 +22,7 @@
     "q": "0.9.7",
     "save": "0.0.19",
     "underscore": "1.5.2",
-    "verror": "1.3.6"
+    "chai": "~1.8.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

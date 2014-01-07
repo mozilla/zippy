@@ -8,8 +8,30 @@
 {% endblock %}
 
 {% block main %}
-  <h1>{% if code %}{{ code }}{% else %}Unexpected Error{% endif %}</h1>
+  <h1>{{ statusCode }}: {{ name }}</h1>
   <div class="msg">
-    <p>{{ message }}</p>
+    <h2>{{ error }}</h2>
+
+    {% if explanation or response %}
+    <dl>
+      {% if explanation %}
+        <dt>Explanation</dt>
+        <dd>{{ explanation }}</dd>
+      {% endif %}
+      {% if explanation %}
+        <dt>Response</dt>
+        <dd>{{ response }}</dd>
+      {% endif %}
+    </dl>
+    {% endif %}
+
+    {% if stack %}
+    <ul id="stacktrace">
+      {%  for line in stack %}
+      <li>{{ line }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
   </div>
 {% endblock %}

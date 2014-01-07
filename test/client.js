@@ -2,24 +2,11 @@ var https = require('https');
 var oauth = require('oauth-client');
 var qs = require('querystring');
 var supertest = require('super-request');
+var under = require('underscore');
 var url = require('url');
 
 var config = require('../lib/config');
 var test = require('./');
-
-
-function merge(a,b) {
-  if (!b || !(b instanceof Object)) {
-    return a;
-  }
-  var keys = Object.keys(b);
-  for (var key in keys) {
-    if(typeof(keys[key]) !== 'function') {
-      a[keys[key]] = b[keys[key]];
-    }
-  }
-  return a;
-}
 
 
 function serverAddress(app, path){
@@ -55,8 +42,8 @@ function buildOAuthorizationHeader(method, path) {
   }
 
   var parameters = {};
-  merge(parameters, auth);
-  merge(parameters, queryParams);
+  under.extend(parameters, auth);
+  under.extend(parameters, queryParams);
 
   var signature = signer.sign(
     method,
@@ -69,9 +56,9 @@ function buildOAuthorizationHeader(method, path) {
     'oauth_signature="' + signature + '",' +
     (function (params) {
       var query_string = [];
-      for (var key in auth) {
+      Object.keys(auth).forEach(function(key) {
         query_string.push(key + '="' + encodeURIComponent(params[key]) + '"');
-      }
+      });
       return query_string.join(',');
     })(parameters);
   return headers;
@@ -166,23 +153,43 @@ Client.prototype.del = function(data) {
 
 // TODO: merge AnonymousClient with Client! See stdlib util.inherits()
 
-function AnonymousClient(url) {
+function AnonymousClient(url, accept, lang) {
   this.url = url;
+  this.accept = accept || 'application/json';
+  this.lang = lang || 'en-US';
+  this._isJSON = this.accept.indexOf('json') !== -1;
 }
 
 AnonymousClient.prototype.get = function(data) {
-  return supertest(test.app)
+  var res =  supertest(test.app)
     .get(this.url + (data ? '?' + qs.stringify(data) : ''))
-    .json(true);
+    .headers({
+      'Accept': this.accept,
+      'Accept-Language': this.lang,
+    });
+
+  if (this._isJSON) {
+    res = res.json(true);
+  }
+
+  return res;
 };
 
 AnonymousClient.prototype.post = function(data) {
-  return supertest(test.app)
+  var res = supertest(test.app)
     .post(this.url)
-    .headers({'Accept': 'application/json'})
-    .json(true)
+    .headers({
+      'Accept': this.accept,
+      'Accept-Language': this.lang,
+    })
     .form(data);
+
+  if (this._isJSON) {
+    res = res.json(true);
+  }
+  return res;
 };
 
+exports.buildOAuthorizationHeader = buildOAuthorizationHeader;
 exports.Client = Client;
 exports.AnonymousClient = AnonymousClient;

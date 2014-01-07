@@ -14,6 +14,34 @@ html, body {
     min-width: 250px;
 }
 
+.error {
+    .page {
+        padding-top: 80px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            margin: 5px 0;
+            padding: 3px 8px;
+            list-style: none;
+            color: #666;
+
+            &:hover {
+                color: #333;
+                cursor: pointer;
+                font-weight: 400;
+            }
+            &:first-child .path {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
 .hidden {
     display: none;
 }
