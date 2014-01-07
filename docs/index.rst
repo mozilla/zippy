@@ -91,8 +91,6 @@ Contents
    using.rst
    developer.rst
    payment.rst
-   api.rst
-   auth.rst
    reporting.rst
    refunds.rst
    security.rst
