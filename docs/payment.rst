@@ -3,16 +3,52 @@
 Payment
 =======
 
+When processing the payment, Zippy simulates charging money for digital goods.
+When finished, it redirects to the
+payment provider (such as `WebPay`_). We provide
+:ref:`flows <payment-diagrams>` to explain the decisions that are made and
+the screens that are shown. Exactly what will happen here depends upon the
+payment processor and the configuration.
+After these steps have been completed, Zippy will return to the success or error
+URL. See the :ref:`redirect-api` for details.
+
+A real payment processor would probably do things like this:
+
+* Authentication: set up a user for billing, perhaps with
+  SMS authentication.
+* Direct billing: place a charge on a user's mobile bill.
+* Credit card billing.
+
+.. _WebPay: https://github.com/mozilla/webpay
+
+.. _redirect-api:
+
+Redirect API
+------------
+
+When Zippy completes a transaction it redirects to the original success or
+error URL (see :ref:`transactions` API for how those are defined).
+A few query string parameters are added to the URL that you can use to
+reconcile the payment.
+
+**ext_transaction_id**
+    This is the original (external) transaction ID that was submitted to the
+    :ref:`transaction <transactions>` API as ``ext_transaction_id``.
+
+**error**
+    For error redirects only, this string will indicate the type of error.
+    Example: ``CC_ERROR``. Note: it's up to each payment processor to
+    define their own error codes.
+
+Example: ``https://site/payments/success/?ext_transaction_id=XYZ``
+
+
 .. _transactions:
 
 Transactions
 ------------
 
 This API enables you to begin a transaction so that a product can be purchased.
-
-.. http:get:: /transactions
-
-    TODO
 
 .. http:post:: /transactions
 
@@ -100,22 +136,6 @@ This API enables you to begin a transaction so that a product can be purchased.
     :status 201: success.
     :status 409: conflict.
 
-
-Processing the payment
-----------------------
-
-At this point the payment provider takes over, we redirect the flow to the
-payment provider. We provide flows to explain the decisions that are made and
-the screens that are shown. Exactly what will happen here depends upon the
-payment provider and the configuration.
-
-After these steps have been completed, it will return to the success or error
-URL mentioned in the transaction.
-
-* Authentication: which might require SMS authentication.
-* Carrier billing: with the option to use credit card if available.
-* Credit card billing.
-
 Style guide
 ~~~~~~~~~~~
 
@@ -130,6 +150,8 @@ step as it creates a bit of a long term maintenance issue.
 The style guide is accessible in your zippy checkout, or here:
 
 http://zippy.paas.allizom.org/styleguide
+
+.. _payment-diagrams:
 
 Carrier Authentication
 ----------------------
