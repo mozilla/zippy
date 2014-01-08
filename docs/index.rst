@@ -1,21 +1,19 @@
 Zippy
 ===================================
 
-This is a reference implementation of a payment provider. It shows the API and
-endpoints a payment provider should implement in order to integrate with the
-Firefox Marketplace.
+This is a reference implementation of a payment processor that would hook into a
+`payment provider for navigator.mozPay()`_ such as `WebPay`_.
+It shows the API,
+endpoints, and authorization formats a payment processor should implement
+in order to integrate with the `Firefox Marketplace`_ via `WebPay`_
+(and `Solitude`_ behind the scenes).
+Hooking into WebPay as a payment processor is much simpler than
+implementing a full-on payment provider to spec.
 
-This is also available as a PDF: https://media.readthedocs.org/pdf/zippypayments/latest/zippypayments.pdf
+These docs are also available as a PDF: https://media.readthedocs.org/pdf/zippypayments/latest/zippypayments.pdf
 
-About
------
-
-Zippy shows payment providers how to integrate with the Firefox Marketplace
-system. It shows the API calls and formats that the Marketplace will make to
-the payment provider, authorization formats and so on.
-
-Rather than being a specification to read, it is a working project. It's
-important to note that underneath zippy does not actually do anything other
+Rather than being a specification to read, Zippy is a working project. It's
+important to note that underneath Zippy does not actually do anything other
 than record some transaction information to allow APIs to work. Specifically it
 does not:
 
@@ -23,8 +21,12 @@ does not:
 * try and charge a credit card
 * process any money at all
 
-That is all faked out. It's up to the individual payment provider to implement
-that. Here's how zippy fits into the marketplace infrastructure.
+That is all faked out. It's up to the individual payment processor to implement
+that.
+
+Are you interested in how *everything* works? Read about the :ref:`flow`.
+
+Here's how Zippy fits into the `Firefox Marketplace`_ infrastructure.
 
 .. image:: diagrams/architecture.png
 
@@ -36,6 +38,11 @@ Source: https://github.com/mozilla/zippy/
 Bugs: https://bugzilla.mozilla.org/show_bug.cgi?id=905736
 
 Mailing list: https://lists.mozilla.org/listinfo/dev-marketplace
+
+.. _`payment provider for navigator.mozPay()`: https://wiki.mozilla.org/WebAPI/WebPaymentProvider
+.. _WebPay: https://github.com/mozilla/webpay
+.. _Solitude: https://github.com/mozilla/solitude
+.. _`Firefox Marketplace`: https://github.com/mozilla/zamboni
 
 Using Zippy
 -----------
@@ -60,8 +67,8 @@ See the :ref:`developer documentation <developer-label>`.
 Payment
 ~~~~~~~
 
-* The actual payment part of the flow.
-* Starting the payment flow.
+* The actual payment part of the :ref:`flow <flow>`.
+* Starting the payment :ref:`flow <flow>`.
 * Pages that should be shown and hosted by the payment provider.
 * The result after the payment has been completed.
 
