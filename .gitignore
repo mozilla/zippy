@@ -1,3 +1,4 @@
+.DS_Store
 docs/_build
 lib/config/local.js
 media/css/*.css
