@@ -6,7 +6,7 @@
   "main": "main.js",
   "dependencies": {
     "assert-plus": "0.1.2",
-    "bunyan": "0.21.3",
+    "bunyan": "0.22.1",
     "client-sessions": "0.4.1",
     "escape-html": "1.0.0",
     "forms": "0.3.0",
