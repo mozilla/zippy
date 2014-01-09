@@ -1,3 +1,5 @@
+var url = require('url');
+
 var under = require('underscore');
 var uuid = require('node-uuid');
 var supertest = require('super-request');
@@ -87,6 +89,34 @@ exports.testStartTransThenProcess = function(t) {
       t.equal(res.headers.location,
               transData.success_url +
                 '?ext_transaction_id=' + transData.ext_transaction_id);
+      t.done();
+    });
+};
+
+
+exports.testStartTransThenFail = function(t) {
+  var simulate_err = 'CC_ERROR';
+  supertest(test.app)
+    .get('/?tx=' + transData.token)
+    .expect(200)
+    .end(function(err, res) {
+      t.ifError(err);
+    })
+    .post('/payment/process')
+    .form({simulate_fail: simulate_err})
+    .followRedirect(false)
+    .expect(301)
+    .end(function(err, res) {
+      if (err) {
+        t.ifError(err);
+      } else {
+        var parts = url.parse(res.headers.location, true);
+        t.equal(parts.protocol + '//' + parts.host + parts.pathname,
+                transData.error_url);
+        t.equal(parts.query.ext_transaction_id,
+                transData.ext_transaction_id);
+        t.equal(parts.query.error, simulate_err);
+      }
       t.done();
     });
 };

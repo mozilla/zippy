@@ -1,10 +1,12 @@
 var https = require('https');
+var oauth = require('oauth-client');
 var qs = require('querystring');
 var supertest = require('super-request');
-var test = require('./');
-var oauth = require('oauth-client');
+var under = require('underscore');
+var url = require('url');
 
 var config = require('../lib/config');
+var test = require('./');
 
 
 function serverAddress(app, path){
@@ -21,7 +23,7 @@ function buildOAuthorizationHeader(method, path) {
     oauth.createConsumer(config.OAuthCredentials.consumerKey,
                          config.OAuthCredentials.consumerSecret)
   );
-  var parameters = {
+  var auth = {
     oauth_consumer_key: config.OAuthCredentials.consumerKey,
     oauth_nonce: 'notimplemented',
     oauth_signature_method: 'HMAC-SHA1',
@@ -29,20 +31,37 @@ function buildOAuthorizationHeader(method, path) {
     oauth_token: 'notimplemented',
     oauth_version: '1.0',
   };
+
+  // Parse url (based on https://github.com/unscene/node-oauth/blob/master/lib/oauth.js#L160)
+  // This is so query params are used as part of the sig.
+  var parsed = url.parse(path);
+  var queryParams = null;
+  // if any parameters are passed with the path we need them
+  if (parsed.query) {
+    queryParams = qs.parse(parsed.query);
+  }
+
+  var parameters = {};
+  under.extend(parameters, auth);
+  under.extend(parameters, queryParams);
+
   var signature = signer.sign(
     method,
     serverAddress(test.app, path),
     parameters
   );
-  return 'OAuth realm="' + config.OAuthRealm + '",' +
+
+  delete parameters.external_id;
+  var headers =  'OAuth realm="' + config.OAuthRealm + '",' +
     'oauth_signature="' + signature + '",' +
     (function (params) {
       var query_string = [];
-      for (var key in params) {
+      Object.keys(auth).forEach(function(key) {
         query_string.push(key + '="' + encodeURIComponent(params[key]) + '"');
-      }
+      });
       return query_string.join(',');
     })(parameters);
+  return headers;
 }
 
 function Client(url, accept, lang) {
@@ -71,6 +90,7 @@ Client.prototype.get = function(arg) {
       }
     }
   }
+
   var res = supertest(test.app)
     .get(url)
     .headers({
@@ -133,23 +153,43 @@ Client.prototype.del = function(data) {
 
 // TODO: merge AnonymousClient with Client! See stdlib util.inherits()
 
-function AnonymousClient(url) {
+function AnonymousClient(url, accept, lang) {
   this.url = url;
+  this.accept = accept || 'application/json';
+  this.lang = lang || 'en-US';
+  this._isJSON = this.accept.indexOf('json') !== -1;
 }
 
 AnonymousClient.prototype.get = function(data) {
-  return supertest(test.app)
+  var res =  supertest(test.app)
     .get(this.url + (data ? '?' + qs.stringify(data) : ''))
-    .json(true);
+    .headers({
+      'Accept': this.accept,
+      'Accept-Language': this.lang,
+    });
+
+  if (this._isJSON) {
+    res = res.json(true);
+  }
+
+  return res;
 };
 
 AnonymousClient.prototype.post = function(data) {
-  return supertest(test.app)
+  var res = supertest(test.app)
     .post(this.url)
-    .headers({'Accept': 'application/json'})
-    .json(true)
+    .headers({
+      'Accept': this.accept,
+      'Accept-Language': this.lang,
+    })
     .form(data);
+
+  if (this._isJSON) {
+    res = res.json(true);
+  }
+  return res;
 };
 
+exports.buildOAuthorizationHeader = buildOAuthorizationHeader;
 exports.Client = Client;
 exports.AnonymousClient = AnonymousClient;

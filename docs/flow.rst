@@ -1,6 +1,8 @@
-============
-Flow
-============
+.. _flow:
+
+=======================
+End To End Payment Flow
+=======================
 
 This page covers the payment flows for the whole process. These exist to explain to other payment processors how the whole payment flow works.
 

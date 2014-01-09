@@ -6,6 +6,8 @@ Developers
 This covers registering setting up a seller (who is normally an app developer)
 and registering their products with the payment provider.
 
+Note that in the following examples ``{*uuid}`` refers to an actual ``uuid``.
+
 .. _sellers:
 
 Sellers
@@ -28,13 +30,12 @@ pertinent to developer payouts.
 
         [
           {
-            "uuid": "...",
             "status": "ACTIVE",
             "name": "John",
             "email": "jdoe@example.org",
-            "resource_pk": "1",
+            "resource_pk": "{seller-uuid}",
             "resource_name": "sellers",
-            "resource_uri": "/sellers/1",
+            "resource_uri": "/sellers/{seller-uuid}",
             "agreement": ""
           },
           ...
@@ -51,13 +52,12 @@ pertinent to developer payouts.
     .. code-block:: json
 
         {
-          "uuid": "...",
           "status": "ACTIVE",
           "name": "John",
           "email": "jdoe@example.org",
-          "resource_pk": "1",
+          "resource_pk": "{seller-uuid}",
           "resource_name": "sellers",
-          "resource_uri": "/sellers/1",
+          "resource_uri": "/sellers/{seller-uuid}",
           "agreement": ""
         }
 
@@ -99,13 +99,12 @@ pertinent to developer payouts.
     .. code-block:: json
 
         {
-          "uuid": "...",
           "status": "ACTIVE",
           "name": "John",
           "email": "jdoe@example.org",
-          "resource_pk": "1",
+          "resource_pk": "{seller-uuid}",
           "resource_name": "sellers",
-          "resource_uri": "/sellers/1",
+          "resource_uri": "/sellers/{seller-uuid}",
           "agreement": ""
         }
 
@@ -162,13 +161,8 @@ provider.
         seller is probably a good idea.
 
     :param seller_id:
-        Filter all products by this seller ID, the
-        primary key for the :ref:`seller <sellers>` who owns each product.
-
-    :param seller_uuid:
         Filter all products by this seller UUID, the
-        unique identifier for the :ref:`seller <sellers>` who owns each
-        product.
+        primary key for the :ref:`seller <sellers>` who owns each product.
 
     **Response**
 
@@ -178,13 +172,13 @@ provider.
 
         [
           {
-            "external_id": "...",
-            "seller_id": ...,
+            "external_id": "{product-uuid}",
+            "seller_id": "{seller-uuid}",
             "active": true,
             "name": "Magical Unicorn",
-            "resource_pk": "1",
+            "resource_pk": "{product-uuid}",
             "resource_name": "products",
-            "resource_uri": "/products/1"
+            "resource_uri": "/products/{product-uuid}"
           }, {
           ...
           }
@@ -225,13 +219,13 @@ provider.
     .. code-block:: json
 
         {
-          "external_id": "...",
-          "seller_id": ...,
+          "external_id": "{product-uuid}",
+          "seller_id": "{seller-uuid}",
           "active": true,
           "name": "Magical Unicorn",
-          "resource_pk": "1",
+          "resource_pk": "{product-uuid}",
           "resource_name": "products",
-          "resource_uri": "/products/1"
+          "resource_uri": "/products/{product-uuid}"
         }
 
     In case of an error:
@@ -242,7 +236,7 @@ provider.
           "code": "InvalidArgument",
           "message": {
             "external_id": "external_id must be unique",
-            "seller_id":"zero results for seller_id 2"
+            "seller_id":"zero results for seller_id {wrong-uuid}"
           }
         }
 

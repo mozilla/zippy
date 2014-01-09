@@ -1,7 +1,7 @@
-var Client = require('../client').Client;
-var z = require('../../lib/zutil');
+var assert = require('chai').assert;
 
-var assert = z.assert;
+var Client = require('../client').Client;
+
 
 module.exports = {
 
@@ -14,12 +14,12 @@ module.exports = {
         if (err) {
           throw err;
         }
-        assert.contains('StyleGuide | index', res.body)
+        assert.include(res.body, 'StyleGuide | index');
         t.done();
       });
   },
 
-  testEscapeNotFound: function(t) {
+  testNotFound: function(t) {
     var client = new Client('/styleguide/%3Cb%3Efoo%3C%2fb%3E', 'text/html');
     client
       .get()
@@ -27,7 +27,8 @@ module.exports = {
         if (err) {
           throw err;
         }
-        assert.contains('&lt;b&gt;foo&lt;/b&gt;', res.body);
+        assert.include(res.body, 'Style doc not found');
+        assert.notInclude(res.body, '<b>foo');
         t.done();
       });
   }
