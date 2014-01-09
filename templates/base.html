@@ -2,7 +2,7 @@
 <html lang="{% if lang %}{{ lang }}{% else %}en-us{% endif %}" dir="{% if lang_dir %}{{ lang_dir }}{% else %}ltr{% endif %}">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}{% endblock %}</title>
+  <title>{% block title %}{{ title }}{% endblock %}</title>
   {% block style %}<link rel="stylesheet" href="/css/docs.css">{% endblock %}
 </head>
 <body{% block bodyattrs %}{% endblock %}>

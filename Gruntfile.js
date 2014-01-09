@@ -135,10 +135,6 @@ module.exports = function(grunt) {
     testSuite = testSuite || grunt.option('testsuite');
     process.env.NODE_ENV = 'test';
 
-    // Add full tracebacks for testing. Supposedly this is too slow to
-    // run in prod. See https://github.com/kriskowal/q#long-stack-traces
-    require('q').longStackSupport = true;
-
     require('./test/runtests')({
       onStop: this.async(),
       reporter: 'default',
