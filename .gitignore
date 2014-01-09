@@ -10,8 +10,6 @@ media/locale/*
 *.d
 *.gypi
 *.mk
-node_modules/bunyan/node_modules/dtrace-provider/build/Makefile
-node_modules/bunyan/node_modules/dtrace-provider/build/Release/obj.target/DTraceProviderStub.stamp
-node_modules/bunyan/node_modules/dtrace-provider/build/binding.Makefile
-node_modules/client-sessions/node_modules/node-proxy/build/Makefile
-node_modules/grunt-i18n-abide/node_modules/jsxgettext/node_modules/gettext-parser/node_modules/iconv/build/Makefile
+node_modules/bunyan/node_modules/dtrace-provider/build
+node_modules/client-sessions/node_modules/node-proxy/build
+node_modules/grunt-i18n-abide/node_modules/jsxgettext/node_modules/gettext-parser/node_modules/iconv/build
