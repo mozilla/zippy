@@ -1,4 +1,3 @@
-var nock = require('nock');
 var under = require('underscore');
 var uuid = require('node-uuid');
 
@@ -10,7 +9,7 @@ var trans = require('../../lib/trans');
 var client = new Client('/transactions');
 
 
-var goodTrans = {
+var transData = {
   product_id: undefined,
   region: 123,
   carrier: 'USA_TMOBILE',
@@ -52,7 +51,7 @@ exports.setUp = function(done) {
 
 exports.postWithoutProduct = function(t) {
   client
-    .post(goodTrans)
+    .post(transData)
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
@@ -66,7 +65,7 @@ exports.postWithInactiveProduct = function(t) {
   withSeller(t, {}, function(seller) {
     withProduct(t, {seller_id: seller._id, status: 'INACTIVE'}, function(product) {
       client
-        .post(under.extend(goodTrans, {product_id: product._id}))
+        .post(under.extend({}, transData, {product_id: product._id}))
         .expect(409)
         .end(function(err, res) {
           t.ifError(err);
@@ -82,23 +81,23 @@ exports.postOkTrans = function(t) {
   withSeller(t, {}, function(seller) {
     withProduct(t, {seller_id: seller._id}, function(product) {
       client
-        .post(under.extend(goodTrans, {product_id: product._id}))
+        .post(under.extend({}, transData, {product_id: product._id}))
         .expect(201)
         .end(function(err, res) {
           t.ifError(err);
           t.equal(res.body.product_id, product._id);
           t.equal(res.body.status, 'STARTED');
           t.equal(res.body.token.length, 128);
-          t.equal(res.body.region, goodTrans.region);
-          t.equal(res.body.carrier, goodTrans.carrier);
-          t.equal(res.body.price, goodTrans.price);
-          t.equal(res.body.currency, goodTrans.currency);
-          t.equal(res.body.pay_method, goodTrans.pay_method);
-          t.equal(res.body.callback_success_url, goodTrans.callback_success_url);
-          t.equal(res.body.callback_error_url, goodTrans.callback_error_url);
-          t.equal(res.body.success_url, goodTrans.success_url);
-          t.equal(res.body.error_url, goodTrans.error_url);
-          t.equal(res.body.ext_transaction_id, goodTrans.ext_transaction_id);
+          t.equal(res.body.region, transData.region);
+          t.equal(res.body.carrier, transData.carrier);
+          t.equal(res.body.price, transData.price);
+          t.equal(res.body.currency, transData.currency);
+          t.equal(res.body.pay_method, transData.pay_method);
+          t.equal(res.body.callback_success_url, transData.callback_success_url);
+          t.equal(res.body.callback_error_url, transData.callback_error_url);
+          t.equal(res.body.success_url, transData.success_url);
+          t.equal(res.body.error_url, transData.error_url);
+          t.equal(res.body.ext_transaction_id, transData.ext_transaction_id);
           t.done();
         });
     });
@@ -110,7 +109,7 @@ exports.postInvalidPayMethod = function(t) {
   withSeller(t, {}, function(seller) {
     withProduct(t, {seller_id: seller._id}, function(product) {
       var data = {};
-      under.extend(data, goodTrans, {product_id: product._id});
+      under.extend(data, transData, {product_id: product._id});
       data.pay_method = 'NOT_SUPPORTED';
       client
         .post(data)
@@ -128,7 +127,7 @@ exports.postInvalidCurrency = function(t) {
   withSeller(t, {}, function(seller) {
     withProduct(t, {seller_id: seller._id}, function(product) {
       var data = {};
-      under.extend(data, goodTrans, {product_id: product._id});
+      under.extend(data, transData, {product_id: product._id});
       data.currency = 'ZZZ';
       client
         .post(data)
@@ -145,58 +144,10 @@ exports.postInvalidCurrency = function(t) {
 exports.postInvalidUrls = function(t) {
   withSeller(t, {}, function(seller) {
     withProduct(t, {seller_id: seller._id}, function(product) {
-      var data = under.extend({}, goodTrans, {
+      var data = under.extend({}, transData, {
         product_id: product._id,
         success_url: 'nope',
         error_url: 'not-a-url',
-      });
-      client
-        .post(data)
-        .expect(409)
-        .end(function(err) {
-          t.ifError(err);
-          t.done();
-        });
-    });
-  });
-};
-
-
-exports.postSuccessCallback = function(t) {
-  nock('https://m.f.c')
-    .filteringPath(function(path) {
-      if(path.indexOf('sig') && path.indexOf('product_id'))
-        return '/webpay/callback/success?signed_notice';
-    })
-    .post('/webpay/callback/success?signed_notice')
-    .reply(200, 'OK');
-  withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id}, function(product) {
-      client
-        .post(under.extend({}, goodTrans, {product_id: product._id}))
-        .expect(201)
-        .end(function(err) {
-          t.ifError(err);
-          t.done();
-        });
-    });
-  });
-};
-
-
-exports.postErrorCallback = function(t) {
-  nock('https://m.f.c')
-    .filteringPath(function(path) {
-      if(path.indexOf('sig') && path.indexOf('product_id'))
-        return '/webpay/callback/error?signed_notice';
-    })
-    .post('/webpay/callback/error?signed_notice')
-    .reply(200, 'OK');
-  withSeller(t, {}, function(seller) {
-    withProduct(t, {seller_id: seller._id}, function(product) {
-      var data = under.extend({}, goodTrans, {
-        product_id: product._id,
-        currency: 'not-a-valid-one',
       });
       client
         .post(data)
