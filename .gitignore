@@ -7,3 +7,9 @@ media/locale/*
 *.a
 *.o
 *.dylib
+*.d
+*.gypi
+*.mk
+node_modules/bunyan/node_modules/dtrace-provider/build/Makefile
+node_modules/client-sessions/node_modules/node-proxy/build/Makefile
+node_modules/grunt-i18n-abide/node_modules/jsxgettext/node_modules/gettext-parser/node_modules/iconv/build/Makefile
