@@ -7,9 +7,9 @@
   "dependencies": {
     "bunyan": "0.22.1",
     "client-sessions": "0.4.1",
+    "errors": "0.1.0",
     "escape-html": "1.0.0",
     "express": "3.4.7",
-    "errors": "~0.1.0",
     "forms": "0.3.0",
     "i18n-abide": "0.0.14",
     "marked": "0.2.9",
@@ -22,10 +22,10 @@
     "q": "0.9.7",
     "save": "0.0.19",
     "underscore": "1.5.2",
-    "request": "~2.27.0",
-    "chai": "~1.8.1"
+    "request": "~2.27.0"
   },
   "devDependencies": {
+    "chai": "1.8.1",
     "grunt": "~0.4.1",
     "grunt-bunyan": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.4",
