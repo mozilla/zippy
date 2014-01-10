@@ -23,7 +23,11 @@ function withSeller(t, cb, opt) {
 
 function withProduct(t, opt, cb) {
   opt = opt || {};
-  var props = under.extend({external_id: uuid.v4(), status: 'ACTIVE'}, opt);
+  var props = under.extend({
+    /*jshint camelcase: false */
+    external_id: uuid.v4(),
+    status: 'ACTIVE'
+  }, opt);
   products.models.create(props, function(err, product) {
     t.ifError(err);
     cb(product);
@@ -36,11 +40,13 @@ function makeTwoProducts(t, extIds) {
 
   withSeller(t, function(seller) {
     withProduct(t, {
+      /*jshint camelcase: false */
       seller_id: seller._id,
       external_id: extIds.pop(),
       name: 'x',
     }, function(product1) {
       withProduct(t, {
+        /*jshint camelcase: false */
         seller_id: seller._id,
         external_id: extIds.pop(),
         name: 'x',
@@ -88,7 +94,11 @@ exports.setUp = function(done) {
 
 exports.createWithoutSeller = function(t) {
   client
-    .post({external_id: uuid.v4(), name: 'x'})
+    .post({
+      /*jshint camelcase: false */
+      external_id: uuid.v4(),
+      name: 'x',
+    })
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
@@ -101,7 +111,11 @@ exports.createWithoutSeller = function(t) {
 exports.createWithoutExternalId = function(t) {
   withSeller(t, function(seller) {
     client
-      .post({seller_id: seller._id, name: 'x'})
+      .post({
+        /*jshint camelcase: false */
+        seller_id: seller._id,
+        name: 'x',
+      })
       .expect(409)
       .end(function(err, res) {
         t.ifError(err);
@@ -114,9 +128,15 @@ exports.createWithoutExternalId = function(t) {
 
 exports.createProductOk = function(t) {
   withSeller(t, function(seller) {
+    /*jshint camelcase: false */
     var external_id = uuid.v4();
     client
-      .post({seller_id: seller._id, external_id: external_id, name: 'x'})
+      .post({
+        /*jshint camelcase: false */
+        seller_id: seller._id,
+        external_id: external_id,
+        name: 'x',
+      })
       .expect(201)
       .end(function(err, res) {
         t.ifError(err);
@@ -130,9 +150,14 @@ exports.createProductOk = function(t) {
 
 exports.createWithoutName = function(t) {
   withSeller(t, function(seller) {
+    /*jshint camelcase: false */
     var external_id = uuid.v4();
     client
-      .post({seller_id: seller._id, external_id: external_id})
+      .post({
+        /*jshint camelcase: false */
+        seller_id: seller._id,
+        external_id: external_id,
+      })
       .expect(409)
       .end(function(err) {
         t.ifError(err);
@@ -144,9 +169,15 @@ exports.createWithoutName = function(t) {
 
 exports.createAnonymousSeller = function(t) {
   withSeller(t, function(seller) {
+    /*jshint camelcase: false */
     var external_id = uuid.v4();
     anonymousClient
-      .post({seller_id: seller._id, external_id: external_id, name: 'x'})
+      .post({
+        /*jshint camelcase: false */
+        seller_id: seller._id,
+        external_id: external_id,
+        name: 'x',
+      })
       .expect(401)
       .end(function(err, res) {
         t.ifError(err);
@@ -160,7 +191,12 @@ exports.createAnonymousSeller = function(t) {
 exports.createWrongSeller = function(t) {
   var nonExistant = uuid.v4();
   client
-    .post({seller_id: nonExistant, external_id: uuid.v4(), name: 'x'})
+    .post({
+      /*jshint camelcase: false */
+      seller_id: nonExistant,
+      external_id: uuid.v4(),
+      name: 'x',
+    })
     .expect(409)
     .end(function(err) {
       t.ifError(err);
@@ -173,7 +209,12 @@ exports.createInactiveSeller = function(t) {
   var opt = {status: 'INACTIVE'};
   withSeller(t, function(seller) {
     client
-      .post({seller_id: seller._id, external_id: uuid.v4(), name: 'x'})
+      .post({
+        /*jshint camelcase: false */
+        seller_id: seller._id,
+        external_id: uuid.v4(),
+        name: 'x',
+      })
       .expect(409)
       .end(function(err) {
         t.ifError(err);
@@ -186,12 +227,14 @@ exports.createInactiveSeller = function(t) {
 exports.createDupeExternalId = function(t) {
   withSeller(t, function(seller) {
     withProduct(t, {
+      /*jshint camelcase: false */
       seller_id: seller._id,
       external_id: uuid.v4(),
       name: 'x',
     }, function(product) {
       client
         .post({
+          /*jshint camelcase: false */
           seller_id: seller._id,
           external_id: product.external_id,
           name: 'x',
@@ -213,6 +256,7 @@ exports.externaIdUniquePerSeller = function(t) {
 
   withSeller(t, function(seller1) {
     withProduct(t, {
+      /*jshint camelcase: false */
       seller_id: seller1._id,
       external_id: extId,
       name: 'x',
@@ -220,6 +264,7 @@ exports.externaIdUniquePerSeller = function(t) {
       withSeller(t, function(seller2) {
         client
           .post({
+            /*jshint camelcase: false */
             seller_id: seller2._id,
             external_id: extId,
             name: 'x',
@@ -238,6 +283,7 @@ exports.externaIdUniquePerSeller = function(t) {
 exports.retrieveProductByPk = function(t) {
   withSeller(t, function(seller) {
     withProduct(t, {
+      /*jshint camelcase: false */
       seller_id: seller._id,
       external_id: uuid.v4(),
       name: 'x',
@@ -276,6 +322,7 @@ exports.listAllProducts = function(t) {
         .end(function(err, res) {
           t.ifError(err);
           res.body.forEach(function(ob) {
+            /*jshint camelcase: false */
             extIds.push(ob.external_id);
           });
           extIds.sort();
@@ -295,7 +342,10 @@ exports.filterProductsByExtId = function(t) {
   makeTwoProducts(t, ['one', 'two'])
     .then(function() {
       client
-        .get({external_id: 'one'})
+        .get({
+          /*jshint camelcase: false */
+          external_id: 'one',
+        })
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
@@ -315,7 +365,11 @@ exports.filterProductsBySeller = function(t) {
   makeTwoSellers(t, ['one', 'two'])
     .then(function(sellersResult) {
       client
-        .get({external_id: 'one', seller_id: sellersResult[0].resource_pk})
+        .get({
+          /*jshint camelcase: false */
+          external_id: 'one',
+          seller_id: sellersResult[0].resource_pk,
+        })
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
@@ -336,7 +390,11 @@ exports.filterByWrongSeller = function(t) {
   makeTwoProducts(t, ['one', 'two'])
     .then(function() {
       client
-        .get({seller_id: 'invalid', external_id: 'one'})
+        .get({
+          /*jshint camelcase: false */
+          seller_id: 'invalid',
+          external_id: 'one',
+        })
         .expect(404)
         .end(function(err) {
           t.ifError(err);
@@ -352,7 +410,7 @@ exports.filterByWrongSeller = function(t) {
 
 exports.wrongParamIsError = function(t) {
   client
-    .get({bad_param: 'nope'})
+    .get({badParam: 'nope'})
     .expect(409)
     .end(function(err) {
       t.ifError(err);
