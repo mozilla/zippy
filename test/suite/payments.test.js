@@ -1,15 +1,17 @@
+var nock = require('nock');
 var url = require('url');
 
 var under = require('underscore');
 var supertest = require('super-request');
 
 var test = require('../');
-var Client = require('../client').AnonymousClient;
+var AnonymousClient = require('../client').AnonymousClient;
+var Client = require('../client').Client;
 var helpers = require('../helpers');
 var trans = require('../../lib/trans');
 
-var client = new Client('/');
-
+var client = new AnonymousClient('/');
+var transactionClient = new Client('/transactions');
 
 var transData = {
   /*jshint camelcase: false */
@@ -21,6 +23,8 @@ var transData = {
   pay_method: 'OPERATOR',
   token: 'fake-token',
   status: 'STARTED',
+  callback_success_url: 'https://m.f.c/webpay/callback/success',
+  callback_error_url: 'https://m.f.c/webpay/callback/error',
   success_url: 'https://m.f.c/webpay/success',
   error_url: 'https://m.f.c/webpay/error',
   ext_transaction_id: 'webpay-xyz',
@@ -166,5 +170,60 @@ exports.testEndedTrans = function(t) {
       });
   }, {
     status: 'COMPLETED',
+  });
+};
+
+
+exports.postSuccessCallback = function(t) {
+  nock('https://m.f.c')
+    .filteringPath(function(path) {
+      if(path.indexOf('sig') && path.indexOf('product_id'))
+        return '/webpay/callback/success?signed_notice';
+    })
+    .post('/webpay/callback/success?signed_notice')
+    .reply(200, 'OK');
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
+      var data = under.omit(
+        under.extend({}, transData, {product_id: product._id}),
+        'status', 'token'
+      );
+      transactionClient
+        .post(data)
+        .expect(201)
+        .end(function(err) {
+          t.ifError(err);
+          t.done();
+        });
+    });
+  });
+};
+
+
+exports.postErrorCallback = function(t) {
+  nock('https://m.f.c')
+    .filteringPath(function(path) {
+      if(path.indexOf('sig') && path.indexOf('product_id'))
+        return '/webpay/callback/error?signed_notice';
+    })
+    .post('/webpay/callback/error?signed_notice')
+    .reply(200, 'OK');
+  helpers.withSeller(t, {}, function(seller) {
+    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
+      var data = under.omit(
+        under.extend({}, transData, {
+          product_id: product._id,
+          currency: 'not-a-valid-one',
+        }),
+        'token', 'status'
+      );
+      transactionClient
+        .post(data)
+        .expect(409)
+        .end(function(err) {
+          t.ifError(err);
+          t.done();
+        });
+    });
   });
 };
