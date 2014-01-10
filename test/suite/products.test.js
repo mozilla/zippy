@@ -1,51 +1,26 @@
 var Q = require('q');
-var under = require('underscore');
 var uuid = require('node-uuid');
 
 var Client = require('../client').Client;
 var AnonymousClient = require('../client').AnonymousClient;
+var helpers = require('../helpers');
 var products = require('../../lib/products');
-var sellers = require('../../lib/sellers');
 
 var client = new Client('/products');
 var anonymousClient = new AnonymousClient('/products');
 
 
-function withSeller(t, cb, opt) {
-  opt = opt || {};
-  var props = under.extend({_id: uuid.v4(), status: 'ACTIVE'}, opt);
-  sellers.models.create(props, function(err, seller) {
-    t.ifError(err);
-    cb(seller);
-  });
-}
-
-
-function withProduct(t, opt, cb) {
-  opt = opt || {};
-  var props = under.extend({
-    /*jshint camelcase: false */
-    external_id: uuid.v4(),
-    status: 'ACTIVE'
-  }, opt);
-  products.models.create(props, function(err, product) {
-    t.ifError(err);
-    cb(product);
-  });
-}
-
-
 function makeTwoProducts(t, extIds) {
   var defer = Q.defer();
 
-  withSeller(t, function(seller) {
-    withProduct(t, {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
       /*jshint camelcase: false */
       seller_id: seller._id,
       external_id: extIds.pop(),
       name: 'x',
     }, function(product1) {
-      withProduct(t, {
+      helpers.withProduct({
         /*jshint camelcase: false */
         seller_id: seller._id,
         external_id: extIds.pop(),
@@ -109,7 +84,7 @@ exports.createWithoutSeller = function(t) {
 
 
 exports.createWithoutExternalId = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller({}, function(seller) {
     client
       .post({
         /*jshint camelcase: false */
@@ -127,7 +102,7 @@ exports.createWithoutExternalId = function(t) {
 
 
 exports.createProductOk = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller({}, function(seller) {
     /*jshint camelcase: false */
     var external_id = uuid.v4();
     client
@@ -149,7 +124,7 @@ exports.createProductOk = function(t) {
 
 
 exports.createWithoutName = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller({}, function(seller) {
     /*jshint camelcase: false */
     var external_id = uuid.v4();
     client
@@ -168,7 +143,7 @@ exports.createWithoutName = function(t) {
 
 
 exports.createAnonymousSeller = function(t) {
-  withSeller(t, function(seller) {
+  helpers.withSeller({}, function(seller) {
     /*jshint camelcase: false */
     var external_id = uuid.v4();
     anonymousClient
@@ -207,7 +182,7 @@ exports.createWrongSeller = function(t) {
 
 exports.createInactiveSeller = function(t) {
   var opt = {status: 'INACTIVE'};
-  withSeller(t, function(seller) {
+  helpers.withSeller(opt, function(seller) {
     client
       .post({
         /*jshint camelcase: false */
@@ -225,8 +200,8 @@ exports.createInactiveSeller = function(t) {
 
 
 exports.createDupeExternalId = function(t) {
-  withSeller(t, function(seller) {
-    withProduct(t, {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
       /*jshint camelcase: false */
       seller_id: seller._id,
       external_id: uuid.v4(),
@@ -254,14 +229,14 @@ exports.externaIdUniquePerSeller = function(t) {
   // An external ID only has to be unique per seller.
   var extId = 'shared-product-id';
 
-  withSeller(t, function(seller1) {
-    withProduct(t, {
+  helpers.withSeller({}, function(seller1) {
+    helpers.withProduct({
       /*jshint camelcase: false */
       seller_id: seller1._id,
       external_id: extId,
       name: 'x',
     }, function() {
-      withSeller(t, function(seller2) {
+      helpers.withSeller({}, function(seller2) {
         client
           .post({
             /*jshint camelcase: false */
@@ -281,8 +256,8 @@ exports.externaIdUniquePerSeller = function(t) {
 
 
 exports.retrieveProductByPk = function(t) {
-  withSeller(t, function(seller) {
-    withProduct(t, {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
       /*jshint camelcase: false */
       seller_id: seller._id,
       external_id: uuid.v4(),
