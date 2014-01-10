@@ -21,7 +21,8 @@
     "posix-getopt": "1.0.0",
     "q": "0.9.7",
     "save": "0.0.19",
-    "underscore": "1.5.2"
+    "underscore": "1.5.2",
+    "request": "~2.31.0"
   },
   "devDependencies": {
     "chai": "1.8.1",
@@ -37,7 +38,8 @@
     "stylus": "0.32.x",
     "grunt-nodemon": "~0.1.1",
     "grunt-concurrent": "~0.4.1",
-    "grunt-i18n-abide": "0.0.3"
+    "grunt-i18n-abide": "0.0.3",
+    "nock": "~0.27.1"
   },
   "scripts": {
     "test": "node -e \"require('grunt').cli()\" null test"
