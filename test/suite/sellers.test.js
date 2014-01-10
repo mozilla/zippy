@@ -53,7 +53,7 @@ exports.createSellerWithoutStatus = function(t) {
 
 
 exports.retrieveSellers = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
+  helpers.withSeller({}, function(seller) {
     client
       .get()
       .expect(200)
@@ -80,7 +80,7 @@ exports.retrieveSellersEmpty = function(t) {
 
 
 exports.retrieveSeller = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
+  helpers.withSeller({}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     client
       .get()
@@ -97,7 +97,7 @@ exports.retrieveSeller = function(t) {
 
 
 exports.updateSellerThenGet = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
+  helpers.withSeller({}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     var updatedName = 'Jack';
     client
@@ -133,7 +133,7 @@ exports.updateSellerThenGet = function(t) {
 
 
 exports.updateSellerWithoutStatus = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
+  helpers.withSeller({}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     var updatedName = 'Jack';
     client
@@ -155,7 +155,7 @@ exports.updateSellerWithoutStatus = function(t) {
 
 
 exports.deleteSeller = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
+  helpers.withSeller({}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     client
       .del()
@@ -169,7 +169,7 @@ exports.deleteSeller = function(t) {
 
 
 exports.retrieveSellerTerms = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
+  helpers.withSeller({}, function(seller) {
     var client = new Client('/terms/' + seller._id);
     client
       .get()
@@ -184,7 +184,7 @@ exports.retrieveSellerTerms = function(t) {
 
 
 exports.updateSellerTerms = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
+  helpers.withSeller({}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
     var currentDate = new Date();
     client

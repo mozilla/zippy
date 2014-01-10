@@ -7,22 +7,6 @@ var trans = require('../../lib/trans');
 var client = new Client('/transactions');
 
 
-var goodTrans = {
-  /*jshint camelcase: false */
-  product_id: undefined,
-  region: 123,
-  carrier: 'USA_TMOBILE',
-  price: '0.99',
-  currency: 'EUR',
-  pay_method: 'OPERATOR',
-  callback_success_url: 'https://m.f.c/webpay/callback/success',
-  callback_error_url: 'https://m.f.c/webpay/callback/error',
-  success_url: 'https://m.f.c/webpay/success',
-  error_url: 'https://m.f.c/webpay/error',
-  ext_transaction_id: 'webpay:xyz',
-};
-
-
 exports.setUp = function(done) {
   trans.models.deleteMany({}, done);
 };
@@ -30,7 +14,7 @@ exports.setUp = function(done) {
 
 exports.postWithoutProduct = function(t) {
   client
-    .post(goodTrans)
+    .post(helpers.transactionData)
     .expect(409)
     .end(function(err, res) {
       t.ifError(err);
@@ -41,10 +25,14 @@ exports.postWithoutProduct = function(t) {
 
 
 exports.postWithInactiveProduct = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
-    helpers.withProduct(t, {seller_id: seller._id, status: 'INACTIVE'}, function(product) {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
+      /*jshint camelcase: false */
+      seller_id: seller._id,
+      status: 'INACTIVE'
+    }, function(product) {
       client
-        .post(under.extend(goodTrans, {product_id: product._id}))
+        .post(under.extend({}, helpers.transactionData, {product_id: product._id}))
         .expect(409)
         .end(function(err, res) {
           t.ifError(err);
@@ -57,26 +45,37 @@ exports.postWithInactiveProduct = function(t) {
 
 
 exports.postOkTrans = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
-    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
+      /*jshint camelcase: false */
+      seller_id: seller._id
+    }, function(product) {
+      var data = under.omit(
+        under.extend({}, helpers.transactionData, {
+          /*jshint camelcase: false */
+          product_id: product._id,
+        }),
+        'status', 'token'
+      );
       client
-        .post(under.extend({}, goodTrans, {product_id: product._id}))
+        .post(data)
         .expect(201)
         .end(function(err, res) {
           t.ifError(err);
+          /*jshint camelcase: false */
           t.equal(res.body.product_id, product._id);
           t.equal(res.body.status, 'STARTED');
           t.equal(res.body.token.length, 128);
-          t.equal(res.body.region, goodTrans.region);
-          t.equal(res.body.carrier, goodTrans.carrier);
-          t.equal(res.body.price, goodTrans.price);
-          t.equal(res.body.currency, goodTrans.currency);
-          t.equal(res.body.pay_method, goodTrans.pay_method);
-          t.equal(res.body.callback_success_url, goodTrans.callback_success_url);
-          t.equal(res.body.callback_error_url, goodTrans.callback_error_url);
-          t.equal(res.body.success_url, goodTrans.success_url);
-          t.equal(res.body.error_url, goodTrans.error_url);
-          t.equal(res.body.ext_transaction_id, goodTrans.ext_transaction_id);
+          t.equal(res.body.region, helpers.transactionData.region);
+          t.equal(res.body.carrier, helpers.transactionData.carrier);
+          t.equal(res.body.price, helpers.transactionData.price);
+          t.equal(res.body.currency, helpers.transactionData.currency);
+          t.equal(res.body.pay_method, helpers.transactionData.pay_method);
+          t.equal(res.body.callback_success_url, helpers.transactionData.callback_success_url);
+          t.equal(res.body.callback_error_url, helpers.transactionData.callback_error_url);
+          t.equal(res.body.success_url, helpers.transactionData.success_url);
+          t.equal(res.body.error_url, helpers.transactionData.error_url);
+          t.equal(res.body.ext_transaction_id, helpers.transactionData.ext_transaction_id);
           t.done();
         });
     });
@@ -85,10 +84,16 @@ exports.postOkTrans = function(t) {
 
 
 exports.postInvalidPayMethod = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
-    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
+      /*jshint camelcase: false */
+      seller_id: seller._id
+    }, function(product) {
       var data = {};
-      under.extend(data, goodTrans, {product_id: product._id});
+      under.extend(data, helpers.transactionData, {
+        /*jshint camelcase: false */
+        product_id: product._id
+      });
       data.pay_method = 'NOT_SUPPORTED';
       client
         .post(data)
@@ -103,10 +108,16 @@ exports.postInvalidPayMethod = function(t) {
 
 
 exports.postInvalidCurrency = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
-    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
+      /*jshint camelcase: false */
+      seller_id: seller._id
+    }, function(product) {
       var data = {};
-      under.extend(data, goodTrans, {product_id: product._id});
+      under.extend(data, helpers.transactionData, {
+        /*jshint camelcase: false */
+        product_id: product._id
+      });
       data.currency = 'ZZZ';
       client
         .post(data)
@@ -121,9 +132,13 @@ exports.postInvalidCurrency = function(t) {
 
 
 exports.postInvalidUrls = function(t) {
-  helpers.withSeller(t, {}, function(seller) {
-    helpers.withProduct(t, {seller_id: seller._id}, function(product) {
-      var data = under.extend({}, goodTrans, {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
+      /*jshint camelcase: false */
+      seller_id: seller._id
+    }, function(product) {
+      var data = under.extend({}, helpers.transactionData, {
+        /*jshint camelcase: false */
         product_id: product._id,
         success_url: 'nope',
         error_url: 'not-a-url',
