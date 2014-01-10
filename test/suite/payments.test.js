@@ -6,15 +6,16 @@ var supertest = require('super-request');
 
 var test = require('../');
 var AnonymousClient = require('../client').AnonymousClient;
-var Client = require('../client').Client;
 var helpers = require('../helpers');
 var trans = require('../../lib/trans');
 
 var client = new AnonymousClient('/');
-var transactionClient = new Client('/transactions');
 
 
 exports.setUp = function(done) {
+  // Intercept any postbacks when not expecting them.
+  nock('https://m.f.c');
+
   trans.models.deleteMany({}, function() {
     helpers.withSeller({}, function(seller) {
       helpers.withProduct({
@@ -47,18 +48,24 @@ exports.testStartTransThenProcess = function(t) {
     .followRedirect(false)
     .expect(301)
     .end(function(err, res) {
-      t.ifError(err);
       /*jshint camelcase: false */
-      t.equal(res.headers.location,
-              helpers.transactionData.success_url +
-                '?ext_transaction_id=' + helpers.transactionData.ext_transaction_id);
+      if (err) {
+        t.ifError(err);
+      } else {
+        var parts = url.parse(res.headers.location, true);
+
+        t.equal(parts.protocol + '//' + parts.host + parts.pathname,
+                helpers.transactionData.success_url);
+        t.equal(parts.query.ext_transaction_id,
+                helpers.transactionData.ext_transaction_id);
+        t.ok(parts.query.sig, "expected a signature");
+      }
       t.done();
     });
 };
 
 
 exports.testStartTransThenFail = function(t) {
-  /*jshint camelcase: false */
   var simulateErr = 'CC_ERROR';
   supertest(test.app)
     .get('/?tx=' + helpers.transactionData.token)
@@ -67,6 +74,7 @@ exports.testStartTransThenFail = function(t) {
       t.ifError(err);
     })
     .post('/payment/process')
+    /*jshint camelcase: false */
     .form({simulate_fail: simulateErr})
     .followRedirect(false)
     .expect(301)
@@ -80,6 +88,7 @@ exports.testStartTransThenFail = function(t) {
         t.equal(parts.query.ext_transaction_id,
                 helpers.transactionData.ext_transaction_id);
         t.equal(parts.query.error, simulateErr);
+        t.ok(parts.query.sig, "expected a signature");
       }
       t.done();
     });
@@ -166,65 +175,57 @@ exports.testEndedTrans = function(t) {
 
 
 exports.postSuccessCallback = function(t) {
-  nock('https://m.f.c')
-    .filteringPath(function(path) {
-      if(path.indexOf('sig') && path.indexOf('product_id'))
-        return '/webpay/callback/success?signed_notice';
-    })
-    .post('/webpay/callback/success?signed_notice')
+  var postback = nock('https://m.f.c')
+    .post('/webpay/callback/success')
     .reply(200, 'OK');
-  helpers.withSeller({}, function(seller) {
-    helpers.withProduct({
-      /*jshint camelcase: false */
-      seller_id: seller._id
-    }, function(product) {
-      var data = under.omit(
-        under.extend({}, helpers.transactionData, {
-          /*jshint camelcase: false */
-          product_id: product._id
-        }),
-        'status', 'token'
-      );
-      transactionClient
-        .post(data)
-        .expect(201)
-        .end(function(err) {
-          t.ifError(err);
-          t.done();
+
+  supertest(test.app)
+    .get('/?tx=' + helpers.transactionData.token)
+    .expect(200)
+    .end(function(err) {
+      t.ifError(err);
+    })
+    .post('/payment/process')
+    .end(function(err) {
+      if (err) {
+        t.ifError(err);
+      } else {
+        helpers.waitForNock(postback, {
+          name: 'postErrorCallback',
+          done: function() {
+            t.done();
+          }
         });
+      }
     });
-  });
 };
 
 
 exports.postErrorCallback = function(t) {
-  nock('https://m.f.c')
-    .filteringPath(function(path) {
-      if(path.indexOf('sig') && path.indexOf('product_id'))
-        return '/webpay/callback/error?signed_notice';
-    })
-    .post('/webpay/callback/error?signed_notice')
+  var simulateErr = 'CC_ERROR';
+  var postback = nock('https://m.f.c')
+    .post('/webpay/callback/error')
     .reply(200, 'OK');
-  helpers.withSeller({}, function(seller) {
-    helpers.withProduct({
-      /*jshint camelcase: false */
-      seller_id: seller._id
-    }, function(product) {
-      var data = under.omit(
-        under.extend({}, helpers.transactionData, {
-          /*jshint camelcase: false */
-          product_id: product._id,
-          currency: 'not-a-valid-one',
-        }),
-        'token', 'status'
-      );
-      transactionClient
-        .post(data)
-        .expect(409)
-        .end(function(err) {
-          t.ifError(err);
-          t.done();
+
+  supertest(test.app)
+    .get('/?tx=' + helpers.transactionData.token)
+    .expect(200)
+    .end(function(err) {
+      t.ifError(err);
+    })
+    .post('/payment/process')
+    /*jshint camelcase: false */
+    .form({simulate_fail: simulateErr})
+    .end(function(err) {
+      if (err) {
+        t.ifError(err);
+      } else {
+        helpers.waitForNock(postback, {
+          name: 'postErrorCallback',
+          done: function() {
+            t.done();
+          }
         });
+      }
     });
-  });
 };
