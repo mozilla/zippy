@@ -88,6 +88,7 @@ module.exports = function(grunt) {
         'main.js',
         'media/js/*.js',
         'test/*.js',
+        'test/suite/*.js',
       ],
     },
     stylus: {
