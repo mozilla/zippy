@@ -76,6 +76,20 @@ This API enables you to begin a transaction so that a product can be purchased.
         Fully qualified URL to where Zippy should redirect to after a payment
         error. Example: ``https://marketplace.firefox.com/mozpay/provider/error``.
 
+    :param callback_success_url:
+        Fully qualified URL to where Zippy should issue a ``POST`` request
+        if the payment is accepted with a ``signed_notice`` parameter
+        (a "stringified" version of the parameters returned by the creation
+        of the transaction). Example:
+        ``https://marketplace.firefox.com/mozpay/provider/callback/success``.
+
+    :param callback_error_url:
+        Fully qualified URL to where Zippy should issue a ``POST`` request
+        if the payment is NOT accepted with a ``signed_notice`` parameter
+        (a "stringified" version of the parameters sent for the creation
+        of the transaction). Example:
+        ``https://marketplace.firefox.com/mozpay/provider/callback/error``.
+
     :param ext_transaction_id:
         An external transaction ID (string). This would be a merchant's own
         transaction ID, such as `Webpay`_'s transaction ID. This will be
@@ -117,6 +131,8 @@ This API enables you to begin a transaction so that a product can be purchased.
           "product_id": 1,
           "success_url": "https://yoursite.org/success",
           "error_url": "https://yoursite.org/error",
+          "callback_success_url": "https://yoursite.org/callback/success",
+          "callback_error_url": "https://yoursite.org/callback/error",
           "resource_pk": "1",
           "resource_name": "transactions",
           "resource_uri": "/transactions/1"
