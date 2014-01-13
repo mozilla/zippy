@@ -5,7 +5,7 @@ Payment
 
 When processing the payment, Zippy simulates charging money for digital goods.
 When finished, it redirects to the
-payment provider (such as `WebPay`_). We provide
+payment provider (such as `WebPay`_) and sends a post notification. We provide
 :ref:`flows <payment-diagrams>` to explain the decisions that are made and
 the screens that are shown. Exactly what will happen here depends upon the
 payment processor and the configuration.
@@ -23,11 +23,14 @@ A real payment processor would probably do things like this:
 
 .. _redirect-api:
 
-Redirect API
-------------
+How Redirects Work
+------------------
 
 When Zippy completes a transaction it redirects to the original success or
 error URL (see :ref:`transactions` API for how those are defined).
+In the case of success, the application that began payment would respond with
+the HTML/CSS/JS needed to dispurse the goods.
+
 A few query string parameters are added to the URL that you can use to
 reconcile the payment.
 
@@ -41,6 +44,31 @@ reconcile the payment.
     define their own error codes.
 
 Example: ``https://site/payments/success/?ext_transaction_id=XYZ``
+
+.. note::
+
+   A signed query string notice must be :ref:`verified <notice-api>` before any of
+   the values can be trusted.
+
+How Post Notifications Work
+---------------------------
+
+When Zippy completes a transaction it not only redirects to the success/error
+URL, it also sends a post notification in the background. There are some edge
+cases in web user agents that could interrupt a redirect request so post
+notifications are generally more reliable. An application processing a payment
+should expect to continue the payment flow after redirect but should use post
+notifications as an additional measure to reconcile payment results.
+
+An application configures its callback URLs when beginning a
+:ref:`transaction <transactions>`. Zippy will post a single parameter called
+``signed_notice`` to either the callback success or error URL.
+This parameter contains a URL-encoded, signed notice that must be
+:ref:`verified <notice-api>` and
+then URL-decoded.
+
+The notice query string has the same parameters as the one sent in a
+:ref:`redirect <redirect-api>`.
 
 
 .. _transactions:
