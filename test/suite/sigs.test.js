@@ -18,22 +18,22 @@ function testClient(origURL, overrideURL) {
 
 exports.testSig = function(t) {
   testClient('/sellers?foo=1')
-    .expect(200)
-    .end(function(err) {
+    .end(function(err, res) {
       if (err) {
         throw err;
       }
+      t.equal(res.statusCode, 200);
       t.done();
     });
 };
 
 exports.testSigModifiedURL = function(t) {
   testClient('/sellers?foo=1', '/sellers?foo=somethingelse')
-    .expect(401)
-    .end(function(err) {
+    .end(function(err, res) {
       if (err) {
         throw err;
       }
+      t.equal(res.statusCode, 401);
       t.done();
     });
 };
