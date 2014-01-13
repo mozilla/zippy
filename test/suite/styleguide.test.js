@@ -1,5 +1,3 @@
-var assert = require('chai').assert;
-
 var Client = require('../client').Client;
 
 
@@ -14,7 +12,7 @@ module.exports = {
         if (err) {
           throw err;
         }
-        assert.include(res.body, 'StyleGuide | index');
+        t.include(res.body, 'StyleGuide | index');
         t.done();
       });
   },
@@ -27,8 +25,8 @@ module.exports = {
         if (err) {
           throw err;
         }
-        assert.include(res.body, 'Style doc not found');
-        assert.notInclude(res.body, '<b>foo');
+        t.include(res.body, 'Style doc not found');
+        t.notInclude(res.body, '<b>foo');
         t.done();
       });
   }
