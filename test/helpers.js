@@ -50,3 +50,32 @@ exports.transactionData = {
   error_url: 'https://m.f.c/webpay/error',
   ext_transaction_id: 'webpay-xyz',
 };
+
+
+exports.waitForNock = function(nockScope, opt) {
+  /*
+   * Waits until a nock scope is fulfilled or until a timeout.
+   *
+   * If you need to test an asynchronous HTTP call then you have
+   * to wait for it to complete. This is a helper to do that as
+   * fast as possible.
+   * */
+  opt = opt || {};
+  opt.name = opt.name || '[unnamed nock]';
+  opt.tries = opt.tries || 1;
+  opt.done = opt.done || function() {};
+
+  if (opt.tries >= 10) {
+    throw new Error('Gave up on nock scope ' +
+                    opt.name + ' after ' + opt.tries + ' tries');
+  }
+  if (!nockScope.isDone()) {
+    setTimeout(function() {
+      opt.tries++;
+      exports.waitForNock(nockScope, opt);
+    }, 3);
+    return;
+  }
+  nockScope.done();
+  opt.done();
+};
