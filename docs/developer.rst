@@ -20,29 +20,6 @@ Typically a payment provider will require more information about a seller that
 is shown here, since the payment provider will likely want more information
 pertinent to developer payouts.
 
-.. http:get:: /sellers
-
-    **Response**
-
-    You get a list of all sellers. For example:
-
-    .. code-block:: json
-
-        [
-          {
-            "status": "ACTIVE",
-            "name": "John",
-            "email": "jdoe@example.org",
-            "resource_pk": "{seller-uuid}",
-            "resource_name": "sellers",
-            "resource_uri": "/sellers/{seller-uuid}",
-            "agreement": ""
-          },
-          ...
-        ]
-
-    :status 200: success.
-
 .. http:get:: /sellers/:uuid
 
     **Response**
@@ -150,52 +127,6 @@ Products
 This API allows you to get/create products that can be purchased. It is
 required that a developer can register multiple products with the payment
 provider.
-
-.. http:get:: /products
-
-    **Request**
-
-    :param external_id:
-        Filter all products by this external identifier.
-        Since this is only unique per seller, filtering by
-        seller is probably a good idea.
-
-    :param seller_id:
-        Filter all products by this seller UUID, the
-        primary key for the :ref:`seller <sellers>` who owns each product.
-
-    **Response**
-
-    A list of products matching your query. For example:
-
-    .. code-block:: json
-
-        [
-          {
-            "external_id": "{product-uuid}",
-            "seller_id": "{seller-uuid}",
-            "active": true,
-            "name": "Magical Unicorn",
-            "resource_pk": "{product-uuid}",
-            "resource_name": "products",
-            "resource_uri": "/products/{product-uuid}"
-          }, {
-          ...
-          }
-        ]
-
-    In case of an error:
-
-    .. code-block:: json
-
-        {
-          "code": "InvalidArgument",
-          "message": "some error"
-        }
-
-    :status 200: success.
-    :status 404: resource not found.
-    :status 409: conflict.
 
 .. http:post:: /products
 
