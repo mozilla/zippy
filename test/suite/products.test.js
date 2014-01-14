@@ -1,4 +1,3 @@
-var Q = require('q');
 var uuid = require('node-uuid');
 
 var Client = require('../client').Client;
@@ -8,58 +7,6 @@ var products = require('../../lib/products');
 
 var client = new Client('/products');
 var anonymousClient = new AnonymousClient('/products');
-
-
-function makeTwoProducts(t, extIds) {
-  var defer = Q.defer();
-
-  helpers.withSeller({}, function(seller) {
-    helpers.withProduct({
-      /*jshint camelcase: false */
-      seller_id: seller._id,
-      external_id: extIds.pop(),
-      name: 'x',
-    }, function(product1) {
-      helpers.withProduct({
-        /*jshint camelcase: false */
-        seller_id: seller._id,
-        external_id: extIds.pop(),
-        name: 'x',
-      }, function(product2) {
-        defer.resolve({
-          products: [product1, product2],
-          seller: seller,
-        });
-      });
-    });
-  });
-
-  return defer.promise;
-}
-
-
-function makeTwoSellers(t, extIds) {
-  var defer = Q.defer();
-  var seller1;
-  var seller2;
-
-  makeTwoProducts(t, extIds)
-    .then(function(result1) {
-      seller1 = result1.seller;
-      return makeTwoProducts(t, extIds);
-    })
-    .then(function(result2) {
-      seller2 = result2.seller;
-    })
-    .then(function() {
-      defer.resolve([seller1, seller2]);
-    })
-    .fail(function(err) {
-      defer.reject(err);
-    });
-
-  return defer.promise;
-}
 
 
 exports.setUp = function(done) {
@@ -280,113 +227,6 @@ exports.retrieveNoProduct = function(t) {
   client
     .get(777)  // non-existant ID
     .expect(404)
-    .end(function(err) {
-      t.ifError(err);
-      t.done();
-    });
-};
-
-
-exports.listAllProducts = function(t) {
-  makeTwoProducts(t, ['one', 'two'])
-    .then(function() {
-      var extIds = [];
-      client
-        .get()
-        .expect(200)
-        .end(function(err, res) {
-          t.ifError(err);
-          res.body.forEach(function(ob) {
-            /*jshint camelcase: false */
-            extIds.push(ob.external_id);
-          });
-          extIds.sort();
-          t.equal(extIds[0], 'one');
-          t.equal(extIds[1], 'two');
-          t.done();
-        });
-    })
-    .fail(function(err) {
-      t.ifError(err);
-      t.done();
-    });
-};
-
-
-exports.filterProductsByExtId = function(t) {
-  makeTwoProducts(t, ['one', 'two'])
-    .then(function() {
-      client
-        .get({
-          /*jshint camelcase: false */
-          external_id: 'one',
-        })
-        .expect(200)
-        .end(function(err, res) {
-          t.ifError(err);
-          t.equal(res.body[0].external_id, 'one');
-          t.equal(res.body.length, 1);
-          t.done();
-        });
-    })
-    .fail(function(err) {
-      t.ifError(err);
-      t.done();
-    });
-};
-
-
-exports.filterProductsBySeller = function(t) {
-  makeTwoSellers(t, ['one', 'two'])
-    .then(function(sellersResult) {
-      client
-        .get({
-          /*jshint camelcase: false */
-          external_id: 'one',
-          seller_id: sellersResult[0].resource_pk,
-        })
-        .expect(200)
-        .end(function(err, res) {
-          t.ifError(err);
-          t.equal(res.body.length, 1);
-          t.equal(res.body[0].external_id, 'one');
-          t.equal(res.body[0].seller_id, sellersResult[0]._id);
-          t.done();
-        });
-    })
-    .fail(function(err) {
-      t.ifError(err);
-      t.done();
-    });
-};
-
-
-exports.filterByWrongSeller = function(t) {
-  makeTwoProducts(t, ['one', 'two'])
-    .then(function() {
-      client
-        .get({
-          /*jshint camelcase: false */
-          seller_id: 'invalid',
-          external_id: 'one',
-        })
-        .expect(404)
-        .end(function(err) {
-          t.ifError(err);
-          t.done();
-        });
-    })
-    .fail(function(err) {
-      t.ifError(err);
-      t.done();
-    });
-};
-
-
-exports.wrongParamIsError = function(t) {
-  client
-    .get({badParam: 'nope'})
-    .expect(409)
     .end(function(err) {
       t.ifError(err);
       t.done();
