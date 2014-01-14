@@ -132,6 +132,9 @@ module.exports = function(grunt) {
     },
   });
 
+  // Always show stack traces when Grunt prints out an uncaught exception.
+  grunt.option('stack', true);
+
   grunt.registerTask('runtests', 'Run all test files or just one if you specify its filename.', function(testSuite) {
     testSuite = testSuite || grunt.option('testsuite');
     process.env.NODE_ENV = 'test';
