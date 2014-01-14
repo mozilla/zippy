@@ -1,9 +1,7 @@
 var supertest = require('super-request');
 
-var helpers = require('../helpers');
 var test = require('../');
 var buildOAuthorizationHeader = require('../client').buildOAuthorizationHeader;
-
 
 function testClient(origURL, overrideURL) {
   var method = 'GET';
@@ -18,31 +16,24 @@ function testClient(origURL, overrideURL) {
   return res.json(true);
 }
 
-
 exports.testSig = function(t) {
-  helpers.withSeller({}, function(seller) {
-    testClient('/sellers/' + seller._id + '?foo=1')
-      .end(function(err, res) {
-        if (err) {
-          throw err;
-        }
-        t.equal(res.statusCode, 200);
-        t.done();
-      });
-  });
+  testClient('/sellers?foo=1')
+    .end(function(err, res) {
+      if (err) {
+        throw err;
+      }
+      t.equal(res.statusCode, 200);
+      t.done();
+    });
 };
 
-
 exports.testSigModifiedURL = function(t) {
-  helpers.withSeller({}, function(seller) {
-    testClient('/sellers/' + seller._id + '?foo=1',
-               '/sellers/' + seller._id + '?foo=somethingelse')
-      .end(function(err, res) {
-        if (err) {
-          throw err;
-        }
-        t.equal(res.statusCode, 401);
-        t.done();
-      });
-  });
+  testClient('/sellers?foo=1', '/sellers?foo=somethingelse')
+    .end(function(err, res) {
+      if (err) {
+        throw err;
+      }
+      t.equal(res.statusCode, 401);
+      t.done();
+    });
 };

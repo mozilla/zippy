@@ -52,6 +52,33 @@ exports.createSellerWithoutStatus = function(t) {
 };
 
 
+exports.retrieveSellers = function(t) {
+  helpers.withSeller({}, function(seller) {
+    client
+      .get()
+      .expect(200)
+      .end(function(err, res) {
+        t.ifError(err);
+        /*jshint camelcase: false */
+        t.equal(res.body[0].resource_pk, seller._id);
+        t.done();
+      });
+  });
+};
+
+
+exports.retrieveSellersEmpty = function(t) {
+  client
+    .get()
+    .expect(200)
+    .end(function(err, res) {
+      t.ifError(err);
+      t.equal(res.body.length, 0);
+      t.done();
+    });
+};
+
+
 exports.retrieveSeller = function(t) {
   helpers.withSeller({}, function(seller) {
     var client = new Client('/sellers/' + seller._id);
