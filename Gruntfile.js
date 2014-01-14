@@ -130,6 +130,16 @@ module.exports = function(grunt) {
         command: 'make html'
       }
     },
+
+    casper : {
+      options : {
+        test : true,
+      },
+      runtests : {
+        src: ['uitest/suite/test.*.js'],
+      }
+    }
+
   });
 
   // Always show stack traces when Grunt prints out an uncaught exception.
@@ -150,6 +160,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bunyan');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-casper');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
@@ -158,6 +169,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-i18n-abide');
 
   grunt.registerTask('test', ['jshint', 'runtests']);
+  grunt.registerTask('uitest', ['casper:runtests']);
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('start', ['stylus', 'concurrent:dev']);
   grunt.registerTask('server', ['nodemon:server']);
