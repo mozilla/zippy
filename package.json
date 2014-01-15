@@ -38,10 +38,12 @@
     "grunt-nodemon": "~0.1.1",
     "grunt-concurrent": "~0.4.1",
     "grunt-i18n-abide": "0.0.3",
-    "nock": "~0.27.1"
+    "nock": "~0.27.1",
+    "grunt-casper": "~0.1.4"
   },
   "scripts": {
-    "test": "node -e \"require('grunt').cli()\" null test"
+    "test": "node -e \"require('grunt').cli()\" null test",
+    "uitest": "node -e \"require('grunt').cli()\" null uitest"
   },
   "author": "Mozilla",
   "license": "MPL 2.0"
