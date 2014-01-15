@@ -1,3 +1,6 @@
+var http = require('http');
+
+var zippy = require('./lib');
 var zippyConfig = require('./lib/config');
 var locales = zippyConfig.supportedLocales;
 
@@ -77,7 +80,7 @@ module.exports = function(grunt) {
         options: {
           logConcurrentOutput: true,
         }
-      }
+      },
     },
     jshint: {
       options: { jshintrc: __dirname + '/.jshintrc' },
@@ -157,6 +160,16 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.registerTask('uitest', 'Spin up a test server instance and run casper tests', function() {
+    var server = http.createServer(zippy.createApp({}));
+    var port = zippyConfig.uitestServerPort;
+    server.listen(port, function onServerStart() {
+      var addr = this.address();
+      grunt.log.writeln('listening at %s:%s', addr.address, addr.port);
+    });
+    grunt.task.run('casper:runtests');
+  });
+
   grunt.loadNpmTasks('grunt-bunyan');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-shell');
@@ -169,7 +182,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-i18n-abide');
 
   grunt.registerTask('test', ['jshint', 'runtests']);
-  grunt.registerTask('uitest', ['casper:runtests']);
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('start', ['stylus', 'concurrent:dev']);
   grunt.registerTask('server', ['nodemon:server']);

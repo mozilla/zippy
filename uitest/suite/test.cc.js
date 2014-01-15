@@ -1,6 +1,6 @@
-/*global casper */
+var startCasper = require('../helpers').startCasper;
 
-casper.start('http://localhost:9999/payment/card');
+startCasper('/payment/card');
 
 casper.test.begin('CC Page', {
 
