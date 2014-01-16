@@ -55,11 +55,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    bunyan: {
-      strict: true, // prevent non-bunyan logs from being outputted
-      level: 'trace', // show all the things!
-      output: 'short', // least verbose
-    },
     nodemon: {
       server: {
         options: {
@@ -170,13 +165,11 @@ module.exports = function(grunt) {
     grunt.task.run('casper:runtests');
   });
 
-  grunt.loadNpmTasks('grunt-bunyan');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-casper');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-i18n-abide');
