@@ -1,32 +1,31 @@
-var Q = require('q');
 var uuid = require('node-uuid');
+var when = require('when');
 
 var Client = require('../client').Client;
 var AnonymousClient = require('../client').AnonymousClient;
 var helpers = require('../helpers');
-var products = require('../../lib/products');
 
 var client = new Client('/products');
 var anonymousClient = new AnonymousClient('/products');
 
 
 function makeTwoProducts(t, extIds) {
-  var defer = Q.defer();
+  var deferred = when.defer();
 
   helpers.withSeller({}, function(seller) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller._id,
+      seller_id: seller.uuid,
       external_id: extIds.pop(),
       name: 'x',
     }, function(product1) {
       helpers.withProduct({
         /*jshint camelcase: false */
-        seller_id: seller._id,
+        seller_id: seller.uuid,
         external_id: extIds.pop(),
         name: 'x',
       }, function(product2) {
-        defer.resolve({
+        deferred.resolve({
           products: [product1, product2],
           seller: seller,
         });
@@ -34,12 +33,12 @@ function makeTwoProducts(t, extIds) {
     });
   });
 
-  return defer.promise;
+  return deferred.promise;
 }
 
 
 function makeTwoSellers(t, extIds) {
-  var defer = Q.defer();
+  var deferred = when.defer();
   var seller1;
   var seller2;
 
@@ -52,18 +51,21 @@ function makeTwoSellers(t, extIds) {
       seller2 = result2.seller;
     })
     .then(function() {
-      defer.resolve([seller1, seller2]);
-    })
-    .fail(function(err) {
-      defer.reject(err);
+      deferred.resolve([seller1, seller2]);
+    }, function(err) {
+      deferred.reject(err);
     });
 
-  return defer.promise;
+  return deferred.promise;
 }
 
 
 exports.setUp = function(done) {
-  products.models.deleteMany({}, done);
+  helpers.resetDB()
+    .then(done)
+    .catch(function(err) {
+      throw err;
+    });
 };
 
 
@@ -88,7 +90,7 @@ exports.createWithoutExternalId = function(t) {
     client
       .post({
         /*jshint camelcase: false */
-        seller_id: seller._id,
+        seller_id: seller.uuid,
         name: 'x',
       })
       .expect(409)
@@ -108,14 +110,14 @@ exports.createProductOk = function(t) {
     client
       .post({
         /*jshint camelcase: false */
-        seller_id: seller._id,
+        seller_id: seller.uuid,
         external_id: external_id,
         name: 'x',
       })
       .expect(201)
       .end(function(err, res) {
         t.ifError(err);
-        t.equal(res.body.seller_id, seller._id);
+        t.equal(res.body.seller_id, seller.uuid);
         t.equal(res.body.external_id, external_id);
         t.done();
       });
@@ -130,7 +132,7 @@ exports.createWithoutName = function(t) {
     client
       .post({
         /*jshint camelcase: false */
-        seller_id: seller._id,
+        seller_id: seller.uuid,
         external_id: external_id,
       })
       .expect(409)
@@ -149,7 +151,7 @@ exports.createAnonymousSeller = function(t) {
     anonymousClient
       .post({
         /*jshint camelcase: false */
-        seller_id: seller._id,
+        seller_id: seller.uuid,
         external_id: external_id,
         name: 'x',
       })
@@ -186,7 +188,7 @@ exports.createInactiveSeller = function(t) {
     client
       .post({
         /*jshint camelcase: false */
-        seller_id: seller._id,
+        seller_id: seller.uuid,
         external_id: uuid.v4(),
         name: 'x',
       })
@@ -195,7 +197,7 @@ exports.createInactiveSeller = function(t) {
         t.ifError(err);
         t.done();
       });
-  }, opt);
+  });
 };
 
 
@@ -203,14 +205,14 @@ exports.createDupeExternalId = function(t) {
   helpers.withSeller({}, function(seller) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller._id,
+      seller_id: seller.uuid,
       external_id: uuid.v4(),
       name: 'x',
     }, function(product) {
       client
         .post({
           /*jshint camelcase: false */
-          seller_id: seller._id,
+          seller_id: seller.uuid,
           external_id: product.external_id,
           name: 'x',
         })
@@ -232,7 +234,7 @@ exports.externaIdUniquePerSeller = function(t) {
   helpers.withSeller({}, function(seller1) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller1._id,
+      seller_id: seller1.uuid,
       external_id: extId,
       name: 'x',
     }, function() {
@@ -240,7 +242,7 @@ exports.externaIdUniquePerSeller = function(t) {
         client
           .post({
             /*jshint camelcase: false */
-            seller_id: seller2._id,
+            seller_id: seller2.uuid,
             external_id: extId,
             name: 'x',
           })
@@ -259,16 +261,16 @@ exports.retrieveProductByPk = function(t) {
   helpers.withSeller({}, function(seller) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller._id,
+      seller_id: seller.uuid,
       external_id: uuid.v4(),
       name: 'x',
     }, function(product) {
       client
-        .get(product._id)
+        .get(product.external_id)
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);
-          t.equal(res.body.resource_pk, product._id);
+          t.equal(res.body.external_id, product.external_id);
           t.done();
         });
     });
@@ -350,7 +352,7 @@ exports.filterProductsBySeller = function(t) {
           t.ifError(err);
           t.equal(res.body.length, 1);
           t.equal(res.body[0].external_id, 'one');
-          t.equal(res.body[0].seller_id, sellersResult[0]._id);
+          t.equal(res.body[0].seller_id, sellersResult[0].uuid);
           t.done();
         });
     })
