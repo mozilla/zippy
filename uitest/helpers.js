@@ -31,11 +31,13 @@ casper.test.on('fail', function() {
   casper.capture(file);
 });
 
-if (config.showCasperClientConsole === true) {
+
+if (config.showClientConsole === true) {
   casper.on('remote.message', function(message) {
     casper.echo('client console: ' + message, 'INFO');
   });
 }
+
 
 exports.startCasper = function startCasper(path) {
   casper.start('http://localhost:' + config.uitestServerPort + path);
