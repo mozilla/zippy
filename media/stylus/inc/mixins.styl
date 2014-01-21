@@ -10,6 +10,26 @@ animation($animation) {
     animation: $animation;
 }
 
+transition($property) {
+    -webkit-transition: $property;
+    transition: $property;
+}
+
+transition-property($property) {
+    -webkit-transition-property: $property;
+    transition-property: $property;
+}
+
+transition-duration($duration = 2s) {
+    -webkit-transition-duration: $duration;
+    transition-duration: $duration;
+}
+
+transition-delay($delay = 1s) {
+    -webkit-transition-delay: $delay;
+    transition-delay: $delay;
+}
+
 gradient-two-color($color1, $color2) {
     background-color: $color2;
     background-image: -webkit-gradient(linear, left bottom, left top, from($color1), to($color2));

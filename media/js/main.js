@@ -9,6 +9,6 @@ require.config({
   }
 });
 
-define('main', ['cc'], function() {
+define('main', ['cc', 'country-select'], function() {
   // load needed modules here.
 });

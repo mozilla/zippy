@@ -1,0 +1,40 @@
+{% extends "base-payments.html" %}
+
+{% block main %}
+  <h1>{{ gettext('Confirm your Mobile Number') }}</h1>
+
+  <form class="mobile-num" method="POST">
+    <div class="region uk">
+      <div class="select-label">
+        <span  class="visually-hidden">{{ gettext('United Kingdom') }}</span>
+        {{ gettext('Not your country?') }}
+      </div>
+      <div class="select-mask">
+        <a href="#" class="select-toggle" data-select-toggle="#country">{{ gettext('Change') }}</a>
+        <select id="country" autocomplete="off">
+          <option value="US">{{ gettext('United States') }}</option>
+          <option value="UK" selected>{{ gettext('United Kingdom') }}</option>
+          <option value="ES">{{ gettext('Spain') }}</option>
+        </select>
+      </div>
+    </div>
+
+    <label for="network">{{ gettext('Select your mobile network') }}</label>
+    <select id="network" name="network" autocomplete="off">
+      <option value="1">Orange</option>
+      <option value="2">T-mobile</option>
+      <option value="3" selected>Three</option>
+    </select>
+
+    <label for="phone-num">{{ gettext('Enter your mobile number') }}</label>
+    <input type="tel" x-inputmode="digits" id="phone-num" placeholder="07123123123" />
+
+  </form>
+  {% endblock %}
+
+{% block footer %}
+  <div class="buttons">
+      <button class="button">{{ gettext('Cancel') }}</button>
+      <button type="submit" class="button cta">{{ gettext('Continue') }}</button>
+  </div>
+{% endblock %}

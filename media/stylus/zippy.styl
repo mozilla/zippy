@@ -163,9 +163,62 @@ hr {
 
 input.postcode {
     padding: inherit 0;
-    max-width: 100%;
+    width: 100%;
 }
 
 .flex-container .checkbox {
     align-items(center);
+}
+
+.select-mask {
+    display: inline-block;
+    width: auto;
+
+    .select-toggle {
+        color: blue;
+        opacity: 1;
+        width: 100%;
+        z-index: 0;
+    }
+
+    select {
+        max-width: calc(100% - 18px);
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: -0.5em;
+        z-index: 1; /* explicitly make select on top */
+
+        &.show {
+            opacity: 1;
+            transition(1s opacity ease );
+            width: 100%;
+        }
+    }
+
+
+}
+
+.select-label {
+    display: inline-block;
+}
+
+.region {
+    position: relative;
+    margin: 25px 0 10px;
+    &:before {
+        background-repeat: no-repeat;
+        background-size: 15px;
+        content: '';
+        display: inline-block;
+        height: 18px;
+        vertical-align: middle;
+        width: 15px;
+    }
+
+    for region in ar br cl cn co de es gr gr hu it me mx pe pl rs uk us uy ve restofworld {
+        &.{region}:before {
+            background-image: url(unquote('../images/regions/' + region + '.png'));
+        }
+    }
 }
