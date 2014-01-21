@@ -81,7 +81,7 @@ textarea {
 
     .col {
         align-items(flex-end);
-        display-flex();
+        display: -moz-box; // Needed for gecko 18 only.
         flex(1, 1, 50%);
         flex-direction(column);
         margin-bottom: 10px;
@@ -89,7 +89,6 @@ textarea {
         &:first-child {
             margin-right: 10px;
         }
-
     }
 
     .flex {
