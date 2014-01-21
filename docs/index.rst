@@ -24,6 +24,10 @@ does not:
 That is all faked out. It's up to the individual payment processor to implement
 that.
 
+**You should not** take zippy and just stick payment processing
+into it. We did not write this with production code in mind, it hasn't gone
+through security or performance checks.
+
 Are you interested in how *everything* works? Read about the :ref:`flow`.
 
 Here's how Zippy fits into the `Firefox Marketplace`_ infrastructure.
