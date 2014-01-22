@@ -8,3 +8,6 @@ mem: 64M
 hooks:
     post-staging:
     -   npm rebuild
+
+services:
+    ${name}-redis: redis
