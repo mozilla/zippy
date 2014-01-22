@@ -122,8 +122,9 @@ module.exports = function(grunt) {
     shell: {
       docs: {
         options: {
-          stdout: true,
           execOptions: { cwd: 'docs' },
+          failOnError: true,
+          stdout: true,
         },
         command: 'make html'
       }
