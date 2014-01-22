@@ -75,13 +75,43 @@ the requirements with `pip`_::
 
 Build the docs like this::
 
-    make -C docs html
-
-Or use the grunt command::
-
     grunt docs
 
 Browse the docs from ``docs/_build/html/index.html``.
+
+
+Updating Bower resources
+------------------------
+
+`Bower`_ is a package manager for the web. All it does is pull in versioned client deps into
+a `bower_components` dir.
+
+It's very similar to npm. So a `bower.json`_ should seem very familiar to you if you've
+used a package.json for npm.
+
+Bower manages our third party libs for the client. If you want to update those libs
+first update `bower.json`_ with the new libs you want to use.
+
+Next if you've added a new client-side dep. You need to update some config. Because most bower
+package authors don't yet use the ignore feature, we're using `grunt-bower-task`_ to copy
+the necessary files under `media/lib`. This saves us having to server a ton of tests and other cruft
+above and beyond the lib files.
+
+If you want to customise how that works then see the `exportsOverride` in the `bower.json`_. This
+points at the files by type (e.g JS or CSS) so that only the referenced files will end
+up in the lib dir.
+
+To see the general configuration take a look at how `grunt-bower-task`_ is configured in
+`Gruntfile.js`_.
+
+If you need additional guidance the `grunt-bower-task`_ docs should have what you need.
+
+Once the configuration is complete running `grunt bower:install` should copy the new lib files into
+`media/lib`.
+
+Next. You can update the requirejs config in `media/js/main.js` if you're using JS in order
+to be able to reference the files in other scripts.
+
 
 Sample server
 -------------
@@ -90,6 +120,11 @@ A sample zippy server is running at https://zippy.paas.allizom.org, that you
 are free to use. There are no guarantees on uptime, this is not a production
 server.
 
+
+.. _Gruntfile.js: https://github.com/mozilla/zippy/blob/master/Gruntfile.js
+.. _Bower: http://bower.io/
+.. _bower.json: https://github.com/mozilla/zippy/blob/master/bower.json
+.. _grunt-bower-task: https://github.com/yatskevich/grunt-bower-task
 .. _NodeJS: http://nodejs.org/
 .. _Sphinx: http://sphinx-doc.org/
 .. _virtualenv: https://pypi.python.org/pypi/virtualenv
