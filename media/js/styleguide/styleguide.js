@@ -23,4 +23,6 @@ define('styleguide', ['jquery'], function($) {
 
   $(document).on('click', '.toggle', toggle);
 
+  console.log('Toggling initialised');
+
 });

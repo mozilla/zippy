@@ -1,8 +1,14 @@
 require.config({
-  baseUrl: '/js/lib',
   paths: {
-    // Use paths so we don't need to use gnarly require paths
-    // in the modules.
-    jquery: 'jquery-2.0.3.min',
+    jquery: "../lib/js/jquery/jquery",
+    requirejs: "../lib/js/requirejs/require",
+    formatter: "../lib/js/formatter/jquery.formatter"
   },
+  shim: {
+    formatter: ["jquery"],
+  }
+});
+
+define('main', ['cc'], function() {
+  // load needed modules here.
 });

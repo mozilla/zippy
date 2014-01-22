@@ -1,0 +1,34 @@
+{
+  "name": "zippy",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mozilla/zippy",
+  "authors": [
+    "Mozilla Payments Team"
+  ],
+  "description": "A Reference Payment Provider implementation",
+  "license": "MPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "formatter": "~0.0.9",
+    "jquery": "~2.0.3",
+    "requirejs": "~2.1.10"
+  },
+  "exportsOverride": {
+    "formatter": {
+      "js": "lib/jquery.formatter.js"
+    },
+    "requirejs": {
+      "js": "require.js"
+    },
+    "jquery": {
+      "js": "jquery.js"
+    }
+  }
+}

@@ -128,16 +128,30 @@ module.exports = function(grunt) {
         command: 'make html'
       }
     },
-
-    casper : {
+    casper: {
       options : {
         test : true,
       },
       runtests : {
         src: ['uitest/suite/test.*.js'],
       }
+    },
+    clean: {
+      uitest: ['uitest/captures']
+    },
+    bower: {
+      install: {
+        options: {
+          targetDir: 'media/lib',
+          layout: 'byType',
+          install: true,
+          bowerOptions: {
+            // Do not install project devDependencies
+            production: true,
+          }
+        }
+      }
     }
-
   });
 
   // Always show stack traces when Grunt prints out an uncaught exception.
@@ -155,7 +169,7 @@ module.exports = function(grunt) {
     });
   });
 
-  grunt.registerTask('uitest', 'Spin up a test server instance and run casper tests', function() {
+  grunt.registerTask('runuitests', 'Spin up a test server instance and run casper tests', function() {
     var server = http.createServer(zippy.createApp({}));
     var port = zippyConfig.uitestServerPort;
     server.listen(port, function onServerStart() {
@@ -165,18 +179,21 @@ module.exports = function(grunt) {
     grunt.task.run('casper:runtests');
   });
 
-  grunt.loadNpmTasks('grunt-nodemon');
-  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-casper');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-i18n-abide');
+  grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-shell');
 
-  grunt.registerTask('test', ['jshint', 'runtests']);
   grunt.registerTask('default', ['jshint', 'stylus']);
+  grunt.registerTask('docs', ['shell:docs']);
   grunt.registerTask('start', ['stylus', 'concurrent:dev']);
   grunt.registerTask('server', ['nodemon:server']);
-  grunt.registerTask('docs', ['shell:docs']);
+  grunt.registerTask('test', ['jshint', 'runtests']);
+  grunt.registerTask('uitest', ['stylus', 'clean:uitest', 'runuitests']);
 };
