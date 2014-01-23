@@ -18,4 +18,4 @@ source $VENV/bin/activate
 pip install --upgrade tardy
 
 # In this case the jenkins user has stackato credentials to hit the server.
-tardy -g -f tardy.json -a update
+tardy -q -a update
