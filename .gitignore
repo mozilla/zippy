@@ -16,5 +16,7 @@ node_modules/bunyan/node_modules/dtrace-provider/build
 node_modules/client-sessions/node_modules/node-proxy/build
 node_modules/grunt-i18n-abide/node_modules/jsxgettext/node_modules/gettext-parser/node_modules/iconv/build
 node_modules/i18n-abide/node_modules/jsxgettext/node_modules/gettext-parser/node_modules/iconv/build
+node_modules/grunt-spritesmith/node_modules/spritesmith/node_modules/phantomjssmith
+node_modules/phantomjssmith
 bower_components
 uitest/captures/*

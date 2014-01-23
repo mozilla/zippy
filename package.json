@@ -38,7 +38,8 @@
     "nock": "~0.27.1",
     "nodeunit": "0.8.1",
     "stylus": "0.32.x",
-    "super-request": "~0.0.4"
+    "super-request": "~0.0.4",
+    "grunt-spritesmith": "~1.21.1"
   },
   "scripts": {
     "test": "node -e \"require('grunt').cli()\" null test",
