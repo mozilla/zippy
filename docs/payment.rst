@@ -84,46 +84,53 @@ This API enables you to begin a transaction so that a product can be purchased.
 
     :param price:
         Decimal amount of the purchase price. Example: ``0.99``.
+    :type price: decimal
 
     :param currency:
         ISO currency code for the purchase price. Examples: ``EUR``, ``USD``.
+    :type currency: string
 
     :param carrier:
         Mobile carrier that the user is on when making a purchase.
         Example: ``TMOBILE``.
+    :type carrier: string
 
     :param region:
         Numeric MCC (Mobile Country Code) of the region that the user is in
         when beginning the transaction. Example: ``300``.
+    :type region: string
 
     :param success_url:
         Fully qualified URL to where Zippy should redirect to after a successful
         payment. Example: ``https://marketplace.firefox.com/mozpay/provider/success``.
+    :type success_url: url
 
     :param error_url:
         Fully qualified URL to where Zippy should redirect to after a payment
         error. Example: ``https://marketplace.firefox.com/mozpay/provider/error``.
+    :type error_url: url
 
     :param callback_success_url:
-
         Fully qualified URL to where Zippy should issue a ``POST`` request
         if the payment is accepted with a ``signed_notice`` parameter
         (a "stringified" version of the parameters returned by the creation
         of the transaction). Example:
         ``https://marketplace.firefox.com/mozpay/provider/callback/success``.
+    :type callback_success_url: url
 
     :param callback_error_url:
-
         Fully qualified URL to where Zippy should issue a ``POST`` request
         if the payment is NOT accepted with a ``signed_notice`` parameter
         (a "stringified" version of the parameters sent for the creation
         of the transaction). Example:
         ``https://marketplace.firefox.com/mozpay/provider/callback/error``.
+    :type callback_error_url: url
 
     :param ext_transaction_id:
         An external transaction ID (string). This would be a merchant's own
         transaction ID, such as `Webpay`_'s transaction ID. This will be
         returned to the merchant in a payment notice for reconciliation.
+    :type ext_transaction_id: string
 
     :param pay_method:
         Method of payment requested. Possible values:
@@ -132,27 +139,17 @@ This API enables you to begin a transaction so that a product can be purchased.
             Credit card.
         ``OPERATOR``
             Mobile operator billing.
+    :type pay_method: string
 
     :param product_id:
         Primary key of :ref:`product <products>` about to be purchased.
-
-    **Response**
-
-    The created transaction is returned to you with a few extra fields.
-
-    :param status:
-        The status of the transaction.
-
-    :param token:
-        Unique token that can be used to address this transaction.
+    :type product_id: string
 
     For example:
 
     .. code-block:: json
 
         {
-          "status": "started",
-          "token": "f74b2b68ad5cce2c07b14e06ed67b76e56ab91196bac605...",
           "price":"0.89",
           "currency":"EUR",
           "pay_method": "OPERATOR",
@@ -166,6 +163,28 @@ This API enables you to begin a transaction so that a product can be purchased.
           "resource_pk": "1",
           "resource_name": "transactions",
           "resource_uri": "/transactions/1"
+        }
+
+
+    **Response**
+
+    The created transaction is returned to you with a few extra fields.
+
+    :param status:
+        The status of the transaction.
+    :type string:
+
+    :param token:
+        Unique token that can be used to address this transaction.
+    :type string:
+
+    For example:
+
+    .. code-block:: json
+
+        {
+          "status": "started",
+          "token": "f74b2b68ad5cce2c07b14e06ed67b76e56ab91196bac605...",
         }
 
     In case of an error:
