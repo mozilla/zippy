@@ -30,14 +30,13 @@
     "grunt-concurrent": "~0.4.1",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-stylus": "~0.8.0",
+    "grunt-contrib-stylus": "~0.12.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-i18n-abide": "0.0.4",
     "grunt-nodemon": "~0.1.1",
     "grunt-shell": "~0.5.0",
     "nock": "~0.27.1",
     "nodeunit": "0.8.1",
-    "stylus": "0.32.x",
     "super-request": "~0.0.4"
   },
   "scripts": {
