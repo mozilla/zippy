@@ -9,5 +9,7 @@ hooks:
     post-staging:
     -   npm rebuild
 
+ignores: ["venv"]
+
 services:
     ${name}-redis: redis
