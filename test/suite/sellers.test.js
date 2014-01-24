@@ -196,7 +196,9 @@ exports.updateSellerTerms = function(t) {
         t.ifError(err);
         /*jshint camelcase: false */
         t.equal(res.body.resource_pk, seller._id);
-        t.equal(Date(res.body.agreement), currentDate);
+        // Check date is with 2 secs of the current date.
+        var date1 = new Date(res.body.agreement);
+        t.dateCloseTo(date1, currentDate);
         client = new Client('/terms/' + seller._id);
         client
           .get()
@@ -204,7 +206,8 @@ exports.updateSellerTerms = function(t) {
           .end(function(err, res) {
             t.ifError(err);
             t.equal(res.body.text, 'Terms for seller: ' + seller.name);
-            t.equal(Date(res.body.agreement), currentDate);
+            var date2 = new Date(res.body.agreement);
+            t.dateCloseTo(date2, currentDate);
             t.done();
           });
       });
