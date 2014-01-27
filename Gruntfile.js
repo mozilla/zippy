@@ -170,14 +170,26 @@ module.exports = function(grunt) {
     });
   });
 
-  grunt.registerTask('runuitests', 'Spin up a test server instance and run casper tests', function() {
+  function runuitests(engine) {
+    engine = engine || 'phantom';
     var server = http.createServer(zippy.createApp({}));
     var port = zippyConfig.uitestServerPort;
     server.listen(port, function onServerStart() {
       var addr = this.address();
       grunt.log.writeln('listening at %s:%s', addr.address, addr.port);
     });
+    if (engine === 'slimer') {
+      grunt.option('engine', 'slimer');
+    }
     grunt.task.run('casper:runtests');
+  }
+
+  grunt.registerTask('runuitests-phantom', 'Spin up a test server instance and run casper tests', function() {
+    runuitests();
+  });
+
+  grunt.registerTask('runuitests-slimer', 'Spin up a test server instance and run casper tests', function() {
+    runuitests('slimer');
   });
 
   grunt.loadNpmTasks('grunt-bower-task');
@@ -196,5 +208,6 @@ module.exports = function(grunt) {
   grunt.registerTask('start', ['stylus', 'concurrent:dev']);
   grunt.registerTask('server', ['nodemon:server']);
   grunt.registerTask('test', ['jshint', 'runtests']);
-  grunt.registerTask('uitest', ['stylus', 'clean:uitest', 'runuitests']);
+  grunt.registerTask('uitest', ['stylus', 'clean:uitest', 'runuitests-phantom']);
+  grunt.registerTask('uitest-slimer', ['stylus', 'clean:uitest', 'runuitests-slimer']);
 };

@@ -41,7 +41,7 @@
   },
   "scripts": {
     "test": "node -e \"require('grunt').cli()\" null test",
-    "uitest": "node -e \"require('grunt').cli()\" null uitest"
+    "uitest": "node -e \"require('grunt').cli()\" null uitest-slimer"
   },
   "author": "Mozilla",
   "license": "MPL 2.0"
