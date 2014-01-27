@@ -1,0 +1,18 @@
+{% extends "base-payments.html" %}
+
+{% block main %}
+  <h1>{{ gettext('Confirm your Mobile Number') }}</h1>
+
+  <form class="mobile-num" method="POST">
+    <label for="pin">{{ gettext('Enter the pin we sent you') }}</label>
+    <input type="number" name="pin" id="pin" placeholder="123456" />
+    <p>{{ gettext("Didn't receive an SMS?") }} <a href="#">{{ gettext('Resend SMS') }}</a></p>
+  </form>
+{% endblock %}
+
+{% block footer %}
+  <div class="buttons">
+      <button class="button">{{ gettext('Cancel') }}</button>
+      <button type="submit" class="button cta">{{ gettext('Continue') }}</button>
+  </div>
+{% endblock %}

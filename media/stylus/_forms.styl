@@ -6,7 +6,7 @@ $form-margin-top = 0.5em;
 ::-webkit-input-placeholder { /* WebKit browsers */
     color: $medium-gray;
 }
-::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color: $medium-gray;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
@@ -17,6 +17,7 @@ $form-margin-top = 0.5em;
 }
 
 label {
+    display: inline-block;
     margin-top: $form-margin-top;
     padding: $form-padding;
     padding-left: 0;
@@ -26,7 +27,10 @@ label {
         content: "";
         padding-right: 5px;
     }
+}
 
+form label:first-of-type {
+    //margin-top: 0;
 }
 
 input,
@@ -36,15 +40,15 @@ textarea {
     box-shadow: inset 0 2px 2px 0 rgba(177, 177, 177, 0.30);
     margin-top: $form-margin-top;
     padding: $form-padding;
+    width: 100%;
 
     &[type="checkbox"] {
         display: inline-block;
-
+        width: auto;
         &:focus,
         &.focused {
             box-shadow: none;
         }
-
     }
 
     &:focus,
@@ -53,21 +57,23 @@ textarea {
         box-shadow: 0 0px 5px 0 $light-blue;
     }
 
-    &:invalid, &.error {
+    &:invalid,
+    &.error {
         border: 1px solid $blood-red;
         box-shadow: 0px 0px 5px 0 $blood-red;
     }
 }
 
-
+select {
+    width: 100%;
+    padding: 0.5em 0;
+}
 
 .help {
     color: $battleship-gray;
     font-size: 11px;
-    margin-top: 0.25em;
+    margin: 3px 0 0 0;
 }
-
-
 
 .flex-container {
     display-flex();
@@ -85,7 +91,7 @@ textarea {
         flex(1, 1, 50%);
         flex-direction(column);
         margin-bottom: 10px;
-
+        width: 1000em; /* hack so older flex implementations don't trash width */
         &:first-child {
             margin-right: 10px;
         }
