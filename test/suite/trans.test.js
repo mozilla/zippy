@@ -2,13 +2,16 @@ var under = require('underscore');
 
 var Client = require('../client').Client;
 var helpers = require('../helpers');
-var trans = require('../../lib/trans');
 
 var client = new Client('/transactions');
 
 
 exports.setUp = function(done) {
-  trans.models.deleteMany({}, done);
+  helpers.resetDB()
+    .then(done)
+    .catch(function(err) {
+      throw err;
+    });
 };
 
 
@@ -28,11 +31,13 @@ exports.postWithInactiveProduct = function(t) {
   helpers.withSeller({}, function(seller) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller._id,
+      seller_id: seller.uuid,
       status: 'INACTIVE'
     }, function(product) {
       client
-        .post(under.extend({}, helpers.transactionData, {product_id: product._id}))
+        .post(under.extend({}, helpers.transactionData, {
+          product_id: product.uuid,
+        }))
         .expect(409)
         .end(function(err, res) {
           t.ifError(err);
@@ -48,12 +53,12 @@ exports.postOkTrans = function(t) {
   helpers.withSeller({}, function(seller) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller._id
+      seller_id: seller.uuid
     }, function(product) {
       var data = under.omit(
         under.extend({}, helpers.transactionData, {
           /*jshint camelcase: false */
-          product_id: product._id,
+          product_id: product.external_id,
         }),
         'status', 'token'
       );
@@ -63,7 +68,7 @@ exports.postOkTrans = function(t) {
         .end(function(err, res) {
           t.ifError(err);
           /*jshint camelcase: false */
-          t.equal(res.body.product_id, product._id);
+          t.equal(res.body.product_id, product.external_id);
           t.equal(res.body.status, 'STARTED');
           t.equal(res.body.token.length, 128);
           t.equal(res.body.region, helpers.transactionData.region);
@@ -87,12 +92,12 @@ exports.postInvalidPayMethod = function(t) {
   helpers.withSeller({}, function(seller) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller._id
+      seller_id: seller.uuid
     }, function(product) {
       var data = {};
       under.extend(data, helpers.transactionData, {
         /*jshint camelcase: false */
-        product_id: product._id
+        product_id: product.external_id
       });
       data.pay_method = 'NOT_SUPPORTED';
       client
@@ -111,12 +116,12 @@ exports.postInvalidCurrency = function(t) {
   helpers.withSeller({}, function(seller) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller._id
+      seller_id: seller.uuid
     }, function(product) {
       var data = {};
       under.extend(data, helpers.transactionData, {
         /*jshint camelcase: false */
-        product_id: product._id
+        product_id: product.external_id
       });
       data.currency = 'ZZZ';
       client
@@ -135,11 +140,11 @@ exports.postInvalidUrls = function(t) {
   helpers.withSeller({}, function(seller) {
     helpers.withProduct({
       /*jshint camelcase: false */
-      seller_id: seller._id
+      seller_id: seller.uuid
     }, function(product) {
       var data = under.extend({}, helpers.transactionData, {
         /*jshint camelcase: false */
-        product_id: product._id,
+        product_id: product.external_id,
         success_url: 'nope',
         error_url: 'not-a-url',
       });

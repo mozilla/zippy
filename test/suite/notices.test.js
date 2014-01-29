@@ -17,7 +17,7 @@ exports.testCheckValidQuery = function(t) {
           t.done();
         });
     })
-    .fail(function(err) {
+    .catch(function(err) {
       t.ifError(err);
       t.done();
     });
@@ -74,7 +74,7 @@ exports.testTamperedQuery = function(t) {
           t.done();
         });
     })
-    .fail(function(err) {
+    .catch(function(err) {
       t.ifError(err);
       t.done();
     });

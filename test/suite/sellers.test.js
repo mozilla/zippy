@@ -2,23 +2,26 @@ var uuid = require('node-uuid');
 
 var Client = require('../client').Client;
 var helpers = require('../helpers');
-var sellers = require('../../lib/sellers');
 
 var client = new Client('/sellers');
 
 
 exports.setUp = function(done) {
-  sellers.models.deleteMany({}, done);
+  helpers.resetDB()
+    .then(done)
+    .catch(function(err) {
+      throw err;
+    });
 };
 
 
 exports.createSeller = function(t) {
   var seller = {
-    _id: uuid.v4(),
+    uuid: uuid.v4(),
   };
   client
     .post({
-      uuid: seller._id,
+      uuid: seller.uuid,
       status: 'ACTIVE',
       name: 'John',
       email: 'jdoe@example.org',
@@ -27,7 +30,7 @@ exports.createSeller = function(t) {
     .end(function(err, res) {
       t.ifError(err);
       /*jshint camelcase: false */
-      t.equal(res.body.resource_pk, seller._id);
+      t.equal(res.body.resource_pk, seller.uuid);
       t.done();
     });
 };
@@ -35,11 +38,11 @@ exports.createSeller = function(t) {
 
 exports.createSellerWithoutStatus = function(t) {
   var seller = {
-    _id: uuid.v4(),
+    uuid: uuid.v4(),
   };
   client
     .post({
-      uuid: seller._id,
+      uuid: seller.uuid,
       name: 'John',
       email: 'jdoe@example.org',
     })
@@ -60,7 +63,7 @@ exports.retrieveSellers = function(t) {
       .end(function(err, res) {
         t.ifError(err);
         /*jshint camelcase: false */
-        t.equal(res.body[0].resource_pk, seller._id);
+        t.equal(res.body[0].resource_pk, seller.uuid);
         t.done();
       });
   });
@@ -81,14 +84,14 @@ exports.retrieveSellersEmpty = function(t) {
 
 exports.retrieveSeller = function(t) {
   helpers.withSeller({}, function(seller) {
-    var client = new Client('/sellers/' + seller._id);
+    var client = new Client('/sellers/' + seller.uuid);
     client
       .get()
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
         /*jshint camelcase: false */
-        t.equal(res.body.resource_pk, seller._id);
+        t.equal(res.body.resource_pk, seller.uuid);
         t.equal(res.body.resource_name, 'sellers');
         t.done();
       });
@@ -98,11 +101,11 @@ exports.retrieveSeller = function(t) {
 
 exports.updateSellerThenGet = function(t) {
   helpers.withSeller({}, function(seller) {
-    var client = new Client('/sellers/' + seller._id);
+    var client = new Client('/sellers/' + seller.uuid);
     var updatedName = 'Jack';
     client
       .put({
-        uuid: seller._id,
+        uuid: seller.uuid,
         status: seller.status,
         name: updatedName,
         email: seller.email,
@@ -111,20 +114,19 @@ exports.updateSellerThenGet = function(t) {
       .end(function(err, res) {
         t.ifError(err);
         /*jshint camelcase: false */
-        t.equal(res.body.resource_pk, seller._id);
+        t.equal(res.body.resource_pk, seller.uuid);
         t.equal(res.body.name, updatedName, 'name following PUT incorrect');
         t.equal(res.body.email, seller.email);
-        /*jshint camelcase: false */
-        t.equal(res.body.resource_uri, '/sellers/' + res.body.resource_pk);
+        t.equal(res.body.resource_uri, '/sellers/' + res.body.uuid);
         client
           .get()
           .expect(200)
           .end(function(err, res) {
             t.ifError(err);
-            t.equal(res.body.resource_pk, seller._id);
+            t.equal(res.body.resource_pk, seller.uuid);
             t.equal(res.body.name, updatedName, 'name following PUT then GET incorrect');
             t.equal(res.body.email, seller.email);
-            t.equal(res.body.resource_uri, '/sellers/' + res.body.resource_pk);
+            t.equal(res.body.resource_uri, '/sellers/' + res.body.uuid);
             t.done();
           });
       });
@@ -132,31 +134,9 @@ exports.updateSellerThenGet = function(t) {
 };
 
 
-exports.updateSellerWithoutStatus = function(t) {
-  helpers.withSeller({}, function(seller) {
-    var client = new Client('/sellers/' + seller._id);
-    var updatedName = 'Jack';
-    client
-      .put({
-        uuid: seller._id,
-        name: updatedName,
-      })
-      .expect(200)
-      .end(function(err, res) {
-        t.ifError(err);
-        /*jshint camelcase: false */
-        t.equal(res.body.resource_pk, seller._id);
-        t.equal(res.body.name, updatedName);
-        t.equal(res.body.status, seller.status);
-        t.done();
-      });
-  });
-};
-
-
 exports.deleteSeller = function(t) {
   helpers.withSeller({}, function(seller) {
-    var client = new Client('/sellers/' + seller._id);
+    var client = new Client('/sellers/' + seller.uuid);
     client
       .del()
       .expect(204)
@@ -170,7 +150,7 @@ exports.deleteSeller = function(t) {
 
 exports.retrieveSellerTerms = function(t) {
   helpers.withSeller({}, function(seller) {
-    var client = new Client('/terms/' + seller._id);
+    var client = new Client('/terms/' + seller.uuid);
     client
       .get()
       .expect(200)
@@ -185,21 +165,29 @@ exports.retrieveSellerTerms = function(t) {
 
 exports.updateSellerTerms = function(t) {
   helpers.withSeller({}, function(seller) {
-    var client = new Client('/sellers/' + seller._id);
+    var client = new Client('/sellers/' + seller.uuid);
     var currentDate = new Date();
+    var currentMonth = currentDate.getMonth();
+    currentMonth++;
+    var date = currentDate.getFullYear() + '-' + currentMonth + '-' + currentDate.getDate();
+    var testDate = new Date(date);
     client
       .put({
-        agreement: currentDate,
+        uuid: seller.uuid,
+        status: seller.status,
+        name: seller.name,
+        email: seller.email,
+        agreement: date,
       })
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
         /*jshint camelcase: false */
-        t.equal(res.body.resource_pk, seller._id);
+        t.equal(res.body.resource_pk, seller.uuid);
         // Check date is with 2 secs of the current date.
         var date1 = new Date(res.body.agreement);
-        t.dateCloseTo(date1, currentDate);
-        client = new Client('/terms/' + seller._id);
+        t.dateCloseTo(date1, testDate);
+        client = new Client('/terms/' + seller.uuid);
         client
           .get()
           .expect(200)
@@ -207,7 +195,7 @@ exports.updateSellerTerms = function(t) {
             t.ifError(err);
             t.equal(res.body.text, 'Terms for seller: ' + seller.name);
             var date2 = new Date(res.body.agreement);
-            t.dateCloseTo(date2, currentDate);
+            t.dateCloseTo(date2, testDate);
             t.done();
           });
       });

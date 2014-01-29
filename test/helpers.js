@@ -1,40 +1,47 @@
 var under = require('underscore');
 var uuid = require('node-uuid');
+var when = require('when');
 
-var products = require('../lib/products');
-var sellers = require('../lib/sellers');
+var config = require('../lib/config');
 
 
-exports.withProduct = function(opt, cb) {
+var withProduct = exports.withProduct = function(opt, cb) {
   opt = opt || {};
-  var props = under.extend({
+  var product = under.extend({
     /*jshint camelcase: false */
     external_id: uuid.v4(),
     status: 'ACTIVE'
   }, opt);
-  products.models.create(props, function(err, product) {
-    if (err) { throw err; }
-    cb(product);
-  });
+  when(config.redisCli.hmset('product-' + product.external_id, product))
+    .then(function() {
+      cb(product);
+    })
+    .catch(function(err) {
+      throw err;
+    });
 };
 
 
-exports.withSeller = function(opt, cb) {
+var withSeller = exports.withSeller = function(opt, cb) {
   opt = opt || {};
-  var props = under.extend({
+  var seller = under.extend({
     uuid: uuid.v4(),
     status: 'ACTIVE',
     name: 'John',
     email: 'jdoe@example.org',
   }, opt);
-  sellers.models.create(props, function(err, seller) {
-    if (err) { throw err; }
-    cb(seller);
-  });
+  when(config.redisCli.hmset('seller-' + seller.uuid, seller))
+    .then(function() {
+      cb(seller);
+    })
+    .catch(function(err) {
+      throw err;
+    });
 };
 
 
-exports.transactionData = {
+
+var transactionData = exports.transactionData = {
   /*jshint camelcase: false */
   product_id: undefined,
   region: 123,
@@ -49,6 +56,62 @@ exports.transactionData = {
   success_url: 'https://m.f.c/webpay/success',
   error_url: 'https://m.f.c/webpay/error',
   ext_transaction_id: 'webpay-xyz',
+};
+
+
+exports.withTransaction = function(opt, cb) {
+  opt = opt || {};
+  var transaction = under.extend({}, transactionData, opt);
+  withSeller({}, function(seller) {
+    withProduct({
+      /*jshint camelcase: false */
+      seller_id: seller.uuid,
+      active: false
+    },
+    function(product) {
+      var data = under.extend({}, transaction, {
+        token: 'a-different-token',
+        product_id: product.external_id,
+        uuid: uuid.v4(),
+      });
+      when(config.redisCli.hmset('transaction-' + data.uuid, data))
+        .then(function() {
+          cb(data);
+        })
+        .catch(function(err) {
+          throw err;
+        });
+    });
+  });
+};
+
+
+exports.resetDB = function () {
+  return when(config.redisCli.keys('transaction-*'))
+    .then(function (keys) {
+      keys.map(function (key) {
+        return config.redisCli.del(key);
+      });
+    })
+    .then(function () {
+      return config.redisCli.keys('product-*');
+    })
+    .then(function (keys) {
+      keys.map(function (key) {
+        return config.redisCli.del(key);
+      });
+    })
+    .then(function () {
+      return config.redisCli.keys('seller-*');
+    })
+    .then(function (keys) {
+      keys.map(function (key) {
+        return config.redisCli.del(key);
+      });
+    })
+    .catch(function(err) {
+      throw err;
+    });
 };
 
 
