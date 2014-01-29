@@ -58,7 +58,7 @@ exports.postOkTrans = function(t) {
       var data = under.omit(
         under.extend({}, helpers.transactionData, {
           /*jshint camelcase: false */
-          product_id: product.external_id,
+          product_id: product.uuid,
         }),
         'status', 'token'
       );
@@ -68,7 +68,7 @@ exports.postOkTrans = function(t) {
         .end(function(err, res) {
           t.ifError(err);
           /*jshint camelcase: false */
-          t.equal(res.body.product_id, product.external_id);
+          t.equal(res.body.product_id, product.uuid);
           t.equal(res.body.status, 'STARTED');
           t.equal(res.body.token.length, 128);
           t.equal(res.body.region, helpers.transactionData.region);

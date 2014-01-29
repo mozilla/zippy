@@ -8,11 +8,12 @@ var config = require('../lib/config');
 var withProduct = exports.withProduct = function(opt, cb) {
   opt = opt || {};
   var product = under.extend({
+    uuid: uuid.v4(),
     /*jshint camelcase: false */
     external_id: uuid.v4(),
     status: 'ACTIVE'
   }, opt);
-  when(config.redisCli.hmset('product-' + product.external_id, product))
+  when(config.redisCli.hmset('product-' + product.uuid, product))
     .then(function() {
       cb(product);
     })
@@ -71,7 +72,7 @@ exports.withTransaction = function(opt, cb) {
     function(product) {
       var data = under.extend({}, transaction, {
         token: 'a-different-token',
-        product_id: product.external_id,
+        product_id: product.uuid,
         uuid: uuid.v4(),
       });
       when(config.redisCli.hmset('transaction-' + data.uuid, data))
