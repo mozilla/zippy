@@ -69,9 +69,29 @@ exports.setUp = function(done) {
 };
 
 
+exports.createWithoutUUID = function(t) {
+  helpers.withSeller({}, function(seller) {
+    client
+      .post({
+        /*jshint camelcase: false */
+        external_id: uuid.v4(),
+        seller_id: seller.uuid,
+        name: 'x',
+      })
+      .expect(409)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.equal(res.body.error.name, 'InvalidArgumentError');
+        t.done();
+      });
+  });
+};
+
+
 exports.createWithoutSeller = function(t) {
   client
     .post({
+      uuid: uuid.v4(),
       /*jshint camelcase: false */
       external_id: uuid.v4(),
       name: 'x',
@@ -89,6 +109,7 @@ exports.createWithoutExternalId = function(t) {
   helpers.withSeller({}, function(seller) {
     client
       .post({
+        uuid: uuid.v4(),
         /*jshint camelcase: false */
         seller_id: seller.uuid,
         name: 'x',
@@ -103,34 +124,13 @@ exports.createWithoutExternalId = function(t) {
 };
 
 
-exports.createProductOk = function(t) {
-  helpers.withSeller({}, function(seller) {
-    /*jshint camelcase: false */
-    var external_id = uuid.v4();
-    client
-      .post({
-        /*jshint camelcase: false */
-        seller_id: seller.uuid,
-        external_id: external_id,
-        name: 'x',
-      })
-      .expect(201)
-      .end(function(err, res) {
-        t.ifError(err);
-        t.equal(res.body.seller_id, seller.uuid);
-        t.equal(res.body.external_id, external_id);
-        t.done();
-      });
-  });
-};
-
-
 exports.createWithoutName = function(t) {
   helpers.withSeller({}, function(seller) {
     /*jshint camelcase: false */
     var external_id = uuid.v4();
     client
       .post({
+        uuid: uuid.v4(),
         /*jshint camelcase: false */
         seller_id: seller.uuid,
         external_id: external_id,
@@ -144,15 +144,39 @@ exports.createWithoutName = function(t) {
 };
 
 
-exports.createAnonymousSeller = function(t) {
+exports.createProductOk = function(t) {
   helpers.withSeller({}, function(seller) {
+    var productUUID = uuid.v4();
     /*jshint camelcase: false */
     var external_id = uuid.v4();
-    anonymousClient
+    client
       .post({
+        uuid: productUUID,
         /*jshint camelcase: false */
         seller_id: seller.uuid,
         external_id: external_id,
+        name: 'x',
+      })
+      .expect(201)
+      .end(function(err, res) {
+        t.ifError(err);
+        t.equal(res.body.uuid, productUUID);
+        t.equal(res.body.seller_id, seller.uuid);
+        t.equal(res.body.external_id, external_id);
+        t.done();
+      });
+  });
+};
+
+
+exports.createAnonymousSeller = function(t) {
+  helpers.withSeller({}, function(seller) {
+    anonymousClient
+      .post({
+        uuid: uuid.v4(),
+        /*jshint camelcase: false */
+        seller_id: seller.uuid,
+        external_id: uuid.v4(),
         name: 'x',
       })
       .expect(401)
@@ -169,6 +193,7 @@ exports.createWrongSeller = function(t) {
   var nonExistant = uuid.v4();
   client
     .post({
+      uuid: uuid.v4(),
       /*jshint camelcase: false */
       seller_id: nonExistant,
       external_id: uuid.v4(),
@@ -187,6 +212,7 @@ exports.createInactiveSeller = function(t) {
   helpers.withSeller(opt, function(seller) {
     client
       .post({
+        uuid: uuid.v4(),
         /*jshint camelcase: false */
         seller_id: seller.uuid,
         external_id: uuid.v4(),
@@ -211,6 +237,7 @@ exports.createDupeExternalId = function(t) {
     }, function(product) {
       client
         .post({
+          uuid: uuid.v4(),
           /*jshint camelcase: false */
           seller_id: seller.uuid,
           external_id: product.external_id,
@@ -241,6 +268,7 @@ exports.externaIdUniquePerSeller = function(t) {
       helpers.withSeller({}, function(seller2) {
         client
           .post({
+            uuid: uuid.v4(),
             /*jshint camelcase: false */
             seller_id: seller2.uuid,
             external_id: extId,
@@ -266,7 +294,7 @@ exports.retrieveProductByPk = function(t) {
       name: 'x',
     }, function(product) {
       client
-        .get(product.external_id)
+        .get(product.uuid)
         .expect(200)
         .end(function(err, res) {
           t.ifError(err);

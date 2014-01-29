@@ -172,7 +172,8 @@ provider.
 
         [
           {
-            "external_id": "{product-uuid}",
+            "uuid": "{product-uuid}",
+            "external_id": "{product-external-uuid}",
             "seller_id": "{seller-uuid}",
             "active": true,
             "name": "Magical Unicorn",
@@ -201,6 +202,9 @@ provider.
 
     **Request**
 
+    :param uuid:
+        A unique ID for the product.
+
     :param external_id:
         An external identifier for the product.
         This must be unique per seller but doesn't need to be unique
@@ -219,7 +223,8 @@ provider.
     .. code-block:: json
 
         {
-          "external_id": "{product-uuid}",
+          "uuid": "{product-uuid}",
+          "external_id": "{product-external-uuid}",
           "seller_id": "{seller-uuid}",
           "active": true,
           "name": "Magical Unicorn",
@@ -242,3 +247,25 @@ provider.
 
     :status 201: success.
     :status 409: conflict.
+
+.. http:get:: /products/:uuid
+
+    **Response**
+
+    You get a product object matching ``:uuid``. For example:
+
+    .. code-block:: json
+
+        {
+          "uuid": "{product-uuid}",
+          "external_id": "{product-external-uuid}",
+          "seller_id": "{seller-uuid}",
+          "active": true,
+          "name": "Magical Unicorn",
+          "resource_pk": "{product-uuid}",
+          "resource_name": "products",
+          "resource_uri": "/products/{product-uuid}"
+        }
+
+    :status 200: success.
+
