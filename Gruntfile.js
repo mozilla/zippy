@@ -1,9 +1,5 @@
 var http = require('http');
-
-var zippy = require('./lib');
-var zippyConfig = require('./lib/config');
-var locales = zippyConfig.supportedLocales;
-
+var config = require('./lib/config');
 
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -13,7 +9,7 @@ module.exports = function(grunt) {
       default: { // Target name.
         options: {
           template: 'locale/templates/LC_MESSAGES/messages.pot', // (default: 'locale/templates/LC_MESSAGES/messages.pot')
-          locales: locales,
+          locales: config.locales,
           localeDir: 'locale',
         }
       }
@@ -152,16 +148,15 @@ module.exports = function(grunt) {
           }
         }
       }
-    }
+    },
   });
 
   // Always show stack traces when Grunt prints out an uncaught exception.
   grunt.option('stack', true);
 
   grunt.registerTask('runtests', 'Run all test files or just one if you specify its filename.', function(testSuite) {
-    testSuite = testSuite || grunt.option('testsuite');
     process.env.NODE_ENV = 'test';
-
+    testSuite = testSuite || grunt.option('testsuite');
     require('./test/runtests')({
       onStop: this.async(),
       reporter: 'default',
@@ -171,8 +166,11 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('runuitests', 'Spin up a test server instance and run casper tests', function() {
+    process.env.NODE_ENV = 'test';
+    // Require zippy here to avoid config not being set with env correctly.
+    var zippy = require('./lib');
     var server = http.createServer(zippy.createApp({}));
-    var port = zippyConfig.uitestServerPort;
+    var port = config.uitestServerPort;
     server.listen(port, function onServerStart() {
       var addr = this.address();
       grunt.log.writeln('listening at %s:%s', addr.address, addr.port);

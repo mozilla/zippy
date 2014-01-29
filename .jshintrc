@@ -1,7 +1,6 @@
 {
   "boss": true,
   "browser": true,
-  "camelcase": true,
   "eqeqeq": true,
   "eqnull": true,
   "es5": false,
