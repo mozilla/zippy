@@ -1,7 +1,7 @@
 var Client = require('../client').AnonymousClient;
 
-exports.testOK = function(t) {
-  var client = new Client('/status');
+exports.testResetOK = function(t) {
+  var client = new Client('/users/reset');
   client
     .get()
     .expect(200)

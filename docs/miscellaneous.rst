@@ -20,10 +20,33 @@ will hit this regularly to ensure that the service is up and responding.
     .. code-block:: json
 
         {
-            "status": "OK"
+            "result": "OK"
         }
 
     :status 200: success.
 
-Any none 200 status returned by the server will be assumed to be a service
+Any non-200 status returned by the server will be assumed to be a service
 interruption.
+
+
+Reset user
+----------
+
+This API allows you to reset the user in case the Marketplace detects user
+switching. This is a dummy implementation, it is left to the payment processor.
+
+.. http:get:: /users/reset
+
+    **Response**
+
+    .. code-block:: json
+
+        {
+            "result": "OK"
+        }
+
+    :status 200: success.
+
+Any non-200 status returned by the server will be assumed to be a reset
+failure.
+

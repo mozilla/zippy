@@ -37,7 +37,7 @@ Attempt to identify phone for carrier.
 
 .. image:: diagrams/auth-flow.png
 
-Step 5: Payment Choice
+Step 6: Payment Choice
 ----------------------
 
 User chooses payment method.
