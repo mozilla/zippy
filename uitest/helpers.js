@@ -1,8 +1,4 @@
 var config = require('../lib/config');
-
-// Use local config to override this if needed.
-config.addOverrides('local');
-
 var _currTestId;
 
 

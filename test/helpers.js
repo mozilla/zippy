@@ -2,7 +2,7 @@ var under = require('underscore');
 var uuid = require('node-uuid');
 var when = require('when');
 
-var config = require('../lib/config');
+var redisClient = require('../lib/redisclient');
 
 
 var withProduct = exports.withProduct = function(opt, cb) {
@@ -13,7 +13,7 @@ var withProduct = exports.withProduct = function(opt, cb) {
     external_id: uuid.v4(),
     status: 'ACTIVE'
   }, opt);
-  when(config.redisCli.hmset('product-' + product.uuid, product))
+  when(redisClient.hmset('product-' + product.uuid, product))
     .then(function() {
       cb(product);
     })
@@ -31,7 +31,7 @@ var withSeller = exports.withSeller = function(opt, cb) {
     name: 'John',
     email: 'jdoe@example.org',
   }, opt);
-  when(config.redisCli.hmset('seller-' + seller.uuid, seller))
+  when(redisClient.hmset('seller-' + seller.uuid, seller))
     .then(function() {
       cb(seller);
     })
@@ -75,7 +75,7 @@ exports.withTransaction = function(opt, cb) {
         product_id: product.uuid,
         uuid: uuid.v4(),
       });
-      when(config.redisCli.hmset('transaction-' + data.uuid, data))
+      when(redisClient.hmset('transaction-' + data.uuid, data))
         .then(function() {
           cb(data);
         })
@@ -88,26 +88,26 @@ exports.withTransaction = function(opt, cb) {
 
 
 exports.resetDB = function () {
-  return when(config.redisCli.keys('transaction-*'))
+  return when(redisClient.keys('transaction-*'))
     .then(function (keys) {
       keys.map(function (key) {
-        return config.redisCli.del(key);
+        return redisClient.del(key);
       });
     })
     .then(function () {
-      return config.redisCli.keys('product-*');
+      return redisClient.keys('product-*');
     })
     .then(function (keys) {
       keys.map(function (key) {
-        return config.redisCli.del(key);
+        return redisClient.del(key);
       });
     })
     .then(function () {
-      return config.redisCli.keys('seller-*');
+      return redisClient.keys('seller-*');
     })
     .then(function (keys) {
       keys.map(function (key) {
-        return config.redisCli.del(key);
+        return redisClient.del(key);
       });
     })
     .catch(function(err) {
