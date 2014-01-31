@@ -11,7 +11,6 @@
     "express": "3.4.7",
     "forms": "0.3.0",
     "i18n-abide": "0.0.16",
-    "marked": "0.2.9",
     "node-uuid": "1.4.1",
     "nunjucks": "1.0.0",
     "oauth-client": "0.3.0",
