@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       default: { // Target name.
         options: {
           template: 'locale/templates/LC_MESSAGES/messages.pot', // (default: 'locale/templates/LC_MESSAGES/messages.pot')
-          locales: config.locales,
+          languages: config.supportedLanguages,
           localeDir: 'locale',
         }
       }
@@ -40,16 +40,12 @@ module.exports = function(grunt) {
     },
     abideCompile: {
       json: {
-        dest: 'media/locale/',
+        dest: 'i18n',
         options: {
           type: 'json',
+          createJSFiles: false,
         }
       },
-      mo: {
-        options: {
-          type: 'mo',
-        }
-      }
     },
     nodemon: {
       server: {
@@ -57,7 +53,7 @@ module.exports = function(grunt) {
         options: {
           args: ['-p', grunt.option('port'),
                  grunt.option('noauth') ? '-n': ''],
-          ignore: ['README.md', 'node_modules/**'],
+          ignore: ['README.md', 'node_modules/**', 'i18n/**'],
           ext: 'js,html',
           delayTime: 1,
           legacyWatch: false,

@@ -19,3 +19,4 @@ node_modules/i18n-abide/node_modules/jsxgettext/node_modules/gettext-parser/node
 node_modules/then-redis/node_modules/hiredis/build/Makefile
 bower_components
 uitest/captures/*
+db_LB
