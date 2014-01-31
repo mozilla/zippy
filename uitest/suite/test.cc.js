@@ -1,6 +1,6 @@
-var startCasper = require('../helpers').startCasper;
+var helpers = require('../helpers');
 
-startCasper('/payment/card');
+helpers.startCasper('/payment/card');
 
 casper.test.begin('CC Page', {
 
@@ -19,6 +19,8 @@ casper.test.begin('CC Page', {
       this.sendKeys('#expiry', '1209');
       test.assertField('expiry', '12/09', 'Check expiry value is masked');
     });
+
+    helpers.testLongTextButtons(test);
 
     casper.run(function() {
       test.done();
