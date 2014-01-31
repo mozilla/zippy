@@ -1,6 +1,9 @@
   <div class="grid">
-    {% set product_image_url='/images/placeholder/ctr.png' %}
-    <img class="product-image" src="{{ product_image_url }}" alt="" />
+    {% if trans.product_image_url %}
+      <img class="product-image" src="{{ trans.product_image_url }}" alt="Logo" />
+    {% else %}
+      <img class="product-image" src="/images/placeholder/logo.png" alt="Logo" />
+    {% endif %}
     <section class="product">
       <h2 class="title">{{ product.name }}</h2>
       <p class="author">{{ seller.name }}</p>

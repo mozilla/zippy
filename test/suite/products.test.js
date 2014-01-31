@@ -149,13 +149,14 @@ exports.createProductOk = function(t) {
     var productUUID = uuid.v4();
     /*jshint camelcase: false */
     var external_id = uuid.v4();
+    var name = 'x';
     client
       .post({
         uuid: productUUID,
         /*jshint camelcase: false */
         seller_id: seller.uuid,
         external_id: external_id,
-        name: 'x',
+        name: name,
       })
       .expect(201)
       .end(function(err, res) {
@@ -163,6 +164,7 @@ exports.createProductOk = function(t) {
         t.equal(res.body.uuid, productUUID);
         t.equal(res.body.seller_id, seller.uuid);
         t.equal(res.body.external_id, external_id);
+        t.equal(res.body.name, name);
         t.done();
       });
   });
