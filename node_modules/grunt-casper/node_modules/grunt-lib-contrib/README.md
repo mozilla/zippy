@@ -10,39 +10,13 @@ _Over time, some of the functionality provided here may be incorporated directly
 
 ### Helper Functions
 
-#### buildIndividualDest(dest, srcFile, basePath, flatten)
-
-This helper is used to build a destination filepath for tasks supporting individual compiling.
-
-#### findBasePath(srcFiles)
-
-This helper is used to take an array of filepaths and find the common base directory.
-
 #### getNamespaceDeclaration(ns)
 
 This helper is used to build JS namespace declarations.
 
-#### isIndividualDest(dest)
-
-This helper is used to detect if a destination filepath triggers individual compiling.
-
-#### normalizeMultiTaskFiles(data, target)
-
-This helper is a (temporary) shim to handle multi-task `files` object in the same way grunt v0.4 does.
-
-#### options(data, defaults)
-
-This helper is on its way out as grunt v0.4 adds an options helper to the task api. This new helper only supports task and target options (no root level options key) so you should start adjusting your tasks now to be ready for the v0.4 release.
-
-Contrib tasks are in the process of being updated to check for the new helper first.
-
 #### optsToArgs(options)
 
 Convert an object to an array of CLI arguments, which can be used with `child_process.spawn()`.
-
-#### stripPath(pth, strip)
-
-Strip a path from a path. normalize both paths for best results.
 
 ```js
 // Example
@@ -53,6 +27,37 @@ Strip a path from a path. normalize both paths for best results.
   fooBar: false,      //
   fooBar: ['a', 'b']  // ['--foo-bar', 'a', '--foo-bar', 'b']
 }
+```
+
+#### stripPath(pth, strip)
+
+Strip a path from a path. normalize both paths for best results.
+
+#### minMaxInfo(min, max, report)
+
+Helper for logging compressed, uncompressed and gzipped sizes of strings.
+
+#### report
+Choices: `false`, `'min'`, `'gzip'`
+Default: `false`
+
+Either do not report anything, report only minification result, or report minification and gzip results.
+
+**Important** Including `'gzip'` results can make this task 5-10x slower depending on the size of the file.
+
+
+```js
+var max = grunt.file.read('max.js');
+var min = minify(max);
+minMaxInfo(min, max, 'gzip');
+```
+
+Would print:
+
+```
+Original: 495 bytes.
+Minified: 396 bytes.
+Gzipped: 36 bytes.
 ```
 
 --
