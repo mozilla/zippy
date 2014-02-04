@@ -53,7 +53,6 @@ define(function() {
 				var stackHolder;
 
 				if(this.key in promises) {
-
 					try {
 						throw new Error(reason && reason.message || reason);
 					} catch (e) {

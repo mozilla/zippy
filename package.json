@@ -22,7 +22,7 @@
     "underscore": "1.5.2",
     "request": "~2.31.0",
     "then-redis": "~0.3.9",
-    "when": "~2.7.1"
+    "when": "~2.8.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
