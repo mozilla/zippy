@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/muffinresearch/grunt-i18n-abide.png?branch=master)](https://travis-ci.org/muffinresearch/grunt-i18n-abide)
+[![Build Status](https://travis-ci.org/mozilla/grunt-i18n-abide.png?branch=master)](https://travis-ci.org/mozilla/grunt-i18n-abide)
 [![NPM version](https://badge.fury.io/js/grunt-i18n-abide.png)](http://badge.fury.io/js/grunt-i18n-abide)
-[![Dependency Status](https://david-dm.org/muffinresearch/grunt-i18n-abide.png?theme=shields.io)](https://david-dm.org/muffinresearch/grunt-i18n-abide)
+[![Dependency Status](https://david-dm.org/mozilla/grunt-i18n-abide.png?theme=shields.io)](https://david-dm.org/mozilla/grunt-i18n-abide)
 
 
 # grunt-i18n-abide
@@ -95,7 +95,7 @@ In your project's Gruntfile, add a section named `abideCreate` to the data objec
     default: { // Target name.
       options: {
         template: 'locale/templates/LC_MESSAGES/messages.pot', // (default: 'locale/templates/LC_MESSAGES/messages.pot')
-        locales: ['en_US', 'fr', 'es'],
+        languages: ['en-US', 'fr', 'es'],
         localeDir: 'locale',
       }
     }
@@ -110,10 +110,10 @@ Default value: `locale/templates/LC\_MESSAGES/messages.pot`
 
 The path to the template pot file strings are extracted to.
 
-#### options.locales
+#### options.languages
 Type: `Array`
 
-A list of the locales you want to create.
+A list of the language codes you want to create locales for e.g. en-US not en_US.
 
 #### options.template
 Type: `String`
@@ -211,7 +211,7 @@ grunt.initConfig({
     default: { // Target name.
       options: {
         template: 'locale/templates/LC_MESSAGES/messages.pot', // (default: 'locale/templates/LC_MESSAGES/messages.pot')
-        locales: locales,
+        languages: ['en-US', 'fr', 'es'],
         localeDir: 'locale',
       }
     }
@@ -265,6 +265,11 @@ Bear in mind this code only wraps `jsxgettext` and standard `gettext` tools. If 
 
 ## Release History
 
+* 0.0.5:
+    * options.locales -> options.languages in abideCreate
+    * fix dir creation.
+    * Move npm images to mozilla repo.
+    * Update package.json
 * 0.0.4: Updated deps.
 * 0.0.3: Updated for initial npm release.
 * 0.0.2: Updates related to jsxgettext changes.

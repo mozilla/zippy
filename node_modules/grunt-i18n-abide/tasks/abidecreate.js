@@ -22,14 +22,18 @@ module.exports = function (grunt) {
       grunt.fail.fatal('template file "' + template + '" does not exist');
     }
 
-    var locales = options.locales || [];
-    if (locales.length === 0) {
-      grunt.fail.fatal('A list of locales needs to be specified.');
+    var languages = options.languages || [];
+    if (languages.length === 0) {
+      grunt.fail.fatal('A list of languages needs to be specified.');
     }
 
-    locales.forEach(function(locale) {
+    languages.forEach(function(language) {
+      // en-US -> en_US
+      var locale = helpers.localeFrom(language);
+
       // Make the dir for the locale.
       var args = [];
+
       var outputFile = path.join(baseLocaleDir, locale, 'LC_MESSAGES/messages.po');
       var cmd = options.cmd || 'msginit';
 

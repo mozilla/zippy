@@ -1,3 +1,5 @@
+var util = require('util');
+
 var shell = require('shelljs');
 var grunt = require('grunt');
 
@@ -17,5 +19,37 @@ exports.checkCommand = function checkCommand(cmd) {
   var result = shell.exec('bash -c "type -P ' + cmd + ' > /dev/null"');
   if (result.code !== 0) {
     grunt.fail.fatal('Command "' + cmd + '" doesn\'t exist! Maybe you need to install it.');
+  }
+};
+
+
+/**
+* Given a language code, return a locale code the OS understands.
+* Based on from: https://github.com/mozilla/i18n-abide/blob/master/lib/i18n.js
+*
+* language: en-US
+* locale: en_US
+*/
+exports.localeFrom = function(language) {
+  if (! language || ! language.split) {
+    return "";
+  }
+
+  if (language.indexOf('_') > -1) {
+    grunt.log.writeln(util.format("Check this is a language code. Language [%s] already contains a '_'", language));
+    return language;
+  }
+
+  var parts = language.split('-');
+  if (parts.length === 1) {
+    return parts[0].toLowerCase();
+  } else if (parts.length === 2) {
+    return util.format('%s_%s', parts[0].toLowerCase(), parts[1].toUpperCase());
+  } else if (parts.length === 3) {
+    // sr-Cyrl-RS should be sr_RS
+    return util.format('%s_%s', parts[0].toLowerCase(), parts[2].toUpperCase());
+  } else {
+    grunt.log.writeln(util.format("Unable to map a locale from language code [%s]", language));
+    return language;
   }
 };
