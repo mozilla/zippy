@@ -53,12 +53,12 @@ module.exports = function(grunt) {
     },
     nodemon: {
       server: {
+        script: 'main.js',
         options: {
-          file: 'main.js',
           args: ['-p', grunt.option('port'),
                  grunt.option('noauth') ? '-n': ''],
-          ignoredFiles: ['README.md', 'node_modules/**'],
-          watchedExtensions: ['js', 'html'],
+          ignore: ['README.md', 'node_modules/**'],
+          ext: 'js,html',
           delayTime: 1,
           legacyWatch: false,
           cwd: __dirname,
