@@ -10,7 +10,7 @@
 
 module.exports = function(grunt) {
 
-  var projectLocales = ['en_US', 'fr', 'es'];
+  var projectLanguages = ['en-US', 'fr', 'es'];
 
   // Project configuration.
   grunt.initConfig({
@@ -107,19 +107,19 @@ module.exports = function(grunt) {
       default: {
         options: {
           template: 'tests/tmp/messages.pot',
-          locales: projectLocales,
+          languages: projectLanguages,
           localeDir: 'tests/tmp',
         }
       },
       templatenoexist: {
         options: {
-          locales: projectLocales,
+          languages: projectLanguages,
           template: 'tests/tmp/noexist.pot',
         }
       },
       commandnoexist: {
         options: {
-          locales: projectLocales,
+          languages: projectLanguages,
           template: 'tests/tmp/messages.pot',
           cmd: 'tests/bin/whatevs.sh',
         }
