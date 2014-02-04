@@ -4,7 +4,7 @@ var url = require('url');
 var AnonymousClient = require('../client').AnonymousClient;
 var helpers = require('../helpers');
 
-var client = new AnonymousClient('/');
+var client = new AnonymousClient('/payment/start');
 
 
 exports.setUp = function(done) {
