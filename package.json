@@ -5,7 +5,7 @@
   "description": "A reference implementation for payment providers for the Firefox Marketplace.",
   "main": "main.js",
   "dependencies": {
-    "client-sessions": "0.4.1",
+    "client-sessions": "0.6.0",
     "errors": "0.1.0",
     "escape-html": "1.0.0",
     "express": "3.4.8",
