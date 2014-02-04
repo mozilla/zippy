@@ -9,7 +9,7 @@
  *
  * @author Brian Cavalier
  * @author John Hann
- * @version 2.7.1
+ * @version 2.8.0
  */
 (function(define) { 'use strict';
 define(function (require) {
@@ -122,8 +122,8 @@ define(function (require) {
 			var queue = consumers;
 			consumers = undef;
 
+			value = coerce(self, val);
 			enqueue(function () {
-				value = coerce(self, val);
 				if(status) {
 					updateStatus(value, status);
 				}
@@ -278,12 +278,12 @@ define(function (require) {
 	 *    - fulfilled with promiseOrValue's value after it is fulfilled
 	 *    - rejected with promiseOrValue's reason after it is rejected
 	 * In contract to cast(x), this always creates a new Promise
-	 * @param  {*} value
+	 * @param  {*} x
 	 * @return {Promise}
 	 */
-	function resolve(value) {
+	function resolve(x) {
 		return promise(function(resolve) {
-			resolve(value);
+			resolve(x);
 		});
 	}
 
@@ -294,11 +294,13 @@ define(function (require) {
 	 * - if promiseOrValue is a promise
 	 *   - promiseOrValue's value after it is fulfilled
 	 *   - promiseOrValue's reason after it is rejected
-	 * @param {*} promiseOrValue the rejected value of the returned {@link Promise}
-	 * @return {Promise} rejected {@link Promise}
+	 * @deprecated The behavior of when.reject in 3.0 will be to reject
+	 * with x VERBATIM
+	 * @param {*} x the rejected value of the returned promise
+	 * @return {Promise} rejected promise
 	 */
-	function reject(promiseOrValue) {
-		return when(promiseOrValue, function(e) {
+	function reject(x) {
+		return when(x, function(e) {
 			return new RejectedPromise(e);
 		});
 	}
@@ -406,7 +408,13 @@ define(function (require) {
 	 */
 	function assimilate(untrustedThen, x) {
 		return promise(function (resolve, reject) {
-			fcall(untrustedThen, x, resolve, reject);
+			enqueue(function() {
+				try {
+					fcall(untrustedThen, x, resolve, reject);
+				} catch(e) {
+					reject(e);
+				}
+			});
 		});
 	}
 

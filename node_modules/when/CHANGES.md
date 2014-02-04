@@ -1,4 +1,8 @@
-### 2.7.0
+### 2.8.0
+
+* Experimental [ES6 generator support](docs/api.md#es6-generators) via new `when/generator` module, with `lift`, `call`, `apply`.
+
+### 2.7.1
 
 * Internal changes to reduce overall memory usage, along with minor performance improvements.
 
