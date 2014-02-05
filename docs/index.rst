@@ -101,6 +101,7 @@ Contents
    install.rst
    using.rst
    developer.rst
+   l10n.rst
    payment.rst
    reporting.rst
    refunds.rst

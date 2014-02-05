@@ -1,0 +1,51 @@
+.. _l10n-label:
+
+l10n and i18n
+=============
+
+Zippy uses `i18n-abide`_ for l10n purposes. It provides gettext functions for
+the application and also provides the ability to use a debug locale for
+testing l10n.
+
+To create, extract, merge and compile locales we are using `grunt-i18n-abide`_
+which is a set of grunt tasks to run the localisation tools.
+
+To use grunt-i18n-abide you'll need to make sure you have your distro's
+standard tools installed. You should install Gnu gettext to get
+`msginit`, `xgettext`, and other tools.
+
+Creating new locales
+--------------------
+
+First add the language you want to support to the `supportedLanguages` list
+in 'lib/config/default.js'
+
+Once this is there run `grunt abideCreate` and the locale dir will be
+automatically created along with a `.po` file.
+
+Extracting new strings
+----------------------
+
+To extract new strings run `grunt abideExtract`. This should update the template.
+
+Merging new strings into existing locales
+-----------------------------------------
+
+To merge newly extracted strings into existing locales run `grunt abideMerge`.
+
+Compile locales
+---------------
+
+Currently Zippy only needs json files to be compiled for l10n purposes. To that end
+simply run `grunt abideCompile`.
+
+General notes
+-------------
+
+Always check what's created is what's expected. Version control can really help with this.
+If you have any problems and what's created isn't what you expect please file a bug
+with the relevant project.
+
+
+.. _i18n-abide: https://github.com/mozilla/i18n-abide
+.. _grunt-i18n-abide: https://github.com/mozilla/grunt-i18n-abide
