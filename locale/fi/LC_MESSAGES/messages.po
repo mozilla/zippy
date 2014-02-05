@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-02-04 17:56+0000\n"
+"PO-Revision-Date: 2014-01-31 00:49+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
+#: templates/payments/confirm-sms-pin.html:15
+#: templates/payments/mt-auth.html:37
+msgid "Cancel"
+msgstr ""
+
+#: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
+msgid "Buy"
+msgstr ""
+
+#: templates/payments/_footer.html:6
+msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
+msgstr ""
+
+#: templates/payments/_product.html:11 templates/payments/_product.html:7
+msgid "Total"
+msgstr ""
+
+#: templates/payments/_product.html:12 templates/payments/_product.html:8
+msgid "Includes taxes"
+msgstr ""
+
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
+#: lib/payments.js:15 templates/payments/confirm-payment.html:4
+msgid "Confirm Payment"
+msgstr ""
+
+#: templates/payments/confirm.html:12
+#: templates/payments/confirm-payment.html:12
+msgid ""
+"The amount will be charged to your T-mobile account, or <a %s>pay using your "
+"credit card</a>"
+msgstr ""
+
+#: templates/payments/credit-card.html:14
+msgid "Credit Card Number"
+msgstr ""
+
+#: templates/payments/credit-card.html:15
+msgid "Card Number"
+msgstr ""
+
+#: templates/payments/credit-card.html:23
+msgid "Expires"
+msgstr ""
+
+#: templates/payments/credit-card.html:28
+#: templates/payments/credit-card.html:29
+msgid "Post-code"
+msgstr ""
+
+#: templates/payments/credit-card.html:37
+msgid "CVC"
+msgstr ""
+
+#: templates/payments/credit-card.html:42
+msgid "Save card"
+msgstr ""
+
+#: templates/payments/_footer.html:3
+msgid "Products sold by %s for Mozilla"
+msgstr ""
+
+#: lib/payments.js:23
+msgid "Pay by Card"
+msgstr ""
+
+#: lib/payments.js:31 lib/payments.js:39
+#: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+msgid "Confirm your Mobile Number"
+msgstr ""
+
+#: templates/payments/confirm-sms-pin.html:7
+msgid "Enter the pin we sent you"
+msgstr ""
+
+#: templates/payments/confirm-sms-pin.html:9
+msgid "Didn't receive an SMS?"
+msgstr ""
+
+#: templates/payments/confirm-sms-pin.html:9
+msgid "Resend SMS"
+msgstr ""
+
+#: templates/payments/confirm-sms-pin.html:16
+#: templates/payments/mt-auth.html:38
+msgid "Continue"
+msgstr ""
+
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
+#: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
+msgid "United Kingdom"
+msgstr ""
+
+#: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
+msgid "Not your country?"
+msgstr ""
+
+#: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
+msgid "Change"
+msgstr ""
+
+#: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
+msgid "United States"
+msgstr ""
+
+#: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
+msgid "Spain"
+msgstr ""
+
+#: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
+msgid "Select your mobile network"
+msgstr ""
+
+#: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
+msgid "Enter your mobile number"
+msgstr ""

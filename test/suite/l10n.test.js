@@ -1,6 +1,6 @@
 var Client = require('../client').Client;
 
-var client = new Client('/payment/card/', 'text/html', 'it-CH');
+var client = new Client('/payment/card/', 'text/html', 'db-LB');
 
 
 exports.testDebugLocale = function(t) {
