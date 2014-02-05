@@ -25,6 +25,9 @@ module.exports = function (grunt) {
 
   function compileJSON(files, localeDir, dest, options) {
 
+    // Default creation of JS files to true.
+    var createJSFiles = typeof options.createJSFiles === 'undefined' ? true : false;
+
     createLockFile();
 
     files.forEach(function(pofile){
@@ -48,9 +51,11 @@ module.exports = function (grunt) {
       // Create json file.
       runShellSync(cmd, args);
 
-      fs.writeFileSync(jsfile, 'var json_locale_data = ');
-      fs.writeFileSync(jsfile, fs.readFileSync(jsonfile), { flag: 'a' });
-      fs.writeFileSync(jsfile, ';', { flag: 'a' });
+      if (createJSFiles) {
+        fs.writeFileSync(jsfile, 'var json_locale_data = ');
+        fs.writeFileSync(jsfile, fs.readFileSync(jsonfile), { flag: 'a' });
+        fs.writeFileSync(jsfile, ';', { flag: 'a' });
+      }
     });
 
     removeLockFile();

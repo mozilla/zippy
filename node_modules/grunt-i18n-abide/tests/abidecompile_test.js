@@ -41,6 +41,15 @@ exports.compile = {
     test.ok(utils.contains('updated1', grunt.file.read(jsonFile)));
     test.done();
   },
+  testNoJS: function(test) {
+    test.expect(3);
+    var jsFile = 'tests/tmp/nojs/en_US/messages.js';
+    var jsonFile = 'tests/tmp/nojs/en_US/messages.json';
+    test.ok(!grunt.file.exists(jsFile));
+    test.ok(grunt.file.exists(jsonFile));
+    test.ok(utils.contains('updated1', grunt.file.read(jsonFile)));
+    test.done();
+  },
   testFR: function(test) {
     test.expect(5);
     var jsFile = 'tests/tmp/json/fr/messages.js';

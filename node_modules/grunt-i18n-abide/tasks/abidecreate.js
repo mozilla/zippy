@@ -1,3 +1,4 @@
+var fs = require('fs');
 var path = require('path');
 var helpers = require('./lib/helpers');
 
@@ -36,6 +37,12 @@ module.exports = function (grunt) {
 
       var outputFile = path.join(baseLocaleDir, locale, 'LC_MESSAGES/messages.po');
       var cmd = options.cmd || 'msginit';
+
+      // No-op if po already exists.
+      if (fs.existsSync(outputFile)) {
+        grunt.log.writeln('Locale "' + locale + '" already exists, skipping...');
+        return false;
+      }
 
       checkCommand(cmd);
 

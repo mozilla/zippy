@@ -1,5 +1,6 @@
 'use strict';
 
+var fs = require('fs');
 var grunt = require('grunt');
 var shell = require('shelljs');
 var utils = require('./utils');
@@ -39,4 +40,20 @@ exports.create = {
     test.ok(grunt.file.exists(created));
     test.done();
   },
+  testNotModified: function(test) {
+    test.expect(3);
+    shell.exec('grunt abideCreate:checkNoModExisting1');
+    var expectedPath = 'tests/tmp/en_US/LC_MESSAGES/messages.po';
+    var expected = fs.readFileSync(expectedPath, { encoding: 'utf8' });
+    var result = shell.exec('grunt abideCreate:checkNoModExisting2');
+    test.ok(utils.contains('already exists', result.output));
+    var actual = fs.readFileSync(expectedPath, { encoding: 'utf8' });
+    // Check nothing changed.
+    test.equal(expected, actual);
+    // Now check the en-GB locale has been created.
+    var created = 'tests/tmp/en_GB/LC_MESSAGES/messages.po';
+    test.ok(grunt.file.exists(created));
+    test.done();
+  },
+
 };
