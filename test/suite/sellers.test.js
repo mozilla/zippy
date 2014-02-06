@@ -4,6 +4,7 @@ var Client = require('../client').Client;
 var helpers = require('../helpers');
 
 var client = new Client('/sellers');
+var z = require('../../lib/zutil');
 
 
 exports.setUp = function(done) {
@@ -23,7 +24,7 @@ exports.createSeller = function(t) {
     .post({
       uuid: seller.uuid,
       status: 'ACTIVE',
-      name: 'John',
+      name: '<script>alert("foo")</script>',
       email: 'jdoe@example.org',
     })
     .expect(201)
@@ -156,7 +157,7 @@ exports.retrieveSellerTerms = function(t) {
       .expect(200)
       .end(function(err, res) {
         t.ifError(err);
-        t.equal(res.body.text, 'Terms for seller: ' + seller.name);
+        t.equal(res.body.text, 'Terms for seller: ' + z.escape(seller.name));
         t.done();
       });
   });
@@ -193,7 +194,7 @@ exports.updateSellerTerms = function(t) {
           .expect(200)
           .end(function(err, res) {
             t.ifError(err);
-            t.equal(res.body.text, 'Terms for seller: ' + seller.name);
+            t.equal(res.body.text, 'Terms for seller: ' + z.escape(seller.name));
             var date2 = new Date(res.body.agreement);
             t.dateCloseTo(date2, testDate);
             t.done();
