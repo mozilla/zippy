@@ -19,8 +19,6 @@ A real payment processor would probably do things like this:
 * Direct billing: place a charge on a user's mobile bill.
 * Credit card billing.
 
-.. _WebPay: https://github.com/mozilla/webpay
-
 .. _redirect-api:
 
 How Redirects Work
@@ -230,8 +228,6 @@ This is a basic flow for how carrier authentication works.
 SMS Authentication
 ------------------
 
-.. note:: Not currently implement in zippy.
-
 This shows a flow and screens where a payment provider discovers the user via
 SMS messages to the phone.
 
@@ -241,15 +237,11 @@ Example:
 
 .. image:: images/sms-auth-confirm.png
 
-.. _Webpay: https://github.com/mozilla/webpay
-
 Payment page
 ------------
 
 Carrier billing page
 ~~~~~~~~~~~~~~~~~~~~
-
-.. note:: Not currently implemented in zippy.
 
 Example:
 
@@ -257,8 +249,6 @@ Example:
 
 Credit card
 ~~~~~~~~~~~
-
-.. note:: Currently implemented in zippy in the templates.
 
 Example:
 
@@ -273,3 +263,16 @@ Currently when a user lands on the buy page, the user has to choose between
 using carrier billing or a credit card. This diagram outlines the choices.
 
 .. image:: diagrams/buy-flow.png
+
+Translations
+------------
+
+All the pages are translated. For a status of the translations see:
+
+https://localize.mozilla.org/projects/zippy
+
+The translations are available in the zippy repository:
+
+https://github.com/mozilla/zippy/tree/master/locale
+
+.. _WebPay: https://github.com/mozilla/webpay
