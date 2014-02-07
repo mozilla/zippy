@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-02-04 17:56+0000\n"
-"PO-Revision-Date: 2014-02-07 07:26+0000\n"
+"PO-Revision-Date: 2014-02-07 07:32+0000\n"
 "Last-Translator: Peter <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1391757992.0\n"
+"X-POOTLE-MTIME: 1391758373.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
 #: templates/payments/confirm-sms-pin.html:15
@@ -25,7 +25,7 @@ msgstr "購買"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr "接收簡訊與透過網路下載可能需要付費。<a %s>使用條款</a>"
+msgstr "接收簡訊與使用網路傳輸時可能需要付費。<a %s>使用條款</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7
 msgid "Total"
