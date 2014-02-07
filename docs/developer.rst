@@ -241,7 +241,7 @@ provider.
           "code": "InvalidArgument",
           "message": {
             "external_id": "external_id must be unique",
-            "seller_id":"zero results for seller_id {wrong-uuid}"
+            "seller_id": "zero results for seller_id {wrong-uuid}"
           }
         }
 

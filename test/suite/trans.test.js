@@ -81,12 +81,41 @@ exports.postOkTrans = function(t) {
           t.equal(res.body.success_url, helpers.transactionData.success_url);
           t.equal(res.body.error_url, helpers.transactionData.error_url);
           t.equal(res.body.ext_transaction_id, helpers.transactionData.ext_transaction_id);
+          t.equal(res.body.product_image_url, '');
           t.done();
         });
     });
   });
 };
 
+
+exports.postOkTransWithImage = function(t) {
+  helpers.withSeller({}, function(seller) {
+    helpers.withProduct({
+      /*jshint camelcase: false */
+      seller_id: seller.uuid
+    }, function(product) {
+      var product_image_url = 'http://example.org/image.jpg';
+      var data = under.omit(
+        under.extend({}, helpers.transactionData, {
+          /*jshint camelcase: false */
+          product_id: product.uuid,
+          product_image_url: product_image_url,
+        }),
+        'status', 'token'
+      );
+      client
+        .post(data)
+        .expect(201)
+        .end(function(err, res) {
+          t.ifError(err);
+          /*jshint camelcase: false */
+          t.equal(res.body.product_image_url, product_image_url);
+          t.done();
+        });
+    });
+  });
+};
 
 exports.postInvalidPayMethod = function(t) {
   helpers.withSeller({}, function(seller) {

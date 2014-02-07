@@ -143,6 +143,11 @@ This API enables you to begin a transaction so that a product can be purchased.
         Primary key of :ref:`product <products>` about to be purchased.
     :type product_id: string
 
+    :param product_image_url:
+        An optional sanitized image URL to display the logo of the product.
+        A default image will be displayed during the payment process
+        if that field is not submitted.
+
     For example:
 
     .. code-block:: json
@@ -158,6 +163,7 @@ This API enables you to begin a transaction so that a product can be purchased.
           "error_url": "https://yoursite.org/error",
           "callback_success_url": "https://yoursite.org/callback/success",
           "callback_error_url": "https://yoursite.org/callback/error",
+          "product_image_url": "http://example.org/image.jpg",
           "resource_pk": "1",
           "resource_name": "transactions",
           "resource_uri": "/transactions/1"
