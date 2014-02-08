@@ -2,128 +2,131 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-02-04 17:56+0000\n"
-"PO-Revision-Date: 2014-01-31 00:49+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2014-02-08 02:13+0000\n"
+"Last-Translator: Shen <steekid@icloud.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1391825589.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
 #: templates/payments/confirm-sms-pin.html:15
 #: templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
 msgid "Buy"
-msgstr ""
+msgstr "购买"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
+msgstr "短信和数据速率可以适用的 <a %s>条款和细则</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7
 msgid "Total"
-msgstr ""
+msgstr "总价"
 
 #: templates/payments/_product.html:12 templates/payments/_product.html:8
 msgid "Includes taxes"
-msgstr ""
+msgstr "含税"
 
 #: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
 #: lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
-msgstr ""
+msgstr "确认支付"
 
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
 msgid ""
 "The amount will be charged to your T-mobile account, or <a %s>pay using your "
 "credit card</a>"
-msgstr ""
+msgstr "金额将会直接计入您的 T-mobile 账户，或者<a %s>用您的信用卡支付</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
-msgstr ""
+msgstr "信用卡号"
 
 #: templates/payments/credit-card.html:15
 msgid "Card Number"
-msgstr ""
+msgstr "卡号"
 
 #: templates/payments/credit-card.html:23
 msgid "Expires"
-msgstr ""
+msgstr "过期日"
 
 #: templates/payments/credit-card.html:28
 #: templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "邮政编码"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
-msgstr ""
+msgstr "CVC"
 
 #: templates/payments/credit-card.html:42
 msgid "Save card"
-msgstr ""
+msgstr "保存卡片信息"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "由 %s 为 Mozilla 销售的产品"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
-msgstr ""
+msgstr "通过信用卡支付"
 
 #: lib/payments.js:31 lib/payments.js:39
 #: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "确认手机号码"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "输入我们发送给您的验证码"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "没有收到短信？"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "重新发送短信"
 
 #: templates/payments/confirm-sms-pin.html:16
 #: templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 #: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
 #: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "英国"
 
 #: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "不在此国家？"
 
 #: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "更改"
 
 #: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "美国"
 
 #: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "西班牙"
 
 #: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "选择电信运营商"
 
 #: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "输入手机号码"
