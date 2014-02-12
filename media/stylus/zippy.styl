@@ -74,6 +74,7 @@ main {
     padding: 10px;
 
     .button {
+        width: 48%; // Hack for anything that doesn't support calc e.g. webkit version phantomjs uses!
         width: calc(50% - 5px);
         margin: 0;
 
@@ -220,5 +221,13 @@ input.postcode {
         &.{region}:before {
             background-image: url(unquote('../images/regions/' + region + '.png'));
         }
+    }
+}
+
+.buttons.longtext .button {
+    width: 100%;
+    margin-bottom: 10px;
+    &:last-child {
+        margin-bottom: 0;
     }
 }

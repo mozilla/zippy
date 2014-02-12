@@ -18,6 +18,7 @@
   "noarg": true,
   "passfail": false,
   "predef": [
+    "$",
     "casper",
     "exports",
     "require",
