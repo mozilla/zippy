@@ -103,6 +103,7 @@ Contents
    developer.rst
    l10n.rst
    payment.rst
+   config.rst
    reporting.rst
    refunds.rst
    security.rst

@@ -15,6 +15,7 @@ var exampleConfig = new Config({
   },
   prod: {
     bar: 'prod-bar',
+    onlyprod: 'onlyprod-foo',
   },
   test: {
     bar: 'test-bar',
@@ -66,5 +67,11 @@ exports.testDefaultFallThrough = function(t) {
 exports.testDoesntExist = function(t) {
   process.env.NODE_ENV = 'prod';
   t.equal(exampleConfig.whatever, undefined);
+  t.done();
+};
+
+exports.testDoesntExistInDefault = function(t) {
+  process.env.NODE_ENV = 'prod';
+  t.equal(exampleConfig.onlyprod, 'onlyprod-foo');
   t.done();
 };
