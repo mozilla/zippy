@@ -92,17 +92,19 @@ main {
 .product-image {
     display: inline-block;
     margin-bottom: 20px;
-    max-width: 33.333%;
+    max-width: 33.3333%;
     vertical-align: top;
+    padding-right: 10px;
  }
 
 .product {
     display: inline-block;
-    max-width: 66.666%;
-    padding-left: 10px;
+    max-width: 64%;
+    max-width: calc(66.6666% - 10px);
 
     .author {
         margin-top: 0;
+        word-wrap: break-word;
     }
 
     .total {
@@ -133,6 +135,7 @@ main {
         font-size: 16px;
         font-weight: 500;
         margin: 0 0 0.5em;
+        word-wrap: break-word;
     }
 }
 
