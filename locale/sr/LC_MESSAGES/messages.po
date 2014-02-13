@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-02-04 17:56+0000\n"
-"PO-Revision-Date: 2014-02-09 07:29+0000\n"
-"Last-Translator: Vanja <tumbas93@gmail.com>\n"
+"PO-Revision-Date: 2014-02-13 12:11+0000\n"
+"Last-Translator: Aleksandra <auzelac91@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1391930980.0\n"
+"X-POOTLE-MTIME: 1392293481.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
 #: templates/payments/confirm-sms-pin.html:15
@@ -27,8 +27,8 @@ msgstr "Купи"
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
 msgstr ""
-"Цене порука и мобилних података се могу применити на <a %s>Правила &amp; "
-"Услови</a>"
+"Цене порука и мобилних података се могу применити на <a %s>Услови "
+"коришћења</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7
 msgid "Total"
@@ -79,7 +79,7 @@ msgstr "Сачувајте картицу"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr "Производи продати крај %s за Mozilla"
+msgstr "Производи продати од стране %s за Mozilla-у"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
@@ -122,7 +122,7 @@ msgstr "Промени"
 
 #: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr "Сједиљене Америчке Државе"
+msgstr "Сједињене Америчке Државе"
 
 #: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
