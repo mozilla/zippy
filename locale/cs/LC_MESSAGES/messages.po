@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-02-04 17:56+0000\n"
-"PO-Revision-Date: 2014-02-10 13:28+0000\n"
+"PO-Revision-Date: 2014-02-16 17:47+0000\n"
 "Last-Translator: Pavel <jasnapaka@jasnapaka.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1392038910.0\n"
+"X-POOTLE-MTIME: 1392572847.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
 #: templates/payments/confirm-sms-pin.html:15
@@ -46,6 +46,8 @@ msgid ""
 "The amount will be charged to your T-mobile account, or <a %s>pay using your "
 "credit card</a>"
 msgstr ""
+"Částka bude účtována vašemu účtu u T-Mobile nebo <a %s>realizována platbou "
+"kreditní kartou</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -62,7 +64,7 @@ msgstr "Platnost do"
 #: templates/payments/credit-card.html:28
 #: templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "PSČ"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
@@ -74,7 +76,7 @@ msgstr "Uložit kartu"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "Produkty prodané %s pro Mozillu"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
