@@ -8,6 +8,16 @@ and registering their products with the payment provider.
 
 Note that in the following examples ``{*uuid}`` refers to an actual ``uuid``.
 
+.. note::
+
+    Sellers and products both return list of JSON elements which is bad from
+    a security perspective because it can be subject to `JSON Hijacking`_.
+    In case of a real JavaScript implementation, you must `use prefixes`_
+    to prevent that.
+
+.. _`JSON Hijacking`: http://haacked.com/archive/2009/06/25/json-hijacking.aspx/
+.. _`use prefixes`: https://stackoverflow.com/questions/2669690/why-does-google-prepend-while1-to-their-json-responses
+
 .. _sellers:
 
 Sellers
