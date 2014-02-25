@@ -32,11 +32,11 @@ module.exports = function (grunt) {
       return file.match(/\.po$/);
     });
 
-    files.forEach(function(lang){
+    files.forEach(function(locale){
       var args = [];
       var moveArgs = [];
-      var dir = path.dirname(lang);
-      var stem = path.basename(lang, '.po');
+      var dir = path.dirname(locale);
+      var stem = path.basename(locale, '.po');
 
       var cmd = options.cmd || 'msgmerge';
       checkCommand(cmd);

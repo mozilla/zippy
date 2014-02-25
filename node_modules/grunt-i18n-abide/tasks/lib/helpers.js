@@ -25,7 +25,7 @@ exports.checkCommand = function checkCommand(cmd) {
 
 /**
 * Given a language code, return a locale code the OS understands.
-* Based on from: https://github.com/mozilla/i18n-abide/blob/master/lib/i18n.js
+* Based on: https://github.com/mozilla/i18n-abide/blob/master/lib/i18n.js
 *
 * language: en-US
 * locale: en_US
@@ -51,5 +51,28 @@ exports.localeFrom = function(language) {
   } else {
     grunt.log.writeln(util.format("Unable to map a locale from language code [%s]", language));
     return language;
+  }
+};
+
+
+/**
+* Given a locale code, return a language code
+* Based on: https://github.com/mozilla/i18n-abide/blob/master/lib/i18n.js
+*/
+exports.languageFrom = function languageFrom(locale) {
+  if (!locale || !locale.split) {
+    return "";
+  }
+  var parts = locale.split('_');
+  if (parts.length === 1) {
+    return parts[0].toLowerCase();
+  } else if (parts.length === 2) {
+    return util.format('%s-%s', parts[0].toLowerCase(), parts[1].toUpperCase());
+  } else if (parts.length === 3) {
+    // sr_RS should be sr-RS
+    return util.format('%s-%s', parts[0].toLowerCase(), parts[2].toUpperCase());
+  } else {
+    grunt.log.writeln(util.format("Unable to map a language from locale code [%s]", locale));
+    return locale;
   }
 };
