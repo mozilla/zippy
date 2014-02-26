@@ -13,3 +13,12 @@ exports.comparePotFiles = function(expectedPath, resultPath, test, msg) {
     result = result.slice(result.indexOf('\n\n') + 2);
     test.equal(result.trim(), expected.trim(), msg || 'Results match.');
 };
+
+exports.isJSON = function isJSON(jsonString) {
+  try {
+    JSON.parse(jsonString);
+  } catch (e) {
+    return false;
+  }
+  return true;
+};

@@ -64,19 +64,19 @@ module.exports = function (grunt) {
       var jsfile = path.join(dest, locale, stem + '.js');
       grunt.file.mkdir(path.join(dest, locale));
 
-      var json = po2json.parseFileSync(pofile, { stringify: true });
-      var result = '{"messages":' + json + '}';
+      var json = po2json.parseFileSync(pofile, { stringify: true, pretty: true });
+      var result = '{\n  "messages": ' + json + '}';
       fs.writeFileSync(jsonfile, result, {});
 
       if (createJSFiles) {
-        fs.writeFileSync(jsfile, 'window.' + jsVar + ' = {"messages":' + json + ',');
-        fs.writeFileSync(jsfile, '"locale":"' + locale + '",', { flag: 'a' });
-        fs.writeFileSync(jsfile, '"lang":"' + helpers.languageFrom(locale) + '"}', { flag: 'a' });
+        fs.writeFileSync(jsfile, 'window.' + jsVar + ' = {\n');
+        fs.writeFileSync(jsfile, '"messages": ' + json + ',\n', { flag: 'a' });
+        fs.writeFileSync(jsfile, '"locale": "' + locale + '",\n', { flag: 'a' });
+        fs.writeFileSync(jsfile, '"lang": "' + helpers.languageFrom(locale) + '"\n}', { flag: 'a' });
       }
     });
 
     removeLockFile();
-
   }
 
   function compileMo(files, options) {
