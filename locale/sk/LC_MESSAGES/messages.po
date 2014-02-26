@@ -2,41 +2,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-02-04 17:56+0000\n"
-"PO-Revision-Date: 2014-01-31 00:49+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2014-02-26 20:23+0000\n"
+"Last-Translator: Vlado <valastiak@mozilla.sk>\n"
 "Language-Team: none\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1393446189.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
 #: templates/payments/confirm-sms-pin.html:15
 #: templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
 msgid "Buy"
-msgstr ""
+msgstr "Kúpiť"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
+msgstr "Môžu byť účtované poplatky za správy alebo dáta <a %s>Podmienky</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7
 msgid "Total"
-msgstr ""
+msgstr "Celkom"
 
 #: templates/payments/_product.html:12 templates/payments/_product.html:8
 msgid "Includes taxes"
-msgstr ""
+msgstr "S DPH"
 
 #: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
 #: lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
-msgstr ""
+msgstr "Potvrdenie platby"
 
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
@@ -44,87 +46,89 @@ msgid ""
 "The amount will be charged to your T-mobile account, or <a %s>pay using your "
 "credit card</a>"
 msgstr ""
+"Čiastka bude zaúčtovaná na vašom účte T-mobile, prípadne môžete <a %"
+"s>zaplatiť použitím platobnej karty</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
-msgstr ""
+msgstr "Číslo kreditnej karty"
 
 #: templates/payments/credit-card.html:15
 msgid "Card Number"
-msgstr ""
+msgstr "Číslo karty"
 
 #: templates/payments/credit-card.html:23
 msgid "Expires"
-msgstr ""
+msgstr "Platnosť do"
 
 #: templates/payments/credit-card.html:28
 #: templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "PSČ"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
-msgstr ""
+msgstr "CVC"
 
 #: templates/payments/credit-card.html:42
 msgid "Save card"
-msgstr ""
+msgstr "Uložiť kartu"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "Produkty predané %s pre Mozillu"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
-msgstr ""
+msgstr "Platba kartou"
 
 #: lib/payments.js:31 lib/payments.js:39
 #: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "Potvrďte svoje telefónne číslo"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "Zadajte kód pin, ktorý sme Vám poslali"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "Neobdržali ste správu SMS?"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "Znova poslať SMS"
 
 #: templates/payments/confirm-sms-pin.html:16
 #: templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "Pokračovať"
 
 #: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
 #: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "Spojené kráľovstvo"
 
 #: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "Nie je to vaša krajina?"
 
 #: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "Zmeniť"
 
 #: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "Spojené štáty"
 
 #: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "Španielsko"
 
 #: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "Zvoľte svoje mobilnú sieť"
 
 #: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "Zadajte svoje mobilné číslo"
