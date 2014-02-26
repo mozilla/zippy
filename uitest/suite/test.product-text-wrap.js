@@ -9,24 +9,31 @@ startCasper('/payment/confirm');
 casper.test.begin('Product Text Wrapping', {
 
   test: function(test) {
-    casper.waitForSelector('.product-image', function() {
+
+    casper.waitForSelector('.product .image', function() {
       // Run the tests.
-      var dataObj = casper.evaluate(function(){
+      casper.evaluate(function(){
         // Tell jshint we know $ is a global.
         /* globals $ */
         var LONG_PROD_STRING = 'Test AP (fkjsdhkfjhsdkjfhsdkjhfksdjhkjfdsh)';
-        var LONG_AUTHOR_STRING = 'Some-really-long-string-that-shouldn\'t break this';
+        var LONG_AUTHOR_STRING = 'some-really-long-string-that-shouldn\'t break this';
         // Inject some long strings.
         $('.product .title').text(LONG_PROD_STRING);
         $('.product .author').text(LONG_AUTHOR_STRING);
-
-        var data = {};
-        data.image_offset =  $('.product-image').offset().top;
-        data.product_offset = $('.product').offset().top;
-        return data;
       });
 
+    });
+
+    casper.waitForSelectorTextChange('.product .title', function() {
+      var dataObj = casper.evaluate(function(){
+        return {
+          product_offset: $('.product .meta').offset().top,
+          image_offset: $('.product .image').offset().top,
+        };
+      });
       test.assertEqual(dataObj.product_offset, dataObj.image_offset, 'Check image and product tops are aligned (e.g: not wrapped)');
+      var file = 'uitest/captures/wrapping.png';
+      casper.capture(file);
     });
 
     casper.run(function() {

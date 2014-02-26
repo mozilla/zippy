@@ -1,10 +1,12 @@
-  <div class="grid">
+  <div class="product">
+    <div class="image">
     {% if trans.product_image_url %}
-      <img class="product-image" src="{{ trans.product_image_url }}" alt="Logo" />
+      <img src="{{ trans.product_image_url }}" alt="Logo" />
     {% else %}
-      <img class="product-image" src="/images/placeholder/logo.png" alt="Logo" />
+      <img src="/images/placeholder/logo.png" alt="Logo" />
     {% endif %}
-    <section class="product">
+    </div>
+    <section class="meta">
       <h2 class="title">{{ product.name }}</h2>
       <p class="author">{{ seller.name }}</p>
       <p class="total">{{ gettext('Total') }} ({{ trans.currency }}): <span class="price">{{ trans.price }}</span><a class="ref" href="#ref">*</a></p>
