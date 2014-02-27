@@ -10,14 +10,14 @@ const tests = [
 
   [ "Please close this window, <a %s>enable cookies</a> and try again",
     "uıaƃa ʎɹʇ pua <a %s>sǝıʞooɔ ǝʅqauǝ</a> ´ʍopuıʍ sıɥʇ ǝsoʅɔ ǝsaǝʅԀ" ],
-  [ "Please close this window, <a %(cookieLink)>enable <b>super dooper %(persona)</b> cookies</a> and try again",
-    "uıaƃa ʎɹʇ pua <a %(cookieLink)>sǝıʞooɔ <b>%(persona) ɹǝdoop ɹǝdns</b> ǝʅqauǝ</a> ´ʍopuıʍ sıɥʇ ǝsoʅɔ ǝsaǝʅԀ" ],
-  [ "%(aWebsite) uses Persona to sign you in!",
-    "¡uı noʎ uƃıs oʇ auosɹǝԀ sǝsn %(aWebsite)" ],
+  [ "Please close this window, <a %(cookieLink)s>enable <b>super dooper %(persona)s</b> cookies</a> and try again",
+    "uıaƃa ʎɹʇ pua <a %(cookieLink)s>sǝıʞooɔ <b>%(persona)s ɹǝdoop ɹǝdns</b> ǝʅqauǝ</a> ´ʍopuıʍ sıɥʇ ǝsoʅɔ ǝsaǝʅԀ" ],
+  [ "%(aWebsite)s uses Persona to sign you in!",
+    "¡uı noʎ uƃıs oʇ auosɹǝԀ sǝsn %(aWebsite)s" ],
   [ "<strong>Persona.</strong> Simplified sign-in, built by a non-profit. <a %s>Learn more&rarr;</a>",
     "<a %s>&rarr;ǝɹoɯ uɹaǝ⅂</a> .ʇıɟoɹd-uou a ʎq ʇʅınq ´uı-uƃıs pǝıɟıʅdɯıS <strong>.auosɹǝԀ</strong>" ],
-  [ "By proceeding, you agree to %(site)'s <a %(terms)>Terms</a> and <a %(privacy)>Privacy Policy</a>.",
-    ".<a %(privacy)>ʎɔıʅoԀ ʎɔaʌıɹԀ</a> pua <a %(terms)>sɯɹǝ⊥</a> s,%(site) oʇ ǝǝɹƃa noʎ ´ƃuıpǝǝɔoɹd ʎԐ" ]
+  [ "By proceeding, you agree to %(site)s's <a %(terms)s>Terms</a> and <a %(privacy)s>Privacy Policy</a>.",
+    ".<a %(privacy)s>ʎɔıʅoԀ ʎɔaʌıɹԀ</a> pua <a %(terms)s>sɯɹǝ⊥</a> s,%(site)s oʇ ǝǝɹƃa noʎ ´ƃuıpǝǝɔoɹd ʎԐ" ]
 ];
 
 var success = 0;
