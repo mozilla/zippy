@@ -18,7 +18,7 @@
 
   // take a string and turn it into an array of tokens.  Tokens are:
   // 1. text: plain text chunks
-  // 2. markers: untranslatable place holders %s or %(name)
+  // 2. markers: untranslatable place holders %s or %(name)s
   // 3. containers: like, <a> </a>. things containing text that should be translated,
   //    but the things must retain their order
   function tokenize(str) {
@@ -45,7 +45,7 @@
     function splitMarkers(arr) {
       for (var i = 0; i < arr.length; i++) {
         if (typeof arr[i] === 'string') {
-          var splt = resplit(arr[i], /(&[a-zA-Z]+;|&#[0-9]+;|%s|%\([^)]+\))/g);
+          var splt = resplit(arr[i], /(&[a-zA-Z]+;|&#[0-9]+;|%s|%\([^)]+\)s)/g);
           arr.splice(i--, 1);
           while (splt.length) {
             var x = splt.shift();
