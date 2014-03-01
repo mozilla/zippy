@@ -2,44 +2,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-02-04 17:56+0000\n"
-"PO-Revision-Date: 2014-02-06 10:46+0000\n"
-"Last-Translator: Matjaž <m@owca.info>\n"
+"PO-Revision-Date: 2014-02-13 12:11+0000\n"
+"Last-Translator: Aleksandra <auzelac91@gmail.com>\n"
 "Language-Team: none\n"
-"Language: sr_LATN\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1391683617.0\n"
+"X-POOTLE-MTIME: 1392293481.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
 #: templates/payments/confirm-sms-pin.html:15
 #: templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
 msgid "Buy"
-msgstr ""
+msgstr "Kupi"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
 msgstr ""
+"Cene poruka i mobilnih podataka se mogu primeniti na <a %s>Uslovi "
+"korišćenja</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7
 msgid "Total"
-msgstr ""
+msgstr "Ukupno"
 
 #: templates/payments/_product.html:12 templates/payments/_product.html:8
 msgid "Includes taxes"
-msgstr ""
+msgstr "Uključuje poreze"
 
 #: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
 #: lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
-msgstr ""
+msgstr "Potvrdi uplatu"
 
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
@@ -47,87 +49,89 @@ msgid ""
 "The amount will be charged to your T-mobile account, or <a %s>pay using your "
 "credit card</a>"
 msgstr ""
+"Iznos će biti naplaćen na Vašem T-mobile nalogu, ili <a %s>platite koristeći "
+"kreditnu karticu</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
-msgstr ""
+msgstr "Broj kreditne kartice"
 
 #: templates/payments/credit-card.html:15
 msgid "Card Number"
-msgstr ""
+msgstr "Broj kartice"
 
 #: templates/payments/credit-card.html:23
 msgid "Expires"
-msgstr ""
+msgstr "Ističe"
 
 #: templates/payments/credit-card.html:28
 #: templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "Poštanski broj"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
-msgstr ""
+msgstr "Kartica za potvrdu koda"
 
 #: templates/payments/credit-card.html:42
 msgid "Save card"
-msgstr ""
+msgstr "Sačuvajte karticu"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "Proizvodi prodati od strane %s za Mozilla-u"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
-msgstr ""
+msgstr "Platite karticom"
 
 #: lib/payments.js:31 lib/payments.js:39
 #: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "Potvrdite Vaš broj mobilnog"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "Unesite pin koji smo Vam poslali"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "Niste primili SMS?"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "Ponovo pošalji SMS"
 
 #: templates/payments/confirm-sms-pin.html:16
 #: templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "Nastavi"
 
 #: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
 #: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "Ujedinjeno Kraljevstvo"
 
 #: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "Nije Vaša država?"
 
 #: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "Promeni"
 
 #: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "Sjedinjene Američke Države"
 
 #: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "Španija"
 
 #: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "Odaberite Vašu mobilnu mrežu"
 
 #: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "Unesite Vaš broj mobilnog telefona"
