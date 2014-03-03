@@ -89,18 +89,37 @@ main {
     }
 }
 
-.product-image {
-    display: inline-block;
-    margin-bottom: 20px;
-    max-width: 33.3333%;
-    vertical-align: top;
-    padding-right: 10px;
- }
+html[dir="rtl"] .button {
+    &:first-child {
+        margin-left: 5px
+        margin-right: 0;
+    }
+    &:only-child {
+        margin: 0;
+    }
+}
+
 
 .product {
-    display: inline-block;
-    max-width: 64%;
-    max-width: calc(66.6666% - 10px);
+    word-spacing: -4px; // nuke whitespace;
+
+    .image {
+        display: inline-block;
+        width: 25%;
+        vertical-align: top;
+        padding: 0 10px 10px 0;
+        img {
+            display: inline-block;
+            max-width: 100%;
+        }
+    }
+
+    .meta {
+        word-spacing: 0; // restore word-spacing.
+        display: inline-block;
+        width: 75%;
+        vertical-align: top;
+    }
 
     .author {
         margin-top: 0;
@@ -138,6 +157,7 @@ main {
         word-wrap: break-word;
     }
 }
+
 
 .payment-info {
     clear: left;
