@@ -1,124 +1,125 @@
 {
-   "messages": {
-      "": {
-         "Project-Id-Version": "PACKAGE VERSION",
-         "POT-Creation-Date": "2014-02-04 17:56+0000",
-         "PO-Revision-Date": "2014-01-31 00:49+0000",
-         "Last-Translator": "Automatically generated",
-         "Language-Team": "none",
-         "Language": "hu",
-         "MIME-Version": "1.0",
-         "Content-Type": "text/plain; charset=UTF-8",
-         "Content-Transfer-Encoding": "8bit",
-         "Plural-Forms": "nplurals=2; plural=(n != 1);"
-      },
-      "Cancel": [
-         null,
-         ""
-      ],
-      "Buy": [
-         null,
-         ""
-      ],
-      "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
-         null,
-         ""
-      ],
-      "Total": [
-         null,
-         ""
-      ],
-      "Includes taxes": [
-         null,
-         ""
-      ],
-      "Confirm Payment": [
-         null,
-         ""
-      ],
-      "The amount will be charged to your T-mobile account, or <a %s>pay using your credit card</a>": [
-         null,
-         ""
-      ],
-      "Credit Card Number": [
-         null,
-         ""
-      ],
-      "Card Number": [
-         null,
-         ""
-      ],
-      "Expires": [
-         null,
-         ""
-      ],
-      "Post-code": [
-         null,
-         ""
-      ],
-      "CVC": [
-         null,
-         ""
-      ],
-      "Save card": [
-         null,
-         ""
-      ],
-      "Products sold by %s for Mozilla": [
-         null,
-         ""
-      ],
-      "Pay by Card": [
-         null,
-         ""
-      ],
-      "Confirm your Mobile Number": [
-         null,
-         ""
-      ],
-      "Enter the pin we sent you": [
-         null,
-         ""
-      ],
-      "Didn't receive an SMS?": [
-         null,
-         ""
-      ],
-      "Resend SMS": [
-         null,
-         ""
-      ],
-      "Continue": [
-         null,
-         ""
-      ],
-      "United Kingdom": [
-         null,
-         ""
-      ],
-      "Not your country?": [
-         null,
-         ""
-      ],
-      "Change": [
-         null,
-         ""
-      ],
-      "United States": [
-         null,
-         ""
-      ],
-      "Spain": [
-         null,
-         ""
-      ],
-      "Select your mobile network": [
-         null,
-         ""
-      ],
-      "Enter your mobile number": [
-         null,
-         ""
-      ]
-   }
-}
+  "messages": {
+   "": {
+      "project-id-version": "PACKAGE VERSION",
+      "pot-creation-date": "2014-02-04 17:56+0000",
+      "po-revision-date": "2014-02-19 04:25+0000",
+      "last-translator": "Gábor <kelemeng@gnome.hu>",
+      "language-team": "none",
+      "language": "hu",
+      "mime-version": "1.0",
+      "content-type": "text/plain; charset=UTF-8",
+      "content-transfer-encoding": "8bit",
+      "plural-forms": "nplurals=2; plural=(n !=1);",
+      "x-generator": "Pootle 2.5.0",
+      "x-pootle-mtime": "1392783921.0"
+   },
+   "Cancel": [
+      null,
+      "Mégsem"
+   ],
+   "Buy": [
+      null,
+      "Vásárlás"
+   ],
+   "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
+      null,
+      "Üzenet-­ és adatdíjak érvényesülhetnek. <a %s>Felhasználási feltételek</a>"
+   ],
+   "Total": [
+      null,
+      "Összesen"
+   ],
+   "Includes taxes": [
+      null,
+      "Adótartalom"
+   ],
+   "Confirm Payment": [
+      null,
+      "Vásárlás jóváhagyása"
+   ],
+   "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
+      null,
+      "Az összeg %(carrier)s egyenlegéből kerül levonásra, vagy <a %(link)s>fizethet bankkártyával is</a>"
+   ],
+   "Credit Card Number": [
+      null,
+      "Bankkártya száma"
+   ],
+   "Card Number": [
+      null,
+      "Kártyaszám"
+   ],
+   "Expires": [
+      null,
+      "Lejárat"
+   ],
+   "Post-code": [
+      null,
+      "Irányítószám"
+   ],
+   "CVC": [
+      null,
+      "CVC"
+   ],
+   "Save card": [
+      null,
+      "Kártya mentése"
+   ],
+   "Products sold by %s for Mozilla": [
+      null,
+      "A %s által a Mozillának eladott termékek"
+   ],
+   "Pay by Card": [
+      null,
+      "Fizetés kártyával"
+   ],
+   "Confirm your Mobile Number": [
+      null,
+      "Erősítse meg mobilszámát"
+   ],
+   "Enter the pin we sent you": [
+      null,
+      "Írja be a kapott PIN-t"
+   ],
+   "Didn't receive an SMS?": [
+      null,
+      "Nem kapott SMS-t?"
+   ],
+   "Resend SMS": [
+      null,
+      "SMS újraküldése"
+   ],
+   "Continue": [
+      null,
+      "Folytatás"
+   ],
+   "United Kingdom": [
+      null,
+      "Egyesült Királyság"
+   ],
+   "Not your country?": [
+      null,
+      "Nem megfelelő ország?"
+   ],
+   "Change": [
+      null,
+      "Váltás"
+   ],
+   "United States": [
+      null,
+      "Egyesült Államok"
+   ],
+   "Spain": [
+      null,
+      "Spanyolország"
+   ],
+   "Select your mobile network": [
+      null,
+      "Válassza ki a mobilhálózatát"
+   ],
+   "Enter your mobile number": [
+      null,
+      "Írja be mobilszámát"
+   ]
+}}

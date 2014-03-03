@@ -43,11 +43,11 @@ msgstr "Potvrdenie platby"
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
 msgid ""
-"The amount will be charged to your T-mobile account, or <a %s>pay using your "
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your "
 "credit card</a>"
 msgstr ""
-"Čiastka bude zaúčtovaná na vašom účte T-mobile, prípadne môžete <a %"
-"s>zaplatiť použitím platobnej karty</a>"
+"Čiastka bude zaúčtovaná na vašom účte %(carrier)s, prípadne môžete <a %(link)s"
+">zaplatiť použitím platobnej karty</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"

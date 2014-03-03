@@ -45,8 +45,8 @@ msgstr "Ripohoni Pagesën"
 
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
-msgid "The amount will be charged to your T-mobile account, or <a %s>pay using your credit card</a>"
-msgstr "Vlera e pagesës do të shtohet te llogaria juaj T-mobile, ose <a %s>paguani duke përdorur kartën tuaj të kreditit</a>"
+msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
+msgstr "Vlera e pagesës do të shtohet te llogaria juaj %(carrier)s, ose <a %(link)s>paguani duke përdorur kartën tuaj të kreditit</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"

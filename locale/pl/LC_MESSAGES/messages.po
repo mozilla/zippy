@@ -42,7 +42,7 @@ msgstr ""
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
 msgid ""
-"The amount will be charged to your T-mobile account, or <a %s>pay using your "
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your "
 "credit card</a>"
 msgstr ""
 

@@ -24,7 +24,7 @@ exports.compile = {
     test.done();
   },
   testUS: function(test) {
-    test.expect(5);
+    test.expect(6);
     var jsFile = 'tests/tmp/json/en_US/messages.js';
     var jsonFile = 'tests/tmp/json/en_US/messages.json';
     var moFile = 'tests/tmp/en_US/LC_MESSAGES/messages.mo';
@@ -33,6 +33,7 @@ exports.compile = {
     test.ok(grunt.file.exists(moFile));
     test.ok(utils.contains('updated1', grunt.file.read(jsFile)));
     test.ok(utils.contains('updated1', grunt.file.read(jsonFile)));
+    test.ok(utils.isJSON(grunt.file.read(jsonFile)));
     test.done();
   },
   testNoJS: function(test) {
@@ -61,10 +62,10 @@ exports.compile = {
     test.ok(grunt.file.exists(jsFile));
     test.ok(grunt.file.exists(jsonFile));
     var jsFileContent = grunt.file.read(jsFile);
-    test.ok(utils.contains('"messages":{', jsFileContent));
+    test.ok(utils.contains('"messages": {', jsFileContent));
     test.ok(utils.contains('window.whatever', jsFileContent));
-    test.ok(utils.contains('"lang":"en-US"', jsFileContent));
-    test.ok(utils.contains('"locale":"en_US"', jsFileContent));
+    test.ok(utils.contains('"lang": "en-US"', jsFileContent));
+    test.ok(utils.contains('"locale": "en_US"', jsFileContent));
     test.done();
   },
   testFR: function(test) {

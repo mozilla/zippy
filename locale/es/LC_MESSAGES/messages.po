@@ -45,10 +45,10 @@ msgstr "Confirmar pago"
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
 msgid ""
-"The amount will be charged to your T-mobile account, or <a %s>pay using your "
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your "
 "credit card</a>"
 msgstr ""
-"El importe se cargará a tu cuenta de T-Mobile, o <a %s>se pagará con tu "
+"El importe se cargará a tu cuenta de %(carrier)s, o <a %(link)s>se pagará con tu "
 "tarjeta de crédito</a>"
 
 #: templates/payments/credit-card.html:14

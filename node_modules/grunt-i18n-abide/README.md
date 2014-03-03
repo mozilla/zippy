@@ -282,6 +282,8 @@ Bear in mind this code only wraps `jsxgettext` and standard `gettext` tools. If 
 
 ## Release History
 
+* 0.0.9:
+    * Use pretty json for readability.
 * 0.0.8:
     * Provide configuration for jsVar in js output.
     * Output lang/locale for js output.

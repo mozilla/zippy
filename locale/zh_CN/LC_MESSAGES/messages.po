@@ -43,9 +43,9 @@ msgstr "确认支付"
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
 msgid ""
-"The amount will be charged to your T-mobile account, or <a %s>pay using your "
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your "
 "credit card</a>"
-msgstr "金额将会直接计入您的 T-mobile 账户，或者<a %s>用您的信用卡支付</a>"
+msgstr "金额将会直接计入您的 %(carrier)s 账户，或者<a %(link)s>用您的信用卡支付</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"

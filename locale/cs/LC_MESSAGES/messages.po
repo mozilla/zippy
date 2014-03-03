@@ -43,10 +43,10 @@ msgstr "Potvrzení platby"
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
 msgid ""
-"The amount will be charged to your T-mobile account, or <a %s>pay using your "
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your "
 "credit card</a>"
 msgstr ""
-"Částka bude účtována vašemu účtu u T-Mobile nebo <a %s>realizována platbou "
+"Částka bude účtována vašemu účtu u %(carrier)s nebo <a %(link)s>realizována platbou "
 "kreditní kartou</a>"
 
 #: templates/payments/credit-card.html:14

@@ -26,8 +26,8 @@ msgstr "Acquista"
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
 msgstr ""
-"Potrebbero essere applicate tariffe per messaggi e traffico dati – <a %"
-"s>Termini e condizioni</a>"
+"Potrebbero essere applicate tariffe per messaggi e traffico dati – <a %s"
+">Termini e condizioni</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7
 msgid "Total"
@@ -45,11 +45,11 @@ msgstr "Conferma pagamento"
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
 msgid ""
-"The amount will be charged to your T-mobile account, or <a %s>pay using your "
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your "
 "credit card</a>"
 msgstr ""
-"L’importo verrà addebitato sul tuo account T-mobile, in alternativa puoi <a "
-"%s>pagare con carta di credito</a>"
+"L’importo verrà addebitato sul tuo account %(carrier)s, in alternativa puoi "
+"<a %(link)s>pagare con carta di credito</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
