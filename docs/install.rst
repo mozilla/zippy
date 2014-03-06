@@ -37,27 +37,17 @@ Create a local config file and fill in some values like ``signatureKeys``::
 
 To start a development server type this::
 
-    grunt server
+    grunt start
 
 You can then browse the site at http://0.0.0.0:8080 (use the ``--noauth`` option
 in case you don't want to pass OAuth headers at each request).
 
 If you want to change the port run::
 
-    grunt server --port=9999
+    grunt start --port=9999
 
-If you're developing then you'll probably also want grunt to look after re-building css
-and linting js as you go.
-To do that run::
 
-    grunt start
-
-.. note::
-
-    This just wraps up `grunt server watch` in a single convenient command and runs stylus so
-    that if you don't have the css already generated it gets built for you.
-
-This will run both the local server and watch for changes. At the moment this auto runs:
+`grunt start` runs both the local server and watchs for changes. At the moment this auto runs:
 
  * stylus
  * jshint
