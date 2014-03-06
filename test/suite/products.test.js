@@ -323,6 +323,7 @@ exports.listAllProducts = function(t) {
   makeTwoProducts(t, ['one', 'two'])
     .then(function() {
       var extIds = [];
+      var sellerIds = [];
       client
         .get()
         .expect(200)
@@ -331,10 +332,12 @@ exports.listAllProducts = function(t) {
           res.body.forEach(function(ob) {
             /*jshint camelcase: false */
             extIds.push(ob.external_id);
+            sellerIds.push(ob.seller_id);
           });
           extIds.sort();
           t.equal(extIds[0], 'one');
           t.equal(extIds[1], 'two');
+          t.equal(sellerIds[0], sellerIds[1]);
           t.done();
         });
     })
@@ -405,6 +408,29 @@ exports.filterByWrongSeller = function(t) {
         .expect(404)
         .end(function(err) {
           t.ifError(err);
+          t.done();
+        });
+    })
+    .fail(function(err) {
+      t.ifError(err);
+      t.done();
+    });
+};
+
+
+exports.filterByWrongExtenalId = function(t) {
+  makeTwoSellers(t, ['one', 'two'])
+    .then(function(sellersResult) {
+      client
+        .get({
+          /*jshint camelcase: false */
+          seller_id: sellersResult[0].resource_pk,
+          external_id: 'three',
+        })
+        .expect(200)
+        .end(function(err, res) {
+          t.ifError(err);
+          t.equal(res.body.length, 0);
           t.done();
         });
     })
