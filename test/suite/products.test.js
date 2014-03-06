@@ -372,27 +372,43 @@ exports.filterProductsByExtId = function(t) {
 
 
 exports.filterProductsBySeller = function(t) {
-  makeTwoSellers(t, ['one', 'two'])
-    .then(function(sellersResult) {
-      client
-        .get({
+  // Make two products with the same ext ID for two sellers.
+  var extId = 'ext_id';
+
+  helpers.withSeller({}, function(seller1) {
+    helpers.withProduct({
+      /*jshint camelcase: false */
+      seller_id: seller1.uuid,
+      external_id: extId,
+      name: 'x',
+    }, function(/*product1*/) {
+      helpers.withSeller({}, function(seller2) {
+        helpers.withProduct({
           /*jshint camelcase: false */
-          external_id: 'one',
-          seller_id: sellersResult[0].resource_pk,
-        })
-        .expect(200)
-        .end(function(err, res) {
-          t.ifError(err);
-          t.equal(res.body.length, 1);
-          t.equal(res.body[0].external_id, 'one');
-          t.equal(res.body[0].seller_id, sellersResult[0].uuid);
-          t.done();
+          seller_id: seller2.uuid,
+          external_id: extId,
+          name: 'x',
+        }, function(/*product2*/) {
+
+          client
+            .get({
+              /*jshint camelcase: false */
+              external_id: extId,
+              seller_id: seller1.uuid,
+            })
+            .expect(200)
+            .end(function(err, res) {
+              t.ifError(err);
+              t.equal(res.body.length, 1);
+              t.equal(res.body[0].external_id, 'ext_id');
+              t.equal(res.body[0].seller_id, seller1.uuid);
+              t.done();
+            });
+
         });
-    })
-    .fail(function(err) {
-      t.ifError(err);
-      t.done();
+      });
     });
+  });
 };
 
 
