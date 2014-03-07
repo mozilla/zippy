@@ -3,123 +3,123 @@
    "": {
       "project-id-version": "PACKAGE VERSION",
       "pot-creation-date": "2014-02-04 17:56+0000",
-      "po-revision-date": "2014-02-06 10:46+0000",
-      "last-translator": "Matjaž <m@owca.info>",
+      "po-revision-date": "2014-02-13 12:11+0000",
+      "last-translator": "Aleksandra <auzelac91@gmail.com>",
       "language-team": "none",
-      "language": "sr_LATN",
+      "language": "sr",
       "mime-version": "1.0",
       "content-type": "text/plain; charset=UTF-8",
       "content-transfer-encoding": "8bit",
       "plural-forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);",
       "x-generator": "Pootle 2.5.0",
-      "x-pootle-mtime": "1391683617.0"
+      "x-pootle-mtime": "1392293481.0"
    },
    "Cancel": [
       null,
-      ""
+      "Otkaži"
    ],
    "Buy": [
       null,
-      ""
+      "Kupi"
    ],
    "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
       null,
-      ""
+      "Cene poruka i mobilnih podataka se mogu primeniti na <a %s>Uslovi korišćenja</a>"
    ],
    "Total": [
       null,
-      ""
+      "Ukupno"
    ],
    "Includes taxes": [
       null,
-      ""
+      "Uključuje poreze"
    ],
    "Confirm Payment": [
       null,
-      ""
+      "Potvrdi uplatu"
    ],
    "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
       null,
-      ""
+      "Iznos će biti naplaćen na Vašem T-mobile nalogu, ili <a %s>platite koristeći kreditnu karticu</a>"
    ],
    "Credit Card Number": [
       null,
-      ""
+      "Broj kreditne kartice"
    ],
    "Card Number": [
       null,
-      ""
+      "Broj kartice"
    ],
    "Expires": [
       null,
-      ""
+      "Ističe"
    ],
    "Post-code": [
       null,
-      ""
+      "Poštanski broj"
    ],
    "CVC": [
       null,
-      ""
+      "Kartica za potvrdu koda"
    ],
    "Save card": [
       null,
-      ""
+      "Sačuvajte karticu"
    ],
    "Products sold by %s for Mozilla": [
       null,
-      ""
+      "Proizvodi prodati od strane %s za Mozilla-u"
    ],
    "Pay by Card": [
       null,
-      ""
+      "Platite karticom"
    ],
    "Confirm your Mobile Number": [
       null,
-      ""
+      "Potvrdite Vaš broj mobilnog"
    ],
    "Enter the pin we sent you": [
       null,
-      ""
+      "Unesite pin koji smo Vam poslali"
    ],
    "Didn't receive an SMS?": [
       null,
-      ""
+      "Niste primili SMS?"
    ],
    "Resend SMS": [
       null,
-      ""
+      "Ponovo pošalji SMS"
    ],
    "Continue": [
       null,
-      ""
+      "Nastavi"
    ],
    "United Kingdom": [
       null,
-      ""
+      "Ujedinjeno Kraljevstvo"
    ],
    "Not your country?": [
       null,
-      ""
+      "Nije Vaša država?"
    ],
    "Change": [
       null,
-      ""
+      "Promeni"
    ],
    "United States": [
       null,
-      ""
+      "Sjedinjene Američke Države"
    ],
    "Spain": [
       null,
-      ""
+      "Španija"
    ],
    "Select your mobile network": [
       null,
-      ""
+      "Odaberite Vašu mobilnu mrežu"
    ],
    "Enter your mobile number": [
       null,
-      ""
+      "Unesite Vaš broj mobilnog telefona"
    ]
 }}

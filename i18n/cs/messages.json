@@ -3,7 +3,7 @@
    "": {
       "project-id-version": "PACKAGE VERSION",
       "pot-creation-date": "2014-02-04 17:56+0000",
-      "po-revision-date": "2014-02-16 17:47+0000",
+      "po-revision-date": "2014-03-04 08:30+0000",
       "last-translator": "Pavel <jasnapaka@jasnapaka.com>",
       "language-team": "none",
       "language": "cs",
@@ -12,7 +12,7 @@
       "content-transfer-encoding": "8bit",
       "plural-forms": "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;",
       "x-generator": "Pootle 2.5.0",
-      "x-pootle-mtime": "1392572847.0"
+      "x-pootle-mtime": "1393921821.0"
    },
    "Cancel": [
       null,
@@ -24,7 +24,7 @@
    ],
    "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
       null,
-      ""
+      "Na zprávy a data se mohou vztahovat <a %s>Všeobecné obchodní podmínky</a>"
    ],
    "Total": [
       null,
