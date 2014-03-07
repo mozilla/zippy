@@ -174,6 +174,10 @@ module.exports = function(grunt) {
     grunt.task.run('casper:runtests');
   });
 
+  grunt.registerTask('server', 'Deprecated start up', function() {
+    grunt.fail.fatal('There is no "server" command use grunt start instead');
+  });
+
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-casper');
   grunt.loadNpmTasks('grunt-concurrent');
@@ -188,7 +192,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('docs', ['shell:docs']);
   grunt.registerTask('start', ['stylus', 'concurrent:dev']);
-  grunt.registerTask('server', ['nodemon:server']);
   grunt.registerTask('test', ['jshint', 'runtests']);
   grunt.registerTask('uitest', ['stylus', 'clean:uitest', 'runuitests']);
 };
