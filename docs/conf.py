@@ -249,7 +249,7 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
-import mdn_theme
+# import mdn_theme
 
-html_theme_path = [mdn_theme.get_theme_dir()]
-html_theme = 'mdn'
+# html_theme_path = [mdn_theme.get_theme_dir()]
+# html_theme = 'mdn'
