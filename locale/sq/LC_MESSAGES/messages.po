@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-04 17:56+0000\n"
+"POT-Creation-Date: 2014-04-09 16:19+0000\n"
 "PO-Revision-Date: 2014-02-10 15:32+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -10,15 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/payments/_buttons.html:2
-#: templates/payments/_buttons.html:3
-#: templates/payments/confirm-sms-pin.html:15
-#: templates/payments/mt-auth.html:37
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
 msgstr "Anuloje"
 
-#: templates/payments/_buttons.html:3
-#: templates/payments/_buttons.html:4
+#: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
 msgid "Buy"
 msgstr "Blijeni"
 
@@ -26,25 +22,19 @@ msgstr "Blijeni"
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
 msgstr "Mund të Jenë Objekt Çmimesh Për Mesazhe dhe të Dhëna <a %s>Terma &amp; Kushte</a>"
 
-#: templates/payments/_product.html:11
-#: templates/payments/_product.html:7
+#: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
 msgstr "Githsej"
 
-#: templates/payments/_product.html:12
-#: templates/payments/_product.html:8
+#: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr "Përfshi taksat"
 
-#: templates/payments/confirm.html:4
-#: templates/payments/credit-card.html:4
-#: lib/payments.js:15
-#: templates/payments/confirm-payment.html:4
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
 msgstr "Ripohoni Pagesën"
 
-#: templates/payments/confirm.html:12
-#: templates/payments/confirm-payment.html:12
+#: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
 msgstr "Vlera e pagesës do të shtohet te llogaria juaj %(carrier)s, ose <a %(link)s>paguani duke përdorur kartën tuaj të kreditit</a>"
 
@@ -60,8 +50,7 @@ msgstr "Numër Karte"
 msgid "Expires"
 msgstr "Skadon më"
 
-#: templates/payments/credit-card.html:28
-#: templates/payments/credit-card.html:29
+#: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
 msgid "Post-code"
 msgstr "Kod postar"
 
@@ -81,10 +70,7 @@ msgstr "Produkte të shitur nga %s për Mozilla-n"
 msgid "Pay by Card"
 msgstr "Paguani me Kartë krediti"
 
-#: lib/payments.js:31
-#: lib/payments.js:39
-#: templates/payments/confirm-sms-pin.html:4
-#: templates/payments/mt-auth.html:4
+#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
 msgstr "Ripohoni Numrin e Celularit tuaj"
 
@@ -100,45 +86,34 @@ msgstr "Nuk morët SMS?"
 msgid "Resend SMS"
 msgstr "Ridërgo SMS-në"
 
-#: templates/payments/confirm-sms-pin.html:16
-#: templates/payments/mt-auth.html:38
+#: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
 msgid "Continue"
 msgstr "Vazhdoni"
 
-#: templates/payments/mt-auth.html:9
-#: templates/payments/mt-auth.html:16
-#: templates/payments/mt-auth.html:19
-#: templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
 msgstr "Mbretëria e Bashkuar"
 
-#: templates/payments/mt-auth.html:10
-#: templates/payments/mt-auth.html:20
+#: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
 msgstr "Nuk është vendi juaj?"
 
-#: templates/payments/mt-auth.html:13
-#: templates/payments/mt-auth.html:23
+#: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
 msgstr "Ndryshoje"
 
-#: templates/payments/mt-auth.html:15
-#: templates/payments/mt-auth.html:25
+#: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
 msgstr "Shtetet e Bashkuara"
 
-#: templates/payments/mt-auth.html:17
-#: templates/payments/mt-auth.html:27
+#: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
 msgstr "Spanjë"
 
-#: templates/payments/mt-auth.html:22
-#: templates/payments/mt-auth.html:10
+#: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
 msgstr "Përzgjidhni rrjetin e celularit tuaj"
 
-#: templates/payments/mt-auth.html:29
-#: templates/payments/mt-auth.html:7
+#: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
 msgstr "Jepni numrin e celularit tuaj"
-

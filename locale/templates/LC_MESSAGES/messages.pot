@@ -6,7 +6,7 @@ msgstr ""
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2014-02-04 17:56+0000\n"
+"POT-Creation-Date: 2014-04-09 16:19+0000\n"
 "Content-Type: text/plain; charset=utf-8\n"
 
 #: templates/payments/_buttons.html:2
@@ -27,11 +27,13 @@ msgstr ""
 
 #: templates/payments/_product.html:11
 #: templates/payments/_product.html:7
+#: templates/payments/_product.html:12
 msgid "Total"
 msgstr ""
 
 #: templates/payments/_product.html:12
 #: templates/payments/_product.html:8
+#: templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr ""
 
@@ -44,9 +46,10 @@ msgstr ""
 
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
+#: templates/payments/confirm-payment.html:13
 msgid ""
-"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using "
-"your credit card</a>"
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
+"using your credit card</a>"
 msgstr ""
 
 #: templates/payments/credit-card.html:14

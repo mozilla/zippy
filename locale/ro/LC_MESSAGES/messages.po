@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-04 17:56+0000\n"
+"POT-Creation-Date: 2014-04-09 16:19+0000\n"
 "PO-Revision-Date: 2014-03-31 19:49+0000\n"
 "Last-Translator: Raul <raul.malea@gmail.com>\n"
 "Language-Team: none\n"
@@ -9,14 +9,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);;\n"
 "X-Generator: Pootle 2.5.0\n"
 "X-POOTLE-MTIME: 1396295391.0\n"
 
-#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
-#: templates/payments/confirm-sms-pin.html:15
-#: templates/payments/mt-auth.html:37
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
 msgstr "Anulează"
 
@@ -28,27 +25,21 @@ msgstr "Cumpără"
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
 msgstr "Mesajele și datele se supun <a %s>Termenilor și condițiilor</a>"
 
-#: templates/payments/_product.html:11 templates/payments/_product.html:7
+#: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
 msgstr "Total"
 
-#: templates/payments/_product.html:12 templates/payments/_product.html:8
+#: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr "Include taxele"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
-#: lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
 msgstr "Confirmă plata"
 
-#: templates/payments/confirm.html:12
-#: templates/payments/confirm-payment.html:12
-msgid ""
-"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your "
-"credit card</a>"
-msgstr ""
-"Suma va fi încasată prin contul %(carrier)s sau <a %(link)s>plătită folosind "
-"cardul de credit</a>"
+#: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
+msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
+msgstr "Suma va fi încasată prin contul %(carrier)s sau <a %(link)s>plătită folosind cardul de credit</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -62,8 +53,7 @@ msgstr "Număr card"
 msgid "Expires"
 msgstr "Data expirării"
 
-#: templates/payments/credit-card.html:28
-#: templates/payments/credit-card.html:29
+#: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
 msgid "Post-code"
 msgstr "Cod poștal"
 
@@ -83,8 +73,7 @@ msgstr "Produse vândute de %s pentru Mozilla"
 msgid "Pay by Card"
 msgstr "Cumpără cu cardul"
 
-#: lib/payments.js:31 lib/payments.js:39
-#: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
 msgstr "Confirmă numărul de telefon mobil"
 
@@ -100,13 +89,11 @@ msgstr "Nu ați recepționat niciun SMS?"
 msgid "Resend SMS"
 msgstr "Retrimite SMS"
 
-#: templates/payments/confirm-sms-pin.html:16
-#: templates/payments/mt-auth.html:38
+#: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
 msgid "Continue"
 msgstr "Continuă"
 
-#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
-#: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
 msgstr "Marea Britanie"
 

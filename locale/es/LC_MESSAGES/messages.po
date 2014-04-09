@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-04 17:56+0000\n"
+"POT-Creation-Date: 2014-04-09 16:19+0000\n"
 "PO-Revision-Date: 2014-02-19 17:56+0000\n"
 "Last-Translator: Paco <pacommozilla@gmail.com>\n"
 "Language-Team: none\n"
@@ -13,9 +13,7 @@ msgstr ""
 "X-Generator: Pootle 2.5.0\n"
 "X-POOTLE-MTIME: 1392832605.0\n"
 
-#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
-#: templates/payments/confirm-sms-pin.html:15
-#: templates/payments/mt-auth.html:37
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -25,31 +23,23 @@ msgstr "Comprar"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"Se pueden aplicar tarifas de mensajes y datos. <a %s>Términos y "
-"Condiciones</a>"
+msgstr "Se pueden aplicar tarifas de mensajes y datos. <a %s>Términos y Condiciones</a>"
 
-#: templates/payments/_product.html:11 templates/payments/_product.html:7
+#: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
 msgstr "Total"
 
-#: templates/payments/_product.html:12 templates/payments/_product.html:8
+#: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr "Impuestos incluidos"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
-#: lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
 msgstr "Confirmar pago"
 
-#: templates/payments/confirm.html:12
-#: templates/payments/confirm-payment.html:12
-msgid ""
-"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your "
-"credit card</a>"
-msgstr ""
-"El importe se cargará a tu cuenta de %(carrier)s, o <a %(link)s>se pagará con tu "
-"tarjeta de crédito</a>"
+#: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
+msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
+msgstr "El importe se cargará a tu cuenta de %(carrier)s, o <a %(link)s>se pagará con tu tarjeta de crédito</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -63,8 +53,7 @@ msgstr "Número de tarjeta"
 msgid "Expires"
 msgstr "Caduca"
 
-#: templates/payments/credit-card.html:28
-#: templates/payments/credit-card.html:29
+#: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
 msgid "Post-code"
 msgstr "Código postal"
 
@@ -84,8 +73,7 @@ msgstr "Productos vendidos por %s para Mozilla"
 msgid "Pay by Card"
 msgstr "Pagar con tarjeta"
 
-#: lib/payments.js:31 lib/payments.js:39
-#: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
 msgstr "Confirma tu número de móvil"
 
@@ -101,13 +89,11 @@ msgstr "¿No recibiste ningún SMS?"
 msgid "Resend SMS"
 msgstr "Reenviar SMS"
 
-#: templates/payments/confirm-sms-pin.html:16
-#: templates/payments/mt-auth.html:38
+#: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
 msgid "Continue"
 msgstr "Continuar"
 
-#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
-#: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
 msgstr "Reino Unido"
 

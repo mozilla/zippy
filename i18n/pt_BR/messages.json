@@ -2,122 +2,124 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "pot-creation-date": "2014-02-04 17:56+0000",
-      "po-revision-date": "2014-01-31 00:49+0000",
-      "last-translator": "Automatically generated",
+      "pot-creation-date": "2014-04-09 16:19+0000",
+      "po-revision-date": "2014-03-26 19:03+0000",
+      "last-translator": "Marcelo <mlcaraldi@gmail.com>",
       "language-team": "none",
       "language": "pt_BR",
       "mime-version": "1.0",
       "content-type": "text/plain; charset=UTF-8",
       "content-transfer-encoding": "8bit",
-      "plural-forms": "nplurals=2; plural=(n > 1);"
+      "plural-forms": "nplurals=2; plural=(n > 1);",
+      "x-generator": "Pootle 2.5.0",
+      "x-pootle-mtime": "1395860590.0"
    },
    "Cancel": [
       null,
-      ""
+      "Cancelar"
    ],
    "Buy": [
       null,
-      ""
+      "Comprar"
    ],
    "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
       null,
-      ""
+      "Taxas de dados e nensagens podem ser aplicadas <a %s>Termos e Condições</a>"
    ],
    "Total": [
       null,
-      ""
+      "Total"
    ],
    "Includes taxes": [
       null,
-      ""
+      "inclui impostos"
    ],
    "Confirm Payment": [
       null,
-      ""
+      "Confirmar Pagamento"
    ],
    "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
       null,
-      ""
+      "A quantia será debitada da sua conta %(carrier)s. Você pode optar por <a %(link)s> pagar usando seu cartão de crédito.</a>"
    ],
    "Credit Card Number": [
       null,
-      ""
+      "Número do cartão de crédito"
    ],
    "Card Number": [
       null,
-      ""
+      "Número do cartão"
    ],
    "Expires": [
       null,
-      ""
+      "Expira"
    ],
    "Post-code": [
       null,
-      ""
+      "Código Postal"
    ],
    "CVC": [
       null,
-      ""
+      "CVC"
    ],
    "Save card": [
       null,
-      ""
+      "Salvar cartão"
    ],
    "Products sold by %s for Mozilla": [
       null,
-      ""
+      "Produtos vendidos por %s para a Mozilla"
    ],
    "Pay by Card": [
       null,
-      ""
+      "Pagamento por cartão"
    ],
    "Confirm your Mobile Number": [
       null,
-      ""
+      "Confirme o seu número de celular"
    ],
    "Enter the pin we sent you": [
       null,
-      ""
+      "Digite o pin que lhe enviamos"
    ],
    "Didn't receive an SMS?": [
       null,
-      ""
+      "Não recebeu um SMS?"
    ],
    "Resend SMS": [
       null,
-      ""
+      "Reenviar SMS"
    ],
    "Continue": [
       null,
-      ""
+      "Continuar"
    ],
    "United Kingdom": [
       null,
-      ""
+      "Reino Unido"
    ],
    "Not your country?": [
       null,
-      ""
+      "Não é o seu país?"
    ],
    "Change": [
       null,
-      ""
+      "Trocar"
    ],
    "United States": [
       null,
-      ""
+      "Estados Unidos"
    ],
    "Spain": [
       null,
-      ""
+      "Espanha"
    ],
    "Select your mobile network": [
       null,
-      ""
+      "Selecione a sua rede móvel"
    ],
    "Enter your mobile number": [
       null,
-      ""
+      "Digite o seu número de celular"
    ]
 }}

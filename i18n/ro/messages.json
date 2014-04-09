@@ -2,122 +2,124 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "pot-creation-date": "2014-02-04 17:56+0000",
-      "po-revision-date": "2014-01-31 00:49+0000",
-      "last-translator": "Automatically generated",
+      "pot-creation-date": "2014-04-09 16:19+0000",
+      "po-revision-date": "2014-03-31 19:49+0000",
+      "last-translator": "Raul <raul.malea@gmail.com>",
       "language-team": "none",
       "language": "ro",
       "mime-version": "1.0",
       "content-type": "text/plain; charset=UTF-8",
       "content-transfer-encoding": "8bit",
-      "plural-forms": "nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2;"
+      "plural-forms": "nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);;",
+      "x-generator": "Pootle 2.5.0",
+      "x-pootle-mtime": "1396295391.0"
    },
    "Cancel": [
       null,
-      ""
+      "Anulează"
    ],
    "Buy": [
       null,
-      ""
+      "Cumpără"
    ],
    "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
       null,
-      ""
+      "Mesajele și datele se supun <a %s>Termenilor și condițiilor</a>"
    ],
    "Total": [
       null,
-      ""
+      "Total"
    ],
    "Includes taxes": [
       null,
-      ""
+      "Include taxele"
    ],
    "Confirm Payment": [
       null,
-      ""
+      "Confirmă plata"
    ],
    "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
       null,
-      ""
+      "Suma va fi încasată prin contul %(carrier)s sau <a %(link)s>plătită folosind cardul de credit</a>"
    ],
    "Credit Card Number": [
       null,
-      ""
+      "Număr card credit"
    ],
    "Card Number": [
       null,
-      ""
+      "Număr card"
    ],
    "Expires": [
       null,
-      ""
+      "Data expirării"
    ],
    "Post-code": [
       null,
-      ""
+      "Cod poștal"
    ],
    "CVC": [
       null,
-      ""
+      "CVC"
    ],
    "Save card": [
       null,
-      ""
+      "Salvează card"
    ],
    "Products sold by %s for Mozilla": [
       null,
-      ""
+      "Produse vândute de %s pentru Mozilla"
    ],
    "Pay by Card": [
       null,
-      ""
+      "Cumpără cu cardul"
    ],
    "Confirm your Mobile Number": [
       null,
-      ""
+      "Confirmă numărul de telefon mobil"
    ],
    "Enter the pin we sent you": [
       null,
-      ""
+      "Introduceți pinul trimis de noi"
    ],
    "Didn't receive an SMS?": [
       null,
-      ""
+      "Nu ați recepționat niciun SMS?"
    ],
    "Resend SMS": [
       null,
-      ""
+      "Retrimite SMS"
    ],
    "Continue": [
       null,
-      ""
+      "Continuă"
    ],
    "United Kingdom": [
       null,
-      ""
+      "Marea Britanie"
    ],
    "Not your country?": [
       null,
-      ""
+      "Nu este țara dumneavoastră?"
    ],
    "Change": [
       null,
-      ""
+      "Schimbă"
    ],
    "United States": [
       null,
-      ""
+      "Statele Unite ale Americii"
    ],
    "Spain": [
       null,
-      ""
+      "Spania"
    ],
    "Select your mobile network": [
       null,
-      ""
+      "Selectează rețeaua de telefonie mobilă"
    ],
    "Enter your mobile number": [
       null,
-      ""
+      "Introdu numărul de telefon mobil"
    ]
 }}
