@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-04-09 16:19+0000\n"
-"PO-Revision-Date: 2014-03-22 08:36+0000\n"
+"PO-Revision-Date: 2014-04-18 09:48+0000\n"
 "Last-Translator: Channy <channy@mozilla.or.kr>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1395477365.0\n"
+"X-POOTLE-MTIME: 1397814499.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
@@ -38,9 +38,8 @@ msgid "Confirm Payment"
 msgstr "결제 확인"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
-#, fuzzy
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr "이용 요금은 <a %s>신용 카드 지불</a>을 통해  T-mobile 계정에서 정산함"
+msgstr "통신사 %(carrier)s 계정 및 <a %(link)s>신용카드 결제</a>에서 과금됩니다."
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
