@@ -2,8 +2,8 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "pot-creation-date": "2014-04-09 16:19+0000",
-      "po-revision-date": "2014-03-22 08:36+0000",
+      "pot-creation-date": "2014-04-23 16:29+0000",
+      "po-revision-date": "2014-04-18 09:48+0000",
       "last-translator": "Channy <channy@mozilla.or.kr>",
       "language-team": "none",
       "language": "ko",
@@ -12,7 +12,7 @@
       "content-transfer-encoding": "8bit",
       "plural-forms": "nplurals=1; plural=0;",
       "x-generator": "Pootle 2.5.0",
-      "x-pootle-mtime": "1395477365.0"
+      "x-pootle-mtime": "1397814499.0"
    },
    "Cancel": [
       null,
@@ -37,6 +37,10 @@
    "Confirm Payment": [
       null,
       "결제 확인"
+   ],
+   "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
+      null,
+      "통신사 %(carrier)s 계정 및 <a %(link)s>신용카드 결제</a>에서 과금됩니다."
    ],
    "Credit Card Number": [
       null,

@@ -2,120 +2,120 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "pot-creation-date": "2014-04-09 16:19+0000",
-      "po-revision-date": "YEAR-MO-DA HO:MI+ZONE",
       "language-team": "LANGUAGE <LL@li.org>",
+      "po-revision-date": "YEAR-MO-DA HO:MI+ZONE",
       "language": "",
       "mime-version": "1.0",
-      "content-type": "text/plain; charset=UTF-8",
-      "content-transfer-encoding": "8bit"
+      "content-transfer-encoding": "8bit",
+      "pot-creation-date": "2014-04-23 16:29+0000",
+      "content-type": "text/plain; charset=utf-8"
    },
    "Cancel": [
       null,
-      ""
+      "Ƈȧƞƈḗŀ"
    ],
    "Buy": [
       null,
-      ""
+      "Ɓŭẏ"
    ],
    "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
       null,
-      ""
+      "Ḿşɠ ȧƞḓ Ḓȧŧȧ Řȧŧḗş Ḿȧẏ Ȧƥƥŀẏ <ȧ %s>Ŧḗřḿş &amp; Ƈǿƞḓīŧīǿƞş</a>"
    ],
    "Total": [
       null,
-      ""
+      "Ŧǿŧȧŀ"
    ],
    "Includes taxes": [
       null,
-      ""
+      "Īƞƈŀŭḓḗş ŧȧẋḗş"
    ],
    "Confirm Payment": [
       null,
-      ""
+      "Ƈǿƞƒīřḿ Ƥȧẏḿḗƞŧ"
    ],
    "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
       null,
-      ""
+      "Ŧħḗ ȧḿǿŭƞŧ ẇīŀŀ ƀḗ ƈħȧřɠḗḓ ŧǿ ẏǿŭř %(carrier)s ȧƈƈǿŭƞŧ, ǿř <ȧ %(link)s>ƥȧẏ ŭşīƞɠ ẏǿŭř ƈřḗḓīŧ ƈȧřḓ</a>"
    ],
    "Credit Card Number": [
       null,
-      ""
+      "Ƈřḗḓīŧ Ƈȧřḓ Ƞŭḿƀḗř"
    ],
    "Card Number": [
       null,
-      ""
+      "Ƈȧřḓ Ƞŭḿƀḗř"
    ],
    "Expires": [
       null,
-      ""
+      "Ḗẋƥīřḗş"
    ],
    "Post-code": [
       null,
-      ""
+      "Ƥǿşŧ-ƈǿḓḗ"
    ],
    "CVC": [
       null,
-      ""
+      "ƇṼƇ"
    ],
    "Save card": [
       null,
-      ""
+      "Şȧṽḗ ƈȧřḓ"
    ],
    "Products sold by %s for Mozilla": [
       null,
-      ""
+      "Ƥřǿḓŭƈŧş şǿŀḓ ƀẏ %s ƒǿř Ḿǿzīŀŀȧ"
    ],
    "Pay by Card": [
       null,
-      ""
+      "Ƥȧẏ ƀẏ Ƈȧřḓ"
    ],
    "Confirm your Mobile Number": [
       null,
-      ""
+      "Ƈǿƞƒīřḿ ẏǿŭř Ḿǿƀīŀḗ Ƞŭḿƀḗř"
    ],
    "Enter the pin we sent you": [
       null,
-      ""
+      "Ḗƞŧḗř ŧħḗ ƥīƞ ẇḗ şḗƞŧ ẏǿŭ"
    ],
    "Didn't receive an SMS?": [
       null,
-      ""
+      "Ḓīḓƞ'ŧ řḗƈḗīṽḗ ȧƞ ŞḾŞ?"
    ],
    "Resend SMS": [
       null,
-      ""
+      "Řḗşḗƞḓ ŞḾŞ"
    ],
    "Continue": [
       null,
-      ""
+      "Ƈǿƞŧīƞŭḗ"
    ],
    "United Kingdom": [
       null,
-      ""
+      "Ŭƞīŧḗḓ Ķīƞɠḓǿḿ"
    ],
    "Not your country?": [
       null,
-      ""
+      "Ƞǿŧ ẏǿŭř ƈǿŭƞŧřẏ?"
    ],
    "Change": [
       null,
-      ""
+      "Ƈħȧƞɠḗ"
    ],
    "United States": [
       null,
-      ""
+      "Ŭƞīŧḗḓ Şŧȧŧḗş"
    ],
    "Spain": [
       null,
-      ""
+      "Şƥȧīƞ"
    ],
    "Select your mobile network": [
       null,
-      ""
+      "Şḗŀḗƈŧ ẏǿŭř ḿǿƀīŀḗ ƞḗŧẇǿřķ"
    ],
    "Enter your mobile number": [
       null,
-      ""
+      "Ḗƞŧḗř ẏǿŭř ḿǿƀīŀḗ ƞŭḿƀḗř"
    ]
 }}
