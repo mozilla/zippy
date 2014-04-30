@@ -2,7 +2,7 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "pot-creation-date": "2014-04-23 16:29+0000",
+      "pot-creation-date": "2014-04-30 16:10+0000",
       "po-revision-date": "2014-02-13 12:11+0000",
       "last-translator": "Aleksandra <auzelac91@gmail.com>",
       "language-team": "none",
@@ -40,7 +40,7 @@
    ],
    "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
       null,
-      "Iznos će biti naplaćen na Vašem T-mobile nalogu, ili <a %s>platite koristeći kreditnu karticu</a>"
+      "Iznos će biti naplaćen na Vašem %(carrier)s nalogu, ili <a %(link)s>platite koristeći kreditnu karticu</a>"
    ],
    "Credit Card Number": [
       null,
