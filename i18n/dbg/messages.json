@@ -2,13 +2,13 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "language-team": "LANGUAGE <LL@li.org>",
+      "pot-creation-date": "2014-05-07 16:20+0000",
       "po-revision-date": "YEAR-MO-DA HO:MI+ZONE",
+      "language-team": "LANGUAGE <LL@li.org>",
       "language": "",
       "mime-version": "1.0",
-      "content-transfer-encoding": "8bit",
-      "pot-creation-date": "2014-04-30 16:10+0000",
-      "content-type": "text/plain; charset=utf-8"
+      "content-type": "text/plain; charset=UTF-8",
+      "content-transfer-encoding": "8bit"
    },
    "Cancel": [
       null,

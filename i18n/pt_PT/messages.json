@@ -2,15 +2,16 @@
   "messages": {
    "": {
       "project-id-version": "zippy",
-      "pot-creation-date": "2014-04-30 16:10+0000",
-      "po-revision-date": "2014-05-01 19:25+0000",
+      "pot-creation-date": "2014-05-07 16:20+0000",
+      "po-revision-date": "2014-05-01 19:36+0100",
       "last-translator": "Cláudio Esperança <cesperanc@gmail.com>",
       "language-team": "none",
       "language": "pt",
       "mime-version": "1.0",
       "content-type": "text/plain; charset=UTF-8",
       "content-transfer-encoding": "8bit",
-      "plural-forms": "nplurals=2; plural=(n != 1);"
+      "plural-forms": "nplurals=2; plural=(n != 1);",
+      "x-generator": "Poedit 1.5.4"
    },
    "Cancel": [
       null,
