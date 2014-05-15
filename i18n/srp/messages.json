@@ -2,14 +2,14 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "pot-creation-date": "2014-05-07 16:20+0000",
-      "po-revision-date": "2014-01-31 00:49+0000",
-      "last-translator": "Automatically generated",
       "language-team": "none",
+      "po-revision-date": "2014-05-07 16:20+0000",
       "language": "srp",
       "mime-version": "1.0",
+      "content-transfer-encoding": "8bit",
+      "pot-creation-date": "2014-05-07 16:20+0000",
       "content-type": "text/plain; charset=UTF-8",
-      "content-transfer-encoding": "8bit"
+      "last-translator": "Automatically generated"
    },
    "Cancel": [
       null,
