@@ -1,124 +1,122 @@
 {
   "messages": {
    "": {
-      "project-id-version": "Zippy",
-      "pot-creation-date": "2014-05-07 16:20+0000",
-      "po-revision-date": "2014-05-11 16:41+0100",
-      "last-translator": "Jørgen Rasmussen <joergenr@stofanet.dk>",
-      "language-team": "MozillaDanmark",
-      "language": "da",
+      "project-id-version": "PACKAGE VERSION",
+      "language-team": "none",
+      "po-revision-date": "2014-05-07 16:20+0000",
+      "language": "lij",
       "mime-version": "1.0",
-      "content-type": "text/plain; charset=UTF-8",
       "content-transfer-encoding": "8bit",
-      "plural-forms": "nplurals=2; plural=(n != 1);",
-      "x-generator": "Poedit 1.6.5"
+      "pot-creation-date": "2014-05-07 16:20+0000",
+      "content-type": "text/plain; charset=UTF-8",
+      "last-translator": "Automatically generated"
    },
    "Cancel": [
       null,
-      "Annuller"
+      ""
    ],
    "Buy": [
       null,
-      "Køb"
+      ""
    ],
    "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
       null,
-      "Besked- og dataagifter kan forekomme <a %s>Vilkår &amp; betingelser</a>"
+      ""
    ],
    "Total": [
       null,
-      "I alt"
+      ""
    ],
    "Includes taxes": [
       null,
-      "Inkludere afgifter"
+      ""
    ],
    "Confirm Payment": [
       null,
-      "Bekræft køb"
+      ""
    ],
    "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
       null,
-      "Beløbet vil blive trukket på din %(carrier)s-konto, eller du kan <a %(link)s>betale med dit kreditkort</a>"
+      ""
    ],
    "Credit Card Number": [
       null,
-      "Kreditkortnummer"
+      ""
    ],
    "Card Number": [
       null,
-      "Kortnummer"
+      ""
    ],
    "Expires": [
       null,
-      "Udløber"
+      ""
    ],
    "Post-code": [
       null,
-      "Postnummer"
+      ""
    ],
    "CVC": [
       null,
-      "CVC"
+      ""
    ],
    "Save card": [
       null,
-      "Gem kort"
+      ""
    ],
    "Products sold by %s for Mozilla": [
       null,
-      "Produkter solgt af %s for Mozilla"
+      ""
    ],
    "Pay by Card": [
       null,
-      "Betal med kort"
+      ""
    ],
    "Confirm your Mobile Number": [
       null,
-      "Bekræft dit mobilnummer"
+      ""
    ],
    "Enter the pin we sent you": [
       null,
-      "Indtast pinkoden vi sendte dig"
+      ""
    ],
    "Didn't receive an SMS?": [
       null,
-      "Ikke modtaget en SMS-besked?"
+      ""
    ],
    "Resend SMS": [
       null,
-      "Send SMS-besked igen"
+      ""
    ],
    "Continue": [
       null,
-      "Fortsæt"
+      ""
    ],
    "United Kingdom": [
       null,
-      "Storbritannien"
+      ""
    ],
    "Not your country?": [
       null,
-      "Ikke dit land?"
+      ""
    ],
    "Change": [
       null,
-      "Skift"
+      ""
    ],
    "United States": [
       null,
-      "USA"
+      ""
    ],
    "Spain": [
       null,
-      "Spanien"
+      ""
    ],
    "Select your mobile network": [
       null,
-      "Vælg dit mobilnetværk"
+      ""
    ],
    "Enter your mobile number": [
       null,
-      "Indtast dit mobilnummer"
+      ""
    ]
 }}

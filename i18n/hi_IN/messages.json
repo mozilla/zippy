@@ -1,0 +1,126 @@
+{
+  "messages": {
+   "": {
+      "project-id-version": "PACKAGE VERSION",
+      "report-msgid-bugs-to": "",
+      "pot-creation-date": "2014-05-07 16:20+0000",
+      "po-revision-date": "2014-05-14 14:34+0000",
+      "last-translator": "Umesh <umesh.agarwal1@gmail.com>",
+      "language-team": "LANGUAGE <LL@li.org>",
+      "language": "hi_IN",
+      "mime-version": "1.0",
+      "content-type": "text/plain; charset=UTF-8",
+      "content-transfer-encoding": "8bit",
+      "plural-forms": "nplurals=2; plural=(n != 1);",
+      "x-generator": "Pootle 2.5.0",
+      "x-pootle-mtime": "1400078052.0"
+   },
+   "Cancel": [
+      null,
+      "रद्द करें"
+   ],
+   "Buy": [
+      null,
+      "खरीदें"
+   ],
+   "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
+      null,
+      "संदेश और डाटा दर लागू हो सकते हैं <a %s>नियम &amp; शर्तें</a>"
+   ],
+   "Total": [
+      null,
+      "संपूर्ण"
+   ],
+   "Includes taxes": [
+      null,
+      "करों शामिल"
+   ],
+   "Confirm Payment": [
+      null,
+      "भुगतान की पुष्टि करें"
+   ],
+   "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
+      null,
+      "यह राशि अपने %(carrier)s खाते से वसूला जाएगा, या <a %(link)s>अपने क्रेडिट कार्ड का उपयोग कर कें भुगतान करें</a>"
+   ],
+   "Credit Card Number": [
+      null,
+      "क्रेडिट कार्ड नंबर"
+   ],
+   "Card Number": [
+      null,
+      "कार्ड नंबर"
+   ],
+   "Expires": [
+      null,
+      "समाप्त"
+   ],
+   "Post-code": [
+      null,
+      "पोस्ट-कोड"
+   ],
+   "CVC": [
+      null,
+      "CVC"
+   ],
+   "Save card": [
+      null,
+      "कार्ड सहेजें"
+   ],
+   "Products sold by %s for Mozilla": [
+      null,
+      "मोज़िला के लिए %s द्वारा बेचा उत्पाद"
+   ],
+   "Pay by Card": [
+      null,
+      "कार्ड द्वारा भुगतान"
+   ],
+   "Confirm your Mobile Number": [
+      null,
+      "मोबाइल नंबर की पुष्टि करें"
+   ],
+   "Enter the pin we sent you": [
+      null,
+      "आपको भेजा पिन दर्ज करें"
+   ],
+   "Didn't receive an SMS?": [
+      null,
+      "SMS नहीं मिला?"
+   ],
+   "Resend SMS": [
+      null,
+      "SMS पुन: भेजें"
+   ],
+   "Continue": [
+      null,
+      "जारी रखें"
+   ],
+   "United Kingdom": [
+      null,
+      "यूनाइटेड किंगडम"
+   ],
+   "Not your country?": [
+      null,
+      "आपका देश नहीं है?"
+   ],
+   "Change": [
+      null,
+      "बदलें"
+   ],
+   "United States": [
+      null,
+      "संयुक्त राज्य"
+   ],
+   "Spain": [
+      null,
+      "स्पेन"
+   ],
+   "Select your mobile network": [
+      null,
+      "अपना मोबाइल नेटवर्क चुनें"
+   ],
+   "Enter your mobile number": [
+      null,
+      "अपना मोबाइल नंबर दर्ज करें"
+   ]
+}}
