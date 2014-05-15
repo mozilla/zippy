@@ -10,7 +10,7 @@
     "escape-html": "1.0.1",
     "express": "3.4.8",
     "forms": "0.3.0",
-    "i18n-abide": "0.0.17",
+    "i18n-abide": "0.0.20",
     "node-uuid": "1.4.1",
     "nunjucks": "1.0.1",
     "oauth-client": "0.3.0",
