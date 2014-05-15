@@ -1,5 +1,7 @@
 var fs = require('fs');
 var path = require('path');
+
+var i18n = require('i18n-abide');
 var helpers = require('./lib/helpers');
 
 var runShellSync = helpers.runShellSync;
@@ -30,7 +32,7 @@ module.exports = function (grunt) {
 
     languages.forEach(function(language) {
       // en-US -> en_US
-      var locale = helpers.localeFrom(language);
+      var locale = i18n.localeFrom(language);
 
       // Make the dir for the locale.
       var args = [];

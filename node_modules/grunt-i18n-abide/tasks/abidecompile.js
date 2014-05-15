@@ -1,10 +1,13 @@
 var fs = require('fs');
 var path = require('path');
-var lockFilePath = '/tmp/abideCompile.lock';
-var shell = require('shelljs');
-var helpers = require('./lib/helpers');
 
 var po2json = require('po2json');
+var shell = require('shelljs');
+var i18n = require('i18n-abide');
+
+var helpers = require('./lib/helpers');
+
+var lockFilePath = '/tmp/abideCompile.lock';
 var runShellSync = helpers.runShellSync;
 var checkCommand = helpers.checkCommand;
 
@@ -72,7 +75,7 @@ module.exports = function (grunt) {
         fs.writeFileSync(jsfile, 'window.' + jsVar + ' = {\n');
         fs.writeFileSync(jsfile, '"messages": ' + json + ',\n', { flag: 'a' });
         fs.writeFileSync(jsfile, '"locale": "' + locale + '",\n', { flag: 'a' });
-        fs.writeFileSync(jsfile, '"lang": "' + helpers.languageFrom(locale) + '"\n}', { flag: 'a' });
+        fs.writeFileSync(jsfile, '"lang": "' + i18n.languageFrom(locale) + '"\n}', { flag: 'a' });
       }
     });
 
