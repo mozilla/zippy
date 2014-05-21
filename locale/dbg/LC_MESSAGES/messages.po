@@ -1,19 +1,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-05-07 16:20+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2014-05-21 16:43+0000\n"
+"Content-Type: text/plain; charset=utf-8\n"
 
-#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
+#: templates/payments/_buttons.html:2
+#: templates/payments/_buttons.html:3
+#: templates/payments/confirm-sms-pin.html:15
+#: templates/payments/mt-auth.html:37
 msgid "Cancel"
 msgstr "Ƈȧƞƈḗŀ"
 
-#: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
+#: templates/payments/_buttons.html:3
+#: templates/payments/_buttons.html:4
 msgid "Buy"
 msgstr "Ɓŭẏ"
 
@@ -21,21 +25,34 @@ msgstr "Ɓŭẏ"
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
 msgstr "Ḿşɠ ȧƞḓ Ḓȧŧȧ Řȧŧḗş Ḿȧẏ Ȧƥƥŀẏ <ȧ %s>Ŧḗřḿş &amp; Ƈǿƞḓīŧīǿƞş</a>"
 
-#: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
+#: templates/payments/_product.html:11
+#: templates/payments/_product.html:7
+#: templates/payments/_product.html:12
 msgid "Total"
 msgstr "Ŧǿŧȧŀ"
 
-#: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
+#: templates/payments/_product.html:12
+#: templates/payments/_product.html:8
+#: templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr "Īƞƈŀŭḓḗş ŧȧẋḗş"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: templates/payments/confirm.html:4
+#: templates/payments/credit-card.html:4
+#: lib/payments.js:15
+#: templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
 msgstr "Ƈǿƞƒīřḿ Ƥȧẏḿḗƞŧ"
 
-#: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
-msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr "Ŧħḗ ȧḿǿŭƞŧ ẇīŀŀ ƀḗ ƈħȧřɠḗḓ ŧǿ ẏǿŭř %(carrier)s ȧƈƈǿŭƞŧ, ǿř <ȧ %(link)s>ƥȧẏ ŭşīƞɠ ẏǿŭř ƈřḗḓīŧ ƈȧřḓ</a>"
+#: templates/payments/confirm.html:12
+#: templates/payments/confirm-payment.html:12
+#: templates/payments/confirm-payment.html:13
+msgid ""
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
+"using your credit card</a>"
+msgstr ""
+"Ŧħḗ ȧḿǿŭƞŧ ẇīŀŀ ƀḗ ƈħȧřɠḗḓ ŧǿ ẏǿŭř %(carrier)s ȧƈƈǿŭƞŧ, ǿř <ȧ %(link)s>ƥȧẏ "
+"ŭşīƞɠ ẏǿŭř ƈřḗḓīŧ ƈȧřḓ</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -49,7 +66,8 @@ msgstr "Ƈȧřḓ Ƞŭḿƀḗř"
 msgid "Expires"
 msgstr "Ḗẋƥīřḗş"
 
-#: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
+#: templates/payments/credit-card.html:28
+#: templates/payments/credit-card.html:29
 msgid "Post-code"
 msgstr "Ƥǿşŧ-ƈǿḓḗ"
 
@@ -69,7 +87,10 @@ msgstr "Ƥřǿḓŭƈŧş şǿŀḓ ƀẏ %s ƒǿř Ḿǿzīŀŀȧ"
 msgid "Pay by Card"
 msgstr "Ƥȧẏ ƀẏ Ƈȧřḓ"
 
-#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:31
+#: lib/payments.js:39
+#: templates/payments/confirm-sms-pin.html:4
+#: templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
 msgstr "Ƈǿƞƒīřḿ ẏǿŭř Ḿǿƀīŀḗ Ƞŭḿƀḗř"
 
@@ -85,34 +106,44 @@ msgstr "Ḓīḓƞ'ŧ řḗƈḗīṽḗ ȧƞ ŞḾŞ?"
 msgid "Resend SMS"
 msgstr "Řḗşḗƞḓ ŞḾŞ"
 
-#: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
+#: templates/payments/confirm-sms-pin.html:16
+#: templates/payments/mt-auth.html:38
 msgid "Continue"
 msgstr "Ƈǿƞŧīƞŭḗ"
 
-#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9
+#: templates/payments/mt-auth.html:16
+#: templates/payments/mt-auth.html:19
+#: templates/payments/mt-auth.html:26
 msgid "United Kingdom"
 msgstr "Ŭƞīŧḗḓ Ķīƞɠḓǿḿ"
 
-#: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
+#: templates/payments/mt-auth.html:10
+#: templates/payments/mt-auth.html:20
 msgid "Not your country?"
 msgstr "Ƞǿŧ ẏǿŭř ƈǿŭƞŧřẏ?"
 
-#: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
+#: templates/payments/mt-auth.html:13
+#: templates/payments/mt-auth.html:23
 msgid "Change"
 msgstr "Ƈħȧƞɠḗ"
 
-#: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
+#: templates/payments/mt-auth.html:15
+#: templates/payments/mt-auth.html:25
 msgid "United States"
 msgstr "Ŭƞīŧḗḓ Şŧȧŧḗş"
 
-#: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
+#: templates/payments/mt-auth.html:17
+#: templates/payments/mt-auth.html:27
 msgid "Spain"
 msgstr "Şƥȧīƞ"
 
-#: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
+#: templates/payments/mt-auth.html:22
+#: templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
 msgstr "Şḗŀḗƈŧ ẏǿŭř ḿǿƀīŀḗ ƞḗŧẇǿřķ"
 
-#: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
+#: templates/payments/mt-auth.html:29
+#: templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
 msgstr "Ḗƞŧḗř ẏǿŭř ḿǿƀīŀḗ ƞŭḿƀḗř"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-05-07 16:20+0000\n"
+"POT-Creation-Date: 2014-05-21 16:43+0000\n"
 "PO-Revision-Date: 2014-05-17 17:52+0000\n"
 "Last-Translator: Ibai <ibai@oihanguren.com>\n"
 "Language-Team: none\n"
@@ -39,9 +39,7 @@ msgstr "Berretsi ordainketa"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"Kopurua zure %(carrier)s kontutik kobratuko da, edo <a %(link)s>ordaindu "
-"kreditu-txartela erabilita</a>"
+msgstr "Kopurua zure %(carrier)s kontutik kobratuko da, edo <a %(link)s>ordaindu kreditu-txartela erabilita</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"

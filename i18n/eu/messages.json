@@ -2,121 +2,124 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "pot-creation-date": "2014-05-07 16:20+0000",
-      "po-revision-date": "2014-01-31 00:49+0000",
-      "last-translator": "Automatically generated",
+      "pot-creation-date": "2014-05-21 16:43+0000",
+      "po-revision-date": "2014-05-17 17:52+0000",
+      "last-translator": "Ibai <ibai@oihanguren.com>",
       "language-team": "none",
       "language": "eu",
       "mime-version": "1.0",
       "content-type": "text/plain; charset=UTF-8",
-      "content-transfer-encoding": "8bit"
+      "content-transfer-encoding": "8bit",
+      "plural-forms": "nplurals=2; plural=(n != 1);",
+      "x-generator": "Pootle 2.5.0",
+      "x-pootle-mtime": "1400349179.0"
    },
    "Cancel": [
       null,
-      ""
+      "Utzi"
    ],
    "Buy": [
       null,
-      ""
+      "Erosi"
    ],
    "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
       null,
-      ""
+      "Mezu eta datuen tarifak aplika daitezke <a %s>Baldintzak</a>"
    ],
    "Total": [
       null,
-      ""
+      "Guztira"
    ],
    "Includes taxes": [
       null,
-      ""
+      "Zergak barne"
    ],
    "Confirm Payment": [
       null,
-      ""
+      "Berretsi ordainketa"
    ],
    "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
       null,
-      ""
+      "Kopurua zure %(carrier)s kontutik kobratuko da, edo <a %(link)s>ordaindu kreditu-txartela erabilita</a>"
    ],
    "Credit Card Number": [
       null,
-      ""
+      "Kreditu-txartelaren zenbakia"
    ],
    "Card Number": [
       null,
-      ""
+      "Txartelaren zenbakia"
    ],
    "Expires": [
       null,
-      ""
+      "Iraungitze-data"
    ],
    "Post-code": [
       null,
-      ""
+      "Posta-kodea"
    ],
    "CVC": [
       null,
-      ""
+      "CVC kodea"
    ],
    "Save card": [
       null,
-      ""
+      "Gorde txartela"
    ],
    "Products sold by %s for Mozilla": [
       null,
-      ""
+      "%s(e)k Mozillarentzako saldutako produktuak"
    ],
    "Pay by Card": [
       null,
-      ""
+      "Ordaindu txartelarekin"
    ],
    "Confirm your Mobile Number": [
       null,
-      ""
+      "Berretsi mugikorraren zenbakia"
    ],
    "Enter the pin we sent you": [
       null,
-      ""
+      "Idatzi bidali dizugun PINa"
    ],
    "Didn't receive an SMS?": [
       null,
-      ""
+      "Ez duzu SMSrik jaso?"
    ],
    "Resend SMS": [
       null,
-      ""
+      "Berbidali SMSa"
    ],
    "Continue": [
       null,
-      ""
+      "Jarraitu"
    ],
    "United Kingdom": [
       null,
-      ""
+      "Erresuma Batua"
    ],
    "Not your country?": [
       null,
-      ""
+      "Ez da zure herrialdea?"
    ],
    "Change": [
       null,
-      ""
+      "Aldatu"
    ],
    "United States": [
       null,
-      ""
+      "Amerikako Estatu Batuak"
    ],
    "Spain": [
       null,
-      ""
+      "Espainia"
    ],
    "Select your mobile network": [
       null,
-      ""
+      "Hautatu mugikor-sarea"
    ],
    "Enter your mobile number": [
       null,
-      ""
+      "Idatzi mugikorraren zenbakia"
    ]
 }}
