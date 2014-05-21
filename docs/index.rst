@@ -1,8 +1,9 @@
 Zippy
 ===================================
 
-This is a reference implementation of a payment processor that would hook into a
-`payment provider for navigator.mozPay()`_ such as `WebPay`_.
+This is the Mozilla reference implementation of a payment processor that would
+hook into a `payment provider for navigator.mozPay()`_ such as `WebPay`_.
+
 It shows the API,
 endpoints, and authorization formats a payment processor should implement
 in order to integrate with the `Firefox Marketplace`_ via `WebPay`_
@@ -24,15 +25,48 @@ does not:
 That is all faked out. It's up to the individual payment processor to implement
 that.
 
-**You should not** take zippy and just stick payment processing
-into it. We did not write this with production code in mind, it hasn't gone
-through security or performance checks.
+Do I have to use node?
+----------------------
 
-Are you interested in how *everything* works? Read about the :ref:`flow`.
+**No. You should not take our reference implementation of Zippy and
+use it. This is not production code.**
 
-Here's how Zippy fits into the `Firefox Marketplace`_ infrastructure.
+The point of this is not to provide any code that you should run. Instead it is
+to **demonstrate and document a common API for payment processors**.
 
-.. image:: diagrams/architecture.png
+So how should I use Zippy?
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Play with it, look at the API. Use it as a sample. Then use whatever
+software tools, frameworks and methodologies you use in development and build
+your own version of Zippy. If you build something that has:
+
+* the same API end points
+* uses OAuth for authentication
+* takes the same inputs in the same formats (e.g.: REST over HTTP)
+* responds with the same outputs (e.g.: REST over HTTP)
+* copes with errors in the same way
+
+Then you will have a **zippy compatible** implmentation and all Mozilla has to
+do is change the configuration of the Firefox Marketplace and we'll plug into
+your implementation of the API.
+
+How do I use the templates?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The templates are written in to work with the Mozilla Zippy implementation. That
+likely won't work for other people, you likely have a different HTML templating
+library. We haven't found a good solution for this yet. But Zippy gives you the
+HTML, the CSS, the JS and the localisations. That's a pretty good start.
+
+How do I make this better?
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is an open source project, we welcome any and all feedback. We certainly
+haven't implemented all the APIs that could possibly exist. We don't know all
+the answers. We'd love to work with anyone using Zippy and make this better.
+
+Mailing list: https://lists.mozilla.org/listinfo/dev-marketplace
 
 It is licensed under the Mozilla Public License v2.0 and contributions are more
 than welcome.
@@ -41,7 +75,14 @@ Source: https://github.com/mozilla/zippy/
 
 Bugs: https://bugzilla.mozilla.org/show_bug.cgi?id=905736
 
-Mailing list: https://lists.mozilla.org/listinfo/dev-marketplace
+How it plugs into the Firefox Marketplace?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Are you interested in how *everything* works? Read about the :ref:`flow`.
+
+Here's how Zippy fits into the `Firefox Marketplace`_ infrastructure.
+
+.. image:: diagrams/architecture.png
 
 .. _`payment provider for navigator.mozPay()`: https://wiki.mozilla.org/WebAPI/WebPaymentProvider
 .. _WebPay: https://github.com/mozilla/webpay
