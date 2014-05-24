@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-05-21 16:43+0000\n"
-"PO-Revision-Date: 2014-05-24 13:09+0000\n"
+"PO-Revision-Date: 2014-05-24 13:10+0000\n"
 "Last-Translator: Mihovil <mihovil.stanic@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1400936958.0\n"
+"X-POOTLE-MTIME: 1400937012.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
@@ -41,8 +41,8 @@ msgstr "Potvrdi plaćanje"
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
 msgstr ""
-"Iznos će biti naplaćen na vaš %(carrier) račun ili <a %(link)s>platite vašom "
-"kreditnom karticom</a>"
+"Iznos će biti naplaćen na vaš %(carrier)s račun ili <a %(link)s>platite "
+"vašom kreditnom karticom</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
