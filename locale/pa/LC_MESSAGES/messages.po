@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-28 16:43+0000\n"
-"PO-Revision-Date: 2014-06-20 13:56+0000\n"
+"PO-Revision-Date: 2014-06-20 14:30+0000\n"
 "Last-Translator: Aman <amanpreet.alam@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pa\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1) ;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1403272579.0\n"
+"X-POOTLE-MTIME: 1403274611.0\n"
 
 #: templates/payments/_buttons.html:2
 #: templates/payments/_buttons.html:3
@@ -28,7 +28,7 @@ msgstr "ਖਰੀਦੋ"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
+msgstr "ਸੁਨੇਹਾ ਤੇ ਡਾਟਾ ਖਰਚਾ ਪੈ ਸਕਦਾ ਹੈ <a %s>ਨਿਯਮ ਤੇ ਸ਼ਰਤਾਂ</a>"
 
 #: templates/payments/_product.html:11
 #: templates/payments/_product.html:7
@@ -56,6 +56,8 @@ msgid ""
 "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
 "using your credit card</a>"
 msgstr ""
+"ਰਕਮ ਤੁਹਾਡੇ %(carrier)s ਖਾਤੇ ਤੋਂ ਵਸੂਲੀ ਜਾਵੇਗੀ ਜਾਂ <a %(link)s>ਆਪਣੇ ਕਰੈਡਿਟ "
+"ਕਾਰਡ ਤੋਂ ਭੁਗਤਾਨ ਕਰੋ</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -84,69 +86,69 @@ msgstr "ਕਾਰਡ ਸੰਭਾਲੋ"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "ਉਤਪਾਦ %s ਵਲੋਂ ਮੋਜ਼ੀਲਾ ਰਾਹੀਂ ਵੇਚੇ ਜਾਂਦੇ ਹਨ"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
-msgstr ""
+msgstr "ਕਾਰਡ ਰਾਹੀਂ ਭੁਗਤਾਨ"
 
 #: lib/payments.js:31
 #: lib/payments.js:39
 #: templates/payments/confirm-sms-pin.html:4
 #: templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "ਆਪਣੇ ਮੋਬਾਇਲ ਨੰਬਰ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "ਸਾਡੇ ਵਲੋਂ ਤੁਹਾਨੂੰ ਭੇਜਿਆ ਪਿੰਨ ਦਿਓ"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "SMS ਨਹੀਂ ਮਿਲਿਆ?"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "SMS ਮੁੜ-ਭੇਜੋ"
 
 #: templates/payments/confirm-sms-pin.html:16
 #: templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "ਜਾਰੀ ਰੱਖੋ"
 
 #: templates/payments/mt-auth.html:9
 #: templates/payments/mt-auth.html:16
 #: templates/payments/mt-auth.html:19
 #: templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "ਬਰਤਾਨੀਆ"
 
 #: templates/payments/mt-auth.html:10
 #: templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "ਤੁਹਾਡਾ ਦੇਸ਼ ਨਹੀਂ ਹੈ?"
 
 #: templates/payments/mt-auth.html:13
 #: templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "ਬਦਲੋ"
 
 #: templates/payments/mt-auth.html:15
 #: templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "ਅਮਰੀਕਾ"
 
 #: templates/payments/mt-auth.html:17
 #: templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "ਸਪੇਨ"
 
 #: templates/payments/mt-auth.html:22
 #: templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "ਆਪਣੇ ਮੋਬਾਇਨ ਨੈੱਟਵਰਕ ਚੁਣੋ"
 
 #: templates/payments/mt-auth.html:29
 #: templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "ਆਪਣਾ ਮੋਬਾਇਲ ਨੰਬਰ ਦਿਓ"
