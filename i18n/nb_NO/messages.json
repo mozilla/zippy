@@ -2,122 +2,125 @@
   "messages": {
    "": {
       "project-id-version": "PACKAGE VERSION",
-      "pot-creation-date": "2014-05-28 16:43+0000",
-      "po-revision-date": "2014-05-07 16:20+0000",
-      "last-translator": "Automatically generated",
+      "report-msgid-bugs-to": "",
+      "pot-creation-date": "2014-06-30 16:51+0000",
+      "po-revision-date": "2014-06-20 23:00+0000",
+      "last-translator": "Håvar <havar@firefox.no>",
       "language-team": "none",
-      "language": "nb",
+      "language": "nb_NO",
       "mime-version": "1.0",
       "content-type": "text/plain; charset=UTF-8",
       "content-transfer-encoding": "8bit",
-      "plural-forms": "nplurals=2; plural=(n != 1);"
+      "plural-forms": "nplurals=2; plural=(n != 1);",
+      "x-generator": "Pootle 2.5.0",
+      "x-pootle-mtime": "1403305236.0"
    },
    "Cancel": [
       null,
-      ""
+      "Avbryt"
    ],
    "Buy": [
       null,
-      ""
+      "Kjøp"
    ],
    "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>": [
       null,
-      ""
+      "Data- og meldingsavgifter kan forekomme <a %s>Vilkår og betingelser</a>"
    ],
    "Total": [
       null,
-      ""
+      "Totalt"
    ],
    "Includes taxes": [
       null,
-      ""
+      "Inkluderer skatter og avgifter"
    ],
    "Confirm Payment": [
       null,
-      ""
+      "Bekreft betaling"
    ],
    "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>": [
       null,
-      ""
+      "Beløpet vil bli trukket fra din %(carrier)s-konto, eller du kan <a %(link)s>betale med ditt kredittkort</a>"
    ],
    "Credit Card Number": [
       null,
-      ""
+      "Kredittkortnummer"
    ],
    "Card Number": [
       null,
-      ""
+      "Kortnummer"
    ],
    "Expires": [
       null,
-      ""
+      "Utløper"
    ],
    "Post-code": [
       null,
-      ""
+      "Postnummer"
    ],
    "CVC": [
       null,
-      ""
+      "CVC"
    ],
    "Save card": [
       null,
-      ""
+      "Lagre kort"
    ],
    "Products sold by %s for Mozilla": [
       null,
-      ""
+      "Produkter solgt av %s for Mozilla"
    ],
    "Pay by Card": [
       null,
-      ""
+      "Betal med kort"
    ],
    "Confirm your Mobile Number": [
       null,
-      ""
+      "Bekreft ditt mobilnummer"
    ],
    "Enter the pin we sent you": [
       null,
-      ""
+      "Tast inn PIN-koden vi sendte deg"
    ],
    "Didn't receive an SMS?": [
       null,
-      ""
+      "Ikke mottatt en SMS-melding?"
    ],
    "Resend SMS": [
       null,
-      ""
+      "Send SMS-melding på nytt"
    ],
    "Continue": [
       null,
-      ""
+      "Fortsett"
    ],
    "United Kingdom": [
       null,
-      ""
+      "Storbritannia"
    ],
    "Not your country?": [
       null,
-      ""
+      "Ikke ditt land?"
    ],
    "Change": [
       null,
-      ""
+      "Endre"
    ],
    "United States": [
       null,
-      ""
+      "USA"
    ],
    "Spain": [
       null,
-      ""
+      "Spania"
    ],
    "Select your mobile network": [
       null,
-      ""
+      "Velg ditt mobilnettverk"
    ],
    "Enter your mobile number": [
       null,
-      ""
+      "Tast inn ditt mobilnummer"
    ]
 }}
