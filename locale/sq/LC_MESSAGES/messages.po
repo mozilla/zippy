@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-07-16 16:15+0000\n"
+"POT-Creation-Date: 2014-08-13 16:41+0000\n"
 "PO-Revision-Date: 2014-02-10 15:32+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"

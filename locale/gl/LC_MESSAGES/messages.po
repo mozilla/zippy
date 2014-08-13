@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-07-16 16:15+0000\n"
+"POT-Creation-Date: 2014-08-13 16:41+0000\n"
 "PO-Revision-Date: 2014-07-31 16:41+0000\n"
 "Last-Translator: Enrique <eu@keko.me>\n"
 "Language-Team: none\n"
@@ -23,8 +23,7 @@ msgstr "Comprar"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"Poden aplicarse tarifas de mensaxes e datos. <a %s>Termos e condicións</a>"
+msgstr "Poden aplicarse tarifas de mensaxes e datos. <a %s>Termos e condicións</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
@@ -40,9 +39,7 @@ msgstr "Confirmar pagamento"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"O importe cargarase na súa conta de %(carrier)s, ou <a %(link)s>pagarase coa "
-"súa tarxeta de crédito</a>"
+msgstr "O importe cargarase na súa conta de %(carrier)s, ou <a %(link)s>pagarase coa súa tarxeta de crédito</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
