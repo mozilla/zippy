@@ -178,6 +178,13 @@ module.exports = function(grunt) {
     grunt.fail.fatal('There is no "server" command use grunt start instead');
   });
 
+  // Workaround having node_modules in parent dir for Docker.
+  var cwd;
+  if (process.env.IS_DOCKER) {
+    cwd = process.cwd();
+    process.chdir(__dirname);
+  }
+
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-casper');
   grunt.loadNpmTasks('grunt-concurrent');
@@ -188,6 +195,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-i18n-abide');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-shell');
+
+  if (cwd && process.env.IS_DOCKER) {
+    process.chdir(cwd);
+  }
 
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('docs', ['shell:docs']);

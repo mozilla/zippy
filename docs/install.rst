@@ -8,11 +8,9 @@ Installing Zippy
 ----------------
 
 You need `NodeJS`_ 0.10.5 or greater.
-The Zippy source includes all dependencies but you need
-to build some compiled code for your local architecture.
-Run this to build everything::
+Run this to install the deps::
 
-    npm rebuild
+    npm install
 
 For convenience, you may want to give all local node scripts
 priority on your path, like this::
