@@ -12,11 +12,7 @@ media/locale/*
 *.gypi
 *.mk
 gyp-mac-tool
-node_modules/bunyan/node_modules/dtrace-provider/build
-node_modules/client-sessions/node_modules/node-proxy/build
-node_modules/grunt-i18n-abide/node_modules/jsxgettext/node_modules/gettext-parser/node_modules/iconv/build
-node_modules/i18n-abide/node_modules/jsxgettext/node_modules/gettext-parser/node_modules/iconv/build
-node_modules/then-redis/node_modules/hiredis/build/Makefile
+node_modules
 bower_components
 uitest/captures/*
 db_LB

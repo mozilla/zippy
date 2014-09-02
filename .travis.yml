@@ -4,7 +4,7 @@ node_js:
 notifications:
   irc: "irc.mozilla.org#payments"
 install:
-  - "npm rebuild"
+  - "npm install"
 before_script:
    - git clone -q git://github.com/n1k0/casperjs.git
    - cd casperjs; git checkout -q tags/1.1-beta1; cd ../
