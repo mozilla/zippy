@@ -9,7 +9,7 @@
     "errors": "0.1.0",
     "escape-html": "1.0.1",
     "express": "3.4.8",
-    "forms": "0.3.0",
+    "forms": "0.9.6",
     "i18n-abide": "0.0.20",
     "node-uuid": "1.4.1",
     "nunjucks": "1.0.1",
