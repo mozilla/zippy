@@ -102,6 +102,9 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      options: {
+        interval: 10000,
+      },
       stylus: {
         files: ['media/**/*.styl', 'media/images/'],
         tasks: 'stylus',
