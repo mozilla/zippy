@@ -2,9 +2,9 @@ var http = require('http');
 var config = require('./lib/config');
 
 module.exports = function(grunt) {
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
     abideCreate: {
       default: { // Target name.
         options: {
@@ -53,9 +53,9 @@ module.exports = function(grunt) {
         options: {
           args: ['-p', grunt.option('port'),
                  grunt.option('noauth') ? '-n': ''],
-          ignore: ['README.md', 'node_modules/**', 'i18n/**'],
-          ext: 'js,html',
-          delayTime: 1,
+          ignore: ['README.md', 'node_modules/**', 'i18n/**', '../node_modules/**'],
+          ext: 'js, html',
+          delay: 5000,
           legacyWatch: false,
           cwd: __dirname,
         }
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
       dev: {
         tasks: ['nodemon:server', 'watch'],
         options: {
-          logConcurrentOutput: true,
+          logConcurrentOutput: false,
         }
       },
     },
@@ -194,12 +194,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-i18n-abide');
     grunt.loadNpmTasks('grunt-nodemon');
+    grunt.loadNpmTasks('grunt-services');
     grunt.loadNpmTasks('grunt-shell');
   }
 
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('docs', ['shell:docs']);
   grunt.registerTask('start', ['stylus', 'concurrent:dev']);
-  grunt.registerTask('test', ['jshint', 'runtests']);
+  grunt.registerTask('test', ['startRedis', 'jshint', 'runtests']);
   grunt.registerTask('uitest', ['stylus', 'clean:uitest', 'runuitests']);
 };

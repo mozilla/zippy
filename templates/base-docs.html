@@ -11,7 +11,7 @@
 <nav>
   <ul>
     <li><a href="https://zippypayments.readthedocs.org/en/latest/">API Documentation</a></li>
-    <li><a href="/styleguide/">Styleguide</a></li>
+    <li><a href="{{ url('styleguide/') }}">Styleguide</a></li>
   </ul>
 </nav>
 {% endblock %}
@@ -22,4 +22,4 @@
   <pre>{{ result }}</pre>
 {% endblock %}
 
-{% block footer %}<p><a href="/">← Back to home</a></p>{% endblock %}
+{% block footer %}<p><a href="{{ url('/') }}">← Back to home</a></p>{% endblock %}

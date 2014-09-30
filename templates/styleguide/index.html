@@ -16,7 +16,7 @@
   <ul>
   {% for doc in docList %}
     {% if doc != 'index' %}
-      <li><a href="/styleguide/{{ doc }}" />{{ doc|title }}</a></li>
+      <li><a href="{{ url('styleguide/') }}{{ doc }}" />{{ doc|title }}</a></li>
     {% endif %}
   {% endfor %}
   </ul>
