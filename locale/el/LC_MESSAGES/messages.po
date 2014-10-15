@@ -24,9 +24,7 @@ msgstr "Αγορά"
 #: templates/payments/_footer.html:6
 #, fuzzy
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"Μπορεί να ισχύουν χρεώσεις μηνυμάτων και δεδομένων <a %s>Όροι &amp; "
-"Προϋποθέσεις</a>"
+msgstr "Μπορεί να ισχύουν χρεώσεις μηνυμάτων και δεδομένων <a %s>Όροι &amp; Προϋποθέσεις</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
@@ -42,9 +40,7 @@ msgstr "Επιβεβαίωση πληρωμής"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"Το ποσό θα χρεωθεί στον λογαριασμό του παρόχου %(carrier)s , ή <a %"
-"(link)s>πληρώστε με πιστωτική κάρτα</a>"
+msgstr "Το ποσό θα χρεωθεί στον λογαριασμό του παρόχου %(carrier)s , ή <a %(link)s>πληρώστε με πιστωτική κάρτα</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
