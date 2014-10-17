@@ -2,7 +2,8 @@ Zippy
 ===================================
 
 This is the Mozilla reference implementation of a payment processor that would
-hook into a `payment provider for navigator.mozPay()`_ such as `WebPay`_.
+hook into a `payment provider for navigator.mozPay()`_ such as `WebPay`_. It is
+a reference implementation of `Marketplace payment providers specification`_.
 
 It shows the API,
 endpoints, and authorization formats a payment processor should implement
@@ -13,8 +14,8 @@ implementing a full-on payment provider to spec.
 
 These docs are also available as a PDF: https://media.readthedocs.org/pdf/zippypayments/latest/zippypayments.pdf
 
-Rather than being a specification to read, Zippy is a working project. It's
-important to note that underneath Zippy does not actually do anything other
+Zippy provides you with a working example. It's important to note that underneath
+Zippy does not actually do anything other
 than record some transaction information to allow APIs to work. Specifically it
 does not:
 
@@ -39,7 +40,11 @@ So how should I use Zippy?
 
 Play with it, look at the API. Use it as a sample. Then use whatever
 software tools, frameworks and methodologies you use in development and build
-your own version of Zippy. If you build something that has:
+your own version of Zippy.
+
+Your implementation should implement the `Marketplace payment providers specification`_.
+
+If you build something that has:
 
 * the same API end points
 * uses OAuth for authentication
@@ -75,63 +80,11 @@ Source: https://github.com/mozilla/zippy/
 
 Bugs: https://bugzilla.mozilla.org/show_bug.cgi?id=905736
 
-How it plugs into the Firefox Marketplace?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Are you interested in how *everything* works? Read about the :ref:`flow`.
-
-Here's how Zippy fits into the `Firefox Marketplace`_ infrastructure.
-
-.. image:: diagrams/architecture.png
-
 .. _`payment provider for navigator.mozPay()`: https://wiki.mozilla.org/WebAPI/WebPaymentProvider
 .. _WebPay: https://github.com/mozilla/webpay
 .. _Solitude: https://github.com/mozilla/solitude
 .. _`Firefox Marketplace`: https://github.com/mozilla/zamboni
-
-Using Zippy
------------
-
-Everything you need to know about data formats, protocols, authentication and
-the like. See the :ref:`using zippy documentation <using-label>`.
-
-Sellers
-~~~~~~~
-
-In Zippy, **sellers** are the **developers** who are wanting to place something
-for sale on the app market. They will need to create an account with the
-payment provider:
-
-* Setting up a developer account so that a developer can recieve payment.
-* Registering one or more products with the payment provider.
-* Any further configuration that the product needs.
-* Confirming that data is all set up correctly.
-
-See the :ref:`developer documentation <developer-label>`.
-
-Payment
-~~~~~~~
-
-* The actual payment part of the :ref:`flow <flow>`.
-* Starting the payment :ref:`flow <flow>`.
-* Pages that should be shown and hosted by the payment provider.
-* The result after the payment has been completed.
-
-See the :ref:`payment documentation <payment-label>`.
-
-Reporting
-~~~~~~~~~
-
-* Reporting of transactions back to developers.
-
-See the :ref:`reporting documentation <reporting-label>` documentation.
-
-Miscellaneous
-~~~~~~~~~~~~~
-
-* Refunds and chargebacks, see :ref:`refunds <refunds-label>`
-* Token checking and other security, see :ref:`security <security-label>`
-* Status, see :ref:`status <status-label>`
+.. _`Marketplace payment providers specification`: http://marketplace-payments-specification.readthedocs.org/
 
 Contents
 --------
@@ -141,17 +94,10 @@ Contents
 
    install.rst
    using.rst
-   developer.rst
    l10n.rst
    payment.rst
    config.rst
-   reporting.rst
-   refunds.rst
-   security.rst
-   miscellaneous.rst
    tests.rst
-   flow.rst
-   faq.rst
 
 
 Indices and tables
