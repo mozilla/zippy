@@ -44,7 +44,8 @@
   },
   "scripts": {
     "test": "node -e \"require('grunt').cli()\" null test",
-    "uitest": "node -e \"require('grunt').cli()\" null uitest"
+    "uitest": "node -e \"require('grunt').cli()\" null uitest",
+    "i18n-compile": "node -e \"require('grunt').cli()\" null abideCompile"
   },
   "author": "Mozilla",
   "license": "MPL 2.0"

@@ -201,6 +201,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('docs', ['shell:docs']);
   grunt.registerTask('start', ['stylus', 'concurrent:dev']);
-  grunt.registerTask('test', ['startRedis', 'jshint', 'runtests']);
-  grunt.registerTask('uitest', ['stylus', 'clean:uitest', 'runuitests']);
+  grunt.registerTask('test', ['abideCompile', 'startRedis', 'jshint', 'runtests']);
+  grunt.registerTask('uitest', ['abideCompile', 'stylus', 'clean:uitest', 'runuitests']);
 };
