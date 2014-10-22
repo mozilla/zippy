@@ -12,7 +12,7 @@
     <div class="flex-container">
       <div class="row">
         <label for="cc-num" class="S-visually-hidden">{{ gettext('Credit Card Number') }}</label>
-        <input class="cc-num" size="20" id="cc-num" name="cc-num" type="text" pattern="\d{4} \d{4} \d{4} \d{4}" value="" placeholder="{{ gettext('Card Number') }}" />
+        <input class="cc-num" size="20" id="cc-num" name="cc-num" x-inputmode="digit" type="text" pattern="\d{4} \d{4} \d{4} \d{4}" value="" placeholder="{{ gettext('Card Number') }}" />
       </div>
     </div>
 
@@ -21,7 +21,7 @@
 
         <div class="flex">
           <label for="expiry">{{ gettext('Expires') }}</label>
-          <input id="expiry" name="expiry" type="text" maxlength="" pattern="\d{2}/\d{2}" size="5" value="" placeholder="MM/YY" />
+          <input id="expiry" name="expiry" type="text" x-inputmode="digit" maxlength="" pattern="\d{2}/\d{2}" size="5" value="" placeholder="MM/YY" />
         </div>
 
         <div class="flex">
@@ -35,7 +35,7 @@
 
         <div class="flex">
           <label for="cvc">{{ gettext('CVC') }}</label>
-          <input id="cvc" type="text" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
+          <input id="cvc" type="text" x-inputmode="digit" maxlength="3" size="3" pattern="\d{3}" value="" placeholder="123" />
         </div>
 
         <div class="flex checkbox">
