@@ -10,7 +10,6 @@ require.config({
     underscore: {
       exports: '_'
     }
-
   }
 });
 
@@ -33,4 +32,15 @@ define('main', ['jquery', 'longtext', 'underscore', 'cc', 'country-select'], fun
   if ($chkLongTextElms.length) {
     $chkLongTextElms.checkLongText($buttonContainer, true);
   }
+
+  $('.cancel').on('click', function(e) {
+    e.preventDefault();
+    var mozPaymentProvider = window.mozPaymentProvider || {
+      paymentFailed: window.paymentFailed || function() {
+        console.log('No paymentFailed function');
+      },
+    };
+    mozPaymentProvider.paymentFailed('USER_CANCELLED');
+  });
+
 });
