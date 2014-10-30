@@ -8,6 +8,7 @@ mem: 64M
 hooks:
     post-staging:
     -   npm rebuild
+    -   npm run-script i18n-compile
 
 ignores: ["venv"]
 
