@@ -58,7 +58,7 @@ function main(options) {
   var server = http.createServer(zippy.createApp({
     options: options,
   }));
-  var port = options.port || 8080;
+  var port = options.port || 2605;
   server.listen(port, function onServerStart() {
     var addr = this.address();
     console.log('listening at %s:%s', addr.address, addr.port);
