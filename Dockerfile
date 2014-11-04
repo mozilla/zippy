@@ -12,3 +12,5 @@ WORKDIR /srv/zippy
 
 RUN npm cache clean
 RUN npm install
+
+EXPOSE 2605
