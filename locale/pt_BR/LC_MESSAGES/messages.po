@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-08-13 16:41+0000\n"
-"PO-Revision-Date: 2014-03-26 19:03+0000\n"
-"Last-Translator: Marcelo <mlcaraldi@gmail.com>\n"
+"PO-Revision-Date: 2014-11-08 16:55+0000\n"
+"Last-Translator: Marco Aurélio <ouesten@me.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1395860590.0\n"
+"X-POOTLE-MTIME: 1415465724.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
@@ -31,7 +31,7 @@ msgstr "Total"
 
 #: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
 msgid "Includes taxes"
-msgstr "inclui impostos"
+msgstr "Inclui impostos"
 
 #: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
@@ -39,7 +39,9 @@ msgstr "Confirmar Pagamento"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr "A quantia será debitada da sua conta %(carrier)s. Você pode optar por <a %(link)s> pagar usando seu cartão de crédito.</a>"
+msgstr ""
+"O valor será cobrado na sua conta %(carrier)s ou <a %(link)s>pague "
+"utilizando o seu cartão de crédito</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -55,7 +57,7 @@ msgstr "Expira"
 
 #: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr "Código Postal"
+msgstr "Código postal"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
