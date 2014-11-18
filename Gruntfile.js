@@ -47,27 +47,14 @@ module.exports = function(grunt) {
         }
       },
     },
-    nodemon: {
-      server: {
-        script: 'main.js',
+    express: {
+      dev: {
         options: {
+          script: 'main.js',
           args: ['-p', grunt.option('port'),
                  grunt.option('noauth') ? '-n': ''],
-          ignore: ['README.md', 'node_modules/**', 'i18n/**', '../node_modules/**'],
-          ext: 'js, html',
-          delay: 5000,
-          legacyWatch: false,
-          cwd: __dirname,
         }
       }
-    },
-    concurrent: {
-      dev: {
-        tasks: ['nodemon:server', 'watch'],
-        options: {
-          logConcurrentOutput: true,
-        }
-      },
     },
     jshint: {
       options: { jshintrc: __dirname + '/.jshintrc' },
@@ -104,6 +91,13 @@ module.exports = function(grunt) {
     watch: {
       options: {
         interval: 10000,
+      },
+      express: {
+        files:  ['main.js', 'lib/**.js'],
+        tasks:  ['express:dev'],
+        options: {
+          spawn: false
+        }
       },
       stylus: {
         files: ['media/**/*.styl', 'media/images/'],
@@ -187,20 +181,19 @@ module.exports = function(grunt) {
   } else {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-casper');
-    grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-i18n-abide');
-    grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-services');
     grunt.loadNpmTasks('grunt-shell');
   }
 
   grunt.registerTask('default', ['jshint', 'stylus']);
   grunt.registerTask('docs', ['shell:docs']);
-  grunt.registerTask('start', ['stylus', 'concurrent:dev']);
+  grunt.registerTask('start', ['abideCompile', 'stylus', 'express:dev', 'watch']);
   grunt.registerTask('test', ['abideCompile', 'startRedis', 'jshint', 'runtests']);
   grunt.registerTask('uitest', ['abideCompile', 'stylus', 'clean:uitest', 'runuitests']);
 };
