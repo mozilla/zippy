@@ -2,118 +2,123 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-08-13 16:41+0000\n"
-"PO-Revision-Date: 2014-02-04 17:56+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2014-11-18 17:05+0000\n"
+"Last-Translator: koustav <koustavsuny2009@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1416330323.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr ""
+msgstr "বাতিল করুন"
 
 #: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
 msgid "Buy"
-msgstr ""
+msgstr "কিনুন"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
+msgstr "মেসেজ এবং ডেটা রেট প্রযোজ্য হতে পারে <a %s> নীতি এবং(&); শর্তাবলী </a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
-msgstr ""
+msgstr "মোট"
 
 #: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
 msgid "Includes taxes"
-msgstr ""
+msgstr "কর সহ"
 
 #: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
-msgstr ""
+msgstr "পেমেন্ট নিশ্চিত করুন"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
 msgstr ""
+"পরিমাণ আপনার %(ক্যারিয়ার) এর অ্যাকাউন্টে চার্জ করা হবে, অথবা <a %"
+"(link)s>আপনার ক্রেডিট কার্ড </a> ব্যবহার করেও দিতে পারেন"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
-msgstr ""
+msgstr "ক্রেডিট কার্ড নম্বর"
 
 #: templates/payments/credit-card.html:15
 msgid "Card Number"
-msgstr ""
+msgstr "কার্ড নম্বর"
 
 #: templates/payments/credit-card.html:23
 msgid "Expires"
-msgstr ""
+msgstr "মেয়াদ শেষ"
 
 #: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "পোস্ট কোড"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
-msgstr ""
+msgstr "CVC"
 
 #: templates/payments/credit-card.html:42
 msgid "Save card"
-msgstr ""
+msgstr "কার্ড সংরক্ষণ করুন"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "Mozilla -র জন্য %s এর দ্বারা বিক্রীত পণ্য"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
-msgstr ""
+msgstr "কার্ড দ্বারা প্রদান"
 
 #: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "আপনার মোবাইল নম্বর নিশ্চিত করুন"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "আপনাকে পাঠানো পিন লিখুন"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "কোনও SMS পাননি?"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "পুনরায় SMS পাঠান"
 
 #: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "চালিয়ে যান"
 
 #: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "ব্রিটিশ যুক্তরাজ্য"
 
 #: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "আপনার দেশ না?"
 
 #: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "বদল করুন"
 
 #: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "মার্কিন যুক্তরাষ্ট্র"
 
 #: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "স্পেন"
 
 #: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "আপনার মোবাইল নেটওয়ার্ক নির্বাচন করুন"
 
 #: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "আপনার মোবাইল নম্বর লিখুন"
