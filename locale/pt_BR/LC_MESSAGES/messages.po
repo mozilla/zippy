@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2014-08-13 16:41+0000\n"
-"PO-Revision-Date: 2014-11-08 16:55+0000\n"
+"PO-Revision-Date: 2014-11-24 22:33+0000\n"
 "Last-Translator: Marco Aurélio <ouesten@me.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1415465724.0\n"
+"X-POOTLE-MTIME: 1416868439.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
@@ -23,7 +23,9 @@ msgstr "Comprar"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr "Taxas de dados e nensagens podem ser aplicadas <a %s>Termos e Condições</a>"
+msgstr ""
+"Custos de mensagens e de dados podem ser aplicados <a %s>Termos e "
+"Condições</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
@@ -35,7 +37,7 @@ msgstr "Inclui impostos"
 
 #: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
-msgstr "Confirmar Pagamento"
+msgstr "Confirmar pagamento"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
@@ -73,15 +75,15 @@ msgstr "Produtos vendidos por %s para a Mozilla"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
-msgstr "Pagamento por cartão"
+msgstr "Pagar com cartão"
 
 #: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
-msgstr "Confirme o seu número de celular"
+msgstr "Confirme o número do seu celular"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr "Digite o pin que lhe enviamos"
+msgstr "Digite o pin que enviamos"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
@@ -105,7 +107,7 @@ msgstr "Não é o seu país?"
 
 #: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr "Trocar"
+msgstr "Alterar"
 
 #: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
@@ -121,4 +123,4 @@ msgstr "Selecione a sua rede móvel"
 
 #: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr "Digite o seu número de celular"
+msgstr "Digite o número do seu celular"
