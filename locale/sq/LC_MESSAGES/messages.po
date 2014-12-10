@@ -19,7 +19,7 @@ msgstr ""
 #: templates/payments/confirm-sms-pin.html:15
 #: templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr "Anuloje"
+msgstr "Anulojeni"
 
 #: templates/payments/_buttons.html:3
 #: templates/payments/_buttons.html:4
@@ -28,9 +28,7 @@ msgstr "Blijeni"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"Mund të Jenë Objekt Tarifash Për Mesazhe dhe të Dhëna <a %s>Terma &amp; "
-"Kushte</a>"
+msgstr "Mund të Jenë Objekt <a %s>Termash &amp; Kushtesh</a> Tarifash Për Mesazhe dhe të Dhëna"
 
 #: templates/payments/_product.html:11
 #: templates/payments/_product.html:7
