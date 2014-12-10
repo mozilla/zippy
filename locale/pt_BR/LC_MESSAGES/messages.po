@@ -23,9 +23,7 @@ msgstr "Comprar"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"Custos de mensagens e de dados podem ser aplicados <a %s>Termos e "
-"Condições</a>"
+msgstr "Custos de mensagens e de dados podem ser aplicados <a %s>Termos e Condições</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
@@ -41,9 +39,7 @@ msgstr "Confirmar pagamento"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"O valor será cobrado na sua conta %(carrier)s ou <a %(link)s>pague "
-"utilizando o seu cartão de crédito</a>"
+msgstr "O valor será cobrado na sua conta %(carrier)s ou <a %(link)s>pague utilizando o seu cartão de crédito</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"

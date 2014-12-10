@@ -39,9 +39,7 @@ msgstr "পেমেন্ট নিশ্চিত করুন"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"পরিমাণ আপনার %(ক্যারিয়ার) এর অ্যাকাউন্টে চার্জ করা হবে, অথবা <a %"
-"(link)s>আপনার ক্রেডিট কার্ড </a> ব্যবহার করেও দিতে পারেন"
+msgstr "পরিমাণ আপনার %(ক্যারিয়ার) এর অ্যাকাউন্টে চার্জ করা হবে, অথবা <a %(link)s>আপনার ক্রেডিট কার্ড </a> ব্যবহার করেও দিতে পারেন"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
