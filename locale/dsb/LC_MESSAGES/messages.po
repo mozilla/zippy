@@ -3,49 +3,52 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-13 16:41+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-12-27 13:22+0000\n"
+"Last-Translator: milupo <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: dsb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.10.0-rc1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1419686577.0\n"
 
 #: templates/payments/_buttons.html:2
 #: templates/payments/_buttons.html:3
 #: templates/payments/confirm-sms-pin.html:15
 #: templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr ""
+msgstr "Pśetergnuś"
 
 #: templates/payments/_buttons.html:3
 #: templates/payments/_buttons.html:4
 msgid "Buy"
-msgstr ""
+msgstr "Kupiś"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
+msgstr "Za powěsći a daty mógu kosty nastaś <a %s>Wužywarske wuměnjenja</a>"
 
 #: templates/payments/_product.html:11
 #: templates/payments/_product.html:7
 #: templates/payments/_product.html:12
 msgid "Total"
-msgstr ""
+msgstr "Suma"
 
 #: templates/payments/_product.html:12
 #: templates/payments/_product.html:8
 #: templates/payments/_product.html:13
 msgid "Includes taxes"
-msgstr ""
+msgstr "Wopśimujo danki"
 
 #: templates/payments/confirm.html:4
 #: templates/payments/credit-card.html:4
 #: lib/payments.js:15
 #: templates/payments/confirm-payment.html:4
 msgid "Confirm Payment"
-msgstr ""
+msgstr "Zapłaśenje wobkšuśiś"
 
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
@@ -54,97 +57,99 @@ msgid ""
 "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
 "using your credit card</a>"
 msgstr ""
+"Toś ta suma wobśěžyjo wašo konto %(carrier)s abo <a %(link)s>zapłaśćo z "
+"pomocu swójeje kreditneje kórty."
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
-msgstr ""
+msgstr "Numer kreditneje kórty"
 
 #: templates/payments/credit-card.html:15
 msgid "Card Number"
-msgstr ""
+msgstr "Kórtowy numer"
 
 #: templates/payments/credit-card.html:23
 msgid "Expires"
-msgstr ""
+msgstr "Płaśiwa až do"
 
 #: templates/payments/credit-card.html:28
 #: templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "Postowa licba"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
-msgstr ""
+msgstr "CVC"
 
 #: templates/payments/credit-card.html:42
 msgid "Save card"
-msgstr ""
+msgstr "Kórtu składowaś"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "Produkty pśedawaju se wót %s za Mozilla"
 
 #: lib/payments.js:23
 msgid "Pay by Card"
-msgstr ""
+msgstr "Z kórtu płaśiś"
 
 #: lib/payments.js:31
 #: lib/payments.js:39
 #: templates/payments/confirm-sms-pin.html:4
 #: templates/payments/mt-auth.html:4
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "Numer wašogo mobilnego telefona wobkšuśiś"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "Zapódajśo PIN, kótaryž smy wam pósłali"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "Njejsćo SMS dostał?"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "SMS hyšći raz pósłaś"
 
 #: templates/payments/confirm-sms-pin.html:16
 #: templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "Dalej"
 
 #: templates/payments/mt-auth.html:9
 #: templates/payments/mt-auth.html:16
 #: templates/payments/mt-auth.html:19
 #: templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "Zjadnośone kralojstwo"
 
 #: templates/payments/mt-auth.html:10
 #: templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "Nic waš kraj?"
 
 #: templates/payments/mt-auth.html:13
 #: templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "Změniś"
 
 #: templates/payments/mt-auth.html:15
 #: templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "Zjadnośone staty"
 
 #: templates/payments/mt-auth.html:17
 #: templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "Špańska"
 
 #: templates/payments/mt-auth.html:22
 #: templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "Wubjeŕśo swóju seś mobilneje telefonije"
 
 #: templates/payments/mt-auth.html:29
 #: templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "Zapódajśo swój numer mobilnego telefona"
