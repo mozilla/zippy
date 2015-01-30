@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-08-13 16:41+0000\n"
+"POT-Creation-Date: 2015-01-30 16:58+0000\n"
 "PO-Revision-Date: 2014-02-07 07:32+0000\n"
 "Last-Translator: Peter <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
@@ -33,7 +33,7 @@ msgstr "總價"
 msgid "Includes taxes"
 msgstr "含稅"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
 msgid "Confirm Payment"
 msgstr "確認付款"
 
@@ -69,11 +69,11 @@ msgstr "儲存卡片資訊"
 msgid "Products sold by %s for Mozilla"
 msgstr "由 %s 經 Mozilla 銷售的產品"
 
-#: lib/payments.js:23
+#: lib/payments.js:23 lib/payments.js:24
 msgid "Pay by Card"
 msgstr "使用信用卡付費"
 
-#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
 msgstr "確認您的手機號碼"
 

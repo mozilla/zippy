@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 16:41+0000\n"
+"POT-Creation-Date: 2015-01-30 16:58+0000\n"
 "PO-Revision-Date: 2014-05-14 14:34+0000\n"
 "Last-Translator: Umesh <umesh.agarwal1@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr "संपूर्ण"
 msgid "Includes taxes"
 msgstr "करों शामिल"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
 msgid "Confirm Payment"
 msgstr "भुगतान की पुष्टि करें"
 
@@ -70,11 +70,11 @@ msgstr "कार्ड सहेजें"
 msgid "Products sold by %s for Mozilla"
 msgstr "मोज़िला के लिए %s द्वारा बेचा उत्पाद"
 
-#: lib/payments.js:23
+#: lib/payments.js:23 lib/payments.js:24
 msgid "Pay by Card"
 msgstr "कार्ड द्वारा भुगतान"
 
-#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
 msgstr "मोबाइल नंबर की पुष्टि करें"
 

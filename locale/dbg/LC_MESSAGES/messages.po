@@ -6,7 +6,7 @@ msgstr ""
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2014-08-13 16:41+0000\n"
+"POT-Creation-Date: 2015-01-30 16:58+0000\n"
 "Content-Type: text/plain; charset=utf-8\n"
 
 #: templates/payments/_buttons.html:2
@@ -41,6 +41,7 @@ msgstr "Īƞƈŀŭḓḗş ŧȧẋḗş"
 #: templates/payments/credit-card.html:4
 #: lib/payments.js:15
 #: templates/payments/confirm-payment.html:4
+#: lib/payments.js:16
 msgid "Confirm Payment"
 msgstr "Ƈǿƞƒīřḿ Ƥȧẏḿḗƞŧ"
 
@@ -84,6 +85,7 @@ msgid "Products sold by %s for Mozilla"
 msgstr "Ƥřǿḓŭƈŧş şǿŀḓ ƀẏ %s ƒǿř Ḿǿzīŀŀȧ"
 
 #: lib/payments.js:23
+#: lib/payments.js:24
 msgid "Pay by Card"
 msgstr "Ƥȧẏ ƀẏ Ƈȧřḓ"
 
@@ -91,6 +93,8 @@ msgstr "Ƥȧẏ ƀẏ Ƈȧřḓ"
 #: lib/payments.js:39
 #: templates/payments/confirm-sms-pin.html:4
 #: templates/payments/mt-auth.html:4
+#: lib/payments.js:32
+#: lib/payments.js:40
 msgid "Confirm your Mobile Number"
 msgstr "Ƈǿƞƒīřḿ ẏǿŭř Ḿǿƀīŀḗ Ƞŭḿƀḗř"
 

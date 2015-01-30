@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-08-13 16:41+0000\n"
+"POT-Creation-Date: 2015-01-30 16:58+0000\n"
 "PO-Revision-Date: 2014-02-19 04:25+0000\n"
 "Last-Translator: Gábor <kelemeng@gnome.hu>\n"
 "Language-Team: none\n"
@@ -33,7 +33,7 @@ msgstr "Összesen"
 msgid "Includes taxes"
 msgstr "Adótartalom"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
 msgid "Confirm Payment"
 msgstr "Vásárlás jóváhagyása"
 
@@ -69,11 +69,11 @@ msgstr "Kártya mentése"
 msgid "Products sold by %s for Mozilla"
 msgstr "A %s által a Mozillának eladott termékek"
 
-#: lib/payments.js:23
+#: lib/payments.js:23 lib/payments.js:24
 msgid "Pay by Card"
 msgstr "Fizetés kártyával"
 
-#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
 msgstr "Erősítse meg mobilszámát"
 
