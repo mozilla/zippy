@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-01-30 16:58+0000\n"
+"POT-Creation-Date: 2015-02-11 17:59+0000\n"
 "PO-Revision-Date: 2015-02-05 11:14+0000\n"
 "Last-Translator: Wim <fryskefirefox@gmail.com>\n"
 "Language-Team: FRISIAN <LL@li.org>\n"
@@ -23,9 +23,7 @@ msgstr "Keapje"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"Mooglik binne kosten foar berjochten en gegevens fan tapassing <a %"
-"s>Betingsten</a>"
+msgstr "Mooglik binne kosten foar berjochten en gegevens fan tapassing <a %s>Betingsten</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
@@ -41,9 +39,7 @@ msgstr "Betelling befêstigje"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"It bedrach wurdt yn rekkening brocht op jo %(carrier)s-account, of <a %"
-"(link)s>betelje mei jo creditcard</a>"
+msgstr "It bedrach wurdt yn rekkening brocht op jo %(carrier)s-account, of <a %(link)s>betelje mei jo creditcard</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
