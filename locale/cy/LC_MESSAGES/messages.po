@@ -2,118 +2,124 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2015-02-18 17:03+0000\n"
-"PO-Revision-Date: 2014-05-07 16:20+0000\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2015-02-26 14:57+0000\n"
+"Last-Translator: Rhoslyn <rprys@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != "
+"11) ? 2 : 3 ;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1424962673.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr ""
+msgstr "Diddymu"
 
 #: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
 msgid "Buy"
-msgstr ""
+msgstr "Prynu"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
+msgstr "Gall fod Taliad Neges a Data <a %s>Amodau</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
-msgstr ""
+msgstr "Cyfanswm"
 
 #: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
 msgid "Includes taxes"
-msgstr ""
+msgstr "Yn cynnwys trethi"
 
 #: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
 msgid "Confirm Payment"
-msgstr ""
+msgstr "Cadarnhau'r Taliad"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
 msgstr ""
+"Bydd y swm yn cael ei godi yn erbyn eich cyfrif %(carrier)s, neu gallwch <a "
+"%(link)s>dalu drwy ddefnyddio eich cerdyn credyd</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
-msgstr ""
+msgstr "Rhif Cerdyn Credyd"
 
 #: templates/payments/credit-card.html:15
 msgid "Card Number"
-msgstr ""
+msgstr "Rhif y Cerdyn"
 
 #: templates/payments/credit-card.html:23
 msgid "Expires"
-msgstr ""
+msgstr "Daw i Ben"
 
 #: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "Cod post"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
-msgstr ""
+msgstr "CVC"
 
 #: templates/payments/credit-card.html:42
 msgid "Save card"
-msgstr ""
+msgstr "Cadw'r cerdyn"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "Cynnyrch yn cael ei werthu gan % ar ran Mozilla"
 
 #: lib/payments.js:23 lib/payments.js:24
 msgid "Pay by Card"
-msgstr ""
+msgstr "Talu drwy Gerdyn"
 
 #: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "Cadarnhewch eich Rhif Symudol"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "Rhowch y pin gawsoch gennym ni"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "Heb dderbyn SMS?"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "Ail anfon yr SMS"
 
 #: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "Ymlaen"
 
 #: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "Gwledydd Prydain"
 
 #: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "Nid eich gwlad?"
 
 #: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "Newid"
 
 #: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "Unodl Daleithiau"
 
 #: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "Sbaen"
 
 #: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "Dewiswch eich rhwydwaith symudol"
 
 #: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "Rhowch eich rhif symudol"
