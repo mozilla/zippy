@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 17:03+0000\n"
+"POT-Creation-Date: 2015-03-04 17:14+0000\n"
 "PO-Revision-Date: 2015-01-27 09:27+0000\n"
 "Last-Translator: Stephen <wanjaustev@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,8 +23,7 @@ msgstr "Nunua"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"Malipo ya SMS na Data yaweza kulipishwa<a %s>Sheria  &amp; Marsharti</a>"
+msgstr "Malipo ya SMS na Data yaweza kulipishwa<a %s>Sheria  &amp; Marsharti</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
@@ -40,9 +39,7 @@ msgstr "Dhibitisha Malipo"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"Kiasi hicho kitakatwa kutoka kwa akaunti yako ya %(carrier), au <a %"
-"(link)s>lipa kwa kutumia kadi yako ya mkopo</a>"
+msgstr "Kiasi hicho kitakatwa kutoka kwa akaunti yako ya %(carrier), au <a %(link)s>lipa kwa kutumia kadi yako ya mkopo</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
