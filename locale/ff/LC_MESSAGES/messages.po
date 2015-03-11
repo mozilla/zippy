@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-03-04 17:14+0000\n"
+"POT-Creation-Date: 2015-03-11 18:09+0000\n"
 "PO-Revision-Date: 2015-03-07 12:46+0000\n"
 "Last-Translator: Ibrahima <ibrahima.sarr@pulaagu.com>\n"
 "Language-Team: none\n"
@@ -39,9 +39,7 @@ msgstr "Teeŋtin Joɓgol"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"Kaalis oo ma itte e konte maa %(carrier)s, walla <a %(link)s>yoɓir kartal "
-"banke</a>"
+msgstr "Kaalis oo ma itte e konte maa %(carrier)s, walla <a %(link)s>yoɓir kartal banke</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"

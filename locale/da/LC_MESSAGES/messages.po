@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zippy\n"
-"POT-Creation-Date: 2015-03-04 17:14+0000\n"
+"POT-Creation-Date: 2015-03-11 18:09+0000\n"
 "PO-Revision-Date: 2014-05-11 16:41+0100\n"
 "Last-Translator: Jørgen Rasmussen <joergenr@stofanet.dk>\n"
 "Language-Team: MozillaDanmark\n"
