@@ -1,23 +1,26 @@
+# Wojciech Szczęsny, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: 2015-03-11 18:09+0000\n"
-"PO-Revision-Date: 2014-01-31 00:49+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-03-16 15:49+0100\n"
+"Last-Translator: Wojciech Szczęsny\n"
+"Language-Team: Polish <>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
 msgid "Buy"
-msgstr ""
+msgstr "Kup"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
@@ -25,96 +28,101 @@ msgstr ""
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
-msgstr ""
+msgstr "Razem"
 
 #: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
 msgid "Includes taxes"
-msgstr ""
+msgstr "Zawiera podatki"
 
 #: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
 msgid "Confirm Payment"
-msgstr ""
+msgstr "Potwierdź płatność"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
-msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
+msgid ""
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
+"using your credit card</a>"
 msgstr ""
+"Kwota zostanie pobrana z twojego konta %(carrier)s albo <a %(link)s>zapłać, "
+"używając swoje karty kredytowej</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
-msgstr ""
+msgstr "Numer karty kredytowej"
 
 #: templates/payments/credit-card.html:15
 msgid "Card Number"
-msgstr ""
+msgstr "Numer karty"
 
 #: templates/payments/credit-card.html:23
 msgid "Expires"
-msgstr ""
+msgstr "Wygasa"
 
 #: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "Kod pocztowy"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
-msgstr ""
+msgstr "CVC"
 
 #: templates/payments/credit-card.html:42
 msgid "Save card"
-msgstr ""
+msgstr "Zapisz kartę"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "Produkt sprzedany przez %s dla Mozilli."
 
 #: lib/payments.js:23 lib/payments.js:24
 msgid "Pay by Card"
-msgstr ""
+msgstr "Płać kardą"
 
 #: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "Potwierdź swój numer komórkowy"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "Wprowadź przesłany przez nas PIN"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "SMS nie dotarł?"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "Wyślij ponownie SMS"
 
 #: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "Kontynuuj"
 
 #: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "Wielka Brytania"
 
 #: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "To nie twój kraj?"
 
 #: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "Zmień"
 
 #: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "Stany Zjednoczone"
 
 #: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "Hiszpania"
 
 #: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "Wybierz swoją sieć komórkową"
 
 #: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "Wprowadź numer swojego telefonu"
+
