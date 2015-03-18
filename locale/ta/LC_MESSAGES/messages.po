@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-03-11 18:09+0000\n"
+"POT-Creation-Date: 2015-03-18 16:03+0000\n"
 "PO-Revision-Date: 2014-08-11 18:08+0000\n"
 "Last-Translator: Arun <arunprakash.pts@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,9 +23,7 @@ msgstr "வாங்கு"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"செய்து மற்றும் தரவு கட்டணங்கள் பொருந்தலாம்<a %s>நிபந்தனைகளும் &amp; "
-"விதிமுறைகளும்</a>"
+msgstr "செய்து மற்றும் தரவு கட்டணங்கள் பொருந்தலாம்<a %s>நிபந்தனைகளும் &amp; விதிமுறைகளும்</a>"
 
 #: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
@@ -41,9 +39,7 @@ msgstr "பணம்செலுத்தலை உறுதிபடுத்�
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"இந்த தொகை உங்கள் %(carrier) கணக்கில் ஏற்றப்படும், அல்லது <a %(link)s>உங்கள் "
-"கடன் அட்டை மூலம் செலுத்தவும்</a>"
+msgstr "இந்த தொகை உங்கள் %(carrier) கணக்கில் ஏற்றப்படும், அல்லது <a %(link)s>உங்கள் கடன் அட்டை மூலம் செலுத்தவும்</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
