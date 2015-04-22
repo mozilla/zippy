@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 16:08+0000\n"
+"POT-Creation-Date: 2015-04-22 21:26+0000\n"
 "PO-Revision-Date: 2015-04-18 10:43+0000\n"
 "Last-Translator: Robert <bob@mozillaph.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,9 +39,7 @@ msgstr "Confirm Payment"
 
 #: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
 msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr ""
-"Ang halaga ay ipapataw sa iyong %(carrier)s account, o <a %(link)s>magbayad "
-"gamit ang iyong credit card</a>"
+msgstr "Ang halaga ay ipapataw sa iyong %(carrier)s account, o <a %(link)s>magbayad gamit ang iyong credit card</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
