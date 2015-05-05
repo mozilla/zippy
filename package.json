@@ -5,6 +5,7 @@
   "description": "A reference implementation for payment providers for the Firefox Marketplace.",
   "main": "main.js",
   "dependencies": {
+    "body-parser": "^1.12.3",
     "client-sessions": "0.6.0",
     "errors": "0.2.0",
     "escape-html": "1.0.1",
@@ -12,6 +13,7 @@
     "forms": "0.9.6",
     "http-rewrite-middleware": "0.1.6",
     "i18n-abide": "0.0.22",
+    "morgan": "^1.5.2",
     "node-uuid": "1.4.1",
     "nunjucks": "1.0.7",
     "oauth-client": "0.3.0",
@@ -21,6 +23,7 @@
     "q": "1.0.1",
     "request": "2.42.0",
     "save": "0.0.20",
+    "serve-static": "^1.9.2",
     "then-redis": "~0.3.9",
     "underscore": "1.7.0",
     "when": "3.4.5"
