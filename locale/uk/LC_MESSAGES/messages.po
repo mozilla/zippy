@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -10,10 +11,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.5.0\n"
+"X-Generator: Pontoon\n"
 "X-POOTLE-MTIME: 1404992907.0\n"
 
-#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
+#: templates/payments/confirm-sms-pin.html:15
+#: templates/payments/mt-auth.html:37
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -23,23 +26,35 @@ msgstr "Купити"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr "До вартості передачі повідомлень і даних можуть застосовуватись <a %s>Положення &amp; та умови</a>"
+msgstr ""
+"До вартості передачі повідомлень і даних можуть застосовуватись <a "
+"%s>Положення &amp; та умови</a>"
 
-#: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
+#: templates/payments/_product.html:11 templates/payments/_product.html:7
+#: templates/payments/_product.html:12
 msgid "Total"
 msgstr "Разом"
 
-#: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
+#: templates/payments/_product.html:12 templates/payments/_product.html:8
+#: templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr "Включає податки"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
+#: lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: lib/payments.js:16
 msgid "Confirm Payment"
 msgstr "Підтвердити оплату"
 
-#: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
-msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr "Суму буде знято з вашого рахунку %(carrier)s, або <a %(link)s>оплачено за допомогою вашої кредитної картки</a>"
+#: templates/payments/confirm.html:12
+#: templates/payments/confirm-payment.html:12
+#: templates/payments/confirm-payment.html:13
+msgid ""
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
+"using your credit card</a>"
+msgstr ""
+"Суму буде знято з вашого рахунку %(carrier)s, або <a %(link)s>оплачено за "
+"допомогою вашої кредитної картки</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -53,7 +68,8 @@ msgstr "Номер картки"
 msgid "Expires"
 msgstr "Термін дії"
 
-#: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
+#: templates/payments/credit-card.html:28
+#: templates/payments/credit-card.html:29
 msgid "Post-code"
 msgstr "Поштовий індекс"
 
@@ -73,7 +89,9 @@ msgstr "Продукти, які продаються %s для Mozilla"
 msgid "Pay by Card"
 msgstr "Оплатити карткою"
 
-#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
+#: lib/payments.js:31 lib/payments.js:39
+#: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
 msgstr "Підтвердити ваш мобільний номер"
 
@@ -89,11 +107,13 @@ msgstr "Не отримали СМС?"
 msgid "Resend SMS"
 msgstr "Надіслати СМС ще раз"
 
-#: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
+#: templates/payments/confirm-sms-pin.html:16
+#: templates/payments/mt-auth.html:38
 msgid "Continue"
 msgstr "Продовжити"
 
-#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
+#: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
 msgstr "Велика Британія"
 
