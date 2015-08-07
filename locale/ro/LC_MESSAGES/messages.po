@@ -2,16 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2015-07-29 20:05+0000\n"
-"PO-Revision-Date: 2014-03-31 19:49+0000\n"
-"Last-Translator: Raul <raul.malea@gmail.com>\n"
+"PO-Revision-Date: 2015-08-06 08:19+0000\n"
+"Last-Translator: Jobava <jobaval10n@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);;\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1396295391.0\n"
+"X-POOTLE-MTIME: 1438849161.0\n"
 
 #: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
@@ -99,7 +100,7 @@ msgstr "Marea Britanie"
 
 #: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr "Nu este țara dumneavoastră?"
+msgstr "Nu este țara ta?"
 
 #: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
