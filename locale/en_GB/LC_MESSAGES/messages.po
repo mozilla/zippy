@@ -1,52 +1,48 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-29 20:05+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-08-06 16:04:30.669359\n"
+"Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.10.0-rc1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
 
-#: templates/payments/_buttons.html:2
-#: templates/payments/_buttons.html:3
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
 #: templates/payments/confirm-sms-pin.html:15
 #: templates/payments/mt-auth.html:37
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
-#: templates/payments/_buttons.html:3
-#: templates/payments/_buttons.html:4
+#: templates/payments/_buttons.html:3 templates/payments/_buttons.html:4
 msgid "Buy"
-msgstr ""
+msgstr "Buy"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
+msgstr "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
 
-#: templates/payments/_product.html:11
-#: templates/payments/_product.html:7
+#: templates/payments/_product.html:11 templates/payments/_product.html:7
 #: templates/payments/_product.html:12
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
-#: templates/payments/_product.html:12
-#: templates/payments/_product.html:8
+#: templates/payments/_product.html:12 templates/payments/_product.html:8
 #: templates/payments/_product.html:13
 msgid "Includes taxes"
-msgstr ""
+msgstr "Includes taxes"
 
-#: templates/payments/confirm.html:4
-#: templates/payments/credit-card.html:4
-#: lib/payments.js:15
-#: templates/payments/confirm-payment.html:4
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
+#: lib/payments.js:15 templates/payments/confirm-payment.html:4
 #: lib/payments.js:16
 msgid "Confirm Payment"
-msgstr ""
+msgstr "Confirm Payment"
 
 #: templates/payments/confirm.html:12
 #: templates/payments/confirm-payment.html:12
@@ -55,100 +51,90 @@ msgid ""
 "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
 "using your credit card</a>"
 msgstr ""
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
+"using your credit card</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
-msgstr ""
+msgstr "Credit Card Number"
 
 #: templates/payments/credit-card.html:15
 msgid "Card Number"
-msgstr ""
+msgstr "Card Number"
 
 #: templates/payments/credit-card.html:23
 msgid "Expires"
-msgstr ""
+msgstr "Expires"
 
 #: templates/payments/credit-card.html:28
 #: templates/payments/credit-card.html:29
 msgid "Post-code"
-msgstr ""
+msgstr "Post-code"
 
 #: templates/payments/credit-card.html:37
 msgid "CVC"
-msgstr ""
+msgstr "CVC"
 
 #: templates/payments/credit-card.html:42
 msgid "Save card"
-msgstr ""
+msgstr "Save card"
 
 #: templates/payments/_footer.html:3
 msgid "Products sold by %s for Mozilla"
-msgstr ""
+msgstr "Products sold by %s for Mozilla"
 
-#: lib/payments.js:23
-#: lib/payments.js:24
+#: lib/payments.js:23 lib/payments.js:24
 msgid "Pay by Card"
-msgstr ""
+msgstr "Pay by Card"
 
-#: lib/payments.js:31
-#: lib/payments.js:39
-#: templates/payments/confirm-sms-pin.html:4
-#: templates/payments/mt-auth.html:4
-#: lib/payments.js:32
-#: lib/payments.js:40
+#: lib/payments.js:31 lib/payments.js:39
+#: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
-msgstr ""
+msgstr "Confirm your Mobile Number"
 
 #: templates/payments/confirm-sms-pin.html:7
 msgid "Enter the pin we sent you"
-msgstr ""
+msgstr "Enter the pin we sent you"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Didn't receive an SMS?"
-msgstr ""
+msgstr "Didn't receive an SMS?"
 
 #: templates/payments/confirm-sms-pin.html:9
 msgid "Resend SMS"
-msgstr ""
+msgstr "Resend SMS"
 
 #: templates/payments/confirm-sms-pin.html:16
 #: templates/payments/mt-auth.html:38
 msgid "Continue"
-msgstr ""
+msgstr "Continue"
 
-#: templates/payments/mt-auth.html:9
-#: templates/payments/mt-auth.html:16
-#: templates/payments/mt-auth.html:19
-#: templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
+#: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
-msgstr ""
+msgstr "United Kingdom"
 
-#: templates/payments/mt-auth.html:10
-#: templates/payments/mt-auth.html:20
+#: templates/payments/mt-auth.html:10 templates/payments/mt-auth.html:20
 msgid "Not your country?"
-msgstr ""
+msgstr "Not your country?"
 
-#: templates/payments/mt-auth.html:13
-#: templates/payments/mt-auth.html:23
+#: templates/payments/mt-auth.html:13 templates/payments/mt-auth.html:23
 msgid "Change"
-msgstr ""
+msgstr "Change"
 
-#: templates/payments/mt-auth.html:15
-#: templates/payments/mt-auth.html:25
+#: templates/payments/mt-auth.html:15 templates/payments/mt-auth.html:25
 msgid "United States"
-msgstr ""
+msgstr "United States"
 
-#: templates/payments/mt-auth.html:17
-#: templates/payments/mt-auth.html:27
+#: templates/payments/mt-auth.html:17 templates/payments/mt-auth.html:27
 msgid "Spain"
-msgstr ""
+msgstr "Spain"
 
-#: templates/payments/mt-auth.html:22
-#: templates/payments/mt-auth.html:10
+#: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr ""
+msgstr "Select your mobile network"
 
-#: templates/payments/mt-auth.html:29
-#: templates/payments/mt-auth.html:7
+#: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
-msgstr ""
+msgstr "Enter your mobile number"
