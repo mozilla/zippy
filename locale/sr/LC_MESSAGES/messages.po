@@ -1,4 +1,4 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -14,7 +14,9 @@ msgstr ""
 "X-Generator: Pontoon\n"
 "X-POOTLE-MTIME: 1408874895.0\n"
 
-#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
+#: templates/payments/confirm-sms-pin.html:15
+#: templates/payments/mt-auth.html:37
 msgid "Cancel"
 msgstr "Откажи"
 
@@ -24,23 +26,35 @@ msgstr "Купи"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr "Цене порука и мобилних података се могу применити на <a %s>Услови коришћења</a>"
+msgstr ""
+"Цене порука и мобилних података се могу применити на <a %s>Услови "
+"коришћења</a>"
 
-#: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
+#: templates/payments/_product.html:11 templates/payments/_product.html:7
+#: templates/payments/_product.html:12
 msgid "Total"
 msgstr "Укупно"
 
-#: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
+#: templates/payments/_product.html:12 templates/payments/_product.html:8
+#: templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr "Укључује порезе"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
+#: lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: lib/payments.js:16
 msgid "Confirm Payment"
 msgstr "Потврди уплату"
 
-#: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
-msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr "Износ ће бити наплаћен на Вашем %(carrier)s налогу, или <a %(link)s>платите користећи кредитну картицу</a>"
+#: templates/payments/confirm.html:12
+#: templates/payments/confirm-payment.html:12
+#: templates/payments/confirm-payment.html:13
+msgid ""
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
+"using your credit card</a>"
+msgstr ""
+"Износ ће бити наплаћен на Вашем %(carrier)s налогу, или <a %(link)s>платите "
+"користећи кредитну картицу</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -54,7 +68,8 @@ msgstr "Број картице"
 msgid "Expires"
 msgstr "Истиче"
 
-#: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
+#: templates/payments/credit-card.html:28
+#: templates/payments/credit-card.html:29
 msgid "Post-code"
 msgstr "Поштански број"
 
@@ -74,7 +89,9 @@ msgstr "Производи продати од стране %s за Mozilla-у"
 msgid "Pay by Card"
 msgstr "Плати картицом"
 
-#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
+#: lib/payments.js:31 lib/payments.js:39
+#: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
 msgstr "Потврдите Ваш број мобилног"
 
@@ -90,11 +107,13 @@ msgstr "Нисте примили SMS?"
 msgid "Resend SMS"
 msgstr "Поново пошаљи SMS"
 
-#: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
+#: templates/payments/confirm-sms-pin.html:16
+#: templates/payments/mt-auth.html:38
 msgid "Continue"
 msgstr "Настави"
 
-#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
+#: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
 msgstr "Уједињено Краљевство"
 
