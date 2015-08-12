@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-07-29 20:05+0000\n"
+"POT-Creation-Date: 2015-08-12 15:28+0000\n"
 "PO-Revision-Date: 2014-02-07 07:32+0000\n"
 "Last-Translator: Peter <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
