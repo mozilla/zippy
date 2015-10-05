@@ -1,4 +1,4 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -14,7 +14,9 @@ msgstr ""
 "X-Generator: Pontoon\n"
 "X-POOTLE-MTIME: 1409924590.0\n"
 
-#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
+#: templates/payments/confirm-sms-pin.html:15
+#: templates/payments/mt-auth.html:37
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -26,21 +28,31 @@ msgstr "Köp"
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
 msgstr "Meddelande och dataavgifter kan tillkomma <a %s>Allmänna villkor</a>"
 
-#: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
+#: templates/payments/_product.html:11 templates/payments/_product.html:7
+#: templates/payments/_product.html:12
 msgid "Total"
 msgstr "Totalt"
 
-#: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
+#: templates/payments/_product.html:12 templates/payments/_product.html:8
+#: templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr "Inklusive skatter"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
+#: lib/payments.js:15 templates/payments/confirm-payment.html:4
+#: lib/payments.js:16
 msgid "Confirm Payment"
 msgstr "Bekräfta betalning"
 
-#: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
-msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
-msgstr "Beloppet kommat att debiteras ditt %(carrier)s-konto, eller <a %(link)s>betala med ditt kreditkort</a>"
+#: templates/payments/confirm.html:12
+#: templates/payments/confirm-payment.html:12
+#: templates/payments/confirm-payment.html:13
+msgid ""
+"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
+"using your credit card</a>"
+msgstr ""
+"Beloppet kommat att debiteras ditt %(carrier)s-konto, eller <a "
+"%(link)s>betala med ditt kreditkort</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -54,7 +66,8 @@ msgstr "Kortnummer"
 msgid "Expires"
 msgstr "Upphör"
 
-#: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
+#: templates/payments/credit-card.html:28
+#: templates/payments/credit-card.html:29
 msgid "Post-code"
 msgstr "Postnummer"
 
@@ -74,7 +87,9 @@ msgstr "Produkter som säljs av %s för Mozilla"
 msgid "Pay by Card"
 msgstr "Betala med kort"
 
-#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
+#: lib/payments.js:31 lib/payments.js:39
+#: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
+#: lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
 msgstr "Bekräfta ditt mobilnummer"
 
@@ -90,11 +105,13 @@ msgstr "Har du inte fått något SMS?"
 msgid "Resend SMS"
 msgstr "Skicka SMS igen"
 
-#: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
+#: templates/payments/confirm-sms-pin.html:16
+#: templates/payments/mt-auth.html:38
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
+#: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
 msgstr "Storbritannien"
 
