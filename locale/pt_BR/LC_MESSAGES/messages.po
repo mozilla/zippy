@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2015-09-21 16:50+0000\n"
-"PO-Revision-Date: 2015-06-02 16:41+0000\n"
+"PO-Revision-Date: 2015-10-14 16:20+0000\n"
 "Last-Translator: Marco Aurélio <ouesten@me.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -135,7 +135,7 @@ msgstr "Espanha"
 
 #: templates/payments/mt-auth.html:22 templates/payments/mt-auth.html:10
 msgid "Select your mobile network"
-msgstr "Selecione a sua rede móvel"
+msgstr "Selecione a sua operadora"
 
 #: templates/payments/mt-auth.html:29 templates/payments/mt-auth.html:7
 msgid "Enter your mobile number"
