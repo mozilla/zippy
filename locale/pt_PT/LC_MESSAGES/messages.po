@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-06 22:25+0000\n"
+"POT-Creation-Date: 2016-01-20 19:49+0000\n"
 "PO-Revision-Date: 2015-10-23 07:20+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,9 +15,7 @@ msgstr ""
 "X-Generator: Pontoon\n"
 "X-POOTLE-MTIME: 1411859713.0\n"
 
-#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3
-#: templates/payments/confirm-sms-pin.html:15
-#: templates/payments/mt-auth.html:37
+#: templates/payments/_buttons.html:2 templates/payments/_buttons.html:3 templates/payments/confirm-sms-pin.html:15 templates/payments/mt-auth.html:37
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -27,34 +25,23 @@ msgstr "Comprar"
 
 #: templates/payments/_footer.html:6
 msgid "Msg and Data Rates May Apply <a %s>Terms &amp; Conditions</a>"
-msgstr ""
-"Custos de mensagens e de dados podem implicar <a %s>Termos e Condições</a>"
+msgstr "Custos de mensagens e de dados podem implicar <a %s>Termos e Condições</a>"
 
-#: templates/payments/_product.html:11 templates/payments/_product.html:7
-#: templates/payments/_product.html:12
+#: templates/payments/_product.html:11 templates/payments/_product.html:7 templates/payments/_product.html:12
 msgid "Total"
 msgstr "Total"
 
-#: templates/payments/_product.html:12 templates/payments/_product.html:8
-#: templates/payments/_product.html:13
+#: templates/payments/_product.html:12 templates/payments/_product.html:8 templates/payments/_product.html:13
 msgid "Includes taxes"
 msgstr "Inclui taxas"
 
-#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4
-#: lib/payments.js:15 templates/payments/confirm-payment.html:4
-#: lib/payments.js:16
+#: templates/payments/confirm.html:4 templates/payments/credit-card.html:4 lib/payments.js:15 templates/payments/confirm-payment.html:4 lib/payments.js:16
 msgid "Confirm Payment"
 msgstr "Confirmar pagamento"
 
-#: templates/payments/confirm.html:12
-#: templates/payments/confirm-payment.html:12
-#: templates/payments/confirm-payment.html:13
-msgid ""
-"The amount will be charged to your %(carrier)s account, or <a %(link)s>pay "
-"using your credit card</a>"
-msgstr ""
-"O valor será cobrado na sua conta %(carrier)s ou <a %(link)s>pague "
-"utilizando o seu cartão de crédito</a>"
+#: templates/payments/confirm.html:12 templates/payments/confirm-payment.html:12 templates/payments/confirm-payment.html:13
+msgid "The amount will be charged to your %(carrier)s account, or <a %(link)s>pay using your credit card</a>"
+msgstr "O valor será cobrado na sua conta %(carrier)s ou <a %(link)s>pague utilizando o seu cartão de crédito</a>"
 
 #: templates/payments/credit-card.html:14
 msgid "Credit Card Number"
@@ -68,8 +55,7 @@ msgstr "Número do cartão"
 msgid "Expires"
 msgstr "Expira"
 
-#: templates/payments/credit-card.html:28
-#: templates/payments/credit-card.html:29
+#: templates/payments/credit-card.html:28 templates/payments/credit-card.html:29
 msgid "Post-code"
 msgstr "Código postal"
 
@@ -89,9 +75,7 @@ msgstr "Produtos vendidos por %s pela Mozilla"
 msgid "Pay by Card"
 msgstr "Pagar com cartão"
 
-#: lib/payments.js:31 lib/payments.js:39
-#: templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4
-#: lib/payments.js:32 lib/payments.js:40
+#: lib/payments.js:31 lib/payments.js:39 templates/payments/confirm-sms-pin.html:4 templates/payments/mt-auth.html:4 lib/payments.js:32 lib/payments.js:40
 msgid "Confirm your Mobile Number"
 msgstr "Confirme o seu número móvel"
 
@@ -107,13 +91,11 @@ msgstr "Não recebeu uma SMS?"
 msgid "Resend SMS"
 msgstr "Reenviar SMS"
 
-#: templates/payments/confirm-sms-pin.html:16
-#: templates/payments/mt-auth.html:38
+#: templates/payments/confirm-sms-pin.html:16 templates/payments/mt-auth.html:38
 msgid "Continue"
 msgstr "Continuar"
 
-#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16
-#: templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
+#: templates/payments/mt-auth.html:9 templates/payments/mt-auth.html:16 templates/payments/mt-auth.html:19 templates/payments/mt-auth.html:26
 msgid "United Kingdom"
 msgstr "Reino Unido"
 
