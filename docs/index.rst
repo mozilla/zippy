@@ -1,6 +1,8 @@
 Zippy
 ===================================
 
+*Please note:* this project is currently unmaintained and is not (or soon will not) be in active use by Mozilla.
+
 This is the Mozilla reference implementation of a payment processor that would
 hook into a `payment provider for navigator.mozPay()`_ such as `WebPay`_. It is
 a reference implementation of `Marketplace payment providers specification`_.
