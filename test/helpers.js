@@ -28,7 +28,7 @@ var withSeller = exports.withSeller = function(opt, cb) {
   var seller = under.extend({
     uuid: uuid.v4(),
     status: 'ACTIVE',
-    name: 'John',
+    name: "<script>alert('problem')</script>",
     email: 'jdoe@example.org',
   }, opt);
   when(redisClient.hmset('seller-' + seller.uuid, seller))
